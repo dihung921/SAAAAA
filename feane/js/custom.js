@@ -29,6 +29,7 @@ $(window).on('load', function () {
     })
 });
 
+
 // nice select
 $(document).ready(function() {
     $('select').niceSelect();
@@ -68,3 +69,5 @@ $(".client_owl-carousel").owlCarousel({
         }
     }
 });
+
+
