@@ -41,10 +41,10 @@
       <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">請選擇用餐方式</h5>
+            <h5 class="modal-title" id="exampleModalLabel">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp請選擇用餐方式</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true"></span>
-            </button>
+            </button> 
           </div>
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
