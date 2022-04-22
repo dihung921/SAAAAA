@@ -1089,12 +1089,7 @@
           </p>
         </div>
       </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">SA05</a><br><br>
-        </p>
-      </div>
+      
     </div>
   </footer>
   <!-- footer section -->
