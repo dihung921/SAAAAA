@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item ">
-                <a class="nav-link" href="index.php">首頁 </a>
+                <a class="nav-link" href="index.php">訂餐首頁 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.php">菜單</a>
@@ -130,9 +130,9 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="login.php" class="order_online">
                 登入
-                <a href="" class="order_online">
+                <a href="register.php" class="order_online">
                 註冊
               </a>
             </div>
