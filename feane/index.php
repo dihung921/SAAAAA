@@ -259,18 +259,16 @@
               <div data-toggle="modal" href="#board-modal">
                 <center>
               <div class="modal hide fade script-play-modal"  id="board-modal">
-        <div class="modal-body">
-        <div class="card" style="width: 18rem; padding: 30px 30px;">
-        <img src="sa1.jpeg" class="card-img-top" alt="">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-    </div>
+          <div class="card" style="width: 30rem; padding: 30px 30px;">
+            <img src="sa1.jpeg" class="card-img-top" alt="">
+            <div class="card-body" style="color:black;">
+              <h4 class="card-title">62kcal義式香草雞胸</h4>
+              <p class="card-text">蛋白質13.44g 脂肪0.54g 碳水0.84g。</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
 
-</div>
+    </div>
 
 
                 <div class="img-box">
