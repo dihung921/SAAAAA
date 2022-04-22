@@ -253,16 +253,22 @@
         <div class="row grid">
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
-              <div data-toggle="modal" href="#board-modal"> 
-              <center>
-              <div class="modal hide fade script-play-modal" style="width: 18rem;" id="board-modal">
-  <img src="" class="card-img-top" alt="" >
+              <div data-toggle="modal" href="#board-modal">
+                <center>
+              <div class="modal hide fade script-play-modal"  id="board-modal">
+        <div class="modal-body">
+        <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
+    </div>
+    
+</div>
+
+
                 <div class="img-box">
                   <img src="images/f1.png" alt="">
                 </div>
