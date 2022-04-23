@@ -272,50 +272,50 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
-        <li data-filter=".burger">經典餐盒</li>
-        <li data-filter=".pizza">輕食捲捲</li>
-        <li data-filter=".pasta">沙拉水果盒</li>
-        <li data-filter=".fries">主食單品</li>
-        <li data-filter=".others">其他單品</li>
-        <li data-filter=".drinks">飲料</li>
+        <li data-filter=".classic">經典餐盒</li>
+        <li data-filter=".roll">輕食捲捲</li>
+        <li data-filter=".salad">沙拉水果盒</li>
+        <li data-filter=".main">主食單品</li>
+        <li data-filter=".other">其他單品</li>
+        <li data-filter=".drink">飲料</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all classic">
             
           <form action="" method="post" >
             
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
-                                <img src="sa1.jpeg">
+                                <img src="images/義式香草雞胸.jpeg">
                                 <div class="modal-body" style="color: black;">
-                                  <h5>62kcal義式香草雞胸</h5>
+                                  <h5>義式香草雞胸（62kcal）</h5>
                                   <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                   <hr>
                                   <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                   <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                   <p>選擇副餐</p>
-                                  <label style="border-color: 5px solid black;"><input type="radio" name="interest" value="" style="border-radius: 5px;"> 274kcal紅藜白飯</label>
+                                  <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <br>
-                                  <label><input type="radio" name="interest" value=""> 157kcal食蔬半飯</label>
+                                  <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <br>
-                                  <label><input type="radio" name="interest" value=""> 109kcal地瓜食蔬</label>
+                                  <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <p>選擇醬料</p>
-                                  <label><input type="radio" name="sauce" value=""> 87kcal焙煎胡麻醬</label>
+                                  <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <br>
-                                  <label><input type="radio" name="sauce" value=""> 44kcal義式油醋醬</label>
+                                  <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <br>
-                                  <label><input type="radio" name="sauce" value=""> 43kcal奇亞芥末醬</label>
+                                  <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <br>
-                                  <label><input type="radio" name="sauce" value=""> 36kcal水果塔塔醬</label>
+                                  <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <p>餐點備註</p>
                                   <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
@@ -340,12 +340,10 @@
                         </div>        
                 </form>
             <div class="box" data-toggle="modal" data-target="#exampleModal">
-                <div class="img-box">
-                  <img src="sa1.jpeg" alt="">
-                </div>
+                  <img src="images/義式香草雞胸.jpeg" alt="" width= 100% height= 100%> 
                 <div class="detail-box">
                   <h5>
-                    62kcal義式香草雞胸
+                    義式香草雞胸（62kcal）
                   </h5>
                   <p>
                   蛋白質13.44g 脂肪0.54g 碳水0.84g
@@ -359,234 +357,227 @@
               </div>
             </div>
 
-          <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f2.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Burger
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $15
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
+            <div class="col-sm-6 col-lg-4 all classic">
+            
+            <form action="" method="post" >
+              
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel1">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <img src="images/朝日咖哩雞胸.jpeg">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>朝日咖哩雞胸（70kcal）</h5>
+                                    <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>選擇副餐</p>
+                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>選擇醬料</p>
+                                    <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price">110</em> 元</div>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box" data-toggle="modal" data-target="#exampleModal1">
+                    <img src="images/朝日咖哩雞胸.jpeg" alt="" width= 100% height= 100%> 
+                  <div class="detail-box">
+                    <h5>
+                      朝日咖哩雞胸（70kcal）
+                    </h5>
+                    <p>
+                    蛋白質13.98g 脂肪1.56g 碳水3.72g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $110
+                      </h6>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all pizza">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f3.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pizza
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $17
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
+
+            <div class="col-sm-6 col-lg-4 all classic">
+              <form action="" method="post" >
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" role="dialog">
+                  <div class="modal-dialog" role="document" id="exampleModalLabel2">
+                    <div class="modal-content" style="padding: 20px 20px;">
+                      <img src="images/檸檬椒鹽雞胸.jpeg">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>檸檬椒鹽雞胸（63kcal）</h5>
+                                    <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>選擇副餐</p>
+                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>選擇醬料</p>
+                                    <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price">110</em> 元</div>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box" data-toggle="modal" data-target="#exampleModal2">
+                    <img src="images/檸檬椒鹽雞胸.jpeg" alt="" width= 100% height= 100%> 
+                  <div class="detail-box">
+                    <h5>
+                    檸檬椒鹽雞胸（63kcal）
+                    </h5>
+                    <p>
+                    蛋白質12.6g 脂肪1.02g 碳水0.9g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $110
+                      </h6>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all pasta">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f4.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pasta
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $18
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
+              <div class="col-sm-6 col-lg-4 all classic">
+            
+            <form action="" method="post" >
+              
+                  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel3">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <img src="images/墨西哥紅椒雞胸.jpeg">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>墨西哥紅椒雞胸（80kcal）</h5>
+                                    <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>選擇副餐</p>
+                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>選擇醬料</p>
+                                    <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price">110</em> 元</div>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box" data-toggle="modal" data-target="#exampleModal3">
+                    <img src="images/墨西哥紅椒雞胸.jpeg" alt="" width= 100% height= 100%> 
+                  <div class="detail-box">
+                    <h5>
+                    墨西哥紅椒雞胸（80kcal）
+                    </h5>
+                    <p>
+                    蛋白質14.22g 脂肪1.26g 碳水2.82g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $110
+                      </h6>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
           <div class="col-sm-6 col-lg-4 all fries">
             <div class="box">
               <div>
