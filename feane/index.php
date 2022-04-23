@@ -34,6 +34,33 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+  <script>
+        $(function () {
+            //加號
+            var price1 = parseFloat($('#price').text());
+            var num = parseInt($('input[name="num"]').attr('value'));
+            $('.add').click(function(){
+                num++;
+                $('input[name="num"]').attr('value',num);
+                var total = num * price1;
+                $('#price').html(total.toFixed(0));
+            });
+            //減號
+            $('.minus').click(function () {
+                if(num>1){
+                    num--;
+                    $('input[name="num"]').attr('value',num);
+                    console.log(num)
+                    var total = num * price1;
+                    $('#price').text(total.toFixed(0));
+
+                }
+
+
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -255,9 +282,11 @@
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza" data-toggle="modal" data-target="#exampleModal">
-          <form action="" method="post" >              
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="col-sm-6 col-lg-4 all pizza">
+            
+          <form action="" method="post" >
+            
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
                                 <img src="sa1.jpeg">
@@ -268,17 +297,39 @@
                                   <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                   <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                   <p>選擇副餐</p>
-                                  <p><input type="radio" name="interest" value="" style="border-radius: 5px;"> 274kcal紅藜白飯</p>
-                                  <p><input type="radio" name="interest" value=""> 157kcal食蔬半飯</p>
-                                  <p><input type="radio" name="interest" value=""> 109kcal地瓜食蔬</p>
+                                  <label style="border-color: 5px solid black;"><input type="radio" name="interest" value="" style="border-radius: 5px;"> 274kcal紅藜白飯</label>
+                                  <label style="float: right;">+$0</label>
+                                  <br>
+                                  <label><input type="radio" name="interest" value=""> 157kcal食蔬半飯</label>
+                                  <label style="float: right;">+$0</label>
+                                  <br>
+                                  <label><input type="radio" name="interest" value=""> 109kcal地瓜食蔬</label>
+                                  <label style="float: right;">+$0</label>
                                   <p>選擇醬料</p>
-                                  <p><input type="radio" name="sauce" value=""> 87kcal焙煎胡麻醬</p>
-                                  <p><input type="radio" name="sauce" value=""> 44kcal義式油醋醬</p>
-                                  <p><input type="radio" name="sauce" value=""> 43kcal奇亞芥末醬</p>
-                                  <p><input type="radio" name="sauce" value=""> 36kcal水果塔塔醬</p>
+                                  <label><input type="radio" name="sauce" value=""> 87kcal焙煎胡麻醬</label>
+                                  <label style="float: right;">+$0</label>
+                                  <br>
+                                  <label><input type="radio" name="sauce" value=""> 44kcal義式油醋醬</label>
+                                  <label style="float: right;">+$0</label>
+                                  <br>
+                                  <label><input type="radio" name="sauce" value=""> 43kcal奇亞芥末醬</label>
+                                  <label style="float: right;">+$0</label>
+                                  <br>
+                                  <label><input type="radio" name="sauce" value=""> 36kcal水果塔塔醬</label>
+                                  <label style="float: right;">+$0</label>
                                   <p>餐點備註</p>
                                   <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
-                                  
+                                  <div class="goods_num clearfix">
+                                  <p class="num_name fl">訂購數量</p>
+                                  <p class="num_add fl">
+                                    <center>
+                                      <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                      <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                      <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                    </center>
+                                  </p>
+                                  <div class="total" style="text-align: right;">總價：<em id="price">110</em> 元</div>
+                                </div>   
                                 </div>
                                 <div class="modal-footer">
                                   <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
@@ -288,7 +339,7 @@
                             </div>
                         </div>        
                 </form>
-            <div class="box">
+            <div class="box" data-toggle="modal" data-target="#exampleModal">
                 <div class="img-box">
                   <img src="sa1.jpeg" alt="">
                 </div>
