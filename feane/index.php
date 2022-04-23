@@ -30,8 +30,9 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style/bootstrap.css" /> 
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.css" />
 
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -254,96 +255,59 @@
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
+          <div class="col-sm-6 col-lg-4 all pizza" data-toggle="modal" data-target="#exampleModal">
+          <form action="" method="post" >              
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document" id="exampleModalLabel">
+                                <div class="modal-content" style="padding: 20px 20px;">
+                                <img src="sa1.jpeg">
+                                <div class="modal-body" style="color: black;">
+                                  <h5>62kcal義式香草雞胸</h5>
+                                  <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
+                                  <hr>
+                                  <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                  <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                  <p>選擇副餐</p>
+                                  <p><input type="radio" name="interest" value="" style="border-radius: 5px;"> 274kcal紅藜白飯</p>
+                                  <p><input type="radio" name="interest" value=""> 157kcal食蔬半飯</p>
+                                  <p><input type="radio" name="interest" value=""> 109kcal地瓜食蔬</p>
+                                  <p>選擇醬料</p>
+                                  <p><input type="radio" name="sauce" value=""> 87kcal焙煎胡麻醬</p>
+                                  <p><input type="radio" name="sauce" value=""> 44kcal義式油醋醬</p>
+                                  <p><input type="radio" name="sauce" value=""> 43kcal奇亞芥末醬</p>
+                                  <p><input type="radio" name="sauce" value=""> 36kcal水果塔塔醬</p>
+                                  <p>餐點備註</p>
+                                  <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                  
+                                </div>
+                                <div class="modal-footer">
+                                  <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                  <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                </div>
+                            </div>
+                            </div>
+                        </div>        
+                </form>
             <div class="box">
-              <div data-toggle="modal" href="#board-modal">
-                <center>
-              <div class="modal hide fade script-play-modal"  id="board-modal">
-          <div class="card" style="width: 30rem; padding: 30px 30px;">
-            <img src="sa1.jpeg" class="card-img-top" alt="">
-            <div class="card-body" style="color:black;">
-              <h4 class="card-title">62kcal義式香草雞胸</h4>
-              <p class="card-text">蛋白質13.44g 脂肪0.54g 碳水0.84g。</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-
-    </div>
-
-
                 <div class="img-box">
-                  <img src="images/f1.png" alt="">
+                  <img src="sa1.jpeg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    62kcal義式香草雞胸
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  蛋白質13.44g 脂肪0.54g 碳水0.84g
                   </p>
                   <div class="options">
                     <h6>
-                      $20
+                      $110
                     </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
