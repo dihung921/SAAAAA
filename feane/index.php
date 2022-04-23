@@ -40,6 +40,7 @@
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/hero-bg.jpg" alt="">
+      
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -155,11 +156,12 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      熱銷餐點！！！
+                      熱銷餐點。
                     </h1>
                     <p>
-                      
+                      檸檬椒鹽雞胸，清爽無負擔
                     </p>
+                    
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -176,7 +178,7 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      輕食一下～
+                     輕食一下。
                     </h1>
                     <p>
                       
@@ -197,7 +199,7 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      店長推薦
+                      店長推薦。
                     </h1>
                     <p>
                       

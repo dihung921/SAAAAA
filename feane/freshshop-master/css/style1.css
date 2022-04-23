@@ -2038,7 +2038,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #b0b435;
+     background: #ffbe3f;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2057,7 +2057,7 @@
      text-align: center;
 }
  .quantity-box input:focus{
-     border-color: #b0b435;
+     border: color #ffbe3f;;
 }
  .name-pr a{
      font-weight: 700;
@@ -2086,7 +2086,7 @@
      padding: 0px 20px;
 }
  .coupon-box .input-group .input-group-append .btn-theme:hover {
-     background: #b0b435;
+     background: #ffbe3f;
 }
  .update-box input[type="submit"]{
      background: #000000;
@@ -2112,7 +2112,7 @@
      width: inherit;
 }
  .update-box input[type="submit"]:hover{
-     background: #b0b435;
+     background: #ffbe3f;
 }
  .order-box h3{
      font-size: 16px;
