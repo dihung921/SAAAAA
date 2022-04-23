@@ -30,6 +30,15 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
 </head>
 
 <body class="sub_page">
@@ -42,7 +51,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="index.html">
             <span>
               方禾食呂
             </span>
@@ -54,14 +63,14 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">訂餐首頁</a>
+              <li class="nav-item ">
+                <a class="nav-link" href="index.php">訂單首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單<span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="menu.php">菜單</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="about.php">關於方禾 <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.php">店內座位狀況</a>
@@ -130,14 +139,14 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="login.php" class="order_online">
+              <a href="" class="order_online">
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <form class="form-inline">
+              </form>
+              <a href="" class="order_online">
                 註冊
               </a>
-              
-              
             </div>
           </div>
         </nav>
@@ -146,76 +155,146 @@
     <!-- end header section -->
   </div>
 
-  
-
-  <!-- food section -->
-
-  <section class="food_section layout_padding">
-    
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
-
-                <form class="mx-1 mx-md-4">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input type="email" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
-                      
+  <!-- Start Cart  -->
+  <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>照片</th>
+                                    <th>商品名稱</th>
+                                    <th>價格</th>
+                                    <th>數量</th>
+                                    <th>總價</th>
+                                    <th>刪除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a href="#">
+                                        <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
+								        </a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a href="#">
+									日式薑燒豬
+								</a>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 80.0</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="total-pr">
+                                        <p>$ 80.0</p>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <a href="#">
+									<i class="fas fa-times"></i>
+								</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a href="#">
+                                        <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a href="#">
+									普羅旺斯鯛魚
+								</a>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 60.0</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="total-pr">
+                                        <p>$ 80.0</p>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <a href="#">
+									<i class="fas fa-times"></i>
+								</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a href="#">
+                                        <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a href="#">
+									檸檬椒鹽雞胸
+								</a>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 30.0</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="total-pr">
+                                        <p>$ 80.0</p>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <a href="#">
+									<i class="fas fa-times"></i>
+								</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">密碼</label>
-                      <input type="password" id="form3Example4c" class="form-control" placeholder="Password" />
-                      
-                    </div>
-                  </div>
-
-
-                  
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">登入</button>
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="images/方禾logo.png" class="img-fluid" alt="Sample image">
-
-              </div>
+                </div>
             </div>
-          </div>
+
+            <div class="row my-5">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="coupon-box">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control" placeholder="請輸入折扣碼" aria-label="Coupon code" type="text">
+                            <div class="input-group-append">
+                                <button class="btn btn-theme" type="button">折扣碼</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="update-box">
+                        <input value="繼續選購" type="submit">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <div class="col-lg-8 col-sm-12"></div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="order-box">
+                        
+                        <div class="d-flex gr-total">
+                            <h5>總金額</h5>
+                            <div class="ml-auto h5"> $ 388 </div>
+                        </div>
+                        <hr> </div>
+                </div>
+                <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">結帳</a> </div>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
-    </div>
-  </section>
+    <!-- End Cart -->
 
-  <!-- end food section -->
-
+  
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color:aliceblue">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -259,7 +338,7 @@
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="color:aliceblue">
             營業時間
           </h4>
           <p>
@@ -279,6 +358,8 @@
     </div>
   </footer>
   <!-- footer section -->
+
+  
 
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -301,6 +382,25 @@
   </script>
   <!-- End Google Map -->
 
+
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom1.js"></script>
+
 </body>
 
 </html>
+
