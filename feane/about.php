@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item ">
-                <a class="nav-link" href="index.php">首頁 </a>
+                <a class="nav-link" href="index.php">訂餐首頁 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.php">菜單</a>
@@ -68,7 +68,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="profile.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="cart.php">
@@ -208,7 +208,7 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
             <p>
