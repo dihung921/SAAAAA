@@ -155,14 +155,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      健康餐
+                      熱銷餐點！！！
                     </h1>
                     <p>
-                      好吃的健康餐在這裡
+                      
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        點餐
+                      <a href="#menu" class="btn1">
+                        立即點餐
                       </a>
                     </div>
                   </div>
@@ -176,14 +176,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      健身餐
+                      輕食一下～
                     </h1>
                     <p>
-                      推薦給想健身的人長肌肉
+                      
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        點餐
+                      <a href="#menu" class="btn1">
+                        立即點餐
                       </a>
                     </div>
                   </div>
@@ -197,14 +197,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      高營養
+                      店長推薦
                     </h1>
                     <p>
-                      嚴格且清楚的營養標示
+                      
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        訂餐
+                      <a href="#menu" class="btn1">
+                        立即點餐
                       </a>
                     </div>
                   </div>
@@ -237,8 +237,8 @@
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
-          瀏覽菜單
+        <h2 id="menu">
+          菜單
         </h2>
       </div>
 
