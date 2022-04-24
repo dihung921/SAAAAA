@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -43,30 +40,9 @@ session_start();
 
 <body>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
-          <center><div class="modal-body">
-            <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>
-</div>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
-      
+      <img src="images/hero-bg.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -98,10 +74,10 @@ session_start();
               </li>
             </ul>
             <div class="user_option">
-              <a href="profile.php" class="user_link">
+              <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a class="cart_link" href="cart.php">
+              <a class="cart_link" href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -160,25 +136,12 @@ session_start();
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <form action="logout.php" method="post">
-              <?php
-              if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
-                  已登入
-                  <?php
-                echo "<button class='order_online'>登出</button>";
-              }
-              else{
-                echo "<a href='login.php' class='order_online'>
+              <a href="login.php" class="order_online">
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href="register.php" class="order_online">
                 註冊
-              </a>";
-              }
-              ?>
-            </form>
+              </a>
             </div>
           </div>
         </nav>
@@ -190,24 +153,19 @@ session_start();
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-          
             <div class="container ">
-             
               <div class="row">
-
-                <div class="col-md-7 col-lg-11 ">
-                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
+                <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      熱銷餐點。
+                      健康餐
                     </h1>
                     <p>
-                      檸檬椒鹽雞胸，清爽無負擔
+                      好吃的健康餐在這裡
                     </p>
-                    
                     <div class="btn-box">
-                      <a href="#menu" class="btn1">
-                        立即點餐
+                      <a href="" class="btn1">
+                        點餐
                       </a>
                     </div>
                   </div>
@@ -218,20 +176,19 @@ session_start();
           <div class="carousel-item ">
             <div class="container ">
               <div class="row">
-                <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
+                <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                     輕食一下。
+                      健身餐
                     </h1>
                     <p>
-                      
+                      推薦給想健身的人長肌肉
                     </p>
                     <div class="btn-box">
-                      <a href="#menu" class="btn1">
-                        立即點餐
+                      <a href="" class="btn1">
+                        點餐
                       </a>
-                    </div> 
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,18 +197,17 @@ session_start();
           <div class="carousel-item">
             <div class="container ">
               <div class="row">
-                <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
+                <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      店長推薦。
+                      高營養
                     </h1>
                     <p>
-                      
+                      嚴格且清楚的營養標示
                     </p>
                     <div class="btn-box">
-                      <a href="#menu" class="btn1">
-                        立即點餐
+                      <a href="" class="btn1">
+                        訂餐
                       </a>
                     </div>
                   </div>
@@ -284,8 +240,8 @@ session_start();
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2 id="menu">
-          菜單
+        <h2>
+          瀏覽菜單
         </h2>
       </div>
 
@@ -1649,7 +1605,12 @@ session_start();
           </p>
         </div>
       </div>
-      
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">SA05</a><br><br>
+        </p>
+      </div>
     </div>
   </footer>
   <!-- footer section -->
@@ -1676,11 +1637,7 @@ session_start();
   <!-- End Google Map -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
-  <script>
-      $(window).ready(() => {
-        $('#myModal').modal('show');
-      })
-    </script>
+
 </body>
 
 </html>
