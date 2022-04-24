@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root");
+$link=mysqli_connect("localhost","root","12345678","sa");
 mysqli_select_db($link,"sa");
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -195,7 +195,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example1c">姓名(暱稱)</label>
-                      <input name="name" type="text" id="form3Example1c" class="form-control" placeholder="Name" />
+                      <input name="name" type="text" id="form3Example1c" class="form-control" placeholder="Name" require/>
                     </div>
                   </div>
 
@@ -203,7 +203,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="email" id="form3Example3c" class="form-control" placeholder="Email" />
+                      <input name="email" type="email" id="form3Example3c" class="form-control" placeholder="Email" require/>
                       
                     </div>
                   </div>
@@ -212,7 +212,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder="Your phone number" />
+                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder="Your phone number" require />
                       
                     </div>
                   </div>
@@ -221,7 +221,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" />
+                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" require/>
                       
                     </div>
                   </div>
