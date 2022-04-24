@@ -1265,158 +1265,104 @@
                 </div>
               </div>
 
-          <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f7.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Tasty Burger
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $12
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
+              <div class="col-sm-6 col-lg-4 all classic">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel9" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel9">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <img src="images/素食綜合野菇.jpeg" style="border-radius: 5px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>素食綜合野菇（78kcal）</h5>
+                                    <h6>蛋白質5.63g 脂肪0.46g 碳水12.82g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>選擇副餐</p>
+                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>選擇醬料</p>
+                                    <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <br>
+                                    <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
+                                    <label style="float: right;">+$0</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price9">135</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price9').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price9').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price9').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal9">
+                  <div class="detail-box1">
+                    <h5>
+                    素食綜合野菇
+                    </h5>
+                    <p>
+                    蛋白質5.63g 脂肪0.46g 碳水12.82g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $135
+                      </h6>
+                      <a href=""></a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f8.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Tasty Burger
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $14
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
