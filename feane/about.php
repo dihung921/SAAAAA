@@ -36,7 +36,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/ll.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item ">
-                <a class="nav-link" href="index.php">首頁 </a>
+                <a class="nav-link" href="index.php">訂餐首頁 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.php">菜單</a>
@@ -68,10 +68,10 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="profile.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a class="cart_link" href="#">
+              <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -130,9 +130,9 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="login.php" class="order_online">
                 登入
-                <a href="" class="order_online">
+                <a href="register.php" class="order_online">
                 註冊
               </a>
             </div>
@@ -208,7 +208,7 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
             <p>

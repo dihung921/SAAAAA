@@ -36,7 +36,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/ll.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -58,7 +58,7 @@
                 <a class="nav-link" href="index.php">訂餐首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單<span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="menu.php">菜單</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
@@ -68,10 +68,10 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="profile.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a class="cart_link" href="#">
+              <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -163,13 +163,13 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input type="email" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
+                      <input name="phone" type="number" class="form-control" placeholder=" Your phone number" require/>
                       
                     </div>
                   </div>
@@ -178,7 +178,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input type="password" id="form3Example4c" class="form-control" placeholder="Password" />
+                      <input name="password" type="password" class="form-control" placeholder="Password" require/>
                       
                     </div>
                   </div>
@@ -187,7 +187,7 @@
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">登入</button>
+                    <button class="btn btn-primary btn-lg">登入</button>
                   </div>
 
                 </form>
@@ -242,7 +242,7 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
             <p>
