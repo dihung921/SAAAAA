@@ -47,16 +47,16 @@
             </button>
           </div>
           <center><div class="modal-body">
-          <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="d-grid gap-2 col-6 mx-auto">
             <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning">內用</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
           </div></center>
 </div>
         </div>
       </div>
     </div>
-
-
+</div>
+</div>
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll.png" alt="">
@@ -171,11 +171,13 @@
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
+          
             <div class="container ">
+             
               <div class="row">
 
-                <div class="col-md-7 col-lg-6 ">
-                
+                <div class="col-md-7 col-lg-11 ">
+                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
@@ -197,7 +199,8 @@
           <div class="carousel-item ">
             <div class="container ">
               <div class="row">
-                <div class="col-md-7 col-lg-6 ">
+                <div class="col-md-7 col-lg-11 ">
+                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
@@ -209,7 +212,7 @@
                       <a href="#menu" class="btn1">
                         立即點餐
                       </a>
-                    </div>
+                    </div> 
                   </div>
                 </div>
               </div>
@@ -218,7 +221,8 @@
           <div class="carousel-item">
             <div class="container ">
               <div class="row">
-                <div class="col-md-7 col-lg-6 ">
+                <div class="col-md-7 col-lg-11 ">
+                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
