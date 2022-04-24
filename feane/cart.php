@@ -45,7 +45,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/ll.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -163,8 +163,8 @@
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>照片</th>
+                                <tr align="center">
+                                    <th> </th>
                                     <th>商品名稱</th>
                                     <th>價格</th>
                                     <th>數量</th>
@@ -172,7 +172,7 @@
                                     <th>刪除</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
@@ -250,9 +250,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
+            
+            
+            <div class="row justify-content-end">
+            <div class="col-5 ">
                     <div class="coupon-box">
                         <div class="input-group input-group-sm">
                             <input class="form-control" placeholder="請輸入折扣碼" aria-label="Coupon code" type="text">
@@ -342,7 +343,7 @@
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM
