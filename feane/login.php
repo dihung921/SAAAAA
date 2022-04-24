@@ -169,7 +169,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
+                      <input name="phone" type="number" class="form-control" placeholder=" Your phone number" require/>
                       
                     </div>
                   </div>
@@ -178,7 +178,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" />
+                      <input name="password" type="password" class="form-control" placeholder="Password" require/>
                       
                     </div>
                   </div>
