@@ -1,3 +1,29 @@
+<?php
+session_start();
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
+
+if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
+  $name=$_POST["name"];
+  $email=$_POST["email"];
+  $phone=$_POST["phone"];
+  $password=$_POST["password"];
+  echo $name,$email,$phone,$password;
+  $sql="select phone from member where phone='$phone'";
+  $result=mysqli_query($link,$sql);
+  if(mysqli_num_rows($result) >= 1){
+    echo "<script>{window.alert('此手機號碼已被註冊！'); location.href='register.php'}</script>";
+  }
+  else{
+    $register="insert into member(name,email,phone,password) values ('$name','$email','$phone','$password')";
+    $result2=mysqli_query($link,$register);
+    if(result2){
+      echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
+    }
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -163,22 +189,13 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">註冊會員</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" action="register.php" method="post">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example1c">姓名(暱稱)</label>
-                      <input type="text" id="form3Example1c" class="form-control" placeholder="Name" />
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input type="number" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
-                      
+                      <input name="name" type="text" id="form3Example1c" class="form-control" placeholder="Name" />
                     </div>
                   </div>
 
@@ -186,7 +203,16 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input type="email" id="form3Example3c" class="form-control" placeholder=" Email" />
+                      <input name="email" type="email" id="form3Example3c" class="form-control" placeholder="Email" />
+                      
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="form3Example3c">手機號碼</label>
+                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder="Your phone number" />
                       
                     </div>
                   </div>
@@ -195,7 +221,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input type="password" id="form3Example4c" class="form-control" placeholder="Password" />
+                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" />
                       
                     </div>
                   </div>
@@ -204,7 +230,7 @@
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">註冊</button>
+                    <button class="btn btn-primary btn-lg">註冊</button>
                   </div>
 
                 </form>

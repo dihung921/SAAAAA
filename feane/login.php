@@ -163,13 +163,13 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input type="email" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
+                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
                       
                     </div>
                   </div>
@@ -178,7 +178,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input type="password" id="form3Example4c" class="form-control" placeholder="Password" />
+                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" />
                       
                     </div>
                   </div>
@@ -187,7 +187,7 @@
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">登入</button>
+                    <button class="btn btn-primary btn-lg">登入</button>
                   </div>
 
                 </form>
