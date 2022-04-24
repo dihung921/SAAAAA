@@ -165,7 +165,7 @@
               <div>
                 <select class="form-control nice-select wide">
                   <option value="" disabled selected>
-                    How many persons?
+                    How many persons??
                   </option>
                   <option value="">
                     2
