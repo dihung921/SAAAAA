@@ -264,7 +264,7 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
-                        <input value="繼續選購" type="submit">
+                        <input value="繼續選購" type="submit" onclick="location.href='menu.php'">
                     </div>
                 </div>
             </div>
