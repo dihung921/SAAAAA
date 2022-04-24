@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -73,11 +76,17 @@
                 <a class="nav-link" href="book.php">店內座位狀況</a>
               </li>
             </ul>
+            
             <div class="user_option">
-              <a href="profile.php" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a class="cart_link" href="#">
+
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
+              <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -131,17 +140,26 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="login.php" class="order_online">
+              
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <a href='register.php' class='order_online'>
                 註冊
-              </a>
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
@@ -1241,6 +1259,7 @@
                 </div>
               </div>
 
+
               <div class="col-sm-6 col-lg-4 all classic">
                 <form action="" method="post" > 
                   <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel9" aria-hidden="true" role="dialog">
@@ -1335,6 +1354,7 @@
                       </h6>
                       <a href=""></a>
                     </div>
+
                   </div>
                 </div>
               </div>
