@@ -1,6 +1,6 @@
 <?php
    session_start();
-   $link = mysqli_connect("localhost", "root");
+   $link = mysqli_connect("localhost", "root" , "12345678","sa");
    mysqli_select_db($link,"sa");
 //                         
 //   if(isset($_SESSION["account_name"])){

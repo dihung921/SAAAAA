@@ -17,7 +17,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   else{
     $register="insert into member(name,email,phone,password) values ('$name','$email','$phone','$password')";
     $result2=mysqli_query($link,$register);
-    if(result2){
+    if($result2){
       echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
     }
   }
