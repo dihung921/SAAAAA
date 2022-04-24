@@ -36,7 +36,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/hero-bg.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -148,66 +148,164 @@
 
   
 
-  <!-- food section -->
+  <!-- profile section -->
+  <br>
+  <br>
 
-  <section class="food_section layout_padding">
+
+  <div class="container">
+    <div class="main-body">
     
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
-
-                <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder=" Your phone number" />
-                      
+          
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>游棣鴻好帥</h4>
                     </div>
                   </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" />
-                      
-                    </div>
-                  </div>
-
-
-                  
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-primary btn-lg">登入</button>
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="images/方禾logo.png" class="img-fluid" alt="Sample image">
-
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-  </section>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">姓名</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      游棣鴻好帥
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      dihung921@gmail.com
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">手機號碼</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        0908367921
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">密碼</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (320) 380-4539
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">編輯</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  <!-- end food section -->
+            
+
+                
+                    <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
+                        <div class="bg-white card mb-4 order-list shadow-sm">
+                            <div class="gold-members p-4">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <a href="#">
+                                            <span class="float-right text-info">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
+                                        </a>
+                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589748 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/24 6:26 PM</p>
+                                        <p class="text-dark">日式薑燒豬（地瓜,芥末醬）x 1
+                                        </p>
+                                        <p class="text-dark">泰式打拋豬（紫米飯,沙茶醬）x 1
+                                        </p>
+                                        <hr>
+                                        <div class="float-right">
+                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                        </div>
+                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $300
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="bg-white card mb-4 order-list shadow-sm">
+                            <div class="gold-members p-4">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <a href="#">
+                                            <span class="float-right text-info">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
+                                        </a>
+                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589535 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/23 7:52 PM</p>
+                                        <p class="text-dark">韓式風味牛（糙米飯,豆瓣醬）x 1
+                                        </p>
+                                        <hr>
+                                        <div class="float-right">
+                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                        </div>
+                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $150
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="bg-white card mb-4 order-list shadow-sm">
+                            <div class="gold-members p-4">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <a href="#">
+                                            <span class="float-right text-info">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
+                                        </a>
+                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589084 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/22 12:45 PM</p>
+                                        <p class="text-dark">普羅旺斯鱈魚（糙米飯,豆瓣醬）x 1
+                                        </p>
+                                        <p class="text-dark">檸檬椒鹽雞胸（白飯,沙拉醬）x 1
+                                        </p>
+                                        <p class="text-dark">陽光沙拉盒 x 1
+                                        </p>
+                                        <hr>
+                                        <div class="float-right">
+                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                        </div>
+                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $450
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+        
+              
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+  <!-- end profile section -->
 
   <!-- footer section -->
   <footer class="footer_section">

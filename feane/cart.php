@@ -51,7 +51,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <span>
               方禾食呂
             </span>
@@ -69,8 +69,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="menu.php">菜單</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="about.php">關於方禾 <span class="sr-only">(current)</span> </a>
+              <li class="nav-item">
+                <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.php">店內座位狀況</a>
@@ -139,12 +139,12 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="login.php" class="order_online">
                 登入
               </a>
               <form class="form-inline">
               </form>
-              <a href="" class="order_online">
+              <a href="register.php" class="order_online">
                 註冊
               </a>
             </div>
@@ -263,13 +263,12 @@
                         </div>
                     </div>
                 </div>
-                
-                 <div class="col-7">
-                                <div class="update-box">
-                                    <input value="繼續選購" type="submit">
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="update-box">
+                        <input value="繼續選購" type="submit" onclick="location.href='menu.php'">
+                    </div>
+                </div>
+            </div>
 
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
@@ -323,7 +322,7 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
             <p>

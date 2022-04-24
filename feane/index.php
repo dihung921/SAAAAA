@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -92,7 +95,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="profile.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="cart.php">
@@ -154,12 +157,25 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="login.php" class="order_online">
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <a href='register.php' class='order_online'>
                 註冊
-              </a>
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
