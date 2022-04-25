@@ -32,7 +32,7 @@ body {
   appearance: none;
 }
 
-.container1 {
+.container {
   perspective: 1000px;
   margin-bottom: 30px;
 }
@@ -93,7 +93,7 @@ body {
   margin-left: 2px;
 }
 
-.row1 {
+.row {
   display: flex;
 }
 
