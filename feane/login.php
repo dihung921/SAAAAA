@@ -68,9 +68,6 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="profile.php" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -125,11 +122,6 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
               <a href="login.php" class="order_online">
                 登入
               </a>
@@ -166,7 +158,6 @@
                 <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
                       <input name="phone" type="number" class="form-control" placeholder=" Your phone number" require/>
@@ -175,7 +166,6 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
                       <input name="password" type="password" class="form-control" placeholder="Password" require/>
