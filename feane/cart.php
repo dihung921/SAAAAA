@@ -207,8 +207,8 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
+                                        <a href="">
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -232,7 +232,7 @@ session_start();
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -256,7 +256,7 @@ session_start();
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -269,15 +269,6 @@ session_start();
             
             <div class="row justify-content-end">
             <div class="col-5 ">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control" placeholder="請輸入折扣碼" aria-label="Coupon code" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-theme" type="button">折扣碼</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
                         <input value="繼續選購" type="submit" onclick="location.href='index.php'">
@@ -287,7 +278,7 @@ session_start();
 
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-12 col-sm-12">
                     <div class="order-box">
                         
                         <div class="d-flex gr-total">
