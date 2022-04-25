@@ -84,19 +84,13 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                 <a class="nav-link" href="index.php">訂餐首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.php">店內座位狀況</a>
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="profile.php" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -204,7 +198,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="number" id="form3Example3c" class="form-control" placeholder="Your phone number" require />
+                      <input name="phone" type="text" id="form3Example3c" class="form-control" placeholder="Your phone number" require />
                       
                     </div>
                   </div>
