@@ -169,7 +169,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="number" class="form-control" placeholder=" Your phone number" require/>
+                      <input name="phone" type="text" class="form-control" placeholder=" Your phone number" require/>
                       
                     </div>
                   </div>
