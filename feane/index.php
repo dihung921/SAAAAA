@@ -42,7 +42,6 @@ session_start();
 </head>
 
 <body>
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -94,7 +93,7 @@ session_start();
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.php">店內座位狀況</a>
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
             
@@ -206,7 +205,7 @@ session_start();
                       檸檬椒鹽雞胸，清爽無負擔
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#menu" class="btn1">
                         立即點餐
                       </a>
                     </div>
@@ -225,7 +224,7 @@ session_start();
                      輕食一下。
                     </h1>
                     <p>
-                      素食綜合野菇
+                      捲捲系列，給不太餓的你
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -284,7 +283,7 @@ session_start();
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
+        <h2 id="menu">
           菜單
         </h2>
       </div>
