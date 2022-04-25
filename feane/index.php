@@ -1362,9 +1362,7 @@ session_start();
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
-                <div class="img-box">
-                  <img src="images/f9.png" alt="">
-                </div>
+              
                 <div class="detail-box">
                   <h5>
                     Delicious Pasta
