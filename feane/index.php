@@ -206,7 +206,7 @@ session_start();
                       檸檬椒鹽雞胸，清爽無負擔
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#menu" class="btn1">
                         立即點餐
                       </a>
                     </div>
@@ -284,27 +284,28 @@ session_start();
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
+        <h2 id="menu">
           菜單
         </h2>
       </div>
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
-        <li data-filter=".classic">經典餐盒</li>
-        <li data-filter=".roll">輕食捲捲</li>
-        <li data-filter=".salad">沙拉水果盒</li>
-        <li data-filter=".main">主食單品</li>
-        <li data-filter=".other">其他單品</li>
-        <li data-filter=".drink">飲料</li>
+        <a href="#classic"><li>經典餐盒</li></a>
+        <a href="#roll"><li>輕食捲捲</li></a>
+        <a href="#salad"><li>沙拉水果盒</li></a>
+        <a href="#main"><li>主食單品</li></a>
+        <a href="#other"><li>其他單品</li></a>
+        <a href="#drink"><li>飲料</li></a>
       </ul>
+    
+      <br>
+      <h2 id="classic">經典餐盒</h2>
+      <hr>
 
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all classic">
-            
-          <form action="" method="post" >
-            
+          <div class="row grid">
+            <div class="col-sm-6 col-lg-4 all classic">   
+              <form action="" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
@@ -1284,29 +1285,325 @@ session_start();
                   </div>
                 </div>
               </div>
+            </div>
 
+            <br><br>
+            <h2 id="roll">輕食捲捲</h2>
+            <hr>
 
-              <div class="col-sm-6 col-lg-4 all classic">
+            <div class="row grid">
+              <div class="col-sm-6 col-lg-4 all roll">
                 <form action="" method="post" > 
-                  <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel9" aria-hidden="true" role="dialog">
-                              <div class="modal-dialog" role="document" id="exampleModalLabel9">
+                  <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel10" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel10">
                                   <div class="modal-content" style="padding: 20px 20px;">
-                                  <img src="images/素食綜合野菇.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
-                                    <h5>素食綜合野菇（78kcal）</h5>
-                                    <h6>蛋白質5.63g 脂肪0.46g 碳水12.82g</h6>
+                                    <h5>墨西哥嫩雞捲</h5>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                     <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
-                                    <p>選擇副餐</p>
-                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
-                                    <label style="float: right;">+$0</label>
-                                    <br>
-                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
-                                    <label style="float: right;">+$0</label>
-                                    <br>
-                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
-                                    <label style="float: right;">+$0</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price10">70</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price10').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price10').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price10').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal10">
+                  <div class="detail-box1">
+                    <h5>
+                    墨西哥嫩雞捲
+                    </h5>
+                    <div class="options">
+                      <h6>
+                        $70
+                      </h6>
+                      <a href=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 all roll">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel11" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel11">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>美式起司牛肉捲</h5>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price11">80</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price11').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price11').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price11').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal11">
+                  <div class="detail-box1">
+                    <h5>
+                    美式起司牛肉捲
+                    </h5>
+                    <h6></h6>
+                    <div class="options">
+                      <h6>
+                        $80
+                      </h6>
+                      <a href=""></a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 all roll">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel12" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel12">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>地瓜起司嫩雞捲</h5>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price12">75</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price12').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price12').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price12').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal12">
+                  <div class="detail-box1">
+                    <h5>
+                    地瓜起司嫩雞捲
+                    </h5>
+                    <div class="options">
+                      <h6>
+                        $75
+                      </h6>
+                      <a href=""></a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br><br>
+            <h2 id="salad">沙拉水果盒</h2>
+            <hr>
+
+            <div class="row grid">
+              <div class="col-sm-6 col-lg-4 all salad">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel13" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel13">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>季節水果盒</h5>
+                                    <h6>360ml/份<br>
+                                        (水果種類隨季節調整)</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price13">50</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price13').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price13').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price13').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal13">
+                  <div class="detail-box1">
+                    <h5>
+                    季節水果盒
+                    </h5>
+                    <div class="options">
+                      <h6>
+                        $50
+                      </h6>
+                      <a href=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 all salad">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel14" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel14">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>陽光沙拉盒</h5>
+                                    <h6>360ml/份<br>
+                                        (配菜種類隨季節調整)<br>
+                                        可以到主食單品區加點主食，補充蛋白質哦！</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>選擇醬料</p>
                                     <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
                                     <label style="float: right;">+$0</label>
@@ -1330,17 +1627,17 @@ session_start();
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
-                                    <div class="total" style="text-align: right;">總價：<em id="price9">135</em> 元</div>
+                                    <div class="total" style="text-align: right;">總價：<em id="price14">65</em> 元</div>
                                     <script>
                                       $(function () {
                                           //加號
-                                          var price1 = parseFloat($('#price9').text());
+                                          var price1 = parseFloat($('#price14').text());
                                           var num = parseInt($('input[name="num"]').attr('value'));
                                           $('.add').click(function(){
                                               num++;
                                               $('input[name="num"]').attr('value',num);
                                               var total = num * price1;
-                                              $('#price9').html(total.toFixed(0));
+                                              $('#price14').html(total.toFixed(0));
                                           });
                                           
                                           //減號
@@ -1350,7 +1647,7 @@ session_start();
                                                   $('input[name="num"]').attr('value',num);
                                                   console.log(num)
                                                   var total = num * price1;
-                                                  $('#price9').text(total.toFixed(0));
+                                                  $('#price14').text(total.toFixed(0));
 
                                               }
                                           });
@@ -1366,101 +1663,181 @@ session_start();
                               </div>
                           </div>        
                   </form>
-              <div class="box1" data-toggle="modal" data-target="#exampleModal9">
+              <div class="box1" data-toggle="modal" data-target="#exampleModal14">
                   <div class="detail-box1">
                     <h5>
-                    素食綜合野菇
+                    陽光沙拉盒
                     </h5>
-                    <p>
-                    蛋白質5.63g 脂肪0.46g 碳水12.82g
-                    </p>
                     <div class="options">
                       <h6>
-                        $135
+                        $65
                       </h6>
                       <a href=""></a>
                     </div>
-
-                  </div>
-                </div>
-              </div>
-
-          <div class="col-sm-6 col-lg-4 all pasta">
-            <div class="box">
-              <div>
-              
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pasta
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $10
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+            <br><br>
+            <h2 id="main">主食單品</h2>
+            <hr>
+
+            <div class="row grid">
+              <div class="col-sm-6 col-lg-4 all main">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel15" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel15">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>義式香草雞胸（62kcal）</h5>
+                                    <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price15">40</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price15').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price15').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price15').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal15">
+                  <div class="detail-box1">
+                    <h5>
+                    義式香草雞胸（62kcal）
+                    </h5>
+                    <p>
+                    蛋白質11.5g 脂肪11.2g 碳水3.5g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $40
+                      </h6>
+                      <a href=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 all main">
+                <form action="" method="post" > 
+                  <div class="modal fade" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel16" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel16">
+                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h5>朝日咖哩雞胸（70kcal）</h5>
+                                    <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
+                                    <hr>
+                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
+                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <div class="goods_num clearfix">
+                                    <p class="num_name fl">訂購數量</p>
+                                    <p class="num_add fl">
+                                      <center>
+                                        <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
+                                      </center>
+                                    </p>
+                                    <div class="total" style="text-align: right;">總價：<em id="price16">40</em> 元</div>
+                                    <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price16').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price16').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price16').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box1" data-toggle="modal" data-target="#exampleModal16">
+                  <div class="detail-box1">
+                    <h5>
+                    朝日咖哩雞胸（70kcal）
+                    </h5>
+                    <p>
+                    蛋白質13.98g 脂肪1.56g 碳水3.72g
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $40
+                      </h6>
+                      <a href=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          
       <div class="btn-box">
         <a href="">
           View More
