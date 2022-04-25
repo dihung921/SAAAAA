@@ -280,7 +280,7 @@ session_start();
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
-                        <input value="繼續選購" type="submit" onclick="location.href='menu.php'">
+                        <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
                 </div>
             </div>

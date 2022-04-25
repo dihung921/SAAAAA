@@ -197,7 +197,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="55%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
@@ -219,13 +219,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="55%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      
+                      素食綜合野菇
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -241,13 +241,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
+                <img src="images/韓式風味牛.jpeg" width="55%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                      
+                    韓式風味牛
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
