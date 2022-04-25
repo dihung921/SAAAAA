@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -68,9 +71,13 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="profile.php" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -125,19 +132,25 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="login.php" class="order_online">
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <a href='register.php' class='order_online'>
                 註冊
-              </a>
-              
-              
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
@@ -165,7 +178,7 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>游棣鴻好帥</h4>
+                      <h4><?php echo $_SESSION["member_name"] ?></h4>
                     </div>
                   </div>
                 </div>
@@ -179,7 +192,7 @@
                       <h6 class="mb-0">姓名</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      游棣鴻好帥
+                    <?php echo $_SESSION["member_name"] ?>
                     </div>
                   </div>
                   <hr>
@@ -188,7 +201,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      dihung921@gmail.com
+                    <?php echo $_SESSION["member_email"] ?>
                     </div>
                   </div>
                   <hr>
@@ -197,7 +210,7 @@
                       <h6 class="mb-0">手機號碼</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        0908367921
+                    <?php echo $_SESSION["member_phone"] ?>
                     </div>
                   </div>
                   <hr>
@@ -206,7 +219,7 @@
                       <h6 class="mb-0">密碼</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                    <?php echo $_SESSION["member_password"] ?>
                     </div>
                   </div>
                   <hr>
