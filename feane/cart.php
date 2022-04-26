@@ -70,9 +70,6 @@ session_start();
                 <a class="nav-link" href="index.php">訂單首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
