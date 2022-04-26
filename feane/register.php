@@ -1,7 +1,7 @@
 <?php
 session_start();
 $link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
   $name=$_POST["name"];
@@ -183,14 +183,14 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example1c">姓名(暱稱)</label>
-                      <input name="name" type="text" id="form3Example1c" class="form-control" placeholder="Name" require/>
+                      <input name="name" type="text"  class="form-control" placeholder="Name" require/>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="email" id="form3Example3c" class="form-control" placeholder="Email" require/>
+                      <input name="email" type="email" class="form-control" placeholder="Email" require/>
                       
                     </div>
                   </div>

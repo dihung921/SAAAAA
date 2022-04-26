@@ -77,6 +77,7 @@ session_start();
               </li>
             </ul>
             <div class="user_option">
+
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
@@ -84,6 +85,7 @@ session_start();
             </a>";
             }
             ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -202,8 +204,8 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
+                                        <a href="">
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -227,7 +229,7 @@ session_start();
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -251,7 +253,7 @@ session_start();
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
@@ -264,25 +266,16 @@ session_start();
             
             <div class="row justify-content-end">
             <div class="col-5 ">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control" placeholder="請輸入折扣碼" aria-label="Coupon code" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-theme" type="button">折扣碼</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
-                        <input value="繼續選購" type="submit" onclick="location.href='menu.php'">
+                        <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
                 </div>
             </div>
 
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-12 col-sm-12">
                     <div class="order-box">
                         
                         <div class="d-flex gr-total">
@@ -371,7 +364,7 @@ session_start();
   <!-- footer section -->
 
   
-
+  
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
