@@ -55,6 +55,26 @@ container.addEventListener('click', e => {
     
   } 
 });
+container.addEventListener('click', e => {
+  if (
+    e.target.classList.contains('seat2') &&
+    !e.target.classList.contains('occupied')
+  ) {
+    e.target.classList.toggle('selected');
+    updateSelectedCount();
+    
+  } 
+});
+container.addEventListener('click', e => {
+  if (
+    e.target.classList.contains('seat3') &&
+    !e.target.classList.contains('occupied')
+  ) {
+    e.target.classList.toggle('selected');
+    updateSelectedCount();
+    
+  } 
+});
 
 // seats.forEach((seat)=>{
 //   seat.addEventListener('click', (e)=>{
