@@ -157,7 +157,7 @@
     <ul class="showcase">
       <li>
         <div class="seat"></div>
-        <small>N/A</small>
+        <small>空位</small>
       </li>
       <li>
         <div class="seat selected"></div>
@@ -165,10 +165,10 @@
       </li>
       <li>
         <div class="seat occupied"></div>
-        <small>Occupied</small>
+        <small>已滿</small>
       </li>
     </ul>
- 
+</div>
     <div class="container2">
       <div class="screen"></div>
 
@@ -235,7 +235,7 @@
     </div>
 </div>
 </div>
-</div>
+
    <center> <p class="text">
       You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
     </p></center>
