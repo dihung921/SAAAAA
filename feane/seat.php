@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -172,7 +171,7 @@
 </div>
     <div class="container2">
       <div class="screen"></div>
-
+      <div class="screen2"></div>
       <div class="row">
         <div class="seat"></div>
         <div class="seat"></div>
@@ -232,6 +231,8 @@
         <div class="seat occupied"></div>
         <div class="seat occupied"></div>
         <div class="seat"></div>
+      </div>
+      
       </div>
     </div>
 </div>
