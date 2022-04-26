@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -44,6 +45,7 @@
     </div>
     <!-- header section strats -->
     
+
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -59,28 +61,29 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
-              </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
+                <a class="nav-link" href="index.php">訂餐首頁</a>
+
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
-              <li class="nav-item">
 
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
-
+              <li class="nav-item active">
+                <a class="nav-link" href="seat.php">店內座位狀況 <span class="sr-only">(current)</span></a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
 
               <a class="cart_link" href="cart.php">
-
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -134,14 +137,27 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="" class="order_online">
-                Order Online
+
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
+                登入
               </a>
+              <a href='register.php' class='order_online'>
+                註冊
+              </a>";
+              }
+              ?>
+            </form>
+
             </div>
           </div>
         </nav>
@@ -150,8 +166,8 @@
     <!-- end header section -->
   </div>
 
-  <!-- book section -->
 
+  <!-- book section -->
   <div class="cseat">
  
       <label>Pick a movie:</label>
@@ -179,7 +195,7 @@
 </div>
     <div class="container2">
       <div class="screen"></div>
-
+      <div class="screen2"></div>
       <div class="row">
         <div class="seat"></div>
         <div class="seat"></div>
@@ -239,6 +255,8 @@
         <div class="seat occupied"></div>
         <div class="seat occupied"></div>
         <div class="seat"></div>
+      </div>
+      
       </div>
     </div>
 </div>
@@ -249,7 +267,6 @@
     </p></center>
 
 
-  <!-- end book section -->
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -258,25 +275,30 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+
+              聯絡我們
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+
+                  Call +02 2908-1397
+
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+
+                storyboxtw@gmail.com
+
                 </span>
               </a>
             </div>
@@ -284,49 +306,44 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
+
+            <a href="index.php" class="footer-logo">
+              方禾食呂
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            健康飲食好夥伴
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
+              <a href="https://www.instagram.com/storyboxtw/">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
+
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+
+            營業時間
           </h4>
           <p>
-            Everyday
+            每天
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 AM ~ 19:00 PM
+
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+
+          <a href="https://html.design/">SA05</a><br><br>
+
         </p>
       </div>
     </div>
@@ -352,12 +369,13 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 
-    
-  <script src="all.js"></script>
-
   </script>
   <!-- End Google Map -->
+  <script src="js/seat.js"></script>
+
 
 </body>
 
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
 </html>
