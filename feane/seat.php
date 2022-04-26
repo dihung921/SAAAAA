@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -169,12 +170,28 @@
   <!-- book section -->
   <div class="cseat">
  
-      <label>Pick a movie:</label>
-      <select class="cselect" id="movie">
-        <option value="10">Avengers: Endgame ($10)</option>
-        <option value="12">Joker ($12)</option>
-        <option value="8">Toy Story 4 ($8)</option>
-        <option value="9">The Lion King ($9)</option>
+      <label>選擇位置:</label>
+      <select class="cselect" id="seat">
+        <option value="1">座位1</option>
+        <option value="2">座位2</option>
+        <option value="3">座位3</option>
+        <option value="4">座位4</option>
+        <option value="5">座位5</option>
+        <option value="6">座位6</option>
+        <option value="7">座位7</option>
+        <option value="8">座位8</option>
+        <option value="9">座位9</option>
+        <option value="10">座位10</option>
+        <option value="11">座位11</option>
+        <option value="12">座位12</option>
+        <option value="13">座位13</option>
+        <option value="14">座位14</option>
+        <option value="15">座位15</option>
+        <option value="16">座位16</option>
+        <option value="17">座位17</option>
+        <option value="18">座位18</option>
+        <option value="19">座位19</option>
+        <option value="20">座位20</option>
       </select>
 <div class="movie-container">
     <ul class="showcase">
@@ -221,7 +238,7 @@
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat selected"></div>
         <div class="seat occupied"></div>
         <div class="seat occupied"></div>
       </div>
@@ -367,4 +384,6 @@
 
 </body>
 
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
 </html>
