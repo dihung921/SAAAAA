@@ -201,7 +201,7 @@
       </li>
       <li>
         <div class="seat selected"></div>
-        <small>Selected</small>
+        <small>您的選擇</small>
       </li>
       <li>
         <div class="seat occupied"></div>
@@ -279,7 +279,7 @@
 </div>
 
    <center> <p class="text">
-      You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
+      您已選擇 <span id="count">0</span> 位置 for a price of $<span id="total">0</span>
     </p></center>
 
 
@@ -393,5 +393,5 @@
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </html>
