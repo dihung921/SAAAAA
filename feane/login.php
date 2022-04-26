@@ -58,13 +58,10 @@
                 <a class="nav-link" href="index.php">訂餐首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.php">店內座位狀況</a>
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
             <div class="user_option">
