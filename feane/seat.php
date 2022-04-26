@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +12,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+
   <link rel="stylesheet" href="style.css" />
+
 
   <title> 方禾食呂 </title>
 
@@ -38,6 +39,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
+
       <img src="images/ll.png" alt="">
     </div>
     <!-- header section strats -->
@@ -67,14 +69,18 @@
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
+
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
+
               </li>
             </ul>
             <div class="user_option">
               <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
+
               <a class="cart_link" href="cart.php">
+
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -145,6 +151,7 @@
   </div>
 
   <!-- book section -->
+
   <div class="cseat">
  
       <label>Pick a movie:</label>
@@ -240,6 +247,7 @@
    <center> <p class="text">
       You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
     </p></center>
+
 
   <!-- end book section -->
 
@@ -343,8 +351,10 @@
   <script src="js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+
     
   <script src="all.js"></script>
+
   </script>
   <!-- End Google Map -->
 
