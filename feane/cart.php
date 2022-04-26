@@ -178,6 +178,8 @@ session_start();
                                 <tr align="center">
                                     <th> </th>
                                     <th>商品名稱</th>
+                                    <th>副餐</th>
+                                    <th>醬料</th>
                                     <th>價格</th>
                                     <th>數量</th>
                                     <th>總價</th>
