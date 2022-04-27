@@ -106,11 +106,7 @@ session_start();
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
-            <?php
-              if ($_SESSION["member_name"]){
-                ?>
-                
-                <a style="color: white"><?php echo $_SESSION["member_name"]?><a>
+            
             <div class="user_option">
             
 
@@ -176,16 +172,20 @@ session_start();
                   </g>
                 </svg>
               </a>
-              
               <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                ?>
+               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
+                  
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -205,14 +205,11 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
+                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
-                    <p>
-                      檸檬椒鹽雞胸，清爽無負擔
-                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -227,7 +224,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
@@ -249,7 +246,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
+                <img src="images/sss.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
