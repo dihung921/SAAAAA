@@ -1,6 +1,7 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root");
+
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -12,6 +13,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $sql="select phone from member where phone='$phone'";
   $result=mysqli_query($link,$sql);
   if(mysqli_num_rows($result) >= 1){
+    
     echo "<script>{window.alert('此手機號碼已被註冊！'); location.href='register.php'}</script>";
   }
   else{

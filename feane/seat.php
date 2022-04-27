@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 
@@ -210,73 +211,60 @@
     </ul>
 </div>
     <div class="container2">
-      <div class="screen"></div>
-      <div class="screen2"></div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+    <div class="wrapper">
+
+      <div class="two"> 
+        <div class="seat"><h6>1</h6></div>
+        <div class="seat"><h6>2</h6></div>
+        <div class="seat"><h6>3</h6></div>
+        <div class="seat"><h6>4</h6></div>
+        <div class="seat"><h6>5</h6></div>
       </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat selected"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-      </div>
+
+      <div class="three"> 
+        <div class="row">
+        <div class="seat"><h6>6</h6></div>
+        <div class="seat"><h6>7</h6></div>
+        <div class="seat"><h6>8</h6></div>
+        <div class="seat"><h6>9</h6></div>
+        <div class="seat"><h6>10</h6></div>
+       
+      </div></div>
+
+      <div class="four">
       
+      <div class="seat3"><h6>11</h6></div>
+      <div class="seat3"><h6>13</h6></div>
+      </div>
+
+     <div class="five">
+      <div class="seat3"><h6>12</h6></div>
+      <div class="seat3"><h6>14</h6></div>
+    </div>
+
+    <div class="six">
+      <div class="seat2"><h6>15</h6></div>
+      <div class="seat2"><h6>16</h6></div>
+    </div>
+
+    <div class="seven">
+      <div class="seat4"><center>櫃檯</center></div>
+    </div>
+
+    <div class="eight">
+      <div class="seat4"><center>自助餐具區</center></div>
+    </div>
+
+      
+
+      
+      
+        
       </div>
     </div>
 </div>
 </div>
+
 
    <center> <p class="text">
       您已選擇 <span id="count">0</span> 位置 for a price of $<span id="total">0</span>
@@ -393,5 +381,6 @@
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+
 </html>

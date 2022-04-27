@@ -1,7 +1,8 @@
 <?php
    session_start();
-   $link = mysqli_connect("localhost", "root" , "12345678","sa");
-   
+
+   $link = mysqli_connect("localhost", "root","12345678","sa");
+
 //                         
 //   if(isset($_SESSION["account_name"])){
 //           header("Location:index.php");
