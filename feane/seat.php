@@ -202,7 +202,7 @@
       </li>
       <li>
         <div class="seat selected"></div>
-        <small>Selected</small>
+        <small>選擇</small>
       </li>
       <li>
         <div class="seat occupied"></div>
