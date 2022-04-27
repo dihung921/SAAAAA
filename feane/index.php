@@ -97,7 +97,6 @@ session_start();
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
-            
             <div class="user_option">
 
 
@@ -108,7 +107,6 @@ session_start();
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -169,7 +167,7 @@ session_start();
               if ($_SESSION["member_name"]){
                 echo $_SESSION["member_name"];
                   ?>
-                  已登入
+                  
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
