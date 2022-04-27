@@ -42,6 +42,7 @@ session_start();
 </head>
 
 <body>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -87,10 +88,13 @@ session_start();
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="menu.php">菜單</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
+                <a class="nav-link" href="book.php">店內座位狀況</a>
               </li>
             </ul>
             
@@ -193,7 +197,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/檸檬椒鹽雞胸.jpeg" width="55%" alt="" align="right"> 
+                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
@@ -215,13 +219,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="55%" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      捲捲系列，給不太餓的你
+                      
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -237,13 +241,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/韓式風味牛.jpeg" width="55%" alt="" align="right"> 
+                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                    韓式風味牛
+                      
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -287,12 +291,14 @@ session_start();
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
+
         <a  style="text-decoration: none" href="#classic"><li>經典餐盒</li></a>
         <a href="#roll"><li>輕食捲捲</li></a>
         <a href="#salad"><li>沙拉水果盒</li></a>
         <a href="#main"><li>主食單品</li></a>
         <a href="#other"><li>其他單品</li></a>
         <a href="#drink"><li>飲料</li></a>
+
       </ul>
     
       <br>
@@ -301,13 +307,16 @@ session_start();
       
           <div class="row grid">
             <div class="col-sm-6 col-lg-4 all classic">   
-              <form action="" method="post" >
+              <form action="con.php" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
                                 <img src="images/義式香草雞胸.jpeg" style="border-radius: 5px;">
                                 <div class="modal-body" style="color: black;">
                                   <h5>義式香草雞胸（62kcal）</h5>
+
+                                  <input type="hidden" name ="mealname" value="1">
+
                                   <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                   <hr>
                                   <p>選擇副餐</p>
@@ -332,7 +341,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <p>餐點備註</p>
-                                  <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                  <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                   <div class="goods_num clearfix">
                                   <p class="num_name fl">訂購數量</p>
                                   <p class="num_add fl">
@@ -398,7 +407,7 @@ session_start();
 
             <div class="col-sm-6 col-lg-4 all classic">
             
-            <form action="" method="post" >
+            <form action="con.php" method="post" >
               
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
@@ -406,6 +415,8 @@ session_start();
                                   <img src="images/朝日咖哩雞胸.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
+
+                                    <input type="hidden" name ="mealname" value="2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -430,7 +441,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -495,13 +506,14 @@ session_start();
               </div>
 
             <div class="col-sm-6 col-lg-4 all classic">
-              <form action="" method="post" >
+              <form action="con.php" method="post" >
                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" role="dialog">
                   <div class="modal-dialog" role="document" id="exampleModalLabel2">
                     <div class="modal-content" style="padding: 20px 20px;">
                       <img src="images/檸檬椒鹽雞胸.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>檸檬椒鹽雞胸（63kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="3">
                                     <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -526,7 +538,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -591,13 +603,14 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel3">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/墨西哥紅椒雞胸.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥紅椒雞胸（80kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="4">
                                     <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -622,7 +635,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -687,13 +700,14 @@ session_start();
               </div>
 
           <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel4">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/法式香榭雞腿.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>法式香榭雞腿（170kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="5">
                                     <h6>蛋白質15.82g 脂肪8.82g 碳水6.91g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -718,7 +732,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -783,13 +797,14 @@ session_start();
               </div>
 
           <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel5">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/日式薑燒豬.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>日式薑燒豬（194kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="6">
                                     <h6>蛋白質16.5g 脂肪12.75g 碳水2.25g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -814,7 +829,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -879,13 +894,14 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel6">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/韓式風味牛.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>韓式風味牛（161kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="7">
                                     <h6>蛋白質11.5g 脂肪11.2g 碳水3.5g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -910,7 +926,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -975,13 +991,14 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel7">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/泰式打拋豬.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>泰式打拋豬（176kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="8">
                                     <h6>蛋白質16g 脂肪8g 碳水10g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -1006,7 +1023,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1071,13 +1088,14 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel8" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel8">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/普羅旺斯鯛魚.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>普羅旺斯鯛魚（79kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="9">
                                     <h6>蛋白質15.6g 脂肪1.84g 碳水0.16g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -1102,7 +1120,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1167,13 +1185,14 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel9" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel9">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/素食綜合野菇.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>素食綜合野菇（78kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="10">
                                     <h6>蛋白質5.63g 脂肪0.46g 碳水12.82g</h6>
                                     <hr>
                                     <p>選擇副餐</p>
@@ -1198,7 +1217,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1269,15 +1288,16 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel10" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel10">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥嫩雞捲</h5>
+                                    <input type="hidden" name ="mealname" value="捲1">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1339,15 +1359,16 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel11" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel11">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式起司牛肉捲</h5>
+                                    <input type="hidden" name ="mealname" value="捲2">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1411,15 +1432,16 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel12" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel12">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>地瓜起司嫩雞捲</h5>
+                                    <input type="hidden" name ="mealname" value="捲3">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1488,17 +1510,18 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all salad">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel13" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel13">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>季節水果盒</h5>
+                                    <input type="hidden" name ="mealname" value="沙拉1">
                                     <h6>360ml/份<br>
                                         (水果種類隨季節調整)</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1560,12 +1583,13 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all salad">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel14" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel14">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>陽光沙拉盒</h5>
+                                    <input type="hidden" name ="mealname" value="沙拉2">
                                     <h6>360ml/份<br>
                                         (配菜種類隨季節調整)<br>
                                         可以到主食單品區加點主食，補充蛋白質哦！</h6>
@@ -1583,7 +1607,7 @@ session_start();
                                     <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1651,16 +1675,17 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel15" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel15">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式香草雞胸（62kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品1">
                                     <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1725,16 +1750,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel16" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel16">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1799,16 +1825,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal17" tabindex="-1" aria-labelledby="exampleModalLabel17" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel17">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>檸檬椒鹽雞胸（63kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品3">
                                     <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1873,16 +1900,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel18" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel18">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥紅椒雞胸（80kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品4">
                                     <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1947,16 +1975,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal19" tabindex="-1" aria-labelledby="exampleModalLabel19" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel19">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>法式香榭雞腿（170kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品5">
                                     <h6>蛋白質15.82g 脂肪8.82g 碳水6.91g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2021,16 +2050,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel20" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel20">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>韓式風味牛（161kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品6">
                                     <h6>蛋白質11.5g 脂肪11.2g 碳水3.5g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2095,16 +2125,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal21" tabindex="-1" aria-labelledby="exampleModalLabel21" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel21">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>日式薑燒豬（194kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品7">
                                     <h6>蛋白質16.5g 脂肪12.8g 碳水2.25g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2169,16 +2200,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel22" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel22">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>泰式打拋豬（176kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品8">
                                     <h6>蛋白質16g 脂肪8g 碳水10g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2243,16 +2275,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal23" tabindex="-1" aria-labelledby="exampleModalLabel23" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel23">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>普羅旺斯鯛魚（79kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品9">
                                     <h6>蛋白質15.6g 脂肪1.84g 碳水0.16g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2317,16 +2350,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal24" tabindex="-1" aria-labelledby="exampleModalLabel24" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel24">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>素食綜合野菇（78kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="單品10">
                                     <h6>蛋白質5.6g 脂肪0.46g 碳水12.8g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2398,17 +2432,18 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal25" tabindex="-1" aria-labelledby="exampleModalLabel25" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel25">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水煮青菜（36kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他1">
                                     <h6>蛋白質2.59g 脂肪2.02g 碳水3.31g<br>
                                         (青菜種類隨季節調整)</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2473,16 +2508,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal26" tabindex="-1" aria-labelledby="exampleModalLabel26" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel26">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>紅藜白飯（274kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他2">
                                     <h6>蛋白質4.88g 脂肪0.51g 碳水62.28g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2547,16 +2583,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal27" tabindex="-1" aria-labelledby="exampleModalLabel27" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel27">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>整顆溏心蛋（48kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他3">
                                     <h6>蛋白質5.2g 脂肪2.8g 碳水0.6g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2621,16 +2658,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal28" tabindex="-1" aria-labelledby="exampleModalLabel28" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel28">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>焙煎胡麻醬（87kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他4">
                                     <h6>蛋白質0.52g 脂肪8.26g 碳水2.41g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2695,16 +2733,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal29" tabindex="-1" aria-labelledby="exampleModalLabel29" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel29">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式油醋醬（44kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他5">
                                     <h6>蛋白質0.06g 脂肪4.26g 碳水1.56g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2769,16 +2808,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal30" tabindex="-1" aria-labelledby="exampleModalLabel30" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel30">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>奇亞芥末醬（43kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他6">
                                     <h6>蛋白質0.15g 脂肪3g 碳水3.75g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2843,16 +2883,17 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal31" tabindex="-1" aria-labelledby="exampleModalLabel31" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel31">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水果塔塔醬（36kcal）</h5>
+                                    <input type="hidden" name ="mealname" value="其他7">
                                     <h6>蛋白質0g 脂肪2.25g 碳水3.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2874,7 +2915,7 @@ session_start();
                                               var total = num * price1;
                                               $('#price31').html(total.toFixed(0));
                                           });
-                                          
+                                        
                                           //減號
                                           $('.minus').click(function () {
                                               if(num>1){
@@ -2924,19 +2965,20 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal32" tabindex="-1" aria-labelledby="exampleModalLabel32" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel32">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>伯爵鮮奶茶</h5>
+                                    <input type="hidden" name ="mealname" value="飲料1">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2998,19 +3040,20 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal33" tabindex="-1" aria-labelledby="exampleModalLabel33" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel33">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式咖啡</h5>
+                                    <input type="hidden" name ="mealname" value="飲料2">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3072,19 +3115,20 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal34" tabindex="-1" aria-labelledby="exampleModalLabel34" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel34">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>咖啡歐蕾</h5>
+                                    <input type="hidden" name ="mealname" value="飲料3">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3146,18 +3190,19 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal35" tabindex="-1" aria-labelledby="exampleModalLabel35" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel35">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖綠茶</h5>
+                                    <input type="hidden" name ="mealname" value="飲料4">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                     <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3219,18 +3264,19 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="" method="post" > 
+                <form action="con.php" method="post" > 
                   <div class="modal fade" id="exampleModal36" tabindex="-1" aria-labelledby="exampleModalLabel36" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel36">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖紅茶</h5>
+                                    <input type="hidden" name ="mealname" value="飲料5">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                     <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3379,18 +3425,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>

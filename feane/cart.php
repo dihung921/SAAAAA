@@ -189,6 +189,7 @@ session_start();
                             <tbody align="center">
                                 <tr>
                                     <td class="thumbnail-img">
+<<<<<<< HEAD
                                         <a href="#">
                                           <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
 								                        </a>
@@ -207,6 +208,15 @@ session_start();
                                         <a href="#">
                                           義式油醋醬（44kcal）
                                         </a>
+=======
+                                        <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
+								        </a>
+                                    </td>
+                                    <td class="name-pr">
+                                        
+									日式薑燒豬
+								</a>
+>>>>>>> 4d7f27ab3b167c2a9dec430addd2492ed3f4dd1e
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 80.0</p>
@@ -216,13 +226,20 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
+<<<<<<< HEAD
                                         <a href="">
                                           <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								                        </a>
+=======
+                                        <a href="delete.php">
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
+								</a>
+>>>>>>> 4d7f27ab3b167c2a9dec430addd2492ed3f4dd1e
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
+<<<<<<< HEAD
                                         <a href="#">
                                           <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
 								                        </a>
@@ -241,6 +258,16 @@ session_start();
                                         <a href="#">
                                           焙煎胡麻醬（87kcal）
                                         </a>
+=======
+                                        
+                                        <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        
+									普羅旺斯鯛魚
+								</a>
+>>>>>>> 4d7f27ab3b167c2a9dec430addd2492ed3f4dd1e
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 60.0</p>
@@ -250,13 +277,20 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
+<<<<<<< HEAD
                                         <a href="#">
                                           <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								                        </a>
+=======
+                                        <a href="delete.php">
+                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
+								</a>
+>>>>>>> 4d7f27ab3b167c2a9dec430addd2492ed3f4dd1e
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
+<<<<<<< HEAD
                                         <a href="#">
                                           <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
 								                        </a>
@@ -275,6 +309,16 @@ session_start();
                                         <a href="#">
                                           水果塔塔醬（36kcal）
                                         </a>
+=======
+                                        
+                                        <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        
+									檸檬椒鹽雞胸
+								</a>
+>>>>>>> 4d7f27ab3b167c2a9dec430addd2492ed3f4dd1e
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 30.0</p>
@@ -284,7 +328,7 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="#">
+                                        <a href="delete.php">
                                         <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
@@ -379,18 +423,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>

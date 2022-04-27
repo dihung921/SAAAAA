@@ -1,14 +1,14 @@
 <?php
 
- $phone = $_GET["phone"];
+ $cart_id = $_GET["cart_id"];
  $link = mysqli_connect("localhost","root","12345678", "sa");
- $sql = "delete from detail where detail_id = '$detail_id'";
+ $sql = "delete from cart where cart_id = '$cart_id'";
  if(mysqli_query($link,$sql))
  {
-     header('location:message.php?method=message&message=刪除成功');
+    echo "<script>{window.alert('刪除成功！'); location.href='cart.php'}</script>";
  }
     else{
-        header('location:message.php?method=message&message=刪除失敗');
+        echo "<script>{window.alert('刪除失敗！'); location.href='cart.php'}</script>";
     }
     
 ?>
