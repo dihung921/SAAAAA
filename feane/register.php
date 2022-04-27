@@ -289,7 +289,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM
