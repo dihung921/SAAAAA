@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -52,11 +49,13 @@ session_start();
               <span aria-hidden="true"></span>
             </button>
           </div>
-          <center><div class="modal-body">
-            <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
-          </div></center>
+          <center>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
+            </div>
+          </center>
 </div>
         </div>
       </div>
@@ -174,10 +173,10 @@ session_start();
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -197,14 +196,11 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
+                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
-                    <p>
-                      檸檬椒鹽雞胸，清爽無負擔
-                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -219,7 +215,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
@@ -241,7 +237,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
+                <img src="images/韓式風味牛.jpeg" width="50%" height="400px" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
@@ -291,13 +287,12 @@ session_start();
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
-
-        <a  style="text-decoration: none" href="#classic"><li>經典餐盒</li></a>
-        <a href="#roll"><li>輕食捲捲</li></a>
-        <a href="#salad"><li>沙拉水果盒</li></a>
-        <a href="#main"><li>主食單品</li></a>
-        <a href="#other"><li>其他單品</li></a>
-        <a href="#drink"><li>飲料</li></a>
+        <a href="#classic" style="text-decoration:none;color:black;"><li>經典餐盒</li></a>
+        <a href="#roll" style="text-decoration:none;color:black;"><li>輕食捲捲</li></a>
+        <a href="#salad" style="text-decoration:none;color:black;"><li>沙拉水果盒</li></a>
+        <a href="#main" style="text-decoration:none;color:black;"><li>主食單品</li></a>
+        <a href="#other" style="text-decoration:none;color:black;"><li>其他單品</li></a>
+        <a href="#drink" style="text-decoration:none;color:black;"><li>飲料</li></a>
 
       </ul>
     
@@ -3445,10 +3440,10 @@ session_start();
             健康飲食好夥伴
             </p>
             <div class="footer_social">
-              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal" style="text-decoration:none;" >
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/storyboxtw/">
+              <a href="https://www.instagram.com/storyboxtw/" style="text-decoration:none;">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
             </div>
