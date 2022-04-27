@@ -55,7 +55,24 @@ session_start();
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
             <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
+
+             
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-footer">
+                  請輸入桌號：<input>
+                  <button type="button" class="btn btn-warning">確認</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+           
           </div></center>
 </div>
         </div>
