@@ -1,7 +1,7 @@
 <?php
    session_start();
 
-   $link = mysqli_connect("localhost", "root","12345678","sa");
+   $link = mysqli_connect("localhost", "root");
    mysqli_select_db($link,"sa");
    
 
@@ -12,7 +12,7 @@
    if(isset($_POST["phone"])&& isset($_POST["password"])){
        $phone = $_POST["phone"];
        $password = $_POST["password"];
-       $sql="select * from `member` where phone ='$phone'";
+       $sql="select * from member where phone ='$phone'";
        $rs=mysqli_query($link,$sql);
       
    if($row = mysqli_fetch_array($rs)){
