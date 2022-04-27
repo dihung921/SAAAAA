@@ -199,7 +199,10 @@
       </li>
       <li>
         <div class="seat selected"></div>
-        <small>您的選擇</small>
+
+        <small>選擇</small>
+
+
       </li>
       <li>
         <div class="seat occupied"></div>

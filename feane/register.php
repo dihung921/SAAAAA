@@ -2,16 +2,19 @@
 session_start();
 
 $link=mysqli_connect("localhost","root","12345678","sa");
-
+if(!$link){
+  echo "ERROR DB";
+}
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
   $name=$_POST["name"];
   $email=$_POST["email"];
   $phone=$_POST["phone"];
   $password=$_POST["password"];
-  echo $name,$email,$phone,$password;
+  
   $sql="select phone from `member` where phone='$phone'";
   $result=mysqli_query($link,$sql);
+  var_dump($result);
   if(mysqli_num_rows($result) >= 1){
     
     echo "<script>{window.alert('此手機號碼已被註冊！'); location.href='register.php'}</script>";
