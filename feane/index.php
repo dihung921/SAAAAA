@@ -63,7 +63,7 @@ session_start();
               <div class="modal-content">
               <div class="modal-footer">
                   請輸入桌號：<input>
-                  <button type="button" class="btn btn-warning">確認</button>
+                  <button type="button" class="btn btn-warning"data-dismiss="modal">確認</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
                   
                 </div>
@@ -316,12 +316,12 @@ session_start();
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
 
-        <a  style="text-decoration: none" href="#classic"><li>經典餐盒</li></a>
-        <a href="#roll"><li>輕食捲捲</li></a>
-        <a href="#salad"><li>沙拉水果盒</li></a>
-        <a href="#main"><li>主食單品</li></a>
-        <a href="#other"><li>其他單品</li></a>
-        <a href="#drink"><li>飲料</li></a>
+        <a style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
+        <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
+        <a style="text-decoration: none; color:black;" href="#other"><li>其他單品</li></a>
+        <a style="text-decoration: none; color:black;" href="#drink"><li>飲料</li></a>
 
       </ul>
     
