@@ -312,7 +312,7 @@ session_start();
                                 <img src="images/義式香草雞胸.jpeg" style="border-radius: 5px;">
                                 <div class="modal-body" style="color: black;">
                                   <h5>義式香草雞胸（62kcal）</h5>
-                                  <input type="hidden" name="1">
+                                  <input type="hidden" name="mealname" value="1">
                                   <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                   <hr>
                                   <p>選擇副餐</p>
@@ -403,7 +403,7 @@ session_start();
 
             <div class="col-sm-6 col-lg-4 all classic">
             
-            <form action="" method="post" >
+            <form action="con.php" method="post" >
               
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
@@ -411,33 +411,32 @@ session_start();
                                   <img src="images/朝日咖哩雞胸.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
+                                    <input type="hidden" name="mealname" value="2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
-                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
-                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>選擇副餐</p>
-                                    <label><input type="radio" name="sidemeal" value=""> 紅藜白飯（274kcal）</label>
+                                    <label><input type="radio" name="sidemeal" value="1"> 紅藜白飯（274kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <br>
-                                    <label><input type="radio" name="sidemeal" value=""> 食蔬半飯（157kcal）</label>
+                                    <label><input type="radio" name="sidemeal" value="2"> 食蔬半飯（157kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <br>
-                                    <label><input type="radio" name="sidemeal" value=""> 地瓜食蔬（109kcal）</label>
+                                    <label><input type="radio" name="sidemeal" value="3"> 地瓜食蔬（109kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <p>選擇醬料</p>
-                                    <label><input type="radio" name="sauce" value=""> 焙煎胡麻醬（87kcal）</label>
+                                    <label><input type="radio" name="sauce" value="1"> 焙煎胡麻醬（87kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <br>
-                                    <label><input type="radio" name="sauce" value=""> 義式油醋醬（44kcal）</label>
+                                    <label><input type="radio" name="sauce" value="2"> 義式油醋醬（44kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <br>
-                                    <label><input type="radio" name="sauce" value=""> 奇亞芥末醬（43kcal）</label>
+                                    <label><input type="radio" name="sauce" value="3"> 奇亞芥末醬（43kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <br>
-                                    <label><input type="radio" name="sauce" value=""> 水果塔塔醬（36kcal）</label>
+                                    <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
