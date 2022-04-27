@@ -76,7 +76,16 @@ session_start();
             <span>
               方禾食呂
             </span>
-          </a>
+              </a>
+              <div   class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-warning" for="btnradio1"> &nbsp自取&nbsp </label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-warning" for="btnradio2"> &nbsp內用&nbsp </label>
+
+             </div>
+
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -97,8 +106,9 @@ session_start();
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
+            
             <div class="user_option">
-
+            
 
             <?php
             if ($_SESSION["member_name"]){
@@ -107,6 +117,7 @@ session_start();
             </a>";
             }
             ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -161,21 +172,20 @@ session_start();
                   </g>
                 </svg>
               </a>
-              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
+                ?>
+               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
                   
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -195,14 +205,11 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
+                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
-                    <p>
-                      檸檬椒鹽雞胸，清爽無負擔
-                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -217,7 +224,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
@@ -239,7 +246,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
+                <img src="images/sss.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
@@ -3793,7 +3800,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
-</script>
+
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
