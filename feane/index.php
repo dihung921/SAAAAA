@@ -96,9 +96,7 @@ session_start();
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
+             
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
@@ -108,7 +106,7 @@ session_start();
             </ul>
             
             <div class="user_option">
-            
+
 
             <?php
             if ($_SESSION["member_name"]){
@@ -172,20 +170,21 @@ session_start();
                   </g>
                 </svg>
               </a>
+              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
-               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
-                  
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
@@ -205,11 +204,14 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
+                    <p>
+                      檸檬椒鹽雞胸，清爽無負擔
+                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -224,13 +226,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="49%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      
+                    捲餅系列，給不太餓的你
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -246,13 +248,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="50%" alt="" align="right"> 
+                <img src="images/韓式風味牛.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                      
+                    店長推薦！
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -3800,6 +3802,8 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
+
+rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
