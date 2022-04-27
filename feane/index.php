@@ -69,16 +69,25 @@ if(isset($_POST['way'])){
           </div>
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
-            <form action="index.php" method="post">
-            <input name= "way" value="0" type="hidden">
-            <button class="btn btn-warning" data-dismiss="modal">內用</button>
-          </form>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
 
-            <form action="index.php" method="post">
-            <input name= "way" value="1" type="hidden">
-            <button class="btn btn-warning" data-dismiss="modal">外帶自取</button>
-          </form>
-            
+             
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-footer">
+                  請輸入桌號：<input>
+                  <button type="button" class="btn btn-warning">確認</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+           
           </div></center>
 </div>
         </div>
@@ -119,9 +128,7 @@ if(isset($_POST['way'])){
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
+             
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
@@ -131,7 +138,7 @@ if(isset($_POST['way'])){
             </ul>
             
             <div class="user_option">
-            
+
 
             <?php
             if ($_SESSION["member_name"]){
@@ -194,20 +201,21 @@ if(isset($_POST['way'])){
                   </g>
                 </svg>
               </a>
+              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
-               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
-                  
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
@@ -227,11 +235,14 @@ if(isset($_POST['way'])){
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
+                    <p>
+                      檸檬椒鹽雞胸，清爽無負擔
+                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -246,13 +257,13 @@ if(isset($_POST['way'])){
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="49%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      
+                    捲餅系列，給不太餓的你
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -268,13 +279,13 @@ if(isset($_POST['way'])){
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="50%" alt="" align="right"> 
+                <img src="images/韓式風味牛.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                      
+                    店長推薦！
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">

@@ -1,8 +1,5 @@
 <?php
 session_start();
-if(isset($_POST["phone"])){
-
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,6 +41,9 @@ if(isset($_POST["phone"])){
     <link rel="stylesheet" href="css/responsive1.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+    
 
 </head>
 
@@ -146,17 +146,17 @@ if(isset($_POST["phone"])){
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
-               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
-                  
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
@@ -192,22 +192,22 @@ if(isset($_POST["phone"])){
                             <tbody align="center">
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
+                                        
                                           <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
 								                        </a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
                                           日式薑燒豬
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                       
                                           紅藜白飯（274kcal）
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                        
                                           義式油醋醬（44kcal）
                                         </a>
                                     </td>
@@ -226,22 +226,22 @@ if(isset($_POST["phone"])){
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
+                                        
                                           <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
 								                        </a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
                                           普羅旺斯鯛魚
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                        
                                           食蔬半飯（157kcal）
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                        
                                           焙煎胡麻醬（87kcal）
                                         </a>
                                     </td>
@@ -260,22 +260,22 @@ if(isset($_POST["phone"])){
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
+                                       
                                           <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
 								                        </a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
                                           檸檬椒鹽雞胸
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                        
                                           地瓜食蔬（109kcal）
                                         </a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
+                                        
                                           水果塔塔醬（36kcal）
                                         </a>
                                     </td>
@@ -303,7 +303,7 @@ if(isset($_POST["phone"])){
             <div class="col-12" >
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
-                        <input value="繼續選購" type="submit" onclick="location.href='index.php'">
+                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
                 </div>
             </div>
@@ -311,14 +311,13 @@ if(isset($_POST["phone"])){
             
             <div class="col-sm-6 col-lg-4 all classic">
             <form action="" method="post" >
-              
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
-                                  <div class="modal-content" style="padding: 20px 20px;">
+                                  <div class="modal-content" style="padding: 40px 40px;">
                                   <div class="modal-body" style="color: black;">
                                     <h4>請選擇您的付款方式:</h4><hr>
                                     <center>
-                                      <div class="col-16 d-flex shopping-box">
+                                      <div class="col-30 d-flex justify-content-around shopping-box">
                                       <a class="ml-auto btn hvr-hover">line pay</a>
                                       <a class="ml-auto btn hvr-hover">apple pay</a>
                                       <a class="ml-auto btn hvr-hover">街口支付</a>
@@ -338,9 +337,9 @@ if(isset($_POST["phone"])){
               <div class="box" data-toggle="modal" data-target="#exampleModal1">
                      
                   <div class="detail-box">
-                  <div class="row my-8">
+                  <div class="row my-12">
                     <div class="col-lg-12 col-sm-12"></div>
-                        <div class="col-lg-20 col-sm-20">
+                        <div class="col-lg-15 col-sm-15">
                             <div class="order-box">
                                 <div class="d-flex gr-total">
                                     <h5>總金額</h5>
@@ -349,7 +348,8 @@ if(isset($_POST["phone"])){
                                         <a class="ml-auto btn hvr-hover">結帳</a> 
                                       </div>
                                     </div>
-                                <hr> 
+                                    <hr> 
+                                </div>
                             </div>
                         </div>
                     </div>
