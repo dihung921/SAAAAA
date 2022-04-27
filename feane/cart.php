@@ -178,6 +178,8 @@ session_start();
                                 <tr align="center">
                                     <th> </th>
                                     <th>商品名稱</th>
+                                    <th>副餐</th>
+                                    <th>醬料</th>
                                     <th>價格</th>
                                     <th>數量</th>
                                     <th>總價</th>
@@ -187,12 +189,11 @@ session_start();
                             <tbody align="center">
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
                                         <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
 								        </a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
 									日式薑燒豬
 								</a>
                                     </td>
@@ -204,19 +205,19 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="">
+                                        <a href="delete.php">
                                         <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
+                                        
                                         <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
 								</a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
 									普羅旺斯鯛魚
 								</a>
                                     </td>
@@ -228,19 +229,19 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="#">
+                                        <a href="delete.php">
                                         <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <a href="#">
+                                        
                                         <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
 								</a>
                                     </td>
                                     <td class="name-pr">
-                                        <a href="#">
+                                        
 									檸檬椒鹽雞胸
 								</a>
                                     </td>
@@ -252,7 +253,7 @@ session_start();
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
-                                        <a href="#">
+                                        <a href="delete.php">
                                         <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
@@ -308,18 +309,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>
