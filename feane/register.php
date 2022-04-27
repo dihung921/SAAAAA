@@ -11,8 +11,8 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $email=$_POST["email"];
   $phone=$_POST["phone"];
   $password=$_POST["password"];
+  
   $sql="select phone from `member` where phone='$phone'";
-  echo($sql);
   $result=mysqli_query($link,$sql);
   var_dump($result);
   if(mysqli_num_rows($result) >= 1){
