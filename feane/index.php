@@ -380,8 +380,16 @@ session_start();
                                 </div>   
                                 </div>
                                 <div class="modal-footer">
-                                  <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                  <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
                                 </div>
                             </div>
                             </div>
@@ -480,9 +488,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -577,9 +593,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -674,9 +698,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -771,9 +803,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -868,9 +908,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -965,9 +1013,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1062,9 +1118,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1159,9 +1223,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1256,9 +1328,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1336,9 +1416,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1407,9 +1495,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1480,9 +1576,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1560,9 +1664,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1646,9 +1758,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1724,9 +1844,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1799,9 +1927,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1874,9 +2010,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -1949,9 +2093,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2024,9 +2176,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2099,9 +2259,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2174,9 +2342,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2249,9 +2425,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2324,9 +2508,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2399,9 +2591,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2482,9 +2682,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2557,9 +2765,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2632,9 +2848,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2707,9 +2931,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2782,9 +3014,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2857,9 +3097,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -2932,9 +3180,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -3017,9 +3273,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -3092,9 +3356,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -3167,9 +3439,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -3241,9 +3521,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
@@ -3315,9 +3603,17 @@ session_start();
                                   </div>   
                                   </div>
                                   <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="新增至購物車"  class="btn btn-warning">
-                                  </div>
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
+                                </div>
                               </div>
                               </div>
                           </div>        
