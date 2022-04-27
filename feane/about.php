@@ -132,17 +132,17 @@ session_start();
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
-                  已登入
+                ?>
+               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
+                  
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -220,9 +220,9 @@ session_start();
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -238,7 +238,7 @@ session_start();
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM

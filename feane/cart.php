@@ -69,6 +69,9 @@ else{
     <link rel="stylesheet" href="css/responsive1.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+    
 
 </head>
 
@@ -171,17 +174,17 @@ else{
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
-                  已登入
+                ?>
+               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
+                  
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -199,7 +202,7 @@ else{
   <div class="cart-box-main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-15">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
@@ -217,13 +220,24 @@ else{
                             <tbody align="center">
                                 <tr>
                                     <td class="thumbnail-img">
-                                        <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
-								        </a>
+                                        
+                                          <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
+								                        </a>
                                     </td>
                                     <td class="name-pr">
                                         
-									日式薑燒豬
-								</a>
+                                          日式薑燒豬
+                                        </a>
+                                    </td>
+                                    <td class="name">
+                                       
+                                          紅藜白飯（274kcal）
+                                        </a>
+                                    </td>
+                                    <td class="name">
+                                        
+                                          義式油醋醬（44kcal）
+                                        </a>
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 80.0</p>
@@ -246,27 +260,66 @@ else{
             
             
             <div class="row justify-content-end">
-            <div class="col-5 ">
+            <div class="col-12" >
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
-                        <input value="繼續選購" type="submit" onclick="location.href='index.php'">
+                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
                 </div>
             </div>
 
-            <div class="row my-5">
-                <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-12 col-sm-12">
-                    <div class="order-box">
-                        
-                        <div class="d-flex gr-total">
-                            <h5>總金額</h5>
-                            <div class="ml-auto h5"> $ 388 </div>
+            
+            <div class="col-sm-6 col-lg-4 all classic">
+            <form action="" method="post" >
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel1">
+                                  <div class="modal-content" style="padding: 40px 40px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h4>請選擇您的付款方式:</h4><hr>
+                                    <center>
+                                      <div class="col-30 d-flex justify-content-around shopping-box">
+                                      <a class="ml-auto btn hvr-hover">line pay</a>
+                                      <a class="ml-auto btn hvr-hover">apple pay</a>
+                                      <a class="ml-auto btn hvr-hover">街口支付</a>
+                                      <a class="ml-auto btn hvr-hover">信用卡支付</a>    
+                                      </div>
+                                    </center>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="送出"  class="btn btn-warning ">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+              <div class="box" data-toggle="modal" data-target="#exampleModal1">
+                     
+                  <div class="detail-box">
+                  <div class="row my-12">
+                    <div class="col-lg-12 col-sm-12"></div>
+                        <div class="col-lg-15 col-sm-15">
+                            <div class="order-box">
+                                <div class="d-flex gr-total">
+                                    <h5>總金額</h5>
+                                    <div class="ml-auto h5" align="center"> $ 388 </div>
+                                      <div class="col-8 d-flex shopping-box">
+                                        <a class="ml-auto btn hvr-hover">結帳</a> 
+                                      </div>
+                                    </div>
+                                    <hr> 
+                                </div>
+                            </div>
                         </div>
-                        <hr> </div>
+                    </div>
+                    
+                    <div class="options">
+                      
+                    </div>
+                  </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">結帳</a> </div>
-            </div>
+              </div>
 
         </div>
     </div>
@@ -284,16 +337,16 @@ else{
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -305,15 +358,15 @@ else{
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
