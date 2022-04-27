@@ -307,7 +307,7 @@ session_start();
       
           <div class="row grid">
             <div class="col-sm-6 col-lg-4 all classic">   
-              <form action="con.php" method="post" >
+              <form action="con1.php" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
@@ -407,7 +407,7 @@ session_start();
 
             <div class="col-sm-6 col-lg-4 all classic">
             
-            <form action="con.php" method="post" >
+            <form action="con1.php" method="post" >
               
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
@@ -506,7 +506,7 @@ session_start();
               </div>
 
             <div class="col-sm-6 col-lg-4 all classic">
-              <form action="con.php" method="post" >
+              <form action="con1.php" method="post" >
                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" role="dialog">
                   <div class="modal-dialog" role="document" id="exampleModalLabel2">
                     <div class="modal-content" style="padding: 20px 20px;">
@@ -603,7 +603,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel3">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -700,7 +700,7 @@ session_start();
               </div>
 
           <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel4">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -797,7 +797,7 @@ session_start();
               </div>
 
           <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel5">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -894,7 +894,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel6">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -991,7 +991,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel7">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1088,7 +1088,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel8" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel8">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1185,7 +1185,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all classic">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel9" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel9">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1288,7 +1288,7 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel10" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel10">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1359,7 +1359,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel11" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel11">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1432,7 +1432,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all roll">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel12" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel12">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1510,7 +1510,7 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all salad">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel13" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel13">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1583,7 +1583,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all salad">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel14" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel14">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1675,7 +1675,7 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel15" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel15">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1750,7 +1750,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel16" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel16">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1825,7 +1825,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal17" tabindex="-1" aria-labelledby="exampleModalLabel17" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel17">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1900,7 +1900,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel18" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel18">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -1975,7 +1975,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal19" tabindex="-1" aria-labelledby="exampleModalLabel19" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel19">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2050,7 +2050,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel20" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel20">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2125,7 +2125,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal21" tabindex="-1" aria-labelledby="exampleModalLabel21" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel21">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2200,7 +2200,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel22" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel22">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2275,7 +2275,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal23" tabindex="-1" aria-labelledby="exampleModalLabel23" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel23">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2350,7 +2350,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all main">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal24" tabindex="-1" aria-labelledby="exampleModalLabel24" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel24">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2432,7 +2432,7 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal25" tabindex="-1" aria-labelledby="exampleModalLabel25" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel25">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2508,7 +2508,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal26" tabindex="-1" aria-labelledby="exampleModalLabel26" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel26">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2583,7 +2583,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal27" tabindex="-1" aria-labelledby="exampleModalLabel27" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel27">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2658,7 +2658,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal28" tabindex="-1" aria-labelledby="exampleModalLabel28" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel28">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2733,7 +2733,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal29" tabindex="-1" aria-labelledby="exampleModalLabel29" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel29">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2808,7 +2808,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal30" tabindex="-1" aria-labelledby="exampleModalLabel30" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel30">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2883,7 +2883,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all other">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal31" tabindex="-1" aria-labelledby="exampleModalLabel31" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel31">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -2965,7 +2965,7 @@ session_start();
 
             <div class="row grid">
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal32" tabindex="-1" aria-labelledby="exampleModalLabel32" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel32">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -3040,7 +3040,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal33" tabindex="-1" aria-labelledby="exampleModalLabel33" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel33">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -3115,7 +3115,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal34" tabindex="-1" aria-labelledby="exampleModalLabel34" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel34">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -3190,7 +3190,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal35" tabindex="-1" aria-labelledby="exampleModalLabel35" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel35">
                                   <div class="modal-content" style="padding: 20px 20px;">
@@ -3264,7 +3264,7 @@ session_start();
               </div>
 
               <div class="col-sm-6 col-lg-4 all drink">
-                <form action="con.php" method="post" > 
+                <form action="con1.php" method="post" > 
                   <div class="modal fade" id="exampleModal36" tabindex="-1" aria-labelledby="exampleModalLabel36" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel36">
                                   <div class="modal-content" style="padding: 20px 20px;">
