@@ -76,25 +76,23 @@ if(isset($_POST["way"])){
             </button>
           </div>
           <center><div class="modal-body">
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <form action="index.php" method="post">
-                <input name= "way" value="1" type="hidden">  
-                <button class="btn btn-warning">外帶自取</button>
-              </form>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
-              
-
-             
+          <div class='d-grid gap-2 col-6 mx-auto'>
+                        <form action="index.php" method="post">
+                          <input name="way" value="1" type="hidden">  
+                          <button class='btn btn-warning'>自取</button>
+                        </form>
+            <form action="index.php" method="post">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
               <div class="modal-footer">
-                <form action="index.php" method="post">
-                <input name= "way" value="0" type="hidden">
-                  請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
-                  <button class="btn btn-warning">確認</button>
-                  <button class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
-                </form>
+              
+                          <input name= "way" value="0" type="hidden">
+                            請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
+                            <button class="btn btn-warning">確認</button>
+                            <button class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                            </form>
                   
                 </div>
                 
@@ -124,14 +122,6 @@ if(isset($_POST["way"])){
               方禾食呂
             </span>
               </a>
-              <div   class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-              <label class="btn btn-outline-warning" for="btnradio1"> &nbsp自取&nbsp </label>
-
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-              <label class="btn btn-outline-warning" for="btnradio2"> &nbsp內用&nbsp </label>
-
-             </div>
 
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
