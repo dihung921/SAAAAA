@@ -189,10 +189,7 @@
         <option value="14">座位14</option>
         <option value="15">座位15</option>
         <option value="16">座位16</option>
-        <option value="17">座位17</option>
-        <option value="18">座位18</option>
-        <option value="19">座位19</option>
-        <option value="20">座位20</option>
+        
       </select>
 <div class="movie-container">
     <ul class="showcase">
@@ -202,7 +199,10 @@
       </li>
       <li>
         <div class="seat selected"></div>
-        <small>Selected</small>
+
+        <small>選擇</small>
+
+
       </li>
       <li>
         <div class="seat occupied"></div>
@@ -267,7 +267,7 @@
 
 
    <center> <p class="text">
-      You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
+      您已選擇 <span id="count">0</span> 位置 for a price of $<span id="total">0</span>
     </p></center>
 
 
@@ -306,9 +306,9 @@
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -326,7 +326,7 @@
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM

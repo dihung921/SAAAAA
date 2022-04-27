@@ -228,9 +228,9 @@
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -246,7 +246,7 @@
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM

@@ -222,7 +222,7 @@ session_start();
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">編輯</a>
+                      <a class="btn btn-warning " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">編輯</a>
                     </div>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ session_start();
                                 <div class="media">
                                     <div class="media-body">
                                         <a href="#">
-                                            <span class="float-right text-info">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
+                                            <span class="float-right text-warning">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
                                         </a>
                                         <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589748 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/24 6:26 PM</p>
                                         <p class="text-dark">日式薑燒豬（地瓜,芥末醬）x 1
@@ -247,10 +247,10 @@ session_start();
                                         </p>
                                         <hr>
                                         <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
                                         </div>
-                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $300
+                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $300
                                         </p>
                                     </div>
                                 </div>
@@ -262,17 +262,17 @@ session_start();
                                 <div class="media">
                                     <div class="media-body">
                                         <a href="#">
-                                            <span class="float-right text-info">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
+                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
                                         </a>
                                         <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589535 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/23 7:52 PM</p>
                                         <p class="text-dark">韓式風味牛（糙米飯,豆瓣醬）x 1
                                         </p>
                                         <hr>
                                         <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
                                         </div>
-                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $150
+                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $150
                                         </p>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@ session_start();
                                 <div class="media">
                                     <div class="media-body">
                                         <a href="#">
-                                            <span class="float-right text-info">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
+                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
                                         </a>
                                         <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589084 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/22 12:45 PM</p>
                                         <p class="text-dark">普羅旺斯鱈魚（糙米飯,豆瓣醬）x 1
@@ -295,10 +295,10 @@ session_start();
                                         </p>
                                         <hr>
                                         <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-primary" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="icofont-refresh"></i> 再買一次</a>
+                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
+                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
                                         </div>
-                                        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $450
+                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $450
                                         </p>
                                     </div>
                                 </div>
@@ -349,9 +349,9 @@ session_start();
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -367,14 +367,14 @@ session_start();
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM
           </p>
         </div>
       </div>
-      <div class="footer-info">
+      <div class="footer-warning">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
           <a href="https://html.design/">SA05</a><br><br>
