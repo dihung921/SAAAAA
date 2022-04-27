@@ -9,8 +9,11 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $email=$_POST["email"];
   $phone=$_POST["phone"];
   $password=$_POST["password"];
+  
   echo $name,$email,$phone,$password;
   $sql="select phone from member where phone='$phone'";
+
+
   $result=mysqli_query($link,$sql);
   if(mysqli_num_rows($result) >= 1){
     
