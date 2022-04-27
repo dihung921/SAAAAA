@@ -142,17 +142,17 @@
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
-               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
-                  
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }

@@ -2,7 +2,6 @@
 session_start();
 $link=mysqli_connect("localhost","root");
 mysqli_select_db($link,"sa");
-
 $phone=$_SESSION["member_phone"];
 
 if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce"]) && isset($_POST["note"]) && isset($_POST["num"])){
@@ -41,7 +40,6 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
     }
     $total= $num * $price;
     $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id','$sm_id','$s_id','$note','$num','$total')";
-    echo $phone, $meal_id, $sm_id, $s_id, $note, $num, $total;
     $insert=mysqli_query($link,$sql4);
     if($insert){
         echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";

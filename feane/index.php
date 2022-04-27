@@ -1,5 +1,21 @@
 <?php
 session_start();
+$link=mysqli_connect("localhost","root","12345678","sa");
+
+if(isset($_POST['way'])){
+  $way = $_POST['way'];
+  if($way == 0){
+    if(isset($_POST['seatnum'])){
+      $seatnum= $_POST["seatnum"];
+      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
+      $rs=mysqli_query($link,$sql);
+    }
+  }
+  else{
+    $sql="insert into `way`( way, seat) values ('1', NULL)";
+    $rs=mysqli_query($link,$sql);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +58,6 @@ session_start();
 </head>
 
 <body>
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -54,8 +69,34 @@ session_start();
           </div>
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
+              <form action="index.php" method="post">
+                <input name= "way" value="1" type="hidden">  
+                <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
+              </form>
+              <form action="index.php" method="post">
+                <input name= "way" value="0" type="hidden">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
+              
+
+             
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-footer">
+                <form action="index.php" method="post"></form>
+                <input name= "way" value="0" type="hidden">
+                  請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
+                  <button class="btn btn-warning">確認</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                </form>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+           
           </div></center>
 </div>
         </div>
@@ -105,7 +146,7 @@ session_start();
             </ul>
             
             <div class="user_option">
-            
+
 
             <?php
             if ($_SESSION["member_name"]){
@@ -114,7 +155,6 @@ session_start();
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -169,20 +209,21 @@ session_start();
                   </g>
                 </svg>
               </a>
+              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
-               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
-                  
+                echo $_SESSION["member_name"];
+                  ?>
+                  已登入
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
@@ -202,11 +243,14 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/法式香榭雞腿.jpeg" width="50%" height="400px" alt="" align="right"> 
+                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
                     </h1>
+                    <p>
+                      檸檬椒鹽雞胸，清爽無負擔
+                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -221,13 +265,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" height="400px" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="49%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      
+                    捲餅系列，給不太餓的你
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -243,13 +287,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/sss.jpeg" width="50%" alt="" align="right"> 
+                <img src="images/韓式風味牛.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                      
+                    店長推薦！
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
