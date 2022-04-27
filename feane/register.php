@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){

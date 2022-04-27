@@ -88,9 +88,6 @@ session_start();
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">菜單</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
@@ -307,7 +304,7 @@ session_start();
       
           <div class="row grid">
             <div class="col-sm-6 col-lg-4 all classic">   
-              <form action="con.php" method="post" >
+              <form action="con1.php" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
                                 <div class="modal-content" style="padding: 20px 20px;">
@@ -380,8 +377,16 @@ session_start();
                                 </div>   
                                 </div>
                                 <div class="modal-footer">
-                                  <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                  <input type="submit" value="新增至購物車"  class="btn btn-warning">
+                                  <?php
+                                  if($_SESSION["member_phone"]==NULL){
+                                    echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
+                                  }
+                                  else{
+                                    echo 
+                                    "<input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <input type='submit' value='新增至購物車'  class='btn btn-warning'>";
+                                  }
+                                  ?>
                                 </div>
                             </div>
                             </div>
