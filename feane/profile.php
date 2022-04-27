@@ -134,7 +134,7 @@ session_start();
               if ($_SESSION["member_name"]){
                 echo $_SESSION["member_name"];
                   ?>
-                  已登入
+                
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
