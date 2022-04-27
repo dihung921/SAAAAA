@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -209,77 +211,66 @@
     </ul>
 </div>
     <div class="container2">
-      <div class="screen"></div>
-      <div class="screen2"></div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+    <div class="wrapper">
+
+      <div class="two"> 
+        <div class="seat"><h6>1</h6></div>
+        <div class="seat"><h6>2</h6></div>
+        <div class="seat"><h6>3</h6></div>
+        <div class="seat"><h6>4</h6></div>
+        <div class="seat"><h6>5</h6></div>
       </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat selected"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-      </div>
+
+      <div class="three"> 
+        <div class="row">
+        <div class="seat"><h6>6</h6></div>
+        <div class="seat"><h6>7</h6></div>
+        <div class="seat"><h6>8</h6></div>
+        <div class="seat"><h6>9</h6></div>
+        <div class="seat"><h6>10</h6></div>
+       
+      </div></div>
+
+      <div class="four">
       
+      <div class="seat3"><h6>11</h6></div>
+      <div class="seat3"><h6>13</h6></div>
+      </div>
+
+     <div class="five">
+      <div class="seat3"><h6>12</h6></div>
+      <div class="seat3"><h6>14</h6></div>
+    </div>
+
+    <div class="six">
+      <div class="seat2"><h6>15</h6></div>
+      <div class="seat2"><h6>16</h6></div>
+    </div>
+
+    <div class="seven">
+      <div class="seat4"><center>櫃檯</center></div>
+    </div>
+
+    <div class="eight">
+      <div class="seat4"><center>自助餐具區</center></div>
+    </div>
+
+      
+
+      
+      
+        
       </div>
     </div>
 </div>
 </div>
 
+
    <center> <p class="text">
       You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
     </p></center>
+
+
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -288,25 +279,30 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+
+              聯絡我們
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+
+                  Call +02 2908-1397
+
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+
+                storyboxtw@gmail.com
+
                 </span>
               </a>
             </div>
@@ -314,49 +310,44 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
+
+            <a href="index.php" class="footer-logo">
+              方禾食呂
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            健康飲食好夥伴
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
+              <a href="https://www.instagram.com/storyboxtw/">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
+
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+
+            營業時間
           </h4>
           <p>
-            Everyday
+            每天
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 AM ~ 19:00 PM
+
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+
+          <a href="https://html.design/">SA05</a><br><br>
+
         </p>
       </div>
     </div>
@@ -382,17 +373,14 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 
-    
-  <script src="all.js"></script>
-
   </script>
   <!-- End Google Map -->
+  <script src="js/seat.js"></script>
+
 
 </body>
 
 
-
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
 
 </html>
