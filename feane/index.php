@@ -69,17 +69,26 @@ if(isset($_POST['way'])){
           </div>
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
+              <form action="index.php" method="post">
+                <input name= "way" value="1" type="hidden">  
+                <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
+              </form>
+              <form action="index.php" method="post">
+                <input name= "way" value="0" type="hidden">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
+              
 
              
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
               <div class="modal-footer">
-                  請輸入桌號：<input>
-                  <button type="button" class="btn btn-warning">確認</button>
+                <form action="index.php" method="post"></form>
+                <input name= "way" value="0" type="hidden">
+                  請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
+                  <button class="btn btn-warning">確認</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                </form>
                   
                 </div>
                 
