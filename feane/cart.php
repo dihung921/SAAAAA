@@ -309,18 +309,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>
