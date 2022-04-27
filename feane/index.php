@@ -333,7 +333,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <p>餐點備註</p>
-                                  <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                  <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                   <div class="goods_num clearfix">
                                   <p class="num_name fl">訂購數量</p>
                                   <p class="num_add fl">
@@ -432,7 +432,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -529,7 +529,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -626,7 +626,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -723,7 +723,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -820,7 +820,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -917,7 +917,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1014,7 +1014,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1111,7 +1111,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1208,7 +1208,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1288,7 +1288,7 @@ session_start();
                                     <input type="hidden" name ="mealname" value="捲1">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1359,7 +1359,7 @@ session_start();
                                     <input type="hidden" name ="mealname" value="捲2">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1432,7 +1432,7 @@ session_start();
                                     <input type="hidden" name ="mealname" value="捲3">
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1512,7 +1512,7 @@ session_start();
                                         (水果種類隨季節調整)</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1598,7 +1598,7 @@ session_start();
                                     <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                     <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1676,7 +1676,7 @@ session_start();
                                     <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1751,7 +1751,7 @@ session_start();
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1826,7 +1826,7 @@ session_start();
                                     <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1901,7 +1901,7 @@ session_start();
                                     <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -1976,7 +1976,7 @@ session_start();
                                     <h6>蛋白質15.82g 脂肪8.82g 碳水6.91g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2051,7 +2051,7 @@ session_start();
                                     <h6>蛋白質11.5g 脂肪11.2g 碳水3.5g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2126,7 +2126,7 @@ session_start();
                                     <h6>蛋白質16.5g 脂肪12.8g 碳水2.25g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2201,7 +2201,7 @@ session_start();
                                     <h6>蛋白質16g 脂肪8g 碳水10g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2276,7 +2276,7 @@ session_start();
                                     <h6>蛋白質15.6g 脂肪1.84g 碳水0.16g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2351,7 +2351,7 @@ session_start();
                                     <h6>蛋白質5.6g 脂肪0.46g 碳水12.8g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2434,7 +2434,7 @@ session_start();
                                         (青菜種類隨季節調整)</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2509,7 +2509,7 @@ session_start();
                                     <h6>蛋白質4.88g 脂肪0.51g 碳水62.28g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2584,7 +2584,7 @@ session_start();
                                     <h6>蛋白質5.2g 脂肪2.8g 碳水0.6g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2659,7 +2659,7 @@ session_start();
                                     <h6>蛋白質0.52g 脂肪8.26g 碳水2.41g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2734,7 +2734,7 @@ session_start();
                                     <h6>蛋白質0.06g 脂肪4.26g 碳水1.56g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2809,7 +2809,7 @@ session_start();
                                     <h6>蛋白質0.15g 脂肪3g 碳水3.75g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2884,7 +2884,7 @@ session_start();
                                     <h6>蛋白質0g 脂肪2.25g 碳水3.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2969,7 +2969,7 @@ session_start();
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3044,7 +3044,7 @@ session_start();
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3119,7 +3119,7 @@ session_start();
                                     <br>
                                     <label><input type="radio" name="temp" value="2"> 溫</label>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3193,7 +3193,7 @@ session_start();
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                     <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3267,7 +3267,7 @@ session_start();
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
                                     <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
-                                    <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
