@@ -1,19 +1,27 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 
-if(isset($_POST['way'])){
-  $way = $_POST['way'];
+if(isset($_POST["way"])){
+  $way = $_POST["way"];
   if($way == 0){
-    if(isset($_POST['seatnum'])){
+    if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
+      $sql="insert into way( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
+      if($rs){
+        $_SESSION["way"]=$way;
+      }
     }
   }
   else{
-    $sql="insert into `way`( way, seat) values ('1', NULL)";
+    $sql="insert into way(way) values ('1')";
     $rs=mysqli_query($link,$sql);
+    if($rs){
+      $_SESSION["way"]=$way;
+    }
+    header("Location:index.php");
   }
 }
 ?>
@@ -71,10 +79,8 @@ if(isset($_POST['way'])){
             <div class="d-grid gap-2 col-6 mx-auto">
               <form action="index.php" method="post">
                 <input name= "way" value="1" type="hidden">  
-                <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
+                <button class="btn btn-warning">外帶自取</button>
               </form>
-              <form action="index.php" method="post">
-                <input name= "way" value="0" type="hidden">
                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
               
 
@@ -83,11 +89,11 @@ if(isset($_POST['way'])){
             <div class="modal-dialog">
               <div class="modal-content">
               <div class="modal-footer">
-                <form action="index.php" method="post"></form>
+                <form action="index.php" method="post">
                 <input name= "way" value="0" type="hidden">
                   請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
                   <button class="btn btn-warning">確認</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+                  <button class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
                 </form>
                   
                 </div>
