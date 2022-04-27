@@ -333,18 +333,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>
@@ -353,9 +349,9 @@ session_start();
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <p>
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </p>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -371,7 +367,7 @@ session_start();
             營業時間
           </h4>
           <p>
-            每天
+            星期一～日
           </p>
           <p>
             10:00 AM ~ 19:00 PM
