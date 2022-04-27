@@ -1,5 +1,21 @@
 <?php
 session_start();
+$link=mysqli_connect("localhost","root","12345678","sa");
+
+if(isset($_POST['way'])){
+  $way = $_POST['way'];
+  if($way == 0){
+    if(isset($_POST['seatnum'])){
+      $seatnum= $_POST["seatnum"];
+      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
+      $rs=mysqli_query($link,$sql);
+    }
+  }
+  else{
+    $sql="insert into `way`( way, seat) values ('1', NULL)";
+    $rs=mysqli_query($link,$sql);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +58,6 @@ session_start();
 </head>
 
 <body>
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -54,8 +69,16 @@ session_start();
           </div>
           <center><div class="modal-body">
             <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">內用</button>
+            <form action="index.php" method="post">
+            <input name= "way" value="0" type="hidden">
+            <button class="btn btn-warning" data-dismiss="modal">內用</button>
+          </form>
+
+            <form action="index.php" method="post">
+            <input name= "way" value="1" type="hidden">
+            <button class="btn btn-warning" data-dismiss="modal">外帶自取</button>
+          </form>
+            
           </div></center>
 </div>
         </div>
@@ -117,7 +140,6 @@ session_start();
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -3800,7 +3822,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
-rap.js"></script>
+</script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
