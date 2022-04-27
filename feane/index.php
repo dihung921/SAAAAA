@@ -2,18 +2,25 @@
 session_start();
 $link=mysqli_connect("localhost","root","12345678","sa");
 
-if(isset($_POST['way'])){
-  $way = $_POST['way'];
+if(isset($_POST["way"])){
+  $way = $_POST["way"];
   if($way == 0){
-    if(isset($_POST['seatnum'])){
+    if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
       $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
+      if($rs){
+        $_SESSION["way"] = $way;
+      }
     }
   }
   else{
-    $sql="insert into `way`( way, seat) values ('1', NULL)";
+    $sql="insert into `way`(way) values ('1')";
     $rs=mysqli_query($link,$sql);
+    if($rs){
+      $_SESSION["way"] = $way;
+    }
+    header("Location:index.php");
   }
 }
 ?>
@@ -58,52 +65,55 @@ if(isset($_POST['way'])){
 </head>
 
 <body>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true"></span>
-            </button>
+<?php
+              if($_SESSION["way"] == NULL){
+                echo "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog'>
+                  <div class='modal-content'>
+                    <div class='modal-header'>
+                      <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
+                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'></span>
+                      </button>
+                    </div>
+                    <center><div class='modal-body'>
+                      <div class='d-grid gap-2 col-6 mx-auto'>
+                        <form action='index.php' method='post'>
+                          <input name= 'way' value='1' type='hidden'>  
+                          <button type='button' class='btn btn-warning' data-dismiss='modal'>自取</button>
+                        </form>
+                        <form action='index.php' method='post'>
+                          <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>內用</button>
+                          
+          
+                       
+                      <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                      <div class='modal-dialog'>
+                        <div class='modal-content'>
+                        <div class='modal-footer'>
+                          
+                          <input name= 'way' value='0' type='hidden'>
+                            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+                            <button class='btn btn-warning'>確認</button>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
+                            </form>
+                            
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+          
+                     
+                    </div></center>
           </div>
-          <center><div class="modal-body">
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <form action="index.php" method="post">
-                <input name= "way" value="1" type="hidden">  
-                <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-              </form>
-              <form action="index.php" method="post">
-                <input name= "way" value="0" type="hidden">
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
-              
-
-             
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-footer">
-                <form action="index.php" method="post"></form>
-                <input name= "way" value="0" type="hidden">
-                  請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
-                  <button class="btn btn-warning">確認</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
-                </form>
-                  
+                  </div>
                 </div>
-                
-              </div>
-            </div>
-          </div>
+              </div>";
+              }
+              
+              ?>
 
-           
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>
-</div>
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll.png" alt="">
@@ -118,15 +128,17 @@ if(isset($_POST['way'])){
               方禾食呂
             </span>
               </a>
-              <div   class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-              <label class="btn btn-outline-warning" for="btnradio1"> &nbsp自取&nbsp </label>
+              <?php
 
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-              <label class="btn btn-outline-warning" for="btnradio2"> &nbsp內用&nbsp </label>
-
-             </div>
-
+              if($_SESSION["way"]==0){
+                $_SESSION["way"] = $way;
+                echo "內用";
+              }
+              else{
+                $_SESSION["way"] = $way;
+               echo "自取";
+              }
+              ?>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
