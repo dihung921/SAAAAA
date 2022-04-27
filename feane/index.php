@@ -66,7 +66,8 @@ if(isset($_POST["way"])){
 
 <body>
 <?php
-              if($_SESSION["way"] == NULL){
+              $way = $_SESSION["way"];
+              if(isset($_SESSION["way"])){
                 echo "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog'>
                   <div class='modal-content'>
@@ -80,9 +81,9 @@ if(isset($_POST["way"])){
                       <div class='d-grid gap-2 col-6 mx-auto'>
                         <form action='index.php' method='post'>
                           <input name= 'way' value='1' type='hidden'>  
-                          <button type='button' class='btn btn-warning' data-dismiss='modal'>自取</button>
+                          <button class='btn btn-warning' data-dismiss='modal'>自取</button>
                         </form>
-                        <form action='index.php' method='post'>
+                        
                           <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>內用</button>
                           
           
@@ -91,11 +92,11 @@ if(isset($_POST["way"])){
                       <div class='modal-dialog'>
                         <div class='modal-content'>
                         <div class='modal-footer'>
-                          
+                        <form action='index.php' method='post'>
                           <input name= 'way' value='0' type='hidden'>
                             請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
                             <button class='btn btn-warning'>確認</button>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
+                            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
                             </form>
                             
                           </div>
@@ -129,14 +130,17 @@ if(isset($_POST["way"])){
             </span>
               </a>
               <?php
-
-              if($_SESSION["way"]==0){
-                $_SESSION["way"] = $way;
-                echo "內用";
+              echo "$way";
+              if($way==0){
+                ?>
+                <button class='btn btn-warning'><?php echo "內用";?></button>
+                <?php
               }
-              else{
-                $_SESSION["way"] = $way;
-               echo "自取";
+              
+              if($way==1){
+                ?>
+                <button class='btn btn-warning'><?php echo "自取";?></button>
+               <?php
               }
               ?>
 
@@ -226,8 +230,10 @@ if(isset($_POST["way"])){
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
+                ?>
+                
+                <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  
                   
                   <?php
                 echo "<button class='order_online'>登出</button>";
