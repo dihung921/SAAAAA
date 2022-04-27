@@ -42,6 +42,7 @@ session_start();
 </head>
 
 <body>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -87,10 +88,13 @@ session_start();
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="menu.php">菜單</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
+                <a class="nav-link" href="book.php">店內座位狀況</a>
               </li>
             </ul>
             
@@ -193,7 +197,7 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/檸檬椒鹽雞胸.jpeg" width="55%" alt="" align="right"> 
+                <img src="images/lemon.jpeg" width="40%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       熱銷餐點。
@@ -215,13 +219,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/素食綜合野菇2.jpeg" width="55%" align="right" alt=""> 
+                <img src="images/素食綜合野菇2.jpeg" width="50%" align="right" alt=""> 
                   <div class="detail-box">
                     <h1>
                      輕食一下。
                     </h1>
                     <p>
-                      捲捲系列，給不太餓的你
+                      
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -237,13 +241,13 @@ session_start();
             <div class="container ">
               <div class="row">
               <div class="col-md-7 col-lg-11 ">
-                <img src="images/韓式風味牛.jpeg" width="55%" alt="" align="right"> 
+                <img src="images/sss.jpeg" width="45.5%" alt="" align="right"> 
                   <div class="detail-box">
                     <h1>
                       店長推薦。
                     </h1>
                     <p>
-                    韓式風味牛
+                      
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -287,12 +291,14 @@ session_start();
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
+
         <a  style="text-decoration: none" href="#classic"><li>經典餐盒</li></a>
         <a href="#roll"><li>輕食捲捲</li></a>
         <a href="#salad"><li>沙拉水果盒</li></a>
         <a href="#main"><li>主食單品</li></a>
         <a href="#other"><li>其他單品</li></a>
         <a href="#drink"><li>飲料</li></a>
+
       </ul>
     
       <br>
@@ -308,7 +314,9 @@ session_start();
                                 <img src="images/義式香草雞胸.jpeg" style="border-radius: 5px;">
                                 <div class="modal-body" style="color: black;">
                                   <h5>義式香草雞胸（62kcal）</h5>
+
                                   <input type="hidden" name ="mealname" value="1">
+
                                   <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                   <hr>
                                   <p>選擇副餐</p>
@@ -333,6 +341,7 @@ session_start();
                                   <label><input type="radio" name="sauce" value="4"> 水果塔塔醬（36kcal）</label>
                                   <label style="float: right;">+$0</label>
                                   <p>餐點備註</p>
+
                                   <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                   <div class="goods_num clearfix">
                                   <p class="num_name fl">訂購數量</p>
@@ -407,6 +416,7 @@ session_start();
                                   <img src="images/朝日咖哩雞胸.jpeg" style="border-radius: 5px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
+
                                     <input type="hidden" name ="mealname" value="2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
@@ -433,6 +443,7 @@ session_start();
                                   <label style="float: right;">+$0</label>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -2906,7 +2917,7 @@ session_start();
                                               var total = num * price1;
                                               $('#price31').html(total.toFixed(0));
                                           });
-                                          
+                                        
                                           //減號
                                           $('.minus').click(function () {
                                               if(num>1){
@@ -3416,18 +3427,14 @@ session_start();
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-              <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                   Call +02 2908-1397
                 </span>
-              </a>
-              <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
-              </a>
             </div>
           </div>
         </div>
