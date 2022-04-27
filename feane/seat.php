@@ -189,10 +189,7 @@
         <option value="14">座位14</option>
         <option value="15">座位15</option>
         <option value="16">座位16</option>
-        <option value="17">座位17</option>
-        <option value="18">座位18</option>
-        <option value="19">座位19</option>
-        <option value="20">座位20</option>
+        
       </select>
 <div class="movie-container">
     <ul class="showcase">

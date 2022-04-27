@@ -64,7 +64,7 @@
                 <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.php">Book Table</a>
+                <a class="nav-link" href="seat.php">Book Table</a>
               </li>
             </ul>
             <div class="user_option">
