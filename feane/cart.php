@@ -1,34 +1,3 @@
-<?php
-session_start();
-$link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
-$phone=$_SESSION["member_phone"];
-
-$datas=array();
-
-
-$cart="select * from cart where phone='$phone'";
-$rs=mysqli_query($link,$cart);
-if($rs){
-  if(mysqli_num_rows($rs)<0){
-    while($row=mysqli_fetch_assoc($rs)){
-      $datas[]=$row;
-    }
-  }
-  mysqli_free_result($rs);
-}
-else{
-  echo "{$sql} 語法執行失敗，錯誤訊息：".mysqli_error($link);
-}
-if(!empty($rs)){
-  print_r($datas);
-}
-else{
-  echo "查無資料";
-  }
-
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -174,9 +143,9 @@ else{
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
+                
                   ?>
-                  已登入
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
