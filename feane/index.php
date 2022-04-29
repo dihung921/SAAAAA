@@ -1,6 +1,32 @@
 <?php
 session_start();
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
+
+if(isset($_POST["way"])){
+  $way = $_POST["way"];
+  if($way == 0){
+    if(isset($_POST["seatnum"])){
+      $seatnum= $_POST["seatnum"];
+      $sql="insert into way( way, seat) values ('0', '$seatnum')";
+      $rs=mysqli_query($link,$sql);
+      if($rs){
+        $_SESSION["way"]=$way;
+      }
+    }
+  }
+  else{
+    $sql="insert into way(way) values ('1')";
+    $rs=mysqli_query($link,$sql);
+    if($rs){
+      $_SESSION["way"]=$way;
+    }
+    header("Location:index.php");
+  }
+}
 ?>
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -73,7 +99,6 @@ session_start();
             <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
             
             
->>>>>>> 8af678541ef75b537a9999aedc57dcbfa10b1806
                   
                 </div>
                 
