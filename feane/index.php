@@ -95,15 +95,9 @@ session_start();
             </span>
               </a>
               
-              <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-              <label class="btn btn-outline-warning" for="btnradio1"> &nbsp自取&nbsp </label>
-
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-              <label class="btn btn-outline-warning" for="btnradio2"> &nbsp內用&nbsp </label>
-
-             </div>
-
+              <form action="changeway.php" method="post">
+              <input type="submit" class="btn-outline" value="更改用餐方式">
+            </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
