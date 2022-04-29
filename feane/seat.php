@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="style.css" />
 
 
-  <title> 方禾食呂 </title>
+  <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -51,7 +51,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
             方禾食呂
             </span>
           </a>
@@ -145,9 +145,9 @@
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
+                
                   ?>
-                  
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -218,18 +218,18 @@
 
       <div class="two"> 
         <div class="seat"><h6>1</h6></div>
-        <div class="seat"><h6>2</h6></div>
-        <div class="seat"><h6>3</h6></div>
+        <div class="seat occupied"><h6>2</h6></div>
+        <div class="seat occupied"><h6>3</h6></div>
         <div class="seat"><h6>4</h6></div>
         <div class="seat"><h6>5</h6></div>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat"><h6>6</h6></div>
+        <div class="seat selected"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
-        <div class="seat"><h6>9</h6></div>
+        <div class="seat selected"><h6>9</h6></div>
         <div class="seat"><h6>10</h6></div>
        
       </div></div>
@@ -269,9 +269,6 @@
 </div>
 
 
-   <center> <p class="text">
-      您已選擇 <span id="count">0</span> 位置 for a price of $<span id="total">0</span>
-    </p></center>
 
 
 
@@ -281,7 +278,7 @@
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif;">
 
               聯絡我們
             </h4>
@@ -306,7 +303,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
 
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
@@ -324,7 +321,7 @@
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="font-family: Arial, Helvetica, sans-serif;">
 
             營業時間
           </h4>

@@ -16,7 +16,7 @@ session_start();
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> 方禾食呂 </title>
+  <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -43,33 +43,43 @@ session_start();
 
 <body>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true"></span>
+<?php
+  if(!isset($_SESSION["way"])){
+    echo"
+    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'></span>
             </button>
           </div>
-          <center><div class="modal-body">
-            <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">自取</button>
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
-
-             
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-footer">
-                  請輸入桌號：<input>
-                  <button type="button" class="btn btn-warning"data-dismiss="modal">確認</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+          <center><div class='modal-body'>
+          <div class='d-grid gap-2 col-6 mx-auto'>
+                        <form action='index.php' method='post'>
+                          <input name='way' value='1' type='hidden'>  
+                          <button class='btn btn-warning'>自取</button>
+                        </form>
+            <form action='index.php' method='post'>
+            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
+            
+            <div class='modal-dialog'>
+            <div class='modal-content'>
+            <div class='modal-footer'>
+            <input name= 'way' value='0' type='hidden'>
+            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+            <button class='btn btn-warning'>確認</button>
+            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
+            
+            
+>>>>>>> 8af678541ef75b537a9999aedc57dcbfa10b1806
                   
                 </div>
                 
               </div>
             </div>
+          </div>
           </div>
 
            
@@ -78,8 +88,9 @@ session_start();
         </div>
       </div>
     </div>
-</div>
-</div>
+</div>";
+}
+?>
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll.png" alt="">
@@ -90,18 +101,28 @@ session_start();
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
-              </a>
-              
-              <form action="changeway.php" method="post">
-              <input type="submit" class="btn-outline" value="更改用餐方式">
-            </form>
+             </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+              <a><?php
+              if (isset($_SESSION["way"])){
+                if($_SESSION["way"]== 0){
+                  echo "您選擇「內用」
+                  <form action='changeway.php' method='post'>
+                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  </form>";
+                }
+                else{ 
+                  echo "您選擇「外帶自取」
+                  <form action='changeway.php' method='post'>
+                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  </form>";
+                }
+              }
+              ?>
+              </a>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
@@ -186,9 +207,9 @@ session_start();
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
+                
                   ?>
-                  
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -218,7 +239,7 @@ session_start();
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
-                    <h1>
+                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
                       熱銷餐點。
                     </h1>
                     <p>
@@ -240,7 +261,7 @@ session_start();
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/素食綜合野菇2.jpeg" width="49%" align="right" alt=""> 
                   <div class="detail-box">
-                    <h1>
+                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
                      輕食一下。
                     </h1>
                     <p>
@@ -262,7 +283,7 @@ session_start();
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/韓式風味牛.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
-                    <h1>
+                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
                       店長推薦。
                     </h1>
                     <p>
@@ -303,7 +324,7 @@ session_start();
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2 id="menu">
+        <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
           菜單
         </h2>
       </div>
@@ -311,8 +332,8 @@ session_start();
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
 
-        <a style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
-        <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
+        <a  style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#roll"><sli>輕食捲捲</li></a>
         <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
         <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
         <a style="text-decoration: none; color:black;" href="#other"><li>其他單品</li></a>
@@ -321,7 +342,7 @@ session_start();
       </ul>
     
       <br>
-      <h2 id="classic">經典餐盒</h2>
+      <h2 id="classic" style="font-family: Arial, Helvetica, sans-serif;">經典餐盒</h2>
       <hr>
       
           <div class="row grid">
@@ -1382,7 +1403,7 @@ session_start();
             </div>
 
             <br><br>
-            <h2 id="roll">輕食捲捲</h2>
+            <h2 id="roll" style="font-family: Arial, Helvetica, sans-serif;">輕食捲捲</h2>
             <hr>
 
             <div class="row grid">
@@ -1628,7 +1649,7 @@ session_start();
             </div>
 
             <br><br>
-            <h2 id="salad">沙拉水果盒</h2>
+            <h2 id="salad" style="font-family: Arial, Helvetica, sans-serif;">沙拉水果盒</h2>
             <hr>
 
             <div class="row grid">
@@ -1809,7 +1830,7 @@ session_start();
             </div>
 
             <br><br>
-            <h2 id="main">主食單品</h2>
+            <h2 id="main" style="font-family: Arial, Helvetica, sans-serif;">主食單品</h2>
             <hr>
 
             <div class="row grid">
@@ -2646,7 +2667,7 @@ session_start();
             </div>
 
             <br><br>
-            <h2 id="other">其他單品</h2>
+            <h2 id="other" style="font-family: Arial, Helvetica, sans-serif;">其他單品</h2>
             <hr>
 
             <div class="row grid">
@@ -3235,7 +3256,7 @@ session_start();
             </div>
 
             <br><br>
-            <h2 id="drink">飲料</h2>
+            <h2 id="drink" style="font-family: Arial, Helvetica, sans-serif;">飲料</h2>
             <hr>
 
             <div class="row grid">
@@ -3675,8 +3696,8 @@ session_start();
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
-          What Says Our Customers
+        <h2 style="font-family: Arial, Helvetica, sans-serif;">
+          顧客評論區
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -3730,7 +3751,7 @@ session_start();
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif;"> 
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -3753,7 +3774,7 @@ session_start();
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
@@ -3770,7 +3791,7 @@ session_start();
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
