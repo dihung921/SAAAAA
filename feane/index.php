@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -175,9 +179,9 @@
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                echo $_SESSION["member_name"];
-                  ?>
-                  已登入
+                ?>
+               <a style="color : white"> <?php echo $_SESSION["member_name"];?></a>
+                  
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
