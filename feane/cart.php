@@ -1,3 +1,10 @@
+<?php
+session_start();
+$link=mysqli_connect("localhost","root");
+mysql_select_db($link,"sa");
+$phone=$_SESSION["member_phone"];
+$seatnum=$_SESSION["seatnum"];
+?>
 <!DOCTYPE html>
 <html>
 
