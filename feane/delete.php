@@ -1,6 +1,6 @@
 <?php
 
- $cart_id = $_GET["cart_id"];
+ $cart_id = $_POST["cart_id"];
  $link = mysqli_connect("localhost","root","12345678", "sa");
  $sql = "delete from cart where cart_id = '$cart_id'";
  if(mysqli_query($link,$sql))
