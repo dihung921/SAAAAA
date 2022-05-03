@@ -2092,9 +2092,9 @@
      background: #b0b435;
 }
  .update-box input[type="submit"]{
-     background: #000000;
+     background: #767676;
      border: medium none;
-     border-radius: 0;
+     border-radius: 5px;
      -webkit-box-shadow: none;
      box-shadow: none;
      color: #fff;
@@ -2113,6 +2113,7 @@
      transition: all 0.3s ease 0s;
      white-space: nowrap;
      width: inherit;
+     position:relative top 50px;
 }
  .update-box input[type="submit"]:hover{
      background: #b0b435;
@@ -2192,7 +2193,7 @@
 }
  .new-account-login h5 {
      font-size: 18px;
-     color: #1111111;
+     color: #111111;
      font-weight: 600;
 }
  .new-account-login h5 a:hover{
