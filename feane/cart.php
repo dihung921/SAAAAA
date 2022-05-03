@@ -1,6 +1,12 @@
 <?php
 session_start();
+
+
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
+$phone=$_SESSION["member_phone"];
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -175,6 +181,7 @@ session_start();
   </div>
 
   <!-- Start Cart  -->
+  
   <div class="cart-box-main">
         <div class="container">
             <div class="row">
@@ -187,115 +194,32 @@ session_start();
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
-                                    <th>價格</th>
+                                    <th>備註</th>
                                     <th>數量</th>
                                     <th>總價</th>
                                     <th>刪除</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        
-                                          <img style width="350"height="250" src="images/日式薑燒豬.jpeg" alt="" />
-								                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        
-                                          日式薑燒豬
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                       
-                                          紅藜白飯（274kcal）
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                        
-                                          義式油醋醬（44kcal）
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="delete.php">
-                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
-								</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        
-                                          <img style width="350"height="250" src="images/普羅旺斯鯛魚.jpeg" alt="" />
-								                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        
-                                          普羅旺斯鯛魚
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                        
-                                          食蔬半飯（157kcal）
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                        
-                                          焙煎胡麻醬（87kcal）
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 60.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="delete.php">
-                                          <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
-								                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                       
-                                          <img src="images/檸檬椒鹽雞胸.jpeg" style width="350"height="250" alt="" />
-								                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        
-                                          檸檬椒鹽雞胸
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                        
-                                          地瓜食蔬（109kcal）
-                                        </a>
-                                    </td>
-                                    <td class="name">
-                                        
-                                          水果塔塔醬（36kcal）
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 30.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="delete.php">
-                                        <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
-								</a>
-                                    </td>
-                                </tr>
+
+                            <?php
+                                    $sql="select * from cart where phone = $phone";
+                                    $result=mysqli_query($link,$sql);
+                                    if (mysqli_num_rows($result) > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td class='thumbnail-img'><img style width='350' height='250' src=".$row["img"]."/></td>
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
+                                              <td class='name'>".$row["sm_id"]."</td>
+                                              <td class='name'>".$row["s_id"]."</td>
+                                              <td>".$row["note"]."</td>
+                                              <td>".$row["amount"]."</td>
+                                              <td>".$row["price"]."</td>
+                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                        echo "</tr>";
+                                      }
+                                    }
+                                  ?>
                             </tbody>
                         </table>
                     </div>

@@ -23,6 +23,7 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
     if($row=mysqli_fetch_array($meal)){
         $meal_id=$row["name"];
         $price=$row["price"];
+        $img=$row["img"];
 
         $_SESSION["mealname"]=$row["name"];
         $_SESSION["img"]=$row["img"];
@@ -39,7 +40,7 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
         $_SESSION["sauce"]=$row2["name"];
     }
     $total= $num * $price;
-    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id','$sm_id','$s_id','$note','$num','$total')";
+    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price, img) values ('$phone','$meal_id','$sm_id','$s_id','$note','$num','$total','$img')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
         echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";

@@ -238,10 +238,10 @@ if(isset($_POST["way"])){
                 echo "<button class='order_online'>登出</button>";
               }
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -266,9 +266,6 @@ if(isset($_POST["way"])){
                     <h1 style="font-family: Arial, Helvetica, sans-serif;">
                       熱銷餐點。
                     </h1>
-                    <p>
-                      檸檬椒鹽雞胸，清爽無負擔
-                    </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
                         立即點餐
@@ -3805,10 +3802,10 @@ if(isset($_POST["way"])){
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
-              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal" style="text-decoration:none;" >
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/storyboxtw/">
+              <a href="https://www.instagram.com/storyboxtw/" style="text-decoration:none;">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
             </div>
