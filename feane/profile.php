@@ -134,7 +134,7 @@ session_start();
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }

@@ -11,7 +11,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $password=$_POST["password"];
   
   echo $name,$email,$phone,$password;
-  $sql="select phone from member where phone='$phone'";
+  $sql="select phone from `member` where phone='$phone'";
 
 
   $result=mysqli_query($link,$sql);

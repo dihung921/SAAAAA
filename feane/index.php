@@ -69,7 +69,7 @@ if(isset($_POST["way"])){
 
 <?php
   if(!isset($_SESSION["way"])){
-    echo"
+    echo "
     <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
       <div class='modal-dialog'>
         <div class='modal-content'>
@@ -111,7 +111,7 @@ if(isset($_POST["way"])){
 </div>
         </div>
       </div>
-
+"
 ?>
 <?php
               $way = $_SESSION["way"];
@@ -279,11 +279,9 @@ if(isset($_POST["way"])){
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                ?>
                 
-                <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
-                  
-                  
+                  ?>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
