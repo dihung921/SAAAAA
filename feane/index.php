@@ -25,6 +25,7 @@ if(isset($_POST["way"])){
   }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -66,6 +67,7 @@ if(isset($_POST["way"])){
 </head>
 
 <body>
+
 <?php
   if(!isset($_SESSION["way"])){
     echo"
@@ -151,6 +153,7 @@ if(isset($_POST["way"])){
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
               </li>
+             
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
@@ -169,6 +172,7 @@ if(isset($_POST["way"])){
             </a>";
             }
             ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -3851,6 +3855,10 @@ if(isset($_POST["way"])){
   <!-- End Google Map -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
+
+
+rap.js"></script>
+
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>

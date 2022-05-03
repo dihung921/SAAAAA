@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -11,7 +10,10 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $phone=$_POST["phone"];
   $password=$_POST["password"];
   
+  echo $name,$email,$phone,$password;
   $sql="select phone from member where phone='$phone'";
+
+
   $result=mysqli_query($link,$sql);
   if(mysqli_num_rows($result) >= 1){
     
