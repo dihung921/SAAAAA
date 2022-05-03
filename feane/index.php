@@ -111,7 +111,8 @@ if(isset($_POST["way"])){
 </div>
         </div>
       </div>
-"
+";
+  }
 ?>
 <?php
               $way = $_SESSION["way"];
