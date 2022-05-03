@@ -178,20 +178,23 @@ if(isset($_POST["way"])){
               方禾食呂
             </span>
               </a>
-              <?php
-              
-              if($way==0){
-                ?>
-                <button class='btn btn-warning'><?php echo "內用";?></button>
-                <?php
-              }
-              
-              if($way==1){
-                ?>
-                <button class='btn btn-warning'><?php echo "自取";?></button>
-               <?php
+              <a><?php
+              if (isset($_SESSION["way"])){
+                if($_SESSION["way"]== 0){
+                  echo "您選擇「內用」
+                  <form action='changeway.php' method='post'>
+                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  </form>";
+                }
+                else{ 
+                  echo "您選擇「外帶自取」
+                  <form action='changeway.php' method='post'>
+                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  </form>";
+                }
               }
               ?>
+              </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
