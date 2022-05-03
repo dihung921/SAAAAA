@@ -176,7 +176,7 @@
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                    <th> </th>
+                                <th> </th>
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
@@ -220,7 +220,7 @@
                                         <img src="images/Trash-256.webp" width="16" height="16" alt="" align="center">
 								</a>
                                     </td>
-                                </tr>
+                                                                  </tr>
                             </tbody>
                         </table>
                     </div>
