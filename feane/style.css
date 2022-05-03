@@ -68,7 +68,7 @@
 }
 
 .seat4 {
-  background-color: #ffffff;
+  background-color: #444451;
   height: 25px;
   width: 89px;
   margin: 1px;
@@ -84,8 +84,12 @@
   background-color: #6feaf6;
 }
 
+.seat3.selected {
+  background-color: #6feaf6;
+}
+
 .seat.occupied {
-  background-color: #fff;
+  background-color: rgb(225 149 149);
 }
 
 .seat:nth-of-type(0) {
@@ -160,8 +164,7 @@
 
 .screen2 {
   background-color: #fff;
-  height: 40px;
-  width: 40%;
+  width: 110px;
   margin: 10px 0;
   /*position:relative;left: 170px; top:-58px;*/
   transform: rotateX(0);
