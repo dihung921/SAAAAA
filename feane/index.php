@@ -10,7 +10,8 @@ if(isset($_POST["way"])){
       $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
       if($rs){
-        $_SESSION["way"] = $way;
+        $_SESSION["way"]=$way;
+        $_SESSION["seatnum"]=$seatnum;
       }
     }
   }
@@ -181,7 +182,7 @@ if(isset($_POST["way"])){
               <a><?php
               if (isset($_SESSION["way"])){
                 if($_SESSION["way"]== 0){
-                  echo "您選擇「內用」
+                  echo "您選擇「內用」 桌號：$seatnum
                   <form action='changeway.php' method='post'>
                   <input type='submit' class='btn-outline-white' value='更改用餐方式'>
                   </form>";
