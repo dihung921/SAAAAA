@@ -24,6 +24,7 @@ if(isset($_POST["way"])){
   }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,33 +66,37 @@ if(isset($_POST["way"])){
 </head>
 
 <body>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true"></span>
+
+<?php
+  if(!isset($_SESSION["way"])){
+    echo"
+    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'></span>
             </button>
           </div>
-          <center><div class="modal-body">
+          <center><div class='modal-body'>
           <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action="index.php" method="post">
-                          <input name= "way" value="1" type="hidden">  
-                          <button class="btn btn-warning">自取</button>
+                        <form action='index.php' method='post'>
+                          <input name= 'way' value='1' type='hidden'>  
+                          <button class='btn btn-warning'>自取</button>
                         </form>
-                        <form action="index.php" method="post">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">內用</button>
+                        <form action='index.php' method='post'>
+                        <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>內用</button>
              
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-footer">
-              <form action="index.php" method="post">
-                          <input name= "way" value="0" type="hidden">
-                            請輸入桌號：<input type="text" placeholder="桌號" name="seatnum">
-                            <button class="btn btn-warning">確認</button>
-                            <button class="btn btn-secondary" data-dismiss="modal">不吃了！</button>
+            <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog'>
+              <div class='modal-content'>
+              <div class='modal-footer'>
+              <form action='index.php' method='post'>
+                          <input name= 'way' value='0' type='hidden'>
+                            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+                            <button class='btn btn-warning'>確認</button>
+                            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
                             </form>
                   
                 </div>
@@ -100,14 +105,14 @@ if(isset($_POST["way"])){
             </div>
           </div>
 
-           
-          </div></center>
+           </div>
+          </div>
+          </center>
 </div>
         </div>
       </div>
-    </div>
-</div>
-</div>
+
+?>
 <?php
               $way = $_SESSION["way"];
               if(isset($_SESSION["way"])){
@@ -215,6 +220,7 @@ if(isset($_POST["way"])){
             </a>";
             }
             ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
