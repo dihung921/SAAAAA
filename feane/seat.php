@@ -251,12 +251,14 @@
     </div>
 
     <div class="seven">
-      <div class="seat4"><center>櫃檯</center></div>
-    </div>
+    <div class="row">
+      <div class="screen2"><center>櫃檯</center></div>
+    </div></div>
 
     <div class="eight">
-      <div class="seat4"><center>自助餐具區</center></div>
-    </div>
+    <div class="row">
+      <div class="screen2"><center>自助餐具區</center></div>
+    </div></div>
 
       
 

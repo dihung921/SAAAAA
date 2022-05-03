@@ -25,7 +25,6 @@ if(isset($_POST["way"])){
   }
 }
 ?>
-?>
 
 <!DOCTYPE html>
 <html>
