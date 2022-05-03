@@ -114,7 +114,7 @@ if(isset($_POST["way"])){
     </div>
 </div>";
 }
-?>
+?>}
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll.png" alt="">
