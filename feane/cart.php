@@ -185,12 +185,11 @@ $phone=$_SESSION["member_phone"];
   <div class="cart-box-main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-15">
+                <div class="col-lg-12">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                    <th> </th>
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
@@ -202,13 +201,13 @@ $phone=$_SESSION["member_phone"];
                             </thead>
                             <tbody align="center">
 
-                            <?php
+                            <?php      
                                     $sql="select * from cart where phone = $phone";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
-                                        echo "<td class='thumbnail-img'><img style width='350' height='250' src=".$row["img"]."/></td>
+                                        echo "
                                               <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
@@ -219,7 +218,13 @@ $phone=$_SESSION["member_phone"];
                                         echo "</tr>";
                                       }
                                     }
-                                  ?>
+                                    else{
+                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
+                                    }
+
+
+                              ?>
+
                             </tbody>
                         </table>
                     </div>
