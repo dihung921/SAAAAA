@@ -184,12 +184,12 @@ $phone=$_SESSION["member_phone"];
   <div class="cart-box-main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-15">
+                <div class="col-lg-12">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                
+                                    
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
@@ -207,7 +207,8 @@ $phone=$_SESSION["member_phone"];
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
-                                        echo "<td class='name-pr'>".$row["meal_id"]."</td>
+                                        echo "
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
@@ -226,8 +227,9 @@ $phone=$_SESSION["member_phone"];
             
             
             <div class="row justify-content-end">
-            <div class="col-12" >
-                <div class="col-lg-6 col-sm-6">
+            
+            <div class="col-6" >
+                <div>
                     <div class="update-box">
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
@@ -235,7 +237,7 @@ $phone=$_SESSION["member_phone"];
             </div>
 
             
-            <div class="col-sm-6 col-lg-4 all classic">
+            <div>
             <form action="" method="post" >
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
@@ -261,16 +263,13 @@ $phone=$_SESSION["member_phone"];
                           </div>        
                   </form>
               <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                     
-                  <div class="detail-box">
-                  <div class="row my-12">
-                    <div class="col-lg-12 col-sm-12"></div>
-                        <div class="col-lg-15 col-sm-15">
+                   <div class="col-lg-10 col-sm-10"></div>
+                        <div class="col-lg-12 col-sm-12">
                             <div class="order-box">
                                 <div class="d-flex gr-total">
                                     <h5>總金額</h5>
                                     <div class="ml-auto h5" align="center"> $ 388 </div>
-                                      <div class="col-8 d-flex shopping-box">
+                                      <div class="col-6 d-flex shopping-box">
                                         <a class="ml-auto btn hvr-hover">結帳</a> 
                                       </div>
                                     </div>

@@ -25,7 +25,6 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
         $price=$row["price"];
 
         $_SESSION["mealname"]=$row["name"];
-        $_SESSION["img"]=$row["img"];
         $_SESSION["price"]=$row["price"];
     }
 

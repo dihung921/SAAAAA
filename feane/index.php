@@ -112,59 +112,10 @@ if(isset($_POST["way"])){
 </div>
         </div>
       </div>
-";
-  }
-?>
-<?php
-              $way = $_SESSION["way"];
-              if(isset($_SESSION["way"])){
-                echo "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog'>
-                  <div class='modal-content'>
-                    <div class='modal-header'>
-                      <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                        <span aria-hidden='true'></span>
-                      </button>
-                    </div>
-                    <center><div class='modal-body'>
-                      <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action='index.php' method='post'>
-                          <input name= 'way' value='1' type='hidden'>  
-                          <button class='btn btn-warning' data-dismiss='modal'>自取</button>
-                        </form>
-                        
-                          <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>內用</button>
-                          
-          
-                       
-                      <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                      <div class='modal-dialog'>
-                        <div class='modal-content'>
-                        <div class='modal-footer'>
-                        <form action='index.php' method='post'>
-                          <input name= 'way' value='0' type='hidden'>
-                            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
-                            <button class='btn btn-warning'>確認</button>
-                            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-                            </form>
-                            
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-          
-                     
-                    </div></center>
-          </div>
-                  </div>
-                </div>
-              </div>";
-              }
-              
-              ?>
-
+    </div>
+</div>";
+}
+?>}
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll.png" alt="">
@@ -406,12 +357,12 @@ if(isset($_POST["way"])){
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
 
-        <a  style="text-decoration: none" href="#classic"><li>經典餐盒</li></a>
-        <a href="#roll"><li>輕食捲捲</li></a>
-        <a href="#salad"><li>沙拉水果盒</li></a>
-        <a href="#main"><li>主食單品</li></a>
-        <a href="#other"><li>其他單品</li></a>
-        <a href="#drink"><li>飲料</li></a>
+        <a  style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
+        <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
+        <a style="text-decoration: none; color:black;" href="#other"><li>其他單品</li></a>
+        <a style="text-decoration: none; color:black;" href="#drink"><li>飲料</li></a>
 
       </ul>
     
