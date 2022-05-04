@@ -117,7 +117,7 @@ if(isset($_POST["way"])){
 ?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll3.png" alt="">
+      <img src="images/ll4.png" alt="">
       
     </div>
     <!-- header section strats -->
