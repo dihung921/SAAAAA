@@ -135,13 +135,13 @@ if(isset($_POST["way"])){
                 if($_SESSION["way"]== 0){
                   echo 
                   "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改'>
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
                   </form>";
                 }
                 else{ 
                   echo "
                   <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改'>
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
                   </form>";
                 }
               }

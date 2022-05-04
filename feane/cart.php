@@ -70,7 +70,7 @@ $phone=$_SESSION["member_phone"];
           </a>
 
           <form action="changeway.php" method="post">
-              <input type="submit" class="btn-check" value="更改用餐方式">
+              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
             </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
