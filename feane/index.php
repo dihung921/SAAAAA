@@ -130,18 +130,18 @@ if(isset($_POST["way"])){
             </span>
              </a>
 
-              <a><?php
+              <a style="color: lightgray"><?php
               if (isset($_SESSION["way"])){
                 if($_SESSION["way"]== 0){
-                  echo "您選擇「內用」
-                  <form action='changeway.php' method='post'>
-                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  echo 
+                  "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改'>
                   </form>";
                 }
                 else{ 
-                  echo "您選擇「外帶自取」
-                  <form action='changeway.php' method='post'>
-                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  echo "
+                  <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改'>
                   </form>";
                 }
               }
@@ -3857,7 +3857,6 @@ if(isset($_POST["way"])){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
 
-rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
