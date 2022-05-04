@@ -204,6 +204,7 @@ $phone=$_SESSION["member_phone"];
                             <?php      
                                     $sql="select * from cart where phone = $phone";
                                     $result=mysqli_query($link,$sql);
+                                    $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
@@ -216,12 +217,12 @@ $phone=$_SESSION["member_phone"];
                                               <td>".$row["price"]."</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
+                                        $tot_price += $row["price"];
                                       }
                                     }
                                     else{
                                       echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
                                     }
-
 
                               ?>
 
@@ -231,15 +232,18 @@ $phone=$_SESSION["member_phone"];
                 </div>
             </div>
             
-            
-            <div class="row justify-content-end">
-            <div class="col-12" >
-                <div class="col-lg-6 col-sm-6">
-                    <div class="update-box">
-                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
-                    </div>
-                </div>
-            </div>
+           <?php 
+            echo $tot_price;
+            $_SESSION["tot_price"]=$tot_price;
+            echo"<div class='row justify-content-end'>
+                  <div class='col-12'>
+                      <div class='col-lg-6 col-sm-6'>
+                        <div class='update-box'>
+                        <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                      </div>
+                  </div>
+                </div>"
+            ?>
 
             
             <div class="col-sm-6 col-lg-4 all classic">
@@ -267,25 +271,30 @@ $phone=$_SESSION["member_phone"];
                               </div>
                           </div>        
                   </form>
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                     
-                  <div class="detail-box">
-                  <div class="row my-12">
-                    <div class="col-lg-12 col-sm-12"></div>
-                        <div class="col-lg-15 col-sm-15">
-                            <div class="order-box">
-                                <div class="d-flex gr-total">
-                                    <h5>總金額</h5>
-                                    <div class="ml-auto h5" align="center"> $ 388 </div>
-                                      <div class="col-8 d-flex shopping-box">
-                                        <a class="ml-auto btn hvr-hover">結帳</a> 
-                                      </div>
-                                    </div>
-                                    <hr> 
+                  <?php
+                    echo"<form>
+                    <input type='button' value='結帳' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal2' style='background-color: blue; color: white;''>   
+                    <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
+                        <div class='modal-dialog' role='document'>
+                            <div class='modal-content'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                </div>
+                            <div class='modal-body'>
+                                即將送出訂單！
+                            </div>
+                                <div class='modal-footer'>
+                                    <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>"
+                    ?>
                     
                     <div class="options">
                       
