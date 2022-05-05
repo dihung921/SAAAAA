@@ -2,7 +2,7 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $phone=$_SESSION["member_phone"];
 ?>
