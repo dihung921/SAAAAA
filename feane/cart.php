@@ -263,17 +263,11 @@ $phone=$_SESSION["member_phone"];
                               </div>
                           </div>        
                   </form>
-<<<<<<< HEAD
               <div class="box" data-toggle="modal" data-target="#exampleModal1">   
                   <div class="detail-box">
                   <div class="row my-12">
                     <div class="col-lg-12 col-sm-12"></div>
                         <div class="col-lg-15 col-sm-15">
-=======
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                   <div class="col-lg-10 col-sm-10"></div>
-                        <div class="col-lg-12 col-sm-12">
->>>>>>> 71be2f125cb80d71f5ead265f5dcada1789d6343
                             <div class="order-box">
                                 <div class="d-flex gr-total">
                                     <h5>總金額</h5>
