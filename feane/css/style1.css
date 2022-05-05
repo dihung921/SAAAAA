@@ -1750,7 +1750,7 @@
      opacity: 0.5;
 }
  .hover-team .team-content .title{
-     border-bottom: 2px solid #b0b435;
+     border-bottom: 2px solid #bfc25b;
 }
  .shop-box-inner{
      padding: 70px 0px;
@@ -2041,7 +2041,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #b0b435;
+     background: #bfc25b;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2092,9 +2092,9 @@
      background: #b0b435;
 }
  .update-box input[type="submit"]{
-     background: #000000;
+     background: #767676;
      border: medium none;
-     border-radius: 0;
+     border-radius: 5px;
      -webkit-box-shadow: none;
      box-shadow: none;
      color: #fff;
@@ -2113,6 +2113,7 @@
      transition: all 0.3s ease 0s;
      white-space: nowrap;
      width: inherit;
+     position:relative top 50px;
 }
  .update-box input[type="submit"]:hover{
      background: #b0b435;
@@ -2192,7 +2193,7 @@
 }
  .new-account-login h5 {
      font-size: 18px;
-     color: #1111111;
+     color: #111111;
      font-weight: 600;
 }
  .new-account-login h5 a:hover{
@@ -2398,10 +2399,10 @@
      left: 0;
      top: 5px;
      padding-right: 6px;
-     color: #b0b435;
+     color: #bfc25b;
 }
  .contact-info-left ul li p a:hover{
-     color: #b0b435;
+     color: #bfc25b;
 }
  .contact-form-right{
      padding: 20px;
@@ -2425,7 +2426,7 @@
      position: relative;
 }
  .contact-form-right .form-group .form-control:focus{
-     border: 1px solid #b0b435;
+     border: 1px solid #bfc25b;
      box-shadow: none;
 }
  .submit-button button{

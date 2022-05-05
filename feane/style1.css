@@ -646,7 +646,7 @@
      transform: perspective(1px) translateZ(0);
      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
      position: relative;
-     background: #d4d768;
+     background: #bfc25b;
      -webkit-transition-property: color;
      transition-property: color;
      -webkit-transition-duration: 0.3s;
@@ -2038,7 +2038,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #d4d768;
+     background: #bfc25b;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2078,7 +2078,7 @@
      color: #000000;
 }
  .coupon-box .input-group .input-group-append .btn-theme {
-     background: #000000;
+     background: #f9a229bd;
      color: #ffffff;
      border: none;
      border-radius: 0px;
@@ -2089,7 +2089,7 @@
      background: #ffbe3f;
 }
  .update-box input[type="submit"]{
-     background: #000000;
+     background: #7a8756;
      border: medium none;
      border-radius: 0;
      -webkit-box-shadow: none;
