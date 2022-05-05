@@ -31,23 +31,7 @@ if (mysqli_num_rows($result) > 0) {
     $sql4="delete from cart where phone='$phone'";
     $rs2=mysqli_query($link,$sql4);
 
-
-    
-   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>

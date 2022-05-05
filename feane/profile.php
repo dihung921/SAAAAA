@@ -1,5 +1,7 @@
 <?php
 session_start();
+$link = mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -230,81 +232,61 @@ session_start();
 
             
 
-                
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589748 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/24 6:26 PM</p>
-                                        <p class="text-dark">日式薑燒豬（地瓜,芥末醬）x 1
-                                        </p>
-                                        <p class="text-dark">泰式打拋豬（紫米飯,沙茶醬）x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $300
-                                        </p>
-                                    </div>
-                                </div>
+                        <?php
+                          $phone=$_SESSION["member_phone"];
+                          $sql="select * from order1 where phone='$phone'";
+                          $rs=mysqli_query($link,$sql);
+                          $row=mysqli_fetch_array($rs);
+                          $time=$row["time"];
+                          $sql2="select * from detail where phone='$phone' and time='$time'";
+                          $rs2=mysqli_query($link,$sql2);
+                          $row1=mysqli_fetch_array($rs2);
 
-                            </div>
-                        </div>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589535 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/23 7:52 PM</p>
-                                        <p class="text-dark">韓式風味牛（糙米飯,豆瓣醬）x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $150
-                                        </p>
-                                    </div>
-                                </div>
+                          if(mysqli_num_rows($rs)>0){
+                            echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                          <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"];
+                                          ?>
 
-                            </div>
-                        </div>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589084 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/22 12:45 PM</p>
-                                        <p class="text-dark">普羅旺斯鱈魚（糙米飯,豆瓣醬）x 1
-                                        </p>
-                                        <p class="text-dark">檸檬椒鹽雞胸（白飯,沙拉醬）x 1
-                                        </p>
-                                        <p class="text-dark">陽光沙拉盒 x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $450
-                                        </p>
-                                    </div>
-                                </div>
+                                          <?php
+                                          if($rs){
+                                            if($row["cond"]== 0){
+                                              echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
+                                            }
+                                            else{
+                                              echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                            }
+                                        
+                                            while($row1 = mysqli_fetch_assoc($rs2)){
+                                              echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                            }
+                                            
+                                          }
+                                              
+                                          echo"
+                                            <hr>
+                                            <div class='float-right'>
+                                              <a class='btn btn-sm btn-outline-warning' href='#'><i class='icofont-headphone-alt'></i> 給予回饋</a>
+                                              <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i> 再買一次</a>
+                                            </div>
+                                            <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>";
+                          }
 
-                            </div>
-                        </div>
+                          else{
+                            echo"尚未有訂餐紀錄！";
+                          }
+                        
+                        ?>
                     </div>
         
               
