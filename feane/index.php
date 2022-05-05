@@ -467,7 +467,7 @@ if(isset($_POST["way"])){
                   </p>
                   <div class="options">
                     <h6>
-                      $110
+                      $120
                     </h6>
                   </div>
                 </div>
