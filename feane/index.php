@@ -1,4 +1,30 @@
+<?php
+session_start();
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 
+if(isset($_POST["way"])){
+  $way = $_POST["way"];
+  if($way == 0){
+    if(isset($_POST["seatnum"])){
+      $seatnum= $_POST["seatnum"];
+      $sql="insert into way( way, seat) values ('0', '$seatnum')";
+      $rs=mysqli_query($link,$sql);
+      if($rs){
+        $_SESSION["way"]=$way;
+      }
+    }
+  }
+  else{
+    $sql="insert into way(way) values ('1')";
+    $rs=mysqli_query($link,$sql);
+    if($rs){
+      $_SESSION["way"]=$way;
+    }
+    header("Location:index.php");
+  }
+}
+?>
 
 <!DOCTYPE html>
 <html>
