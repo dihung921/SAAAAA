@@ -2,8 +2,8 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
+
 $phone=$_SESSION["member_phone"];
 ?>
 
@@ -190,7 +190,7 @@ $phone=$_SESSION["member_phone"];
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                    <th> </th>
+                                    
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
@@ -208,7 +208,7 @@ $phone=$_SESSION["member_phone"];
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
-                                        echo "<td class='thumbnail-img'><img style width='350' height='250' src=".$row["img"]."/></td>
+                                        echo "
                                               <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
@@ -262,8 +262,7 @@ $phone=$_SESSION["member_phone"];
                               </div>
                           </div>        
                   </form>
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                     
+              <div class="box" data-toggle="modal" data-target="#exampleModal1">   
                   <div class="detail-box">
                   <div class="row my-12">
                     <div class="col-lg-12 col-sm-12"></div>
@@ -405,4 +404,3 @@ $phone=$_SESSION["member_phone"];
 </body>
 
 </html>
-
