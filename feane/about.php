@@ -51,7 +51,8 @@ session_start();
             </span>
             </a>
 
-            <a style="color: lightgray"><?php
+            <a style="color: lightgray">
+            <?php
             if (isset($_SESSION["way"])){
               if($_SESSION["way"]== 0){
                 echo 

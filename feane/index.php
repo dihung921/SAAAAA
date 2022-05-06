@@ -114,7 +114,7 @@ if(isset($_POST["way"])){
     </div>
 </div>";
 }
-?>}
+?>
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll4.png" alt="">
@@ -343,7 +343,10 @@ if(isset($_POST["way"])){
 
   <!-- food section -->
 <br>
+<div class="offer_section">
   <section class="food_section layout_padding-bottom">
+  
+   
     <div class="container">
       <div class="heading_container heading_center">
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
@@ -441,6 +444,7 @@ if(isset($_POST["way"])){
                                 </script>
                                 </div>   
                                 </div>
+                               
                                 <div class="modal-footer">
                                   <?php
                                   if($_SESSION["member_phone"]==NULL){
@@ -483,6 +487,7 @@ if(isset($_POST["way"])){
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <img src="images/朝日咖哩雞胸.jpeg" style="border-radius: 5px;">
+                                  <div class="detail-box">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
 
@@ -549,6 +554,7 @@ if(isset($_POST["way"])){
                                   </script>
                                   </div>   
                                   </div>
+                                    </div>
                                   <div class="modal-footer">
                                   <?php
                                   if($_SESSION["member_phone"]==NULL){
@@ -3694,7 +3700,8 @@ if(isset($_POST["way"])){
                   </div>
                 </div>
               </div>
-
+                                </div>
+                                </div>
             </div>
             
           
@@ -3858,7 +3865,6 @@ if(isset($_POST["way"])){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
 
-rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">

@@ -1,38 +1,18 @@
+<?php
+session_start();
+
+
+$link=mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
+$phone=$_SESSION["member_phone"];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
-<!-- Basic -->
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Site Metas -->
-    <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <meta charset="utf-8" />
+  <!-- Basic -->
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -42,7 +22,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -59,22 +39,39 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+    
+
 </head>
 
-<body>
-    
+<body class="sub_page">
 
-    <!-- Start Main Top -->
-    
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/ll.png" alt="">
+    </div>
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <span>
               方禾食呂
             </span>
           </a>
+
+          <form action="changeway.php" method="post">
+              <input type="submit" class="btn-check" value="更改用餐方式">
+            </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -82,24 +79,27 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="index.php">訂單首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="about.php">關於方禾</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a class="cart_link" href="#">
+
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
+
+              <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -153,340 +153,237 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="" class="order_online">
-                Order Online
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                
+                  ?>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
+                登入
               </a>
+              <a href='register.php' class='order_online'>
+                註冊
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
       </div>
     </header>
+    <!-- end header section -->
+  </div>
 
-                <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu"><a href="#">
-						<i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
-							<p>My Cart</p>
-					</a></li>
-                    </ul>
-                </div>
-                <!-- End Atribute Navigation -->
-            </div>
-            <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <li class="cart-box">
-                    <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
-                        <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
-                        </li>
-                    </ul>
-                </li>
-            </div>
-            <!-- End Side Menu -->
-        </nav>
-        <!-- End Navigation -->
-    </header>
-    <!-- End Main Top -->
-
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
-
-    
-
-    <!-- Start Cart  -->
-    <div class="cart-box-main">
+  <!-- Start Cart  -->
+  
+  <div class="cart-box-main">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>Images</th>
-                                    <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th>Remove</th>
+                                <tr align="center">
+                                    <th>商品名稱</th>
+                                    <th>副餐</th>
+                                    <th>醬料</th>
+                                    <th>備註</th>
+                                    <th>數量</th>
+                                    <th>總價</th>
+                                    <th>刪除</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-02.jpg" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 60.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 30.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
-                                    </td>
-                                </tr>
+                            <tbody align="center">
+
+                            <?php      
+                                    $sql="select * from cart where phone = $phone";
+                                    $result=mysqli_query($link,$sql);
+                                    $tot_price=0;
+                                    if (mysqli_num_rows($result) > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
+                                              <td class='name'>".$row["sm_id"]."</td>
+                                              <td class='name'>".$row["s_id"]."</td>
+                                              <td>".$row["note"]."</td>
+                                              <td>".$row["amount"]."</td>
+                                              <td>".$row["price"]."</td>
+                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                        echo "</tr>";
+                                        $tot_price += $row["price"];
+                                      }
+                                    }
+                                    else{
+                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
+                                    }
+
+                              ?>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            
+           <?php 
+            echo $tot_price;
+            $_SESSION["tot_price"]=$tot_price;
+            echo"<div class='row justify-content-end'>
+                  <div class='col-12'>
+                      <div class='col-lg-6 col-sm-6'>
+                        <div class='update-box'>
+                        <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                      </div>
+                  </div>
+                </div>"
+            ?>
 
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-theme" type="button">Apply Coupon</button>
+            
+            <div class="col-sm-6 col-lg-4 all classic">
+            <form action="" method="post" >
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
+                              <div class="modal-dialog" role="document" id="exampleModalLabel1">
+                                  <div class="modal-content" style="padding: 40px 40px;">
+                                  <div class="modal-body" style="color: black;">
+                                    <h4>請選擇您的付款方式:</h4><hr>
+                                    <center>
+                                      <div class="col-30 d-flex justify-content-around shopping-box">
+                                      <a class="ml-auto btn hvr-hover">line pay</a>
+                                      <a class="ml-auto btn hvr-hover">apple pay</a>
+                                      <a class="ml-auto btn hvr-hover">街口支付</a>
+                                      <a class="ml-auto btn hvr-hover">信用卡支付</a>    
+                                      </div>
+                                    </center>
+                                  </div>   
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
+                                    <input type="submit" value="送出"  class="btn btn-warning ">
+                                  </div>
+                              </div>
+                              </div>
+                          </div>        
+                  </form>
+                  <?php
+                    echo"<form>
+                    <input type='button' value='結帳' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal2' style='background-color: blue; color: white;''>   
+                    <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
+                        <div class='modal-dialog' role='document'>
+                            <div class='modal-content'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                </div>
+                            <div class='modal-body'>
+                                即將送出訂單！
+                            </div>
+                                <div class='modal-footer'>
+                                    <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                    <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="update-box">
-                        <input value="Update Cart" type="submit">
+                    </form>"
+                    ?>
+                    
+                    <div class="options">
+                      
                     </div>
+                  </div>
                 </div>
-            </div>
-
-            <div class="row my-5">
-                <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="order-box">
-                        <h3>Order summary</h3>
-                        <div class="d-flex">
-                            <h4>Sub Total</h4>
-                            <div class="ml-auto font-weight-bold"> $ 130 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 40 </div>
-                        </div>
-                        <hr class="my-1">
-                        <div class="d-flex">
-                            <h4>Coupon Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 10 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Tax</h4>
-                            <div class="ml-auto font-weight-bold"> $ 2 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Shipping Cost</h4>
-                            <div class="ml-auto font-weight-bold"> Free </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex gr-total">
-                            <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ 388 </div>
-                        </div>
-                        <hr> </div>
-                </div>
-                <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">Checkout</a> </div>
-            </div>
+              </div>
 
         </div>
     </div>
     <!-- End Cart -->
 
-    <!-- Start Instagram Feed  -->
-    <div class="instagram-box">
-        <div class="main-instagram owl-carousel owl-theme">
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-01.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-02.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-03.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-04.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-05.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-06.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-07.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-08.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-09.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/instagram-img-05.jpg" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Instagram Feed  -->
-
-
-    <!-- Start Footer  -->
-    <!-- footer section -->
   
   <!-- footer section -->
-    <!-- End Footer  -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4 style="color:aliceblue">
+              聯絡我們
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
+                
+                <span>
+                242新北市新莊區中正路514巷53弄39號
+                </span>
+              </a>
+                
+                <span>
+                  Call +02 2908-1397
+                </span>
+                
+                <span>
+                storyboxtw@gmail.com
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="index.php" class="footer-logo">
+              方禾食呂
+            </a>
+            <h5 style="color:aliceblue">
+            健康飲食好夥伴
+            </h5>
+            <div class="footer_social">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
+              </a>
+              <a href="https://www.instagram.com/storyboxtw/">
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4 style="color:aliceblue">
+            營業時間
+          </h4>
+          <p>
+            星期一～日
+          </p>
+          <p>
+            10:00 AM ~ 19:00 PM
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">SA05</a><br><br>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
 
-    <!-- Start copyright  -->
-    
-    <!-- End copyright  -->
-
-    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-    <<!-- jQery -->
+  
+  
+  <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap1.js"></script>
+  <script src="js/bootstrap.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -501,10 +398,9 @@
   </script>
   <!-- End Google Map -->
 
-  
 
-    <!-- ALL JS FILES -->
-    <script src="js/jquery-3.2.1.min.js"></script>
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
@@ -518,10 +414,8 @@
     <script src="js/baguetteBox.min.js"></script>
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/bootstrap1.js"></script>
     <script src="js/custom1.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
+
 </body>
 
 </html>
