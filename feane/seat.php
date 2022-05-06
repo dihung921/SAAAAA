@@ -43,7 +43,7 @@ session_start();
   <div class="hero_area">
     <div class="bg-box">
 
-      <img src="images/ll.png" alt="">
+      <img src="images/ll4.png" alt="">
     </div>
     <!-- header section strats -->
     
@@ -57,7 +57,7 @@ session_start();
             </span>
           </a>
           <form action="changeway.php" method="post">
-              <input type="submit" class="btn-check" value="更改用餐方式">
+              <input type="submit" class='btn btn-warning' style='color: white; border-radius: 20px' value="更改用餐方式">
             </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -67,7 +67,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/ll4.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">

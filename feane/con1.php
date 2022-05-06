@@ -12,9 +12,9 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
     $note=$_POST["note"];
     $num=$_POST["num"];
 
-    $sql="select * from `meal` where meal_id='$name'";
-    $sql1="select * from `sidemeal` where sm_id='$sidemeal'";
-    $sql2="select name from `sauce` where s_id='$sauce'";
+    $sql="select * from meal where meal_id='$name'";
+    $sql1="select * from sidemeal where sm_id='$sidemeal'";
+    $sql2="select name from sauce where s_id='$sauce'";
 
     $meal=mysqli_query($link,$sql);
     $sm=mysqli_query($link,$sql1);

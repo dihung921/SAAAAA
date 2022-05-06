@@ -3,6 +3,7 @@ session_start();
 
 
 $link=mysqli_connect("localhost","root","12345678","sa");
+
 $phone=$_SESSION["member_phone"];
 ?>
 
@@ -56,7 +57,7 @@ $phone=$_SESSION["member_phone"];
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/ll4.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -69,7 +70,7 @@ $phone=$_SESSION["member_phone"];
           </a>
 
           <form action="changeway.php" method="post">
-              <input type="submit" class="btn-check" value="更改用餐方式">
+              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
             </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -262,9 +263,11 @@ $phone=$_SESSION["member_phone"];
                               </div>
                           </div>        
                   </form>
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                   <div class="col-lg-10 col-sm-10"></div>
-                        <div class="col-lg-12 col-sm-12">
+              <div class="box" data-toggle="modal" data-target="#exampleModal1">   
+                  <div class="detail-box">
+                  <div class="row my-12">
+                    <div class="col-lg-12 col-sm-12"></div>
+                        <div class="col-lg-15 col-sm-15">
                             <div class="order-box">
                                 <div class="d-flex gr-total">
                                     <h5>總金額</h5>
@@ -402,4 +405,3 @@ $phone=$_SESSION["member_phone"];
 </body>
 
 </html>
-
