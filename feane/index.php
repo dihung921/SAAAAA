@@ -343,6 +343,9 @@ if(isset($_POST["way"])){
   <!-- food section -->
 <br>
   <section class="food_section layout_padding-bottom">
+  <div class="offer_section">
+    <div class="food_section">
+
     <div class="container">
       <div class="heading_container heading_center">
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
@@ -364,16 +367,19 @@ if(isset($_POST["way"])){
     
       <br>
       <h2 id="classic" style="font-family: Arial, Helvetica, sans-serif;">經典餐盒</h2>
+
       <hr>
-      
           <div class="row grid">
             <div class="col-sm-6 col-lg-4 all classic">   
+            
               <form action="con1.php" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
+                            
                                 <div class="modal-content" style="padding: 20px 20px;">
                                 <img src="images/義式香草雞胸.jpeg" style="border-radius: 5px;">
                                 <div class="modal-body" style="color: black;">
+                                
                                   <h5>義式香草雞胸（62kcal）</h5>
 
                                   <input type="hidden" name ="mealname" value="1">
@@ -467,7 +473,7 @@ if(isset($_POST["way"])){
                   </p>
                   <div class="options">
                     <h6>
-                      $120
+                      $110
                     </h6>
                   </div>
                 </div>
@@ -3695,7 +3701,9 @@ if(isset($_POST["way"])){
               </div>
 
             </div>
-            
+                                </div>
+                                </div>
+                                </div>
           
       
     </div>
@@ -3762,6 +3770,7 @@ if(isset($_POST["way"])){
         </div>
       </div>
     </div>
+                              
   </section>
 
   <!-- end client section -->
@@ -3772,7 +3781,7 @@ if(isset($_POST["way"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="font-family: Arial, Helvetica, sans-serif;"> 
+            <h4>
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -3795,7 +3804,7 @@ if(isset($_POST["way"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
+            <a href="" class="footer-logo">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
@@ -3812,7 +3821,7 @@ if(isset($_POST["way"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="font-family: Arial, Helvetica, sans-serif;">
+          <h4>
             營業時間
           </h4>
           <p>
