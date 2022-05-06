@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo "hi";
+
 ?>
 <!DOCTYPE html>
 <html>
