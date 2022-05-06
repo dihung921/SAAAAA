@@ -1,7 +1,7 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
+
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -161,6 +161,7 @@ if(isset($_POST["way"])){
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
+              
             </ul>
             
             <div class="user_option">
@@ -3806,9 +3807,9 @@ if(isset($_POST["way"])){
             <a href="" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h4 style="color:aliceblue">
             健康飲食好夥伴
-            </h5>
+            </h4>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal" style="text-decoration:none;" >
                 <i class="fa fa-facebook" aria-hidden="true"></i>

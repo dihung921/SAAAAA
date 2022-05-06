@@ -232,18 +232,16 @@ $phone=$_SESSION["member_phone"];
                 </div>
             </div>
             
-           <?php 
-            echo $tot_price;
-            $_SESSION["tot_price"]=$tot_price;
-            echo"<div class='row justify-content-end'>
-                  <div class='col-12'>
-                      <div class='col-lg-6 col-sm-6'>
-                        <div class='update-box'>
-                        <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
-                      </div>
-                  </div>
-                </div>"
-            ?>
+            
+            <div class="row justify-content-end">
+            
+            <div class="col-6">
+            <center><div>
+                    <div class="update-box" style="width: 150px;">
+                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
+                    </div>
+                </div> </center>
+            </div>
 
             
             <div class="col-sm-6 col-lg-4 all classic">
@@ -340,9 +338,9 @@ $phone=$_SESSION["member_phone"];
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h4 style="color:aliceblue">
             健康飲食好夥伴
-            </h5>
+            </h4>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <img src="images/fb.png" width="16" height="16" alt="" align="center">
