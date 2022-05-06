@@ -160,15 +160,7 @@ if(isset($_POST["way"])){
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
-              <?php
-                    if($_SESSION['phone']=="admin"){?>
-              <li><a href="#">後臺管理<i class="ti-angle-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="seat2.php">座位狀況管理</a></li>
-                        <li><a href="manege.php">訂單管理</a></li>
-                    </ul>
-              </li>
-              <?php }?>
+              
             </ul>
             
             <div class="user_option">
