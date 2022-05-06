@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -174,26 +172,7 @@
   <!-- book section -->
   <div class="cseat">
  
-      <label>選擇位置:</label>
-      <select class="cselect" id="seat">
-        <option value="1">座位1</option>
-        <option value="2">座位2</option>
-        <option value="3">座位3</option>
-        <option value="4">座位4</option>
-        <option value="5">座位5</option>
-        <option value="6">座位6</option>
-        <option value="7">座位7</option>
-        <option value="8">座位8</option>
-        <option value="9">座位9</option>
-        <option value="10">座位10</option>
-        <option value="11">座位11</option>
-        <option value="12">座位12</option>
-        <option value="13">座位13</option>
-        <option value="14">座位14</option>
-        <option value="15">座位15</option>
-        <option value="16">座位16</option>
-        
-      </select>
+      
 <div class="movie-container">
     <ul class="showcase">
       <li>
@@ -308,9 +287,9 @@
             <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h4 style="color:aliceblue">
             健康飲食好夥伴
-            </h5>
+            </h4>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -375,6 +354,6 @@
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
 
 </html>

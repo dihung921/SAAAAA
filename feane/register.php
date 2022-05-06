@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -274,9 +274,9 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h4 style="color:aliceblue">
             健康飲食好夥伴
-            </h5>
+            </h4>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
