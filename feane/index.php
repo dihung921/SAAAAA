@@ -8,7 +8,7 @@ if(isset($_POST["way"])){
   if($way == 0){
     if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
+      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
       if($rs){
         $_SESSION["way"]=$way;
@@ -16,10 +16,10 @@ if(isset($_POST["way"])){
     }
   }
   else{
-    $sql="insert into way(way) values ('1')";
+    $sql="insert into `way`(way) values ('1')";
     $rs=mysqli_query($link,$sql);
     if($rs){
-      $_SESSION["way"]=$way;
+      $_SESSION["way"] = $way;
     }
     header("Location:index.php");
   }
@@ -41,7 +41,7 @@ if(isset($_POST["way"])){
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
+  <title> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -70,7 +70,7 @@ if(isset($_POST["way"])){
 
 <?php
   if(!isset($_SESSION["way"])){
-    echo"
+    echo "
     <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
       <div class='modal-dialog'>
         <div class='modal-content'>
@@ -83,31 +83,32 @@ if(isset($_POST["way"])){
           <center><div class='modal-body'>
           <div class='d-grid gap-2 col-6 mx-auto'>
                         <form action='index.php' method='post'>
-                          <input name='way' value='1' type='hidden'>  
+                          <input name= 'way' value='1' type='hidden'>  
                           <button class='btn btn-warning'>自取</button>
                         </form>
-            <form action='index.php' method='post'>
-            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
-            
+                        <form action='index.php' method='post'>
+                        <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>內用</button>
+             
+            <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog'>
-            <div class='modal-content'>
-            <div class='modal-footer'>
-            <input name= 'way' value='0' type='hidden'>
-            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
-            <button class='btn btn-warning'>確認</button>
-            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-            
-            
+              <div class='modal-content'>
+              <div class='modal-footer'>
+              <form action='index.php' method='post'>
+                          <input name= 'way' value='0' type='hidden'>
+                            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+                            <button class='btn btn-warning'>確認</button>
+                            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
+                            </form>
                   
                 </div>
                 
               </div>
             </div>
           </div>
-          </div>
 
-           
-          </div></center>
+           </div>
+          </div>
+          </center>
 </div>
         </div>
       </div>
@@ -125,7 +126,7 @@ if(isset($_POST["way"])){
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span style="font-family: Arial, Helvetica, sans-serif;">
+            <span>
               方禾食呂
             </span>
             </a>
@@ -265,7 +266,7 @@ if(isset($_POST["way"])){
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/檸檬椒鹽雞胸.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
-                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
+                    <h1>
                       熱銷餐點。
                     </h1>
                     <div class="btn-box">
@@ -284,7 +285,7 @@ if(isset($_POST["way"])){
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/素食綜合野菇2.jpeg" width="49%" align="right" alt=""> 
                   <div class="detail-box">
-                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
+                    <h1>
                      輕食一下。
                     </h1>
                     <p>
@@ -306,7 +307,7 @@ if(isset($_POST["way"])){
               <div class="col-md-7 col-lg-11 ">
                 <img src="images/韓式風味牛.jpeg" width="50%" alt="" align="right"> 
                   <div class="detail-box">
-                    <h1 style="font-family: Arial, Helvetica, sans-serif;">
+                    <h1>
                       店長推薦。
                     </h1>
                     <p>
@@ -350,7 +351,7 @@ if(isset($_POST["way"])){
    
     <div class="container">
       <div class="heading_container heading_center">
-        <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
+        <h2 id="menu">
           菜單
         </h2>
       </div>
@@ -368,7 +369,7 @@ if(isset($_POST["way"])){
       </ul>
     
       <br>
-      <h2 id="classic" style="font-family: Arial, Helvetica, sans-serif;">經典餐盒</h2>
+      <h2 id="classic">經典餐盒</h2>
       <hr>
       
           <div class="row grid">
@@ -1432,7 +1433,7 @@ if(isset($_POST["way"])){
             </div>
 
             <br><br>
-            <h2 id="roll" style="font-family: Arial, Helvetica, sans-serif;">輕食捲捲</h2>
+            <h2 id="roll">輕食捲捲</h2>
             <hr>
 
             <div class="row grid">
@@ -1678,7 +1679,7 @@ if(isset($_POST["way"])){
             </div>
 
             <br><br>
-            <h2 id="salad" style="font-family: Arial, Helvetica, sans-serif;">沙拉水果盒</h2>
+            <h2 id="salad">沙拉水果盒</h2>
             <hr>
 
             <div class="row grid">
@@ -1859,7 +1860,7 @@ if(isset($_POST["way"])){
             </div>
 
             <br><br>
-            <h2 id="main" style="font-family: Arial, Helvetica, sans-serif;">主食單品</h2>
+            <h2 id="main">主食單品</h2>
             <hr>
 
             <div class="row grid">
@@ -2696,7 +2697,7 @@ if(isset($_POST["way"])){
             </div>
 
             <br><br>
-            <h2 id="other" style="font-family: Arial, Helvetica, sans-serif;">其他單品</h2>
+            <h2 id="other">其他單品</h2>
             <hr>
 
             <div class="row grid">
@@ -3285,7 +3286,7 @@ if(isset($_POST["way"])){
             </div>
 
             <br><br>
-            <h2 id="drink" style="font-family: Arial, Helvetica, sans-serif;">飲料</h2>
+            <h2 id="drink">飲料</h2>
             <hr>
 
             <div class="row grid">
@@ -3726,8 +3727,8 @@ if(isset($_POST["way"])){
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2 style="font-family: Arial, Helvetica, sans-serif;">
-          顧客評論區
+        <h2>
+          What Says Our Customers
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -3781,7 +3782,7 @@ if(isset($_POST["way"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="font-family: Arial, Helvetica, sans-serif;"> 
+            <h4>
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -3804,7 +3805,7 @@ if(isset($_POST["way"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
+            <a href="" class="footer-logo">
               方禾食呂
             </a>
             <h4 style="color:aliceblue">
@@ -3821,7 +3822,7 @@ if(isset($_POST["way"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="font-family: Arial, Helvetica, sans-serif;">
+          <h4>
             營業時間
           </h4>
           <p>

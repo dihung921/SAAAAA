@@ -41,7 +41,7 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
     $sql4 = "insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id','$sm_id','$s_id','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
-        echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        header('Location:index.php');
     }
 
 }

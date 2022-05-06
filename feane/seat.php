@@ -179,13 +179,7 @@
         <div class="seat"></div>
         <small>空位</small>
       </li>
-      <li>
-        <div class="seat selected"></div>
-
-        <small>選擇</small>
-
-
-      </li>
+      
       <li>
         <div class="seat occupied"></div>
         <small>已滿</small>
@@ -205,10 +199,10 @@
 
       <div class="three"> 
         <div class="row">
-        <div class="seat selected"><h6>6</h6></div>
+        <div class="seat"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
-        <div class="seat selected"><h6>9</h6></div>
+        <div class="seat"><h6>9</h6></div>
         <div class="seat"><h6>10</h6></div>
        
       </div></div>
