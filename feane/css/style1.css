@@ -1750,7 +1750,7 @@
      opacity: 0.5;
 }
  .hover-team .team-content .title{
-     border-bottom: 2px solid #bfc25b;
+     border-bottom: 2px solid #b0b435;
 }
  .shop-box-inner{
      padding: 70px 0px;
@@ -2041,7 +2041,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #bfc25b;
+     background: #b0b435;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2399,10 +2399,10 @@
      left: 0;
      top: 5px;
      padding-right: 6px;
-     color: #bfc25b;
+     color: #b0b435;
 }
  .contact-info-left ul li p a:hover{
-     color: #bfc25b;
+     color: #b0b435;
 }
  .contact-form-right{
      padding: 20px;
@@ -2426,7 +2426,7 @@
      position: relative;
 }
  .contact-form-right .form-group .form-control:focus{
-     border: 1px solid #bfc25b;
+     border: 1px solid #b0b435;
      box-shadow: none;
 }
  .submit-button button{

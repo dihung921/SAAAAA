@@ -1,7 +1,7 @@
 $white: #ffffff;
 $black: #000000;
 $primary1: #ffbe33;
-$primary2: #92877F;
+$primary2: #92877f;
 $textCol: #1f1f1f;
 
 // import fonts -  font-family: 'Open Sans', sans-serif and  font-family: 'Dancing Script', cursive;
@@ -484,7 +484,7 @@ a:focus {
       border-radius: 25px;
 
       &.active {
-        background-color: $primary2;
+        background-color: #0b2410c2;
         color: $white;
       }
     }
@@ -498,7 +498,7 @@ a:focus {
     color: $white;
     border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(to bottom, #f1f2f3 25px, $primary2 25px);
+    background: linear-gradient(to bottom, #f1f2f3 25px, #0b2410c2 25px);
 
     .img-box {
       background: #f1f2f3;
@@ -812,7 +812,7 @@ a:focus {
 /* footer section*/
 
 .footer_section {
-  background-color: #92877F;
+  background-color: #92877f;
   color: $white;
   padding: 75px 0 40px 0;
   text-align: center;

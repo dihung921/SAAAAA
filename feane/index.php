@@ -128,7 +128,7 @@ if(isset($_POST["way"])){
             <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
-             </a>
+            </a>
 
               <a style="color: lightgray"><?php
               if (isset($_SESSION["way"])){
@@ -147,6 +147,7 @@ if(isset($_POST["way"])){
               }
               ?>
               </a>
+
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
@@ -467,7 +468,7 @@ if(isset($_POST["way"])){
                   </p>
                   <div class="options">
                     <h6>
-                      $120
+                      $110
                     </h6>
                   </div>
                 </div>
@@ -3855,7 +3856,6 @@ if(isset($_POST["way"])){
   <!-- End Google Map -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
-
 
 
   <!-- owl slider -->
