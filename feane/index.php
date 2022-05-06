@@ -114,7 +114,7 @@ if(isset($_POST["way"])){
     </div>
 </div>";
 }
-?>
+?>}
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/ll4.png" alt="">
@@ -128,7 +128,7 @@ if(isset($_POST["way"])){
             <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
-             </a>
+            </a>
 
               <a style="color: lightgray"><?php
               if (isset($_SESSION["way"])){
@@ -147,6 +147,7 @@ if(isset($_POST["way"])){
               }
               ?>
               </a>
+
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
@@ -343,9 +344,6 @@ if(isset($_POST["way"])){
   <!-- food section -->
 <br>
   <section class="food_section layout_padding-bottom">
-  <div class="offer_section">
-    <div class="food_section">
-
     <div class="container">
       <div class="heading_container heading_center">
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
@@ -367,19 +365,16 @@ if(isset($_POST["way"])){
     
       <br>
       <h2 id="classic" style="font-family: Arial, Helvetica, sans-serif;">經典餐盒</h2>
-
       <hr>
+      
           <div class="row grid">
             <div class="col-sm-6 col-lg-4 all classic">   
-            
               <form action="con1.php" method="post" >
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
                             <div class="modal-dialog" role="document" id="exampleModalLabel">
-                            
                                 <div class="modal-content" style="padding: 20px 20px;">
                                 <img src="images/義式香草雞胸.jpeg" style="border-radius: 5px;">
                                 <div class="modal-body" style="color: black;">
-                                
                                   <h5>義式香草雞胸（62kcal）</h5>
 
                                   <input type="hidden" name ="mealname" value="1">
@@ -3701,9 +3696,7 @@ if(isset($_POST["way"])){
               </div>
 
             </div>
-                                </div>
-                                </div>
-                                </div>
+            
           
       
     </div>
@@ -3770,7 +3763,6 @@ if(isset($_POST["way"])){
         </div>
       </div>
     </div>
-                              
   </section>
 
   <!-- end client section -->
@@ -3781,7 +3773,7 @@ if(isset($_POST["way"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif;"> 
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -3804,7 +3796,7 @@ if(isset($_POST["way"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
@@ -3821,7 +3813,7 @@ if(isset($_POST["way"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -3866,6 +3858,7 @@ if(isset($_POST["way"])){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
 
+rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
