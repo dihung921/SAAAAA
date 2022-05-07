@@ -5,7 +5,7 @@
 }
 
 .cseat {
-  background-color: #ed9d0891;
+  background-color: #e9a019a8;
   color: rgb(14, 14, 14);
   display: flex;
   flex-direction: column;
@@ -89,7 +89,7 @@
 }
 
 .seat.occupied {
-  background-color: rgb(255, 110, 110);
+  background-color: rgb(225 149 149);
 }
 
 .seat:nth-of-type(0) {

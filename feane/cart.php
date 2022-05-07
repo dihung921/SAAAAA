@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $phone=$_SESSION["member_phone"];
 ?>
@@ -229,12 +228,12 @@ $phone=$_SESSION["member_phone"];
             
             <div class="row justify-content-end">
             
-            <div class="col-6">
-            <center><div>
-                    <div class="update-box" style="width: 150px;">
+            <div class="col-6" >
+                <div>
+                    <div class="update-box">
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
-                </div> </center>
+                </div>
             </div>
 
             
@@ -326,9 +325,9 @@ $phone=$_SESSION["member_phone"];
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <h4 style="color:aliceblue">
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </h4>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <img src="images/fb.png" width="16" height="16" alt="" align="center">

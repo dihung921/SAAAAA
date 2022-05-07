@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -11,7 +11,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $password=$_POST["password"];
   
   echo $name,$email,$phone,$password;
-  $sql="select phone from `member` where phone='$phone'";
+  $sql="select phone from member where phone='$phone'";
 
 
   $result=mysqli_query($link,$sql);
@@ -20,7 +20,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
     echo "<script>{window.alert('此手機號碼已被註冊！'); location.href='register.php'}</script>";
   }
   else{
-    $register="insert into `member`(name,email,phone,password) values ('$name','$email','$phone','$password')";
+    $register="insert into member(name,email,phone,password) values ('$name','$email','$phone','$password')";
     $result2=mysqli_query($link,$register);
     if($result2){
       echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
@@ -274,9 +274,9 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <h4 style="color:aliceblue">
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </h4>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
