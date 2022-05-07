@@ -32,7 +32,7 @@ session_start();
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Site CSS -->
@@ -485,16 +485,15 @@ session_start();
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+               
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -510,11 +509,11 @@ session_start();
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
-              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
