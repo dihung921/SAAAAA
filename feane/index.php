@@ -160,7 +160,6 @@ if(isset($_POST["way"])){
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
-              
             </ul>
             
             <div class="user_option">
