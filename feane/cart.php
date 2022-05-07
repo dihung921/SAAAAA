@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $phone=$_SESSION["member_phone"];
 ?>
@@ -202,7 +202,7 @@ $phone=$_SESSION["member_phone"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where phone = $phone";
+                                    $sql="select * from `cart` where phone = $phone";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
