@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 
 if(isset($_POST["way"])){
@@ -117,7 +117,7 @@ if(isset($_POST["way"])){
 ?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
       
     </div>
     <!-- header section strats -->
@@ -343,9 +343,9 @@ if(isset($_POST["way"])){
 
   <!-- food section -->
 <br>
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
+  <section class="food_section layout_padding-bottom" >
+    <div class="container" >
+      <div class="heading_container heading_center" >
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
           菜單
         </h2>
