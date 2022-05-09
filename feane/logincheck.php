@@ -9,10 +9,10 @@
 //   if(isset($_SESSION["account_name"])){
 //           header("Location:index.php");
 //       }
-   if(isset($_POST["phone"])&& isset($_POST["password"])){
-       $phone = $_POST["phone"];
+   if(isset($_POST["email"])&& isset($_POST["password"])){
+       $email = $_POST["email"];
        $password = $_POST["password"];
-       $sql="select * from `member` where phone ='$phone'";
+       $sql="select * from `member` where email ='$email'";
        $rs=mysqli_query($link,$sql);
       
    if($row = mysqli_fetch_array($rs)){
