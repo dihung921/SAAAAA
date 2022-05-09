@@ -87,8 +87,8 @@
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="seat.php">店內座位狀況<span class="sr-only">(current)</span></a>
-                
+                <a class="nav-link" href="rseat.php">店內座位狀況(R) <span class="sr-only">(current)</span></a>
+                <?php  if($_SESSION['level']==1)?>
               </li>
             </ul>
             <div class="user_option">
@@ -187,8 +187,26 @@
   <!-- book section -->
   <div class="cseat">
  
-      <h5 style="color:snow;">店內座位狀況圖</h5>
-   
+      <label>選擇位置:</label>
+      <select class="cselect" id="seat">
+        <option value="1">座位1</option>
+        <option value="2">座位2</option>
+        <option value="3">座位3</option>
+        <option value="4">座位4</option>
+        <option value="5">座位5</option>
+        <option value="6">座位6</option>
+        <option value="7">座位7</option>
+        <option value="8">座位8</option>
+        <option value="9">座位9</option>
+        <option value="10">座位10</option>
+        <option value="11">座位11</option>
+        <option value="12">座位12</option>
+        <option value="13">座位13</option>
+        <option value="14">座位14</option>
+        <option value="15">座位15</option>
+        <option value="16">座位16</option>
+        
+      </select>
 <div class="movie-container">
     <ul class="showcase">
       <li>
@@ -196,7 +214,14 @@
         <small>空位</small>
       </li>
       <li>
-        <div class="seat occupied" style="background-color:#BF5353;"></div>
+        <div class="seat selected"></div>
+
+        <small>選擇</small>
+
+
+      </li>
+      <li>
+        <div class="seat occupied"></div>
         <small>已滿</small>
       </li>
     </ul>
@@ -206,25 +231,25 @@
 
       <div class="two"> 
         <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>2</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>3</h6></div>
+        <div class="seat occupied"><h6>2</h6></div>
+        <div class="seat occupied"><h6>3</h6></div>
         <div class="seat"><h6>4</h6></div>
         <div class="seat"><h6>5</h6></div>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
+        <div class="seat selected"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
-        <div class="seat occupied"><h6>9</h6></div>
+        <div class="seat selected"><h6>9</h6></div>
         <div class="seat"><h6>10</h6></div>
        
       </div></div>
 
       <div class="four">
       
-      <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
+      <div class="seat3"><h6>11</h6></div>
       <div class="seat3"><h6>13</h6></div>
       </div>
 

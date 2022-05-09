@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -67,7 +67,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -220,7 +220,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-primary btn-lg">註冊</button>
+                    <button class="btn btn-warning btn-lg">註冊</button>
                   </div>
 
                 </form>

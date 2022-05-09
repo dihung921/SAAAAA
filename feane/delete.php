@@ -1,7 +1,7 @@
 <?php
 session_start();
  $phone = $_SESSION["member_phone"];
- $link = mysqli_connect("localhost","root","12345678","sa");
+ $link = mysqli_connect("localhost","root","","sa");
 
  
 
