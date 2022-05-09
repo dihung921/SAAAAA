@@ -7,7 +7,7 @@
 }
 .irs-line {
     height: 12px; top: 25px;
-    background: #453628b5;
+    background: #101010;
     border-radius: 30px;
 }
     .irs-line-left {
@@ -92,5 +92,3 @@
 .irs-grid-text {
     color: #999;
 }
-
-

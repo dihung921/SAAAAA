@@ -49,15 +49,26 @@ session_start();
             <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
-          </a>
+            </a>
 
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: white; border-radius: 20px' value="更改用餐方式">
-            </form>
+            <a style="color: lightgray"><?php
+            if (isset($_SESSION["way"])){
+              if($_SESSION["way"]== 0){
+                echo 
+                "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+              else{ 
+                echo "
+                <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+            }
+            ?>
+            </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">

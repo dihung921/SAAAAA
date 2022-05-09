@@ -46,7 +46,7 @@ session_start();
     <link rel="stylesheet" href="ion.rangeslider.css">
     <link rel="stylesheet" href="ion.rangeslider.skinflat.css">
 
-    
+
 </head>
 
 <body class="sub_page">
@@ -244,14 +244,17 @@ session_start();
 
             
 
+                
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4> 
+                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <hr>
                         <div class="bg-white card mb-4 order-list shadow-sm">
                             <div class="gold-members p-4">
                                 <div class="media">
                                     <div class="media-body">
-                                        <span class="float-right text-warning">訂單狀態：準備中</span>   
+                                        <a href="#">
+                                            <span class="float-right text-warning">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
+                                        </a>
                                         <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589748 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/24 6:26 PM</p>
                                         <p class="text-dark">日式薑燒豬（地瓜,芥末醬）x 1
                                         </p>
@@ -267,53 +270,52 @@ session_start();
                                     </div>
                                 </div>
                                 <hr>
-                                <form action="" method="post" style="width: 399px;height: 120px;" >
-                                  <p>餐點流程</p>
-                                  <div class="col-lg-6 col-md-12 col-xs-12">
-                                    <span class="irs js-irs-0 irs-with-grid">
-                                      <span class="irs">
-                                        <span class="irs-line" tabindex="0">
-                                          <span class="irs-line-left"></span>
-                                          <span class="irs-line-mid"></span>
-                                          <span class="irs-line-right"></span>
-                                        </span>
-                                    </span>
-                                    <span class="irs-grid" style="width: 96%;left:1.9%;">
-                                      <span class="irs-grid-pol" style="left:0%"></span>
-                                      <span class="irs-grid-text js-grid-text-0" style="left:0%; margin-left:-1.44444%;">等待店家確認</span>
-                                      <span class="irs-grid-pol small" style="left:20%"></span>
-                                      <span class="irs-grid-pol small" style="left:15%"></span>
-                                      <span class="irs-grid-pol small" style="left:10%"></span>
-                                      <span class="irs-grid-pol small" style="left:5%"></span>
-                                      <span class="irs-grid-pol" style="left:25%"></span>
-                                      <span class="irs-grid-text js-grid-text-1" style="left:25%;visibility:visible; margin-left:-4.11111%;">餐點準備中</span>
-                                      <span class="irs-grid-pol small" style="left:45%"></span>
-                                      <span class="irs-grid-pol small" style="left:40%"></span>
-                                      <span class="irs-grid-pol small" style="left:35%"></span>
-                                      <span class="irs-grid-pol small" style="left:30%"></span>
-                                      <span class="irs-grid-pol" style="left:50%"></span>
-                                      <span class="irs-grid-text js-grid-text-2" style="left:50%;visibility:visible; margin-left:-4.11111%;">餐點製備完成</span>
-                                      <span class="irs-grid-pol small" style="left:70%"></span>
-                                      <span class="irs-grid-pol small" style="left:65%"></span>
-                                      <span class="irs-grid-pol small" style="left:60%"></span>
-                                      <span class="irs-grid-pol small" style="left:55%"></span>
-                                      <span class="irs-grid-pol" style="left:75%"></span>
-                                      <span class="irs-grid-text js-grid-text-3" style="left:75%;visibility:visible; margin-left:-4.11111%;">取餐完成</span>
-                                      <span class="irs-grid-pol small" style="left:95%"></span>
-                                      <span class="irs-grid-pol small" style="left:90%"></span>
-                                      <span class="irs-grid-pol small" style="left:85%"></span>
-                                      <span class="irs-grid-pol small" style="left:80%"></span>
-                                      <span class="irs-grid-pol" style="left:100%"></span>
-                                      <span class="irs-grid-text js-grid-text-4" style="left:100%;visibility:visible; margin-left:-4.11111%;">完成餐點評價與回饋</span>
-                                    </span>
-                                    <span class="irs-shadow shadow-from" style="display: none;"></span>
-                                    <span class="irs-shadow shadow-to" style="display: none;"></span>
-                                    <span class="irs-slider from" style="left: 25.8%;"></span>
-                                    </span>
-                                    <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
-                                  </div>           
-                              </form>
-
+                                          <form action="" method="post" style="width: 399px;height: 120px;" >
+                                            <p>餐點流程</p>
+                                            <div class="col-lg-6 col-md-12 col-xs-12">
+                                              <span class="irs js-irs-0 irs-with-grid">
+                                                <span class="irs">
+                                                  <span class="irs-line" tabindex="0">
+                                                    <span class="irs-line-left"></span>
+                                                    <span class="irs-line-mid"></span>
+                                                    <span class="irs-line-right"></span>
+                                                  </span>
+                                              </span>
+                                              <span class="irs-grid" style="width: 96%;left:1.9%;">
+                                                <span class="irs-grid-pol" style="left:0%"></span>
+                                                <span class="irs-grid-text js-grid-text-0" style="left:0%; margin-left:-1.44444%;">等待店家確認</span>
+                                                <span class="irs-grid-pol small" style="left:20%"></span>
+                                                <span class="irs-grid-pol small" style="left:15%"></span>
+                                                <span class="irs-grid-pol small" style="left:10%"></span>
+                                                <span class="irs-grid-pol small" style="left:5%"></span>
+                                                <span class="irs-grid-pol" style="left:25%"></span>
+                                                <span class="irs-grid-text js-grid-text-1" style="left:25%;visibility:visible; margin-left:-4.11111%;">餐點準備中</span>
+                                                <span class="irs-grid-pol small" style="left:45%"></span>
+                                                <span class="irs-grid-pol small" style="left:40%"></span>
+                                                <span class="irs-grid-pol small" style="left:35%"></span>
+                                                <span class="irs-grid-pol small" style="left:30%"></span>
+                                                <span class="irs-grid-pol" style="left:50%"></span>
+                                                <span class="irs-grid-text js-grid-text-2" style="left:50%;visibility:visible; margin-left:-4.11111%;">餐點製備完成</span>
+                                                <span class="irs-grid-pol small" style="left:70%"></span>
+                                                <span class="irs-grid-pol small" style="left:65%"></span>
+                                                <span class="irs-grid-pol small" style="left:60%"></span>
+                                                <span class="irs-grid-pol small" style="left:55%"></span>
+                                                <span class="irs-grid-pol" style="left:75%"></span>
+                                                <span class="irs-grid-text js-grid-text-3" style="left:75%;visibility:visible; margin-left:-4.11111%;">取餐完成</span>
+                                                <span class="irs-grid-pol small" style="left:95%"></span>
+                                                <span class="irs-grid-pol small" style="left:90%"></span>
+                                                <span class="irs-grid-pol small" style="left:85%"></span>
+                                                <span class="irs-grid-pol small" style="left:80%"></span>
+                                                <span class="irs-grid-pol" style="left:100%"></span>
+                                                <span class="irs-grid-text js-grid-text-4" style="left:100%;visibility:visible; margin-left:-4.11111%;">完成餐點評價與回饋</span>
+                                              </span>
+                                                <span class="irs-shadow shadow-from" style="display: none;"></span>
+                                                <span class="irs-shadow shadow-to" style="display: none;"></span>
+                                                <span class="irs-slider from" style="left: 25.8%;"></span>
+                                                </span>
+                                                <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
+                                              </div>           
+                                          </form>      
                             </div>
                         </div>
                         <div class="bg-white card mb-4 order-list shadow-sm">
@@ -377,7 +379,7 @@ session_start();
                                     </span>
                                     <span class="irs-shadow shadow-from" style="display: none;"></span>
                                     <span class="irs-shadow shadow-to" style="display: none;"></span>
-                                    <span class="irs-slider from" style="left: 99.2%;"></span>
+                                    <span class="irs-slider from" style="left: 75.8%;"></span>
                                     </span>
                                     <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
                                   </div>           
@@ -456,6 +458,8 @@ session_start();
                                   </div>           
                               </form>
 
+
+
                             </div>
                         </div>
                     </div>
@@ -476,21 +480,20 @@ session_start();
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="font-family: Arial, Helvetica, sans-serif;"> 
+            <h4>
               聯絡我們
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+               
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -499,23 +502,23 @@ session_start();
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;" >
+            <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
-              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
         </div>
-        <div class="col-md-4 footer-col" style="font-family: Arial, Helvetica, sans-serif;">
+        <div class="col-md-4 footer-col">
           <h4>
             營業時間
           </h4>
@@ -559,7 +562,7 @@ session_start();
   <!-- End Google Map -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
-
+  rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
@@ -581,6 +584,7 @@ session_start();
         $('#myModal').modal('show');
       })
     </script>
+
 </body>
 
 </html>

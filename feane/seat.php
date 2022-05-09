@@ -1,6 +1,5 @@
-<?php
-session_start();
-?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -55,14 +54,26 @@ session_start();
             <span style="font-family: Arial, Helvetica, sans-serif;">
             方禾食呂
             </span>
-          </a>
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: white; border-radius: 20px' value="更改用餐方式">
-            </form>
+            </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+            <a style="color: lightgray"><?php
+            if (isset($_SESSION["way"])){
+              if($_SESSION["way"]== 0){
+                echo 
+                "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+              else{ 
+                echo "
+                <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+            }
+            ?>
+            </a>
+
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto ">
@@ -175,14 +186,39 @@ session_start();
   <!-- book section -->
   <div class="cseat">
  
-      
+      <label>選擇位置:</label>
+      <select class="cselect" id="seat">
+        <option value="1">座位1</option>
+        <option value="2">座位2</option>
+        <option value="3">座位3</option>
+        <option value="4">座位4</option>
+        <option value="5">座位5</option>
+        <option value="6">座位6</option>
+        <option value="7">座位7</option>
+        <option value="8">座位8</option>
+        <option value="9">座位9</option>
+        <option value="10">座位10</option>
+        <option value="11">座位11</option>
+        <option value="12">座位12</option>
+        <option value="13">座位13</option>
+        <option value="14">座位14</option>
+        <option value="15">座位15</option>
+        <option value="16">座位16</option>
+        
+      </select>
 <div class="movie-container">
     <ul class="showcase">
       <li>
         <div class="seat"></div>
         <small>空位</small>
       </li>
-      
+      <li>
+        <div class="seat selected"></div>
+
+        <small>選擇</small>
+
+
+      </li>
       <li>
         <div class="seat occupied"></div>
         <small>已滿</small>
@@ -202,10 +238,10 @@ session_start();
 
       <div class="three"> 
         <div class="row">
-        <div class="seat"><h6>6</h6></div>
+        <div class="seat selected"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
-        <div class="seat"><h6>9</h6></div>
+        <div class="seat selected"><h6>9</h6></div>
         <div class="seat"><h6>10</h6></div>
        
       </div></div>
@@ -351,6 +387,6 @@ session_start();
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
 
 </html>
