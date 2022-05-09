@@ -87,7 +87,8 @@
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="seat.php">店內座位狀況 <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="seat.php">店內座位狀況<span class="sr-only">(current)</span></a>
+                
               </li>
             </ul>
             <div class="user_option">
@@ -195,7 +196,7 @@
         <small>空位</small>
       </li>
       <li>
-        <div class="seat occupied"></div>
+        <div class="seat occupied" style="background-color:#BF5353;"></div>
         <small>已滿</small>
       </li>
     </ul>
@@ -205,15 +206,15 @@
 
       <div class="two"> 
         <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied"><h6>2</h6></div>
-        <div class="seat occupied"><h6>3</h6></div>
+        <div class="seat occupied" style="background-color:#BF5353;"><h6>2</h6></div>
+        <div class="seat occupied" style="background-color:#BF5353;"><h6>3</h6></div>
         <div class="seat"><h6>4</h6></div>
         <div class="seat"><h6>5</h6></div>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat occupied"><h6>6</h6></div>
+        <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
         <div class="seat occupied"><h6>9</h6></div>
@@ -223,7 +224,7 @@
 
       <div class="four">
       
-      <div class="seat3 occupied"><h6>11</h6></div>
+      <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
       <div class="seat3"><h6>13</h6></div>
       </div>
 

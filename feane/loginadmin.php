@@ -123,12 +123,10 @@ session_start();
                   </g>
                 </svg>
               </a>
-              <a href="login.php" class="order_online">
+              <a href="loginadmin.php" class="order_online">
                 登入
               </a>
-              <a href="register.php" class="order_online">
-                註冊
-              </a>
+             
               
               
             </div>
@@ -154,14 +152,14 @@ session_start();
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">管理員登入</p>
 
-                <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
+                <form class="mx-1 mx-md-4" action="logincheckadmin.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="text" class="form-control" placeholder=" Your phone number" require/>
+                    <label class="form-label" for="form3Example3c">帳號</label>
+                      <input name="account" type="text" class="form-control" placeholder=" Your account id" require/>
                       
                     </div>
                   </div>
@@ -173,16 +171,12 @@ session_start();
                       
                     </div>
                   </div>
-
-                  
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button class="btn btn-warning btn-lg">登入</button>
                   </div>
-                 
-                    <div class="text-center mt-4 font-weight-light">
-                  不是會員？ <a href="loginadmin.php" class="text-primary">管理員登入</a>
+                  <div class="text-center mt-4 font-weight-light">
+                  不是管理員？ <a href="login.php" class="text-primary">會員登入</a>
                 </div>
-
                 </form>
 
               </div>

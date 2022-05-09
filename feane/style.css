@@ -89,11 +89,11 @@
 }
 
 .seat.occupied {
-  background-color: rgb(191 83 83 1);
+  background-color: #BF5353;
 }
 
 .seat3.occupied {
-  background-color: rgb(191 83 83 1);
+  background-color: #BF5353;
 }
 
 .seat:nth-of-type(0) {

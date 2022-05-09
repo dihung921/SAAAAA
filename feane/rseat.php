@@ -87,7 +87,8 @@
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="seat.php">店內座位狀況 <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="rseat.php">店內座位狀況(R) <span class="sr-only">(current)</span></a>
+                <?php  if($_SESSION['level']==1)?>
               </li>
             </ul>
             <div class="user_option">
