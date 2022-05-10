@@ -1,13 +1,13 @@
 <?php
 $method="update";
-if($_SESSION['phone']<>"admin")
+if($_SESSION['level']<>"admin")
  {
      header('location:index.php?method=message&message=請先登入喔');
 }
 $name=$_GET['name'];
 $date=$_GET['date'];
 $link=mysqli_connect("localhost","root","12345678","temp");
-$sql="select * from `cart` where phone = $phone" ;
+$sql="select * from `cart` where cart_id = $cart_id" ;
 $rs=mysqli_query($link,$sql);
 if($record=mysqli_fetch_assoc($rs))
 {
@@ -19,7 +19,7 @@ if($record=mysqli_fetch_assoc($rs))
 
 ?>
 <center>
-    <form method="post" action="dblink2.php?method=update">
+    <form method="post" action="dblink.php?method=update">
         <input type=hidden name ="method" value="<? echo $method?>">
         <table class="List" align =center width=40%>
             <caption align=center class="ListCap">修改 訂餐紀錄</caption>

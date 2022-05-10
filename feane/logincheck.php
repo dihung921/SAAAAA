@@ -1,7 +1,7 @@
 <?php
    session_start();
 
-   $link = mysqli_connect("localhost", "root","","sa");
+   $link = mysqli_connect("localhost","root","12345678","sa");
   
    
 
@@ -19,7 +19,7 @@
        if($row["password"] == $_POST["password"]){
            $_SESSION["member_name"]= $row["name"];
            $_SESSION["member_email"]= $row["email"];
-           $_SESSION["member_phone"] = $row["phone"];
+           $_SESSION["member_email"] = $row["email"];
            $_SESSION["member_password"]= $row["password"];
            header("location:index.php");
        } 

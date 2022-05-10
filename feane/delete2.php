@@ -1,15 +1,15 @@
 <?php
 
 
-if($_SESSION['phone']<>"admin")
+if($_SESSION['level']<>"admin")
 {
     header('location:index.php?method=message&message=請先登入喔');
 }
 else
 {
-    $phone=$_GET['phone'];
+    $level=$_GET['user'];
     $link=mysqli_connect("localhost","root","12345678","temp");
-    $sql="delete from `cart` where name='$name'";
+    $sql="delete from `cart` where cart_id='$cart_id'";
 
 
 if(mysqli_query($link,$sql))

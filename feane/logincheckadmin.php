@@ -7,7 +7,7 @@
       echo $account;
       echo $password;
       echo $level;
- $link = mysqli_connect("localhost", "root","","sa");
+ $link = mysqli_connect("localhost","root","12345678","sa");
 
 //                         
 //   if(isset($_SESSION["account_name"])){

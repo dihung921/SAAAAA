@@ -221,7 +221,7 @@ session_start();
                       <h6 class="mb-0">手機號碼</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $_SESSION["member_phone"] ?>
+                    <?php echo $_SESSION["member_email"] ?>
                     </div>
                   </div>
                   <hr>

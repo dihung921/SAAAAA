@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -161,6 +161,15 @@ if(isset($_POST["way"])){
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
+              <?php
+                    if($_SESSION['level']=="admin"){?>
+              <li class="nav-item"><a href="#">後臺管理<i class="ti-angle-down"></i></a>
+                    <ul class="submenu">
+                        <li class="nav-item"><a class="nav-link" href="rseat.php">座位狀況管理</a></li>
+                        <li class="nav-item"><a class="nav-link" href="manage.php">訂單管理</a></li>
+                    </ul>
+              </li>
+              <?php }?>
             </ul>
             
             <div class="user_option">
@@ -452,7 +461,7 @@ if(isset($_POST["way"])){
                                 </div>
                                 <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -560,7 +569,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -665,7 +674,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -770,7 +779,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -875,7 +884,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -980,7 +989,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1085,7 +1094,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1190,7 +1199,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1295,7 +1304,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1400,7 +1409,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1488,7 +1497,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1567,7 +1576,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1648,7 +1657,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1736,7 +1745,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1830,7 +1839,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1916,7 +1925,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -1999,7 +2008,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2082,7 +2091,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2165,7 +2174,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2248,7 +2257,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2331,7 +2340,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2414,7 +2423,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2497,7 +2506,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2580,7 +2589,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2663,7 +2672,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2754,7 +2763,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2837,7 +2846,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -2920,7 +2929,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3003,7 +3012,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3086,7 +3095,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3169,7 +3178,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3252,7 +3261,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3345,7 +3354,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3428,7 +3437,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3511,7 +3520,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3593,7 +3602,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{
@@ -3675,7 +3684,7 @@ if(isset($_POST["way"])){
                                   </div>
                                   <div class="modal-footer">
                                   <?php
-                                  if($_SESSION["member_phone"]==NULL){
+                                  if($_SESSION["member_email"]==NULL){
                                     echo "<a href='login.php' class='btn btn-warning'>請先登入再選擇餐點</a>";
                                   }
                                   else{

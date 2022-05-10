@@ -4,7 +4,7 @@ session_start();
 
 $link=mysqli_connect("localhost","root","12345678","sa");
 
-$phone=$_SESSION["member_phone"];
+$email=$_SESSION["member_email"];
 ?>
 
 <!DOCTYPE html>
@@ -190,20 +190,20 @@ $phone=$_SESSION["member_phone"];
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                    <th>訂購人姓名</th>
+                                    <th>訂購編號</th>
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
                                     <th>備註</th>
                                     <th>數量</th>
                                     <th>總價</th>
-                                    <th>刪除</th>
+                                    <th>功能</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where phone = $phone";
+                                    $sql="select * from `cart` where email = $email";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
@@ -217,7 +217,7 @@ $phone=$_SESSION["member_phone"];
                                               <td>".$row["price"]."</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
-                                        if($_SESSION['phone']=="admin"){
+                                        if($_SESSION['level']=="admin"){
                                           echo "<td><a href = 'reserve.php?name=$record[0]'>修改、
                                           <a href = 'delete2.php?name=$record[0]'>刪除</td>
                                           </tr>";
