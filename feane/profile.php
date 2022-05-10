@@ -1,5 +1,7 @@
 <?php
 session_start();
+$link = mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -296,6 +298,10 @@ session_start();
                               ";
                               }
                             }
+                            else{
+                              echo"尚未有訂餐紀錄！";
+                            }
+                            ?>
 
 
                             </div>
