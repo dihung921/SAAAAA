@@ -1,7 +1,7 @@
 <?php
    session_start();
 
-   $link = mysqli_connect("localhost", "root","","sa");
+   $link = mysqli_connect("localhost", "root","12345678","sa");
   
    
 
@@ -29,7 +29,7 @@
    }
    }
    else{
-    echo "<script>{window.alert('此手機號碼尚未註冊！請先註冊帳號'); location.href='register.php'}</script>";
+    echo "<script>{window.alert('此電子信箱尚未註冊！請先註冊帳號'); location.href='register.php'}</script>";
    }
 }
 ?>
