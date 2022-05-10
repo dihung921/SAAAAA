@@ -11,6 +11,7 @@ if(isset($_POST["way"])){
       $rs=mysqli_query($link,$sql);
       if($rs){
         $_SESSION["way"]=$way;
+        $_SESSION["seatnum"]=$seatnum;
       }
     }
   }
@@ -92,7 +93,7 @@ if(isset($_POST["way"])){
             <div class='modal-content'>
             <div class='modal-footer'>
             <input name= 'way' value='0' type='hidden'>
-            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
             <button class='btn btn-warning'>確認</button>
             <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
             

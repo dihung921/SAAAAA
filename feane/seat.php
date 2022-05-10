@@ -1,4 +1,10 @@
+<?php
+session_start();
+$link=mysqli_connect("localhost","root","12345678","sa");
 
+    echo $_SESSION["seatnum"];
+
+?>
 
 <!DOCTYPE html>
 <html>
