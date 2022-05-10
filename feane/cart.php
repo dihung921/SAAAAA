@@ -56,7 +56,7 @@ $email=$_SESSION["member_email"];
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -292,7 +292,7 @@ $email=$_SESSION["member_email"];
 
   
   <!-- footer section -->
-  <footer class="footer_section">
+  <footer class="footer_section" >
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">

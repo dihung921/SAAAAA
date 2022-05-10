@@ -39,7 +39,7 @@ session_start();
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -173,8 +173,8 @@ session_start();
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
-    <div class="container  ">
+  <section class="about_section layout_padding"style="background-color:#ca9c44de;">
+    <div class="container" >
 
       <div class="row">
         <div class="col-md-6 ">
@@ -204,7 +204,7 @@ session_start();
   <!-- end about section -->
 
 <!-- footer section -->
-<footer class="footer_section">
+<footer class="footer_section" style="background-color:#586D4E;">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">

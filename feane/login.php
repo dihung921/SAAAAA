@@ -40,7 +40,7 @@ session_start();
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -174,12 +174,14 @@ session_start();
                     </div>
                   </div>
 
-
                   
-
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-primary btn-lg">登入</button>
+                    <button class="btn btn-warning btn-lg">登入</button>
                   </div>
+                 
+                    <div class="text-center mt-4 font-weight-light">
+                  不是會員？ <a href="loginadmin.php" class="text-primary">管理員登入</a>
+                </div>
 
                 </form>
 

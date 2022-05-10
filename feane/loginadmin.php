@@ -1,34 +1,7 @@
 <?php
 session_start();
-
-$link=mysqli_connect("localhost","root","","sa");
-
-
-if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
-  $name=$_POST["name"];
-  $email=$_POST["email"];
-  $phone=$_POST["phone"];
-  $password=$_POST["password"];
-  
-  echo $name,$email,$phone,$password;
-  $sql="select email from `member` where email='$email'";
-
-
-  $result=mysqli_query($link,$sql);
-  if(mysqli_num_rows($result) >= 1){
-    
-    echo "<script>{window.alert('此信箱已被註冊！'); location.href='register.php'}</script>";
-  }
-  else{
-    $register="insert into `member`(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')";
-    $result2=mysqli_query($link,$register);
-    if($result2){
-      echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
-    }
-  }
-}
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -150,12 +123,10 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   </g>
                 </svg>
               </a>
-              <a href="login.php" class="order_online">
+              <a href="loginadmin.php" class="order_online">
                 登入
               </a>
-              <a href="register.php" class="order_online">
-                註冊
-              </a>
+             
               
               
             </div>
@@ -181,29 +152,14 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">註冊會員</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">管理員登入</p>
 
-                <form class="mx-1 mx-md-4" action="register.php" method="post">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">姓名(暱稱)</label>
-                      <input name="name" type="text"  class="form-control" placeholder="Name" require/>
-                    </div>
-                  </div>
+                <form class="mx-1 mx-md-4" action="logincheckadmin.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="email" class="form-control" placeholder="Email" require/>
-                      
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="text" id="form3Example3c" class="form-control" placeholder="Your phone number" require />
+                    <label class="form-label" for="form3Example3c">帳號</label>
+                      <input name="account" type="text" class="form-control" placeholder=" Your account id" require/>
                       
                     </div>
                   </div>
@@ -211,18 +167,16 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" require/>
+                      <input name="password" type="password" class="form-control" placeholder="Password" require/>
                       
                     </div>
                   </div>
-
-
-                  
-
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-warning btn-lg">註冊</button>
+                    <button class="btn btn-warning btn-lg">登入</button>
                   </div>
-
+                  <div class="text-center mt-4 font-weight-light">
+                  不是管理員？ <a href="login.php" class="text-primary">會員登入</a>
+                </div>
                 </form>
 
               </div>

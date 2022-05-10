@@ -1,34 +1,12 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","","sa");
 
+$link=mysqli_connect("localhost","root","12345678","sa");
 
-if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
-  $name=$_POST["name"];
-  $email=$_POST["email"];
-  $phone=$_POST["phone"];
-  $password=$_POST["password"];
-  
-  echo $name,$email,$phone,$password;
-  $sql="select email from `member` where email='$email'";
-
-
-  $result=mysqli_query($link,$sql);
-  if(mysqli_num_rows($result) >= 1){
-    
-    echo "<script>{window.alert('此信箱已被註冊！'); location.href='register.php'}</script>";
-  }
-  else{
-    $register="insert into `member`(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')";
-    $result2=mysqli_query($link,$register);
-    if($result2){
-      echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
-    }
-  }
-}
-
+$phone=$_SESSION["member_phone"];
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -61,13 +39,25 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+
+
 </head>
 
 <body class="sub_page">
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll6.png" alt="">
+      <img src="images/ll4.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -79,14 +69,18 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             </span>
           </a>
 
+          <form action="changeway.php" method="post">
+              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
+            </form>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">訂餐首頁</a>
+              <li class="nav-item ">
+                <a class="nav-link" href="index.php">訂單首頁</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
@@ -96,6 +90,15 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
               </li>
             </ul>
             <div class="user_option">
+
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -150,14 +153,25 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
                   </g>
                 </svg>
               </a>
-              <a href="login.php" class="order_online">
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+
+                  ?>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <a href='register.php' class='order_online'>
                 註冊
-              </a>
-              
-              
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
@@ -166,81 +180,64 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
     <!-- end header section -->
   </div>
 
-  
+  <!-- Start Cart  -->
 
-  <!-- food section -->
+  <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr align="center">
+                                    <th>訂購人姓名</th>
+                                    <th>商品名稱</th>
+                                    <th>副餐</th>
+                                    <th>醬料</th>
+                                    <th>備註</th>
+                                    <th>數量</th>
+                                    <th>總價</th>
+                                    <th>刪除</th>
+                                </tr>
+                            </thead>
+                            <tbody align="center">
 
-  <section class="food_section layout_padding">
-    
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">註冊會員</p>
-
-                <form class="mx-1 mx-md-4" action="register.php" method="post">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">姓名(暱稱)</label>
-                      <input name="name" type="text"  class="form-control" placeholder="Name" require/>
+                            <?php
+                                    $sql="select * from cart where phone = $phone";
+                                    $result=mysqli_query($link,$sql);
+                                    if (mysqli_num_rows($result) > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
+                                              <td class='name'>".$row["sm_id"]."</td>
+                                              <td class='name'>".$row["s_id"]."</td>
+                                              <td>".$row["note"]."</td>
+                                              <td>".$row["amount"]."</td>
+                                              <td>".$row["price"]."</td>
+                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                        echo "</tr>";
+                                        if($_SESSION['phone']=="admin"){
+                                          echo "<td><a href = 'reserve.php?name=$record[0]'>修改、
+                                          <a href = 'delete2.php?name=$record[0]'>刪除</td>
+                                          </tr>";
+                                      }
+                                    }
+                                  }
+                                  ?>
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="email" class="form-control" placeholder="Email" require/>
-                      
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">手機號碼</label>
-                      <input name="phone" type="text" id="form3Example3c" class="form-control" placeholder="Your phone number" require />
-                      
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" id="form3Example4c" class="form-control" placeholder="Password" require/>
-                      
-                    </div>
-                  </div>
-
-
-                  
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-warning btn-lg">註冊</button>
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="images/方禾logo.png" class="img-fluid" alt="Sample image">
-
-              </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-  </section>
 
-  <!-- end food section -->
+
+
+
+        </div>
+    </div>
+    <!-- End Cart -->
+
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -248,21 +245,21 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color:aliceblue">
               聯絡我們
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -274,21 +271,21 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
             <a href="index.php" class="footer-logo">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h4 style="color:aliceblue">
             健康飲食好夥伴
-            </h5>
+            </h4>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="color:aliceblue">
             營業時間
           </h4>
           <p>
@@ -308,6 +305,8 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
     </div>
   </footer>
   <!-- footer section -->
+
+
 
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -329,6 +328,24 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom1.js"></script>
 
 </body>
 
