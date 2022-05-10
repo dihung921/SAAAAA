@@ -48,7 +48,7 @@ $link=mysqli_connect("localhost","root","12345678","sa");
   <div class="hero_area">
     <div class="bg-box">
 
-      <img src="images/ll6.png" alt="">
+      <img src="images/ll4.png" alt="">
     </div>
     <!-- header section strats -->
     
@@ -93,8 +93,7 @@ $link=mysqli_connect("localhost","root","12345678","sa");
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="seat.php">店內座位狀況<span class="sr-only">(current)</span></a>
-                
+                <a class="nav-link" href="seat.php">店內座位狀況 <span class="sr-only">(current)</span></a>
               </li>
             </ul>
             <div class="user_option">
@@ -192,18 +191,15 @@ $link=mysqli_connect("localhost","root","12345678","sa");
 
   <!-- book section -->
   <div class="cseat">
- 
-      <h5 style="color:snow;">店內座位狀況圖</h5>
-   
 <div class="movie-container">
     <ul class="showcase">
       <li>
         <div class="seat"></div>
-        <small>空位</small>
+        <small style = "color : black">空位</small>
       </li>
       <li>
-        <div class="seat occupied" style="background-color:#BF5353;"></div>
-        <small>已滿</small>
+        <div class="seat occupied"></div>
+        <small style = "color : black">已滿</small>
       </li>
     </ul>
 </div>
@@ -212,25 +208,25 @@ $link=mysqli_connect("localhost","root","12345678","sa");
 
       <div class="two"> 
         <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>2</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>3</h6></div>
+        <div class="seat occupied"><h6>2</h6></div>
+        <div class="seat occupied"><h6>3</h6></div>
         <div class="seat"><h6>4</h6></div>
         <div class="seat"><h6>5</h6></div>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
+        <div class="seat"><h6>6</h6></div>
         <div class="seat"><h6>7</h6></div>
         <div class="seat"><h6>8</h6></div>
-        <div class="seat occupied"><h6>9</h6></div>
+        <div class="seat"><h6>9</h6></div>
         <div class="seat"><h6>10</h6></div>
        
       </div></div>
 
       <div class="four">
       
-      <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
+      <div class="seat3"><h6>11</h6></div>
       <div class="seat3"><h6>13</h6></div>
       </div>
 

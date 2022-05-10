@@ -69,7 +69,7 @@ $email=$_SESSION["member_email"];
           </a>
 
           <form action="changeway.php" method="post">
-              <input type="submit" class="btn-check" value="更改用餐方式">
+          <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
             </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -184,7 +184,7 @@ $email=$_SESSION["member_email"];
   <div class="cart-box-main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-15">
+                <div class="col-lg-12">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
@@ -227,8 +227,9 @@ $email=$_SESSION["member_email"];
             
             
             <div class="row justify-content-end">
-            <div class="col-12" >
-                <div class="col-lg-6 col-sm-6">
+              <br>
+            <div class="col-4" >
+              <div>
                     <div class="update-box">
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
@@ -236,7 +237,7 @@ $email=$_SESSION["member_email"];
             </div>
 
             
-            <div class="col-sm-6 col-lg-4 all classic">
+            <div>
             <form action="" method="post" >
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
                               <div class="modal-dialog" role="document" id="exampleModalLabel1">
@@ -261,8 +262,7 @@ $email=$_SESSION["member_email"];
                               </div>
                           </div>        
                   </form>
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">
-                     
+                <div class="box" data-toggle="modal" data-target="#exampleModal1">  
                   <div class="detail-box">
                   <div class="row my-12">
                     <div class="col-lg-12 col-sm-12"></div>
@@ -271,7 +271,7 @@ $email=$_SESSION["member_email"];
                                 <div class="d-flex gr-total">
                                     <h5>總金額</h5>
                                     <div class="ml-auto h5" align="center"> $ 388 </div>
-                                      <div class="col-8 d-flex shopping-box">
+                                      <div class="col-6 d-flex shopping-box">
                                         <a class="ml-auto btn hvr-hover">結帳</a> 
                                       </div>
                                     </div>
@@ -404,4 +404,3 @@ $email=$_SESSION["member_email"];
 </body>
 
 </html>
-
