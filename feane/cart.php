@@ -206,7 +206,9 @@ $email=$_SESSION["member_email"];
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<td class='name-pr'>".$row["meal_id"]."</td>
+                                        echo "<tr>";
+                                        echo "<td></td>
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
