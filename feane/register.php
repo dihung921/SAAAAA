@@ -11,13 +11,13 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $password=$_POST["password"];
   
   echo $name,$email,$phone,$password;
-  $sql="select phone from `member` where phone='$phone'";
+  $sql="select email from `member` where email='$email'";
 
 
   $result=mysqli_query($link,$sql);
   if(mysqli_num_rows($result) >= 1){
     
-    echo "<script>{window.alert('此手機號碼已被註冊！'); location.href='register.php'}</script>";
+    echo "<script>{window.alert('此信箱已被註冊！'); location.href='register.php'}</script>";
   }
   else{
     $register="insert into member(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')";

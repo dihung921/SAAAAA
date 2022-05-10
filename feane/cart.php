@@ -212,13 +212,42 @@ $phone=$_SESSION["member_phone"];
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
-                                              <td>".$row["amount"]."</td>
+                                              <td><input type='button' href='javascript:;' class='minus fr' value='-' style='float: left; width: 40px;'>".$row["amount"]."<input type='button' href='javascript:;' class='add fr' value='+' style='float: right; width: 40px;'></td>
                                               <td>".$row["price"]."</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
                                       }
                                     }
-                                  ?>
+                                    else{
+                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
+                                    }
+                              ?>
+                              <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price13').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price13').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price13').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+
                             </tbody>
                         </table>
                     </div>

@@ -247,217 +247,55 @@ session_start();
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
-                        <hr>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：準備中<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589748 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/24 6:26 PM</p>
-                                        <p class="text-dark">日式薑燒豬（地瓜,芥末醬）x 1
-                                        </p>
-                                        <p class="text-dark">泰式打拋豬（紫米飯,沙茶醬）x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $300
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                          <form action="" method="post" style="width: 399px;height: 120px;" >
-                                            <p>餐點流程</p>
-                                            <div class="col-lg-6 col-md-12 col-xs-12">
-                                              <span class="irs js-irs-0 irs-with-grid">
-                                                <span class="irs">
-                                                  <span class="irs-line" tabindex="0">
-                                                    <span class="irs-line-left"></span>
-                                                    <span class="irs-line-mid"></span>
-                                                    <span class="irs-line-right"></span>
-                                                  </span>
-                                              </span>
-                                              <span class="irs-grid" style="width: 96%;left:1.9%;">
-                                                <span class="irs-grid-pol" style="left:0%"></span>
-                                                <span class="irs-grid-text js-grid-text-0" style="left:0%; margin-left:-1.44444%;">等待店家確認</span>
-                                                <span class="irs-grid-pol small" style="left:20%"></span>
-                                                <span class="irs-grid-pol small" style="left:15%"></span>
-                                                <span class="irs-grid-pol small" style="left:10%"></span>
-                                                <span class="irs-grid-pol small" style="left:5%"></span>
-                                                <span class="irs-grid-pol" style="left:25%"></span>
-                                                <span class="irs-grid-text js-grid-text-1" style="left:25%;visibility:visible; margin-left:-4.11111%;">餐點準備中</span>
-                                                <span class="irs-grid-pol small" style="left:45%"></span>
-                                                <span class="irs-grid-pol small" style="left:40%"></span>
-                                                <span class="irs-grid-pol small" style="left:35%"></span>
-                                                <span class="irs-grid-pol small" style="left:30%"></span>
-                                                <span class="irs-grid-pol" style="left:50%"></span>
-                                                <span class="irs-grid-text js-grid-text-2" style="left:50%;visibility:visible; margin-left:-4.11111%;">餐點製備完成</span>
-                                                <span class="irs-grid-pol small" style="left:70%"></span>
-                                                <span class="irs-grid-pol small" style="left:65%"></span>
-                                                <span class="irs-grid-pol small" style="left:60%"></span>
-                                                <span class="irs-grid-pol small" style="left:55%"></span>
-                                                <span class="irs-grid-pol" style="left:75%"></span>
-                                                <span class="irs-grid-text js-grid-text-3" style="left:75%;visibility:visible; margin-left:-4.11111%;">取餐完成</span>
-                                                <span class="irs-grid-pol small" style="left:95%"></span>
-                                                <span class="irs-grid-pol small" style="left:90%"></span>
-                                                <span class="irs-grid-pol small" style="left:85%"></span>
-                                                <span class="irs-grid-pol small" style="left:80%"></span>
-                                                <span class="irs-grid-pol" style="left:100%"></span>
-                                                <span class="irs-grid-text js-grid-text-4" style="left:100%;visibility:visible; margin-left:-4.11111%;">完成餐點評價與回饋</span>
-                                              </span>
-                                                <span class="irs-shadow shadow-from" style="display: none;"></span>
-                                                <span class="irs-shadow shadow-to" style="display: none;"></span>
-                                                <span class="irs-slider from" style="left: 25.8%;"></span>
-                                                </span>
-                                                <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
-                                              </div>           
-                                          </form>      
-                            </div>
-                        </div>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589535 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/23 7:52 PM</p>
-                                        <p class="text-dark">韓式風味牛（糙米飯,豆瓣醬）x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $150
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <form action="" method="post" style="width: 399px;height: 120px;" >
-                                  <p>餐點流程</p>
-                                  <div class="col-lg-6 col-md-12 col-xs-12">
-                                    <span class="irs js-irs-0 irs-with-grid">
-                                      <span class="irs">
-                                        <span class="irs-line" tabindex="0">
-                                          <span class="irs-line-left"></span>
-                                          <span class="irs-line-mid"></span>
-                                          <span class="irs-line-right"></span>
-                                        </span>
-                                    </span>
-                                    <span class="irs-grid" style="width: 96%;left:1.9%;">
-                                      <span class="irs-grid-pol" style="left:0%"></span>
-                                      <span class="irs-grid-text js-grid-text-0" style="left:0%; margin-left:-1.44444%;">等待店家確認</span>
-                                      <span class="irs-grid-pol small" style="left:20%"></span>
-                                      <span class="irs-grid-pol small" style="left:15%"></span>
-                                      <span class="irs-grid-pol small" style="left:10%"></span>
-                                      <span class="irs-grid-pol small" style="left:5%"></span>
-                                      <span class="irs-grid-pol" style="left:25%"></span>
-                                      <span class="irs-grid-text js-grid-text-1" style="left:25%;visibility:visible; margin-left:-4.11111%;">餐點準備中</span>
-                                      <span class="irs-grid-pol small" style="left:45%"></span>
-                                      <span class="irs-grid-pol small" style="left:40%"></span>
-                                      <span class="irs-grid-pol small" style="left:35%"></span>
-                                      <span class="irs-grid-pol small" style="left:30%"></span>
-                                      <span class="irs-grid-pol" style="left:50%"></span>
-                                      <span class="irs-grid-text js-grid-text-2" style="left:50%;visibility:visible; margin-left:-4.11111%;">餐點製備完成</span>
-                                      <span class="irs-grid-pol small" style="left:70%"></span>
-                                      <span class="irs-grid-pol small" style="left:65%"></span>
-                                      <span class="irs-grid-pol small" style="left:60%"></span>
-                                      <span class="irs-grid-pol small" style="left:55%"></span>
-                                      <span class="irs-grid-pol" style="left:75%"></span>
-                                      <span class="irs-grid-text js-grid-text-3" style="left:75%;visibility:visible; margin-left:-4.11111%;">取餐完成</span>
-                                      <span class="irs-grid-pol small" style="left:95%"></span>
-                                      <span class="irs-grid-pol small" style="left:90%"></span>
-                                      <span class="irs-grid-pol small" style="left:85%"></span>
-                                      <span class="irs-grid-pol small" style="left:80%"></span>
-                                      <span class="irs-grid-pol" style="left:100%"></span>
-                                      <span class="irs-grid-text js-grid-text-4" style="left:100%;visibility:visible; margin-left:-4.11111%;">完成餐點評價與回饋</span>
-                                    </span>
-                                    <span class="irs-shadow shadow-from" style="display: none;"></span>
-                                    <span class="irs-shadow shadow-to" style="display: none;"></span>
-                                    <span class="irs-slider from" style="left: 75.8%;"></span>
-                                    </span>
-                                    <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
-                                  </div>           
-                              </form>
+                        <?php
+                          $phone=$_SESSION["member_phone"];
+                          $sql="select * from order1 where phone='$phone' order by time DESC";
+                          $rs=mysqli_query($link,$sql);
+                          
+                          
 
-                            </div>
-                        </div>
-                        <div class="bg-white card mb-4 order-list shadow-sm">
-                            <div class="gold-members p-4">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <span class="float-right text-warning">訂單狀態：已完成<i class="icofont-check-circled text-success"></i></span>
-                                        </a>
-                                        <p class="text-gray mb-3"><i class="icofont-list"></i> 訂單編號 #25102589084 <i class="icofont-clock-time ml-2"></i>成立時間 2022/4/22 12:45 PM</p>
-                                        <p class="text-dark">普羅旺斯鱈魚（糙米飯,豆瓣醬）x 1
-                                        </p>
-                                        <p class="text-dark">檸檬椒鹽雞胸（白飯,沙拉醬）x 1
-                                        </p>
-                                        <p class="text-dark">陽光沙拉盒 x 1
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-outline-warning" href="#"><i class="icofont-headphone-alt"></i> 給予回饋</a>
-                                            <a class="btn btn-sm btn-warning" href="#"><i class="icofont-refresh"></i> 再買一次</a>
-                                        </div>
-                                        <p class="mb-0 text-black text-warning pt-2"><span class="text-black font-weight-bold"> 訂單總金額:</span> $450
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <form action="" method="post" style="width: 399px;height: 120px;" >
-                                  <p>餐點流程</p>
-                                  <div class="col-lg-6 col-md-12 col-xs-12">
-                                    <span class="irs js-irs-0 irs-with-grid">
-                                      <span class="irs">
-                                        <span class="irs-line" tabindex="0">
-                                          <span class="irs-line-left"></span>
-                                          <span class="irs-line-mid"></span>
-                                          <span class="irs-line-right"></span>
-                                        </span>
-                                    </span>
-                                    <span class="irs-grid" style="width: 96%;left:1.9%;">
-                                      <span class="irs-grid-pol" style="left:0%"></span>
-                                      <span class="irs-grid-text js-grid-text-0" style="left:0%; margin-left:-1.44444%;">等待店家確認</span>
-                                      <span class="irs-grid-pol small" style="left:20%"></span>
-                                      <span class="irs-grid-pol small" style="left:15%"></span>
-                                      <span class="irs-grid-pol small" style="left:10%"></span>
-                                      <span class="irs-grid-pol small" style="left:5%"></span>
-                                      <span class="irs-grid-pol" style="left:25%"></span>
-                                      <span class="irs-grid-text js-grid-text-1" style="left:25%;visibility:visible; margin-left:-4.11111%;">餐點準備中</span>
-                                      <span class="irs-grid-pol small" style="left:45%"></span>
-                                      <span class="irs-grid-pol small" style="left:40%"></span>
-                                      <span class="irs-grid-pol small" style="left:35%"></span>
-                                      <span class="irs-grid-pol small" style="left:30%"></span>
-                                      <span class="irs-grid-pol" style="left:50%"></span>
-                                      <span class="irs-grid-text js-grid-text-2" style="left:50%;visibility:visible; margin-left:-4.11111%;">餐點製備完成</span>
-                                      <span class="irs-grid-pol small" style="left:70%"></span>
-                                      <span class="irs-grid-pol small" style="left:65%"></span>
-                                      <span class="irs-grid-pol small" style="left:60%"></span>
-                                      <span class="irs-grid-pol small" style="left:55%"></span>
-                                      <span class="irs-grid-pol" style="left:75%"></span>
-                                      <span class="irs-grid-text js-grid-text-3" style="left:75%;visibility:visible; margin-left:-4.11111%;">取餐完成</span>
-                                      <span class="irs-grid-pol small" style="left:95%"></span>
-                                      <span class="irs-grid-pol small" style="left:90%"></span>
-                                      <span class="irs-grid-pol small" style="left:85%"></span>
-                                      <span class="irs-grid-pol small" style="left:80%"></span>
-                                      <span class="irs-grid-pol" style="left:100%"></span>
-                                      <span class="irs-grid-text js-grid-text-4" style="left:100%;visibility:visible; margin-left:-4.11111%;">完成餐點評價與回饋</span>
-                                    </span>
-                                    <span class="irs-shadow shadow-from" style="display: none;"></span>
-                                    <span class="irs-shadow shadow-to" style="display: none;"></span>
-                                    <span class="irs-slider from" style="left: 75.8%;"></span>
-                                    </span>
-                                    <input type="text" id="range" value name="range" class="irs-hidden-input" tabindex="-1" readonly>
-                                  </div>           
-                              </form>
+                          if(mysqli_num_rows($rs)>0){
+                            while($row = mysqli_fetch_array($rs)){
+                              $time=$row["time"];
+                              $sql2="select * from detail where phone='$phone' and time='$time'";
+                              $rs2=mysqli_query($link,$sql2);
+                              echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                        <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"];
 
+                                          if($rs){
+                                            if($row["cond"]== 0){
+                                              echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
+                                            }
+                                            else{
+                                              echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                            }
+                                        
+                                            while($row1 = mysqli_fetch_array($rs2)){
+                                              echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                            }
+                                            
+                                          }
+                                        
+                                              
+                                          echo"
+                                            <hr>
+                                            <div class='float-right'>
+                                              <a class='btn btn-sm btn-outline-warning' href='#'><i class='icofont-headphone-alt'></i> 給予回饋</a>
+                                              <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i> 再買一次</a>
+                                            </div>
+                                            <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              ";
+                              }
+                            }
 
 
                             </div>
