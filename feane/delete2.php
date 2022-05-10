@@ -8,7 +8,7 @@ if($_SESSION['level']<>"admin")
 else
 {
     $level=$_GET['user'];
-    $link=mysqli_connect("localhost","root","12345678","temp");
+    $link=mysqli_connect("localhost","root","12345678","sa");
     $sql="delete from `cart` where cart_id='$cart_id'";
 
 

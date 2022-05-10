@@ -225,14 +225,16 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>".$row["amount"]."</td>
-                                              <td>".$row["price"]."</td>
-                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                              <td>".$row["price"]."</td>";
+                                              if($_SESSION['level']=="admin"){
+                                                echo "<td>
+                                                <a href = 'reserve.php?name=$record[0]'>修改、
+                                                <a href = 'delete2.php?name=$record[0]'>刪除
+                                                </td>
+                                                </tr>";
+                                            }
                                         echo "</tr>";
-                                        if($_SESSION['level']=="admin"){
-                                          echo "<td><a href = 'reserve.php?name=$record[0]'>修改、
-                                          <a href = 'delete2.php?name=$record[0]'>刪除</td>
-                                          </tr>";
-                                      }
+                                        
                                     }
                                   }
                                   ?>
@@ -361,3 +363,4 @@ $email=$_SESSION["member_email"];
 </body>
 
 </html>
+
