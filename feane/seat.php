@@ -2,10 +2,12 @@
 session_start();
 $link=mysqli_connect("localhost","root","12345678","sa");
 
-    echo $_SESSION["seatnum"];
 
 ?>
-
+<?php
+    header("refresh: 10");
+    echo date('h:i:s Y-m-d');
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -204,6 +206,11 @@ $link=mysqli_connect("localhost","root","12345678","sa");
   <div class="cseat">
  
       <h5 style="color:snow;">店內座位狀況圖</h5>
+      <?php
+      if($_SESSION["seatnum"] != NULL){
+        echo $_SESSION["seatnum"];
+      }
+      ?>
    
 <div class="movie-container">
     <ul class="showcase">
@@ -221,10 +228,10 @@ $link=mysqli_connect("localhost","root","12345678","sa");
     <div class="wrapper">
 
       <div class="two"> 
-        <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>2</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>3</h6></div>
-        <div class="seat"><h6>4</h6></div>
+        <div class="seat" value="1"><h6>1</h6></div>
+        <div class="seat occupied" style="background-color:#BF5353;" value="2"><h6>2</h6></div>
+        <div class="seat occupied" style="background-color:#BF5353;" value="3"><h6>3</h6></div>
+        <div class="seat" value="4"><h6>4</h6></div>
         <div class="seat"><h6>5</h6></div>
       </div>
 

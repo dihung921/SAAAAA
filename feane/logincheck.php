@@ -1,7 +1,11 @@
 <?php
    session_start();
 
+<<<<<<< HEAD
    $link = mysqli_connect("localhost","root","12345678","sa");
+=======
+   $link = mysqli_connect("localhost", "root","12345678","sa");
+>>>>>>> 4a2e2727db8b303acd428effbb96fd9f1c620b64
   
    
 
@@ -21,7 +25,11 @@
            $_SESSION["member_email"]= $row["email"];
            $_SESSION["member_email"] = $row["email"];
            $_SESSION["member_password"]= $row["password"];
+<<<<<<< HEAD
            $_SESSION["level"]= $row["level"];
+=======
+           $_SESSION["level"] = $row["level"];
+>>>>>>> 4a2e2727db8b303acd428effbb96fd9f1c620b64
            header("location:index.php");
        } 
        else{
@@ -29,7 +37,7 @@
    }
    }
    else{
-    echo "<script>{window.alert('此手機號碼尚未註冊！請先註冊帳號'); location.href='register.php'}</script>";
+    echo "<script>{window.alert('此電子信箱尚未註冊！請先註冊帳號'); location.href='register.php'}</script>";
    }
 }
 ?>
