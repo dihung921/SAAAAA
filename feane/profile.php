@@ -236,24 +236,23 @@ mysqli_select_db($link,"sa");
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
                           $phone=$_SESSION["member_phone"];
-                          $sql="select * from order1 where phone='$phone'";
+                          $sql="select * from order1 where phone='$phone' order by time DESC";
                           $rs=mysqli_query($link,$sql);
-                          $row=mysqli_fetch_array($rs);
-                          $time=$row["time"];
-                          $sql2="select * from detail where phone='$phone' and time='$time'";
-                          $rs2=mysqli_query($link,$sql2);
-                          $row1=mysqli_fetch_array($rs2);
+                          
+                          
 
                           if(mysqli_num_rows($rs)>0){
-                            echo"
+                            while($row = mysqli_fetch_array($rs)){
+                              $time=$row["time"];
+                              $sql2="select * from detail where phone='$phone' and time='$time'";
+                              $rs2=mysqli_query($link,$sql2);
+                              echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>
                                       <div class='media'>
-                                          <div class='media-body'>
+                                        <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"];
-                                          ?>
 
-                                          <?php
                                           if($rs){
                                             if($row["cond"]== 0){
                                               echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
@@ -263,11 +262,12 @@ mysqli_select_db($link,"sa");
                                               echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
                                             }
                                         
-                                            while($row1 = mysqli_fetch_assoc($rs2)){
+                                            while($row1 = mysqli_fetch_array($rs2)){
                                               echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
                                             }
                                             
                                           }
+                                        
                                               
                                           echo"
                                             <hr>
@@ -279,8 +279,10 @@ mysqli_select_db($link,"sa");
                                           </div>
                                       </div>
                                   </div>
-                              </div>";
-                          }
+                              </div>
+                              ";
+                              }
+                            }
 
                           else{
                             echo"尚未有訂餐紀錄！";
