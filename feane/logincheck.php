@@ -1,18 +1,18 @@
 <?php
    session_start();
 
-   $link = mysqli_connect("localhost", "root");
-   mysqli_select_db($link,"sa");
+   $link = mysqli_connect("localhost", "root","","sa");
+  
    
 
 //                         
 //   if(isset($_SESSION["account_name"])){
 //           header("Location:index.php");
 //       }
-   if(isset($_POST["phone"])&& isset($_POST["password"])){
-       $phone = $_POST["phone"];
+   if(isset($_POST["email"])&& isset($_POST["password"])){
+       $email = $_POST["email"];
        $password = $_POST["password"];
-       $sql="select * from member where phone ='$phone'";
+       $sql="select * from `member` where email ='$email'";
        $rs=mysqli_query($link,$sql);
       
    if($row = mysqli_fetch_array($rs)){
@@ -31,3 +31,4 @@
     echo "<script>{window.alert('此手機號碼尚未註冊！請先註冊帳號'); location.href='register.php'}</script>";
    }
 }
+?>

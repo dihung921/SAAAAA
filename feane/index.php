@@ -1,7 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -12,6 +11,7 @@ if(isset($_POST["way"])){
       $rs=mysqli_query($link,$sql);
       if($rs){
         $_SESSION["way"]=$way;
+        $_SESSION["seatnum"]=$seatnum;
       }
     }
   }
@@ -93,7 +93,7 @@ if(isset($_POST["way"])){
             <div class='modal-content'>
             <div class='modal-footer'>
             <input name= 'way' value='0' type='hidden'>
-            請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'>
+            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
             <button class='btn btn-warning'>確認</button>
             <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
             
@@ -117,7 +117,7 @@ if(isset($_POST["way"])){
 ?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/ll6.png" alt="">
       
     </div>
     <!-- header section strats -->
@@ -128,25 +128,26 @@ if(isset($_POST["way"])){
             <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
-             </a>
+            </a>
 
-              <a><?php
+              <a style="color: lightgray"><?php
               if (isset($_SESSION["way"])){
                 if($_SESSION["way"]== 0){
-                  echo "您選擇「內用」
-                  <form action='changeway.php' method='post'>
-                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  echo 
+                  "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
                   </form>";
                 }
                 else{ 
-                  echo "您選擇「外帶自取」
-                  <form action='changeway.php' method='post'>
-                  <input type='submit' class='btn-outline-white' value='更改用餐方式'>
+                  echo "
+                  <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
+                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
                   </form>";
                 }
               }
               ?>
               </a>
+
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
@@ -163,14 +164,13 @@ if(isset($_POST["way"])){
             </ul>
             
             <div class="user_option">
-
-
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
             }
+            
             ?>
 
               <a class="cart_link" href="cart.php">
@@ -229,6 +229,8 @@ if(isset($_POST["way"])){
               </a>
               
               <form action="logout.php" method="post">
+
+          
               <?php
               if ($_SESSION["member_name"]){
                 
@@ -236,7 +238,15 @@ if(isset($_POST["way"])){
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+            elseif ($_SESSION["admin_account"]){
+                
+              ?>
+              <a style="color: white"><?php echo $_SESSION["admin_account"]; ?></a>
+              <?php
+            echo "<button class='order_online'>登出</button>";
+            }
               else{
                 echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
@@ -342,9 +352,9 @@ if(isset($_POST["way"])){
 
   <!-- food section -->
 <br>
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
+  <section class="food_section layout_padding-bottom" >
+    <div class="container" >
+      <div class="heading_container heading_center" >
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
           菜單
         </h2>
@@ -354,7 +364,7 @@ if(isset($_POST["way"])){
         <li class="active" data-filter="*">全部商品</li>
 
         <a  style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
-        <a style="text-decoration: none; color:black;" href="#roll"><sli>輕食捲捲</li></a>
+        <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
         <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
         <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
         <a style="text-decoration: none; color:black;" href="#other"><li>其他單品</li></a>
@@ -3854,8 +3864,6 @@ if(isset($_POST["way"])){
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 
-
-rap.js"></script>
 
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">

@@ -1,7 +1,5 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,13 +33,27 @@ mysqli_select_db($link,"sa");
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="ion.rangeslider.css">
+    <link rel="stylesheet" href="ion.rangeslider.skinflat.css">
+
+
 </head>
 
 <body class="sub_page">
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -232,6 +244,7 @@ mysqli_select_db($link,"sa");
 
             
 
+                
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
@@ -284,11 +297,9 @@ mysqli_select_db($link,"sa");
                               }
                             }
 
-                          else{
-                            echo"尚未有訂餐紀錄！";
-                          }
-                        
-                        ?>
+
+                            </div>
+                        </div>
                     </div>
         
               
@@ -307,21 +318,20 @@ mysqli_select_db($link,"sa");
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color:white; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+               
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -330,24 +340,24 @@ mysqli_select_db($link,"sa");
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
-              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="color:white; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -361,7 +371,7 @@ mysqli_select_db($link,"sa");
       <div class="footer-warning">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">SA05</a><br><br>
+          <a href="https://html.design/" style="color:white;">SA05</a><br><br>
         </p>
       </div>
     </div>
@@ -388,6 +398,30 @@ mysqli_select_db($link,"sa");
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
+
+
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
+  <script>
+      $(window).ready(() => {
+        $('#myModal').modal('show');
+      })
+    </script>
 
 </body>
 
