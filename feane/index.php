@@ -162,14 +162,16 @@ if(isset($_POST["way"])){
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
               <?php
-                    if($_SESSION['level']=="admin"){?>
-              <li class="nav-item"><a href="#">後臺管理<i class="ti-angle-down"></i></a>
-                    <ul class="submenu">
-                        <li class="nav-item"><a class="nav-link" href="rseat.php">座位狀況管理</a></li>
-                        <li class="nav-item"><a class="nav-link" href="manage.php">訂單管理</a></li>
-                    </ul>
-              </li>
-              <?php }?>
+                   if($_SESSION['level']=="admin"){
+                        echo "
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                      mysqli_close($link);
+              ?>
             </ul>
             
             <div class="user_option">

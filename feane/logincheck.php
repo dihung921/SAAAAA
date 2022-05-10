@@ -21,6 +21,7 @@
            $_SESSION["member_email"]= $row["email"];
            $_SESSION["member_email"] = $row["email"];
            $_SESSION["member_password"]= $row["password"];
+           $_SESSION["level"]= $row["level"];
            header("location:index.php");
        } 
        else{
