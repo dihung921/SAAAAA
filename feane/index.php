@@ -1,7 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
-
+$link=mysqli_connect("localhost","root","","sa");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -118,7 +117,7 @@ if(isset($_POST["way"])){
 ?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
       
     </div>
     <!-- header section strats -->
@@ -165,14 +164,13 @@ if(isset($_POST["way"])){
             </ul>
             
             <div class="user_option">
-
-
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
             }
+            
             ?>
 
               <a class="cart_link" href="cart.php">
@@ -231,6 +229,8 @@ if(isset($_POST["way"])){
               </a>
               
               <form action="logout.php" method="post">
+
+          
               <?php
               if ($_SESSION["member_name"]){
                 
@@ -238,7 +238,15 @@ if(isset($_POST["way"])){
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+            elseif ($_SESSION["admin_account"]){
+                
+              ?>
+              <a style="color: white"><?php echo $_SESSION["admin_account"]; ?></a>
+              <?php
+            echo "<button class='order_online'>登出</button>";
+            }
               else{
                 echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
@@ -344,9 +352,9 @@ if(isset($_POST["way"])){
 
   <!-- food section -->
 <br>
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
+  <section class="food_section layout_padding-bottom" >
+    <div class="container" >
+      <div class="heading_container heading_center" >
         <h2 id="menu" style="font-family: Arial, Helvetica, sans-serif;">
           菜單
         </h2>
