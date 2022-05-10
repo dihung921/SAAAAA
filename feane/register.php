@@ -94,6 +94,17 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
+              <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>店內座位狀況(R)</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                      mysqli_close($link);
+              ?>
             </ul>
             <div class="user_option">
               <a class="cart_link" href="cart.php">

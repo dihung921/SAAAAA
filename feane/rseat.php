@@ -85,6 +85,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
               </li>
+              <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                      mysqli_close($link);
+              ?>
 
               <li class="nav-item active">
                 <a class="nav-link" href="rseat.php">店內座位狀況(R) <span class="sr-only">(current)</span></a>

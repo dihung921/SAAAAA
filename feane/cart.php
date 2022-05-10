@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
 
+$link=mysqli_connect("localhost","root","12345678","sa");
 $email=$_SESSION["member_email"];
 ?>
 
@@ -69,7 +69,7 @@ $email=$_SESSION["member_email"];
           </a>
 
           <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
+          <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
             </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -189,7 +189,7 @@ $email=$_SESSION["member_email"];
                         <table class="table">
                             <thead>
                                 <tr align="center">
-                                    
+                                    <th> </th>
                                     <th>商品名稱</th>
                                     <th>副餐</th>
                                     <th>醬料</th>
@@ -202,12 +202,12 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from `cart` where email = $email";
+                                    $sql="select * from cart where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
-                                        echo "
+                                        echo "<td></td>
                                               <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
@@ -227,9 +227,9 @@ $email=$_SESSION["member_email"];
             
             
             <div class="row justify-content-end">
-            
-            <div class="col-6" >
-                <div>
+              <br>
+            <div class="col-4" >
+              <div>
                     <div class="update-box">
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'">
                     </div>
@@ -262,7 +262,7 @@ $email=$_SESSION["member_email"];
                               </div>
                           </div>        
                   </form>
-              <div class="box" data-toggle="modal" data-target="#exampleModal1">   
+                <div class="box" data-toggle="modal" data-target="#exampleModal1">  
                   <div class="detail-box">
                   <div class="row my-12">
                     <div class="col-lg-12 col-sm-12"></div>

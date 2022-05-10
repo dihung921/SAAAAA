@@ -88,6 +88,17 @@ $email=$_SESSION["member_email"];
               <li class="nav-item">
                 <a class="nav-link" href="seat.php">店內座位狀況</a>
               </li>
+              <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>店內座位狀況(R)</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                      mysqli_close($link);
+              ?>
             </ul>
             <div class="user_option">
 
