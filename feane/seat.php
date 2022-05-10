@@ -2,18 +2,8 @@
 session_start();
 $link=mysqli_connect("localhost","root","12345678","sa");
 
+    echo $_SESSION["seatnum"];
 
-if(isset($_POST["seatnum"])){
-  $seatnum = $_POST["seatnum"];
-  $sql ="select seat from `way` where seat = '$seatnum'";
-
-  $rs=mysqli_query($link,$sql);
-  if($rs != NULL){
-
-    $_SESSION["seatnum"] = $seatnum;
-    echo "$seatnum";
-  }
-}
 ?>
 
 <!DOCTYPE html>
