@@ -20,7 +20,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
     echo "<script>{window.alert('此信箱已被註冊！'); location.href='register.php'}</script>";
   }
   else{
-    $register="insert into member(name,email,phone,password) values ('$name','$email','$phone','$password')";
+    $register="insert into `member`(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')";
     $result2=mysqli_query($link,$register);
     if($result2){
       echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
@@ -85,15 +85,31 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">訂餐首頁</a>
+            <?php
+              if($_SESSION['level']=="user"){
+              echo"<li class='nav-item active'>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+             
+              <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
-              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>";
+              }
+              ?>
+                <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                      mysqli_close($link);
+                                      ?>
             </ul>
             <div class="user_option">
               <a class="cart_link" href="cart.php">
