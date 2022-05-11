@@ -24,6 +24,8 @@ if(isset($_POST["way"])){
     header("Location:index.php");
   }
 }
+if(isset($_POST["level"])){
+  $level = $_POST["level"];}
 ?>
 
 <!DOCTYPE html>
@@ -157,10 +159,15 @@ if(isset($_POST["way"])){
              
               <li class="nav-item">
                 <a class="nav-link" href="about.php">關於方禾</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
-              </li>
+              </li> 
+              <li class="nav-item"><?php 
+              if($_SESSION['level']=='admin')
+              echo " <a class='nav-link' href='rseat.php'>店內座位狀況(R)</a>"
+                 ?>
+              <a class='nav-link' href='seat.php'>店內座位狀況</a>
+               </li>
+                          
+                   
             </ul>
             
             <div class="user_option">
@@ -240,13 +247,7 @@ if(isset($_POST["way"])){
                 echo "<button class='order_online'>登出</button>";
             
             }
-            elseif ($_SESSION["admin_account"]){
-                
-              ?>
-              <a style="color: white"><?php echo $_SESSION["admin_account"]; ?></a>
-              <?php
-            echo "<button class='order_online'>登出</button>";
-            }
+         
               else{
                 echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入

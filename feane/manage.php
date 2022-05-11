@@ -2,7 +2,7 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $phone=$_SESSION["member_phone"];
 ?>
@@ -57,7 +57,7 @@ $phone=$_SESSION["member_phone"];
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
