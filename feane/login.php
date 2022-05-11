@@ -179,9 +179,7 @@ session_start();
                     <button class="btn btn-warning btn-lg">登入</button>
                   </div>
                  
-                    <div class="text-center mt-4 font-weight-light">
-                  不是會員？ <a href="loginadmin.php" class="text-primary">管理員登入</a>
-                </div>
+                   
 
                 </form>
 
