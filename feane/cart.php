@@ -220,6 +220,7 @@ $email=$_SESSION["member_email"];
                             <?php
                                     $sql="select * from cart where email = '$email'";
                                     $result=mysqli_query($link,$sql);
+                                    $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
@@ -228,13 +229,48 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
-                                              <td>".$row["amount"]."</td>
-                                              <td>".$row["price"]."</td>
+                                              <td>
+                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='float: left; width: 40px;'>
+                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center;'>
+                                                <input type='button' href='javascript:;' class='add fr' value='+' style='float: right; width: 40px;'>
+                                              </td>
+                                              <td class='total'><em id ='price'>".$row["price"]."</em></td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
+                                        $tot_price += $row["price"];
                                       }
+                                      $_SESSION["tot_price"]=$tot_price;
                                     }
-                                  ?>
+                                    else{
+                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
+                                    }
+                              ?>
+                              <script>
+                                      $(function () {
+                                          //加號
+                                          var price1 = parseFloat($('#price').text());
+                                          var num = parseInt($('input[name="num"]').attr('value'));
+                                          $('.add').click(function(){
+                                              num++;
+                                              $('input[name="num"]').attr('value',num);
+                                              var total = num * price1;
+                                              $('#price').html(total.toFixed(0));
+                                          });
+                                          
+                                          //減號
+                                          $('.minus').click(function () {
+                                              if(num>1){
+                                                  num--;
+                                                  $('input[name="num"]').attr('value',num);
+                                                  console.log(num)
+                                                  var total = num * price1;
+                                                  $('#price13').text(total.toFixed(0));
+
+                                              }
+                                          });
+                                      });
+                                    </script>
+
                             </tbody>
                         </table>
                     </div>
@@ -253,6 +289,7 @@ $email=$_SESSION["member_email"];
             </div>
 
             
+<<<<<<< HEAD
             <div>
             <form action="" method="post" >
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
@@ -292,20 +329,52 @@ $email=$_SESSION["member_email"];
                                       </div>
                                     </div>
                                     <hr> 
+=======
+            <?php
+                    echo"<form>
+                    <div class=detail-box>
+                      <div class=row my-12>
+                        <div class='col-lg-12 col-sm-15'>
+                          <div class='order-box'>
+                              <div class='d-flex gr-total'>
+                                <h5>總金額</h5>
+                                <div class='ml-auto h5'>$".$tot_price."</div>
+                                <div class='col-6 d-flex shopping-box'>
+                                <input type='button' value='結帳' class='ml-auto btn hvr-hover' data-toggle='modal' data-target='#exampleModal2'>  
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="options">
-                      
-                    </div>
-                  </div>
+                                </div>
+                                </div>
+                                <hr>
+>>>>>>> 96905585aa78764655d5f27d62e56ee619c7a982
+                                </div>
                 </div>
               </div>
 
         </div>
-    </div>
+    </div> 
+                                <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
+                                                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                        <span aria-hidden='true'>&times;</span>
+                                                    </button>
+                                            </div>
+                                        <div class='modal-body'>
+                                            即將送出訂單！
+                                        </div>
+                                            <div class='modal-footer'>
+                                                <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                                <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                                </form>"
+                                    
+                  ?>
     <!-- End Cart -->
 
   
