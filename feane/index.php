@@ -1692,7 +1692,7 @@ if(isset($_POST["level"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>季節水果盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉1">
+                                    <input type="hidden" name ="main" value="沙拉1">
                                     <h6>360ml/份<br>
                                         (水果種類隨季節調整)</h6>
                                     <hr>
@@ -1873,7 +1873,7 @@ if(isset($_POST["level"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式香草雞胸（62kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品1">
+                                    <input type="hidden" name ="main" value="單品1">
                                     <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2710,7 +2710,7 @@ if(isset($_POST["level"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水煮青菜（36kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他1">
+                                    <input type="hidden" name ="main" value="其他1">
                                     <h6>蛋白質2.59g 脂肪2.02g 碳水3.31g<br>
                                         (青菜種類隨季節調整)</h6>
                                     <hr>
@@ -3299,14 +3299,12 @@ if(isset($_POST["level"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>伯爵鮮奶茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料1">
+                                    <input type="hidden" name ="drink" value="飲料1">
                                     <hr>
                                     <p>選擇冰量</p>
-                                    <label><input type="radio" name="temp" value="1"> 冷</label>
+                                    <label><input type="radio" name="temp" value="冷"> 冷</label>
                                     <br>
-                                    <label><input type="radio" name="temp" value="2"> 溫</label>
-                                    <p>餐點備註</p>
-                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
+                                    <label><input type="radio" name="temp" value="溫"> 溫</label>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
