@@ -218,7 +218,7 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where email = '$email'";
+                                    $sql="select * from `cart` where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
@@ -289,47 +289,6 @@ $email=$_SESSION["member_email"];
             </div>
 
             
-<<<<<<< HEAD
-            <div>
-            <form action="" method="post" >
-                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" role="dialog">
-                              <div class="modal-dialog" role="document" id="exampleModalLabel1">
-                                  <div class="modal-content" style="padding: 40px 40px;">
-                                  <div class="modal-body" style="color: black;">
-                                    <h4>請選擇您的付款方式:</h4><hr>
-                                    <center>
-                                      <div class="col-30 d-flex justify-content-around shopping-box">
-                                      <a class="ml-auto btn hvr-hover">line pay</a>
-                                      <a class="ml-auto btn hvr-hover">apple pay</a>
-                                      <a class="ml-auto btn hvr-hover">街口支付</a>
-                                      <a class="ml-auto btn hvr-hover">信用卡支付</a>    
-                                      </div>
-                                    </center>
-                                  </div>   
-                                  </div>
-                                  <div class="modal-footer">
-                                    <input type="button" value="返回" class="btn btn-secondary" data-dismiss="modal">
-                                    <input type="submit" value="送出"  class="btn btn-warning ">
-                                  </div>
-                              </div>
-                              </div>
-                          </div>        
-                  </form>
-                <div class="box" data-toggle="modal" data-target="#exampleModal1">  
-                  <div class="detail-box">
-                  <div class="row my-12">
-                    <div class="col-lg-12 col-sm-12"></div>
-                        <div class="col-lg-15 col-sm-15">
-                            <div class="order-box">
-                                <div class="d-flex gr-total">
-                                    <h5>總金額</h5>
-                                    <div class="ml-auto h5" align="center"> $ 388 </div>
-                                      <div class="col-6 d-flex shopping-box">
-                                        <a class="ml-auto btn hvr-hover">結帳</a> 
-                                      </div>
-                                    </div>
-                                    <hr> 
-=======
             <?php
                     echo"<form>
                     <div class=detail-box>
@@ -345,7 +304,6 @@ $email=$_SESSION["member_email"];
                                 </div>
                                 </div>
                                 <hr>
->>>>>>> 96905585aa78764655d5f27d62e56ee619c7a982
                                 </div>
                 </div>
               </div>

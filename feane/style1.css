@@ -2038,7 +2038,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #d4d768;
+     background: #ffc107;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2051,6 +2051,7 @@
      vertical-align: middle;
      font-size: 16px;
 }
+
  .quantity-box input{
      width: 60px;
      border: 2px solid #000000;
@@ -2583,13 +2584,13 @@
      text-align: center;
 }
  .featured-products-box .owl-nav button.owl-prev:hover, .featured-products-box .owl-nav button.owl-next:hover{
-     background: #b0b435;
+     background: #ffc107;
 }
  .table-responsive .table td, .table-responsive .table th {
      vertical-align: middle;
      white-space: nowrap;
 }
- 
+
 .card-outline-secondary .card-body a{
 	color: #ffffff;
 	font-size: 18px;

@@ -2041,7 +2041,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #b0b435;
+     background: #ffc107;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2060,7 +2060,7 @@
      text-align: center;
 }
  .quantity-box input:focus{
-     border-color: #b0b435;
+     border-color: #ffc107;
 }
  .name-pr a{
      font-weight: 700;

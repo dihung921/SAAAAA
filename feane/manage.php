@@ -144,6 +144,20 @@ $email=$_SESSION["member_email"];
   <!-- Start Cart  -->
 
   <div class="cart-box-main">
+      <form action="manage.php" method="post" style="text-align:center;">
+          <select name="item">
+              <option selected>請選擇查詢項目</option>
+              <option value="">訂購編號</option>
+              <option value="meal_id">商品名稱</option>
+              <option value="sm_id">副餐</option>
+              <option value="s_id">醬料</option>
+              <option value="note">備註</option>
+              <option value="amount">數量</option>
+              <option value="price">總價</option>
+          </select>
+          <input type="text" name="val">
+          <button type="submit" class="btn btn-warning">查詢</button>
+        <hr>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -167,7 +181,7 @@ $email=$_SESSION["member_email"];
                                     $sql="select * from cart where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
+                                      while ($row = mysqli_fetch_array($result)) {
                                         echo "<tr>";
                                         echo "<td></td>
                                               <td class='name-pr'>".$row["meal_id"]."</td>
@@ -176,12 +190,11 @@ $email=$_SESSION["member_email"];
                                               <td>".$row["note"]."</td>
                                               <td>".$row["amount"]."</td>
                                               <td>".$row["price"]."</td>";
-                                              if($_SESSION['level']=="admin"){
-                                                echo "<td>
-                                                <a href = 'reserve.php?name=$record[0]'>修改、
-                                                <a href = 'delete2.php?name=$record[0]'>刪除
-                                                </td>";
-                                            }
+                                        echo "<td>
+                                                <a href = 'reserve.php?meal_id = ".$row["meal_id"]."'>修改</a>、
+                                                <a href = 'delete2.php?meal_id = ".$row["meal_id"]."'>刪除</a>
+                                              </td>";
+                                            
                                         echo "</tr>";
                                         
                                     }
@@ -192,11 +205,8 @@ $email=$_SESSION["member_email"];
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
+      </form>
     </div>
     <!-- End Cart -->
 
