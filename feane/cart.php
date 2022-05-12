@@ -354,7 +354,7 @@ $email=$_SESSION["member_email"];
                                             </div>
                                             </div>
 
-                                                </form>"
+                                                </form>";
                                     
                   ?>
     <!-- End Cart -->
