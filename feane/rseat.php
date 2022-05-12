@@ -91,7 +91,6 @@ $level=$_SESSION["seat_condition_level"];
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
                                       ?>
             </ul>
             <div class="user_option">
