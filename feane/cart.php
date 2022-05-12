@@ -2,7 +2,6 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","","sa");
 $email=$_SESSION["member_email"];
 ?>
 
@@ -218,7 +217,7 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where email = '$email'";
+                                    $sql="select * from `cart` where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
@@ -354,7 +353,7 @@ $email=$_SESSION["member_email"];
                                             </div>
                                             </div>
 
-                                                </form>"
+                                                </form>";
                                     
                   ?>
     <!-- End Cart -->

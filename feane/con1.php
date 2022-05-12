@@ -60,10 +60,10 @@ else if(isset($_POST["main"]) && isset($_POST["note"]) && isset($_POST["num"])){
     }
 
     $total= $num * $price;
-    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id', '', '','$note','$num','$total')";
+    $sql4="insert into cart(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
-        echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
     }
 
 }
@@ -82,10 +82,10 @@ else if(isset($_POST["drink"]) && isset($_POST["temp"]) && isset($_POST["num"]))
     }
 
     $total= $num * $price;
-    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id', '', '','$note','$num','$total')";
+    $sql4="insert into cart(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
-        echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
     }
 
 
