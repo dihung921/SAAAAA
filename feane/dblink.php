@@ -4,6 +4,7 @@ $seat_id=$_POST["seat_id"];
 $cond=$_POST["cond"];
 $order_id=$_POST["order_id"];
 
+
 $link=mysqli_connect("localhost" ,"root" ,"","sa");
 
 if($method == "update.php")
