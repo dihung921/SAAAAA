@@ -250,8 +250,8 @@ mysqli_select_db($link,"sa");
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
-                          $phone=$_SESSION["member_phone"];
-                          $sql="select * from order1 where phone='$phone' order by time DESC";
+                          $email=$_SESSION["member_email"];
+                          $sql="select * from order1 where email='$email' order by time DESC";
                           $rs=mysqli_query($link,$sql);
                           
                           
@@ -259,7 +259,7 @@ mysqli_select_db($link,"sa");
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
-                              $sql2="select * from detail where phone='$phone' and time='$time'";
+                              $sql2="select * from detail where email='$email' and time='$time'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
@@ -273,8 +273,14 @@ mysqli_select_db($link,"sa");
                                               echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
-                                            else{
+                                            if($row["cond"]== 1){
                                               echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
+                                            }
+
+                                            if($row["cond"]== 2){
+                                              echo"<span class='float-right text-warning'>訂單狀態：已取餐<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
                                             }
                                         
                                             while($row1 = mysqli_fetch_array($rs2)){
@@ -293,9 +299,51 @@ mysqli_select_db($link,"sa");
                                             <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                                           </div>
                                       </div>
+                                      <hr>
+                                            <p>餐點流程</p>
+                                            <div class='col-lg-6 col-md-12 col-xs-12'>
+                                              <span class='irs js-irs-0 irs-with-grid'>
+                                                <span class='irs'>
+                                                  <span class='irs-line' tabindex='0'>
+                                                    <span class='irs-line-left'></span>
+                                                    <span class='irs-line-mid'></span>
+                                                    <span class='irs-line-right'></span>
+                                                  </span>
+                                              
+                                              </span>
+                                              <span class='irs-grid' style='width: 96%;left:1.9%;'>
+                                                <span class='irs-grid-pol' style='left:0%'></span>
+                                                <span class='irs-grid-text js-grid-text-0' style='left:0%; margin-left:-6.5%;'>餐點準備中</span>
+                                               
+                                                
+                                                <span class='irs-grid-pol' style='left:50%'></span>
+                                                <span class='irs-grid-text js-grid-text-2' style='left:50%;visibility:visible; margin-left:-7.5%;'>餐點製備完成</span>
+                                                
+                                                <span class='irs-grid-pol' style='left:100%'></span>
+                                                <span class='irs-grid-text js-grid-text-4' style='left:100%;visibility:visible; margin-left:-5%;'>取餐完成</span>
+                                              </span>
+                                                <span class='irs-shadow shadow-from' style='display: none;'></span>
+                                                <span class='irs-shadow shadow-to' style='display: none;'></span>";
+                                              if($row["cond"] == 0){
+                                                echo"<span class='irs-slider from' style='left: 0.3%;'></span>";
+                                              }
+                                              if($row["cond"] == 1){
+                                                echo"<span class='irs-slider from' style='left: 50%;'></span>";
+                                              }
+                                              if($row["cond"] == 2){
+                                                echo"<span class='irs-slider from' style='left: 99.7%;'></span>";
+                                              }
+
+                                              
+                                              echo
+                                                "</span>
+                                                <input type='text' id='range' value name='range' class='irs-hidden-input' tabindex='-1' readonly>
+                                              
+                                              </div>
+                                                         
                                   </div>
-                              </div>
-                              ";
+                                  
+                              </div>";
                               }
                             }
                             else{
