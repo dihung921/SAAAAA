@@ -1,5 +1,26 @@
 
+<?php
+session_start();
 
+
+$link=mysqli_connect("localhost","root","","sa");
+
+$email=$_SESSION["member_email"];
+
+?>
+<?php
+
+$id = $_GET['seat_id'];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from seat_condition where seat_id = '" .$seat_id. "'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $seat_id = $record['0'];
+        $cond = $cond['1'];
+        $order_id = $order_id['2'];
+      }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -56,29 +77,10 @@
             </span>
             </a>
 
-            <a style="color: lightgray"><?php
-            if (isset($_SESSION["way"])){
-              if($_SESSION["way"]== 0){
-                echo 
-                "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                </form>";
-              }
-              else{ 
-                echo "
-                <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                </form>";
-              }
-            }
-            ?>
-            </a>
-
-
+        
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav  mx-auto ">
-
-          <?php
+            <ul class="navbar-nav  mx-auto ">
+            <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item active'>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
@@ -88,13 +90,13 @@
                 <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='rseat.php'>店內座位狀況</a>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>";
               }
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a class='nav-link' href='#'>後台管理</a></li>
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
                      }
@@ -105,6 +107,7 @@
                                       ?>
             </ul>
             <div class="user_option">
+
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
@@ -112,7 +115,6 @@
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -167,11 +169,10 @@
                   </g>
                 </svg>
               </a>
-
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                
+
                   ?>
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
@@ -187,7 +188,6 @@
               }
               ?>
             </form>
-
             </div>
           </div>
         </nav>
@@ -196,110 +196,92 @@
     <!-- end header section -->
   </div>
 
+ <!-- book section -->
 
-  <!-- book section -->
-  <div class="cseat">
+ <div class="cseat">
  
-      <label>選擇位置:</label>
-      <select class="cselect" id="seat">
-        <option value="1">座位1</option>
-        <option value="2">座位2</option>
-        <option value="3">座位3</option>
-        <option value="4">座位4</option>
-        <option value="5">座位5</option>
-        <option value="6">座位6</option>
-        <option value="7">座位7</option>
-        <option value="8">座位8</option>
-        <option value="9">座位9</option>
-        <option value="10">座位10</option>
-        <option value="11">座位11</option>
-        <option value="12">座位12</option>
-        <option value="13">座位13</option>
-        <option value="14">座位14</option>
-        <option value="15">座位15</option>
-        <option value="16">座位16</option>
-        
-      </select>
+ <h5 style="color:snow;">店內座位狀況圖</h5>
+
 <div class="movie-container">
-    <ul class="showcase">
-      <li>
-        <div class="seat"></div>
-        <small>空位</small>
-      </li>
-      <li>
-        <div class="seat selected"></div>
-
-        <small>選擇</small>
-
-
-      </li>
-      <li>
-        <div class="seat occupied"></div>
-        <small>已滿</small>
-      </li>
-    </ul>
+<ul class="showcase">
+ <li>
+   <div class="seat"></div>
+   <small>空位</small>
+ </li>
+ <li>
+   <div class="seat occupied" style="background-color:#BF5353;"></div>
+   <small>已滿</small>
+ </li>
+</ul>
 </div>
-    <div class="container2">
-    <div class="wrapper">
 
-      <div class="two"> 
-        <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied"><h6>2</h6></div>
-        <div class="seat occupied"><h6>3</h6></div>
-        <div class="seat"><h6>4</h6></div>
-        <div class="seat"><h6>5</h6></div>
-      </div>
+<div class="container2">
+<div class="wrapper">
+ <div class="two">
 
-      <div class="three"> 
-        <div class="row">
-        <div class="seat selected"><h6>6</h6></div>
-        <div class="seat"><h6>7</h6></div>
-        <div class="seat"><h6>8</h6></div>
-        <div class="seat selected"><h6>9</h6></div>
-        <div class="seat"><h6>10</h6></div>
+   <?php
+ $link=mysqli_connect("localhost","root","","sa");
+ if(empty($searchtxt))
+  {
+     $sql="select * from seat_condition";
+     }
+     $rs=mysqli_query($link,$sql);
+     ($record=mysqli_fetch_row($rs));
+      
+   echo"<div class='seat'><h6><a href=update.php?method=update&seat_id=$record[0]>1</a></h6></div>"; 
+     
+mysqli_close($link);
+?>
+   <div class="seat occupied" style="background-color:#BF5353;" value="<?php echo $seat_id?>"><h6>2</h6></div>
+   <div class="seat occupied" style="background-color:#BF5353;" value="<?php echo $seat_id?>"><h6>3</h6></div>
+   <div class="seat" value="4"><h6>4</h6></div>
+   <div class="seat"><h6>5</h6></div>
+ </div>
+
+ <div class="three"> 
+   <div class="row">
+   <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
+   <div class="seat"><h6>7</h6></div>
+   <div class="seat"><h6>8</h6></div>
+   <div class="seat occupied"><h6>9</h6></div>
+   <div class="seat"><h6>10</h6></div>
+  
+ </div></div>
+
+ <div class="four">
+ 
+ <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
+ <div class="seat3"><h6>13</h6></div>
+ </div>
+
+<div class="five">
+ <div class="seat3"><h6>12</h6></div>
+ <div class="seat3"><h6>14</h6></div>
+</div>
+
+<div class="six">
+ <div class="seat2"><h6>15</h6></div>
+ <div class="seat2"><h6>16</h6></div>
+</div>
+
+<div class="seven">
+<div class="row">
+ <div class="screen2"><center>櫃檯</center></div>
+</div></div>
+
+<div class="eight">
+<div class="row">
+ <div class="screen2"><center>自助餐具區</center></div>
+</div></div>
+
+  
+ </div>
+</div>
+</div>
+</div>
+
+
        
-      </div></div>
-
-      <div class="four">
-      
-      <div class="seat3"><h6>11</h6></div>
-      <div class="seat3"><h6>13</h6></div>
-      </div>
-
-     <div class="five">
-      <div class="seat3"><h6>12</h6></div>
-      <div class="seat3"><h6>14</h6></div>
-    </div>
-
-    <div class="six">
-      <div class="seat2"><h6>15</h6></div>
-      <div class="seat2"><h6>16</h6></div>
-    </div>
-
-    <div class="seven">
-    <div class="row">
-      <div class="screen2"><center>櫃檯</center></div>
-    </div></div>
-
-    <div class="eight">
-    <div class="row">
-      <div class="screen2"><center>自助餐具區</center></div>
-    </div></div>
-
-      
-
-      
-      
-        
-      </div>
-    </div>
-</div>
-</div>
-
-
-
-
-
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
@@ -401,6 +383,6 @@
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 </html>
