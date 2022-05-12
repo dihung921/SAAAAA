@@ -266,7 +266,7 @@ $link = mysqli_connect("localhost","root","12345678","sa");
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
                           $email=$_SESSION["member_email"];
-                          $sql="select * from order1 where email='$email' order by time DESC";
+                          $sql="select * from `order1` where email='$email' order by time DESC";
                           $rs=mysqli_query($link,$sql);
                           
                           
@@ -274,7 +274,7 @@ $link = mysqli_connect("localhost","root","12345678","sa");
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
-                              $sql2="select * from detail where email='$email' and time='$time'";
+                              $sql2="select * from `detail` where email='$email' and time='$time'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>

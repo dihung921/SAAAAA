@@ -291,7 +291,6 @@ $email=$_SESSION["member_email"];
                                 </div>
                 </div>
               </div>
-
         </div>
     </div> 
                                 <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
@@ -313,7 +312,6 @@ $email=$_SESSION["member_email"];
                                             </div>
                                             </div>
                                             </div>
-
                                                 </form>";
                                     
                   ?>

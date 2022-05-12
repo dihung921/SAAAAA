@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<script>{window.alert('送出失敗！'); location.href='cart.php'}</script>";
     }
 
-    $sql3="insert into `order1`(email, tot_price, cond, time, seat) values ('$phone', '$tot_price', 0,now(),'$seatnum')";
+    $sql3="insert into `order1`(email, tot_price, cond, time, seat) values ('$email', '$tot_price', 0,now(),'$seatnum')";
     $rs1=mysqli_query($link,$sql3);
 
     $sql4="delete from `cart` where email='$email'";
