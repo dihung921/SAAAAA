@@ -5,7 +5,7 @@ $seatnum = $_SESSION["seatnum"];
 $tot_price=$_SESSION["tot_price"];
 $link = mysqli_connect("localhost","root","12345678","sa");
 
-$sql="select * from `cart` where email = $email";
+$sql="select * from `cart` where email = '$email'";
 $result=mysqli_query($link,$sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -13,7 +13,7 @@ if (mysqli_num_rows($result) > 0) {
         $sm=$row["sm_id"];
         $s=$row["s_id"];
         $amount=$row["amount"];
-        $sql2="insert into `detail`(meal_id, sm_id, s_id, amount, phone, time) values ('$meal', '$sm', '$s', '$amount', '$phone', now())";
+        $sql2="insert into `detail`(meal_id, sm_id, s_id, amount, email, time) values ('$meal', '$sm', '$s', '$amount', '$email', now())";
         $rs=mysqli_query($link,$sql2);
     }
 
