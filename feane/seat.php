@@ -1,7 +1,9 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
-
+$link=mysqli_connect("localhost","root","12345678","sa");
+$_SESSION["seatnum"] = $seatnum;
+$_SESSION["member_email"] = $email;
+$sql = "select seat from order1 where seat='$seatnum' and email='$email'";
 
 ?>
 <?php
@@ -233,19 +235,82 @@ $link=mysqli_connect("localhost","root","","sa");
           echo" <div class='seat'><h6>1</h6></div>";
         }
         ?>
-        <div class="seat occupied" style="background-color:#BF5353;" value="2"><h6>2</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;" value="3"><h6>3</h6></div>
-        <div class="seat" value="4"><h6>4</h6></div>
-        <div class="seat"><h6>5</h6></div>
+        <?php
+        if($seatnum == 2){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>2</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>2</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 3){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>3</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>3</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 4){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>4</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>4</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 5){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>5</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>5</h6></div>";
+        }
+        ?>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
-        <div class="seat"><h6>7</h6></div>
-        <div class="seat"><h6>8</h6></div>
-        <div class="seat occupied"><h6>9</h6></div>
-        <div class="seat"><h6>10</h6></div>
+        <?php
+        if($seatnum == 6){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>6</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>6</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 7){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>7</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>7</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 8){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>8</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>8</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 9){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>9</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>9</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 10){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>10</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>10</h6></div>";
+        }
+        ?>
        
       </div></div>
 
@@ -253,23 +318,58 @@ $link=mysqli_connect("localhost","root","","sa");
       
       <?php
         if($seatnum == 11){
-          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>11</h6></div>";
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>11</h6></div>";
         }
         else{
-          echo" <div class='seat'><h6>11</h6></div>";
+          echo" <div class='seat3'><h6>11</h6></div>";
         }
         ?>
-      <div class="seat3"><h6>13</h6></div>
+      <?php
+        if($seatnum == 13){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>13</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>13</h6></div>";
+        }
+        ?>
       </div>
 
      <div class="five">
-      <div class="seat3"><h6>12</h6></div>
-      <div class="seat3"><h6>14</h6></div>
+     <?php
+        if($seatnum == 12){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>12</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>12</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 14){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>14</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>14</h6></div>";
+        }
+        ?>
     </div>
 
     <div class="six">
-      <div class="seat2"><h6>15</h6></div>
-      <div class="seat2"><h6>16</h6></div>
+    <?php
+        if($seatnum == 15){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>15</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>15</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 16){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>16</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>16</h6></div>";
+        }
+        ?>
     </div>
 
     <div class="seven">

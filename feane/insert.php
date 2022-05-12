@@ -1,11 +1,11 @@
 <?php
 session_start();
-$phone = $_SESSION["member_phone"];
+$email = $_SESSION["member_email"];
+$seatnum = $_SESSION["seatnum"];
 $tot_price=$_SESSION["tot_price"];
-$link = mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link = mysqli_connect("localhost","root","12345678","sa");
 
-$sql="select * from cart where phone = $phone";
+$sql="select * from `cart` where email = $email";
 $result=mysqli_query($link,$sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -13,7 +13,7 @@ if (mysqli_num_rows($result) > 0) {
         $sm=$row["sm_id"];
         $s=$row["s_id"];
         $amount=$row["amount"];
-        $sql2="insert into detail(meal_id, sm_id, s_id, amount, phone, time) values ('$meal', '$sm', '$s', '$amount', '$phone', now())";
+        $sql2="insert into `detail`(meal_id, sm_id, s_id, amount, phone, time) values ('$meal', '$sm', '$s', '$amount', '$phone', now())";
         $rs=mysqli_query($link,$sql2);
     }
 
@@ -25,10 +25,10 @@ if (mysqli_num_rows($result) > 0) {
         echo "<script>{window.alert('送出失敗！'); location.href='cart.php'}</script>";
     }
 
-    $sql3="insert into order1(phone, tot_price, cond, time) values ('$phone', '$tot_price', 0,now())";
+    $sql3="insert into `order1`(email, tot_price, cond, time, seat) values ('$phone', '$tot_price', 0,now(),'$seatnum')";
     $rs1=mysqli_query($link,$sql3);
 
-    $sql4="delete from cart where phone='$phone'";
+    $sql4="delete from `cart` where email='$email'";
     $rs2=mysqli_query($link,$sql4);
 
 }

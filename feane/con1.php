@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $email=$_SESSION["member_email"];
 
@@ -51,7 +51,7 @@ else if(isset($_POST["main"]) && isset($_POST["note"]) && isset($_POST["num"])){
     $note=$_POST["note"];
     $num=$_POST["num"];
 
-    $sql="select * from meal where meal_id='$name'";
+    $sql="select * from `meal` where meal_id='$name'";
     $meal=mysqli_query($link,$sql);
 
     if($row=mysqli_fetch_array($meal)){
@@ -60,10 +60,10 @@ else if(isset($_POST["main"]) && isset($_POST["note"]) && isset($_POST["num"])){
     }
 
     $total= $num * $price;
-    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id', '', '','$note','$num','$total')";
+    $sql4="insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
-        echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
     }
 
 }
@@ -73,7 +73,7 @@ else if(isset($_POST["drink"]) && isset($_POST["temp"]) && isset($_POST["num"]))
     $note=$_POST["temp"];
     $num=$_POST["num"];
 
-    $sql="select * from meal where meal_id='$name'";
+    $sql="select * from `meal` where meal_id='$name'";
     $meal=mysqli_query($link,$sql);
 
     if($row=mysqli_fetch_array($meal)){
@@ -82,10 +82,10 @@ else if(isset($_POST["drink"]) && isset($_POST["temp"]) && isset($_POST["num"]))
     }
 
     $total= $num * $price;
-    $sql4="insert into cart(phone, meal_id, sm_id, s_id, note, amount, price) values ('$phone','$meal_id', '', '','$note','$num','$total')";
+    $sql4="insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
-        echo "<script>{window.alert('新增成功 $phone, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
     }
 
 
