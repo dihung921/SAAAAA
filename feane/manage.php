@@ -69,6 +69,12 @@ $email=$_SESSION["member_email"];
             </span>
           </a>
 
+          
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
             <?php
@@ -94,10 +100,10 @@ $email=$_SESSION["member_email"];
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
+                      
                                       ?>
             </ul>
-          <div class="user_option">
+            <div class="user_option">
 
             <?php
             if ($_SESSION["member_name"]){
@@ -106,60 +112,8 @@ $email=$_SESSION["member_email"];
             </a>";
             }
             ?>
-              <a class="cart_link" href="cart.php">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
+
+              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
@@ -188,61 +142,81 @@ $email=$_SESSION["member_email"];
   </div>
 
   <!-- Start Cart  -->
+  <br>
+  <br>
 
-  <div class="cart-box-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-main table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr align="center">
-                                    <th>訂購人姓名</th>
-                                    <th>商品名稱</th>
-                                    <th>副餐</th>
-                                    <th>醬料</th>
-                                    <th>備註</th>
-                                    <th>數量</th>
-                                    <th>總價</th>
-                                    <th>刪除</th>
-                                </tr>
-                            </thead>
-                            <tbody align="center">
 
-                            <?php
-                                    $sql="select * from cart where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
-                                    if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<tr>";
-                                        echo "
-                                              <td class='name-pr'>".$row["meal_id"]."</td>
-                                              <td class='name'>".$row["sm_id"]."</td>
-                                              <td class='name'>".$row["s_id"]."</td>
-                                              <td>".$row["note"]."</td>
-                                              <td>".$row["amount"]."</td>
-                                              <td>".$row["price"]."</td>
-                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
-                                        echo "</tr>";
-                                        if($_SESSION['phone']=="admin"){
-                                          echo "<td><a href = 'reserve.php?name=$record[0]'>修改、
-                                          <a href = 'delete2.php?name=$record[0]'>刪除</td>
-                                          </tr>";
-                                      }
-                                    }
-                                  }
-                                  ?>
-                            </tbody>
-                        </table>
+  <div class="container">
+    <div class="main-body">
+    
+          
+    
+          
+            
+
+            
+
+                
+                    <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
+                        <?php
+                          $sql="select * from order1 where cond = 0 order by time ASC";
+                          $rs=mysqli_query($link,$sql);
+
+                          if(mysqli_num_rows($rs) > 0 ){
+                            while($row = mysqli_fetch_array($rs)){
+                              $time=$row["time"];
+                              $email=$row["email"];
+                              $sql1="select * from detail where time = '$time' and email = '$email'";
+                              $rs1=mysqli_query($link,$sql1);
+                              $sql2="select name from member where email = '$email'";
+                              $rs2=mysqli_query($link,$sql2);
+                              $row2=mysqli_fetch_array($rs2);
+                              echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                        <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+
+                                while($row1 = mysqli_fetch_array($rs1)){
+                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                }
+                              echo"
+                              <hr>
+                              <div class='float-right'>
+                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
+                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
+                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                              </div>
+                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              </div>
+                            </div>
+                            </div>
+                            </div>";         
+                            }
+                          }
+                          else {
+                            echo"尚未有訂單。";
+                          }
+                            ?>
+
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+        
+              
             </div>
-
-
-
+          </div>
 
         </div>
     </div>
+    <br>
+    <br>
     <!-- End Cart -->
 
 

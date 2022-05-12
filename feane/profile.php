@@ -1,30 +1,7 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
-
-
-if(isset($_POST["way"])){
-  $way = $_POST["way"];
-  if($way == 0){
-    if(isset($_POST["seatnum"])){
-      $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
-      $rs=mysqli_query($link,$sql);
-      if($rs){
-        $_SESSION["way"]=$way;
-        $_SESSION["seatnum"]=$seatnum;
-      }
-    }
-  }
-  else{
-    $sql="insert into way(way) values ('1')";
-    $rs=mysqli_query($link,$sql);
-    if($rs){
-      $_SESSION["way"]=$way;
-    }
-    header("Location:index.php");
-  }
-}
+$link = mysqli_connect("localhost","root");
+mysqli_select_db($link,"sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,55 +50,7 @@ if(isset($_POST["way"])){
 
 
 </head>
-<?php
-if($_SESSION['level']=="user"){
-  if(!isset($_SESSION["way"])){
-    echo"
-    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-      <div class='modal-dialog'>
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-              <span aria-hidden='true'></span>
-            </button>
-          </div>
-          <center><div class='modal-body'>
-          <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action='index.php' method='post'>
-                          <input name='way' value='1' type='hidden'>  
-                          <button class='btn btn-warning'>自取</button>
-                        </form>
-            <form action='index.php' method='post'>
-            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
-            
-            <div class='modal-dialog'>
-            <div class='modal-content'>
-            <div class='modal-footer'>
-            <input name= 'way' value='0' type='hidden'>
-            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
-            <button class='btn btn-warning'>確認</button>
-            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-            
-            
-                  
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          </div>
 
-           
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>";
-}
-}
-?>
 <body class="sub_page">
 
   <div class="hero_area">
@@ -137,23 +66,6 @@ if($_SESSION['level']=="user"){
               方禾食呂
             </span>
           </a>
-          <a style="color: lightgray"><?php
-              if (isset($_SESSION["way"])){
-                if($_SESSION["way"]== 0){
-                  echo 
-                  "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-                else{ 
-                  echo "
-                  <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-              }
-              ?>
-              </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -161,31 +73,15 @@ if($_SESSION['level']=="user"){
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-            <?php
-              if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
-                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">訂餐首頁</a>
               </li>
-             
-              <li class='nav-item'>
-                <a class='nav-link' href='about.php'>關於方禾</a>
+              <li class="nav-item">
+                <a class="nav-link" href="about.php">關於方禾</a>
               </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
-              }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
-                     }
-                  else{
-                       echo"<td>&nbsp;</td></tr>";
-                      }
-                      mysqli_close($link);
-                                      ?>
+              <li class="nav-item">
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
+              </li>
             </ul>
             <div class="user_option">
             <?php
@@ -285,35 +181,33 @@ if($_SESSION['level']=="user"){
 
   <div class="container">
     <div class="main-body">
+    
+          
+    
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="images/3.jpg" alt="Admin" class="rounded-circle" width="180">
-                    <div class='mt-3'>
-                      <h3><?php echo $_SESSION["member_name"] ?></h3>
-                               
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4><?php echo $_SESSION["member_name"] ?></h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-           
-            <div class='col-md-8'>
-              <div class='card mb-3'>
-                <div class='card-body'>
-
-                  <div class='row'>
-                    <div class='col-sm-3'>
-                      <h6 class='mb-0'>姓名</h6>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">姓名</h6>
                     </div>
-                    <div class='col-sm-9 text-secondary'>
+                    <div class="col-sm-9 text-secondary">
                     <?php echo $_SESSION["member_name"] ?>
                     </div>
                   </div>
-
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
@@ -344,19 +238,20 @@ if($_SESSION['level']=="user"){
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                     <?php echo" <a class='btn btn-warning' style='  border-radius: 19px; float:right;' target='__blank'<a href=updateprofile.php?method=update&email=$record[1]>編輯</a>"; ?>
+                      <a class="btn btn-warning " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">編輯</a>
                     </div>
                   </div>
                 </div>
               </div>
 
+            
 
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
-                          $phone=$_SESSION["member_phone"];
-                          $sql="select * from order1 where phone='$phone' order by time DESC";
+                          $email=$_SESSION["member_email"];
+                          $sql="select * from order1 where email='$email' order by time DESC";
                           $rs=mysqli_query($link,$sql);
                           
                           
@@ -364,7 +259,7 @@ if($_SESSION['level']=="user"){
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
-                              $sql2="select * from detail where phone='$phone' and time='$time'";
+                              $sql2="select * from detail where email='$email' and time='$time'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
@@ -378,8 +273,14 @@ if($_SESSION['level']=="user"){
                                               echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
-                                            else{
+                                            if($row["cond"]== 1){
                                               echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
+                                            }
+
+                                            if($row["cond"]== 2){
+                                              echo"<span class='float-right text-warning'>訂單狀態：已取餐<i class='icofont-check-circled text-success'></i></span></p>";
+                                              
                                             }
                                         
                                             while($row1 = mysqli_fetch_array($rs2)){
@@ -398,9 +299,51 @@ if($_SESSION['level']=="user"){
                                             <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                                           </div>
                                       </div>
+                                      <hr>
+                                            <p>餐點流程</p>
+                                            <div class='col-lg-6 col-md-12 col-xs-12'>
+                                              <span class='irs js-irs-0 irs-with-grid'>
+                                                <span class='irs'>
+                                                  <span class='irs-line' tabindex='0'>
+                                                    <span class='irs-line-left'></span>
+                                                    <span class='irs-line-mid'></span>
+                                                    <span class='irs-line-right'></span>
+                                                  </span>
+                                              
+                                              </span>
+                                              <span class='irs-grid' style='width: 96%;left:1.9%;'>
+                                                <span class='irs-grid-pol' style='left:0%'></span>
+                                                <span class='irs-grid-text js-grid-text-0' style='left:0%; margin-left:-6.5%;'>餐點準備中</span>
+                                               
+                                                
+                                                <span class='irs-grid-pol' style='left:50%'></span>
+                                                <span class='irs-grid-text js-grid-text-2' style='left:50%;visibility:visible; margin-left:-7.5%;'>餐點製備完成</span>
+                                                
+                                                <span class='irs-grid-pol' style='left:100%'></span>
+                                                <span class='irs-grid-text js-grid-text-4' style='left:100%;visibility:visible; margin-left:-5%;'>取餐完成</span>
+                                              </span>
+                                                <span class='irs-shadow shadow-from' style='display: none;'></span>
+                                                <span class='irs-shadow shadow-to' style='display: none;'></span>";
+                                              if($row["cond"] == 0){
+                                                echo"<span class='irs-slider from' style='left: 0.3%;'></span>";
+                                              }
+                                              if($row["cond"] == 1){
+                                                echo"<span class='irs-slider from' style='left: 50%;'></span>";
+                                              }
+                                              if($row["cond"] == 2){
+                                                echo"<span class='irs-slider from' style='left: 99.7%;'></span>";
+                                              }
+
+                                              
+                                              echo
+                                                "</span>
+                                                <input type='text' id='range' value name='range' class='irs-hidden-input' tabindex='-1' readonly>
+                                              
+                                              </div>
+                                                         
                                   </div>
-                              </div>
-                              ";
+                                  
+                              </div>";
                               }
                             }
                             else{

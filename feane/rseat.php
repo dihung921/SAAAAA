@@ -6,20 +6,8 @@ session_start();
 $link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
+$level=$_SESSION["seat_condition_level"];
 
-?>
-<?php
-
-$id = $_GET['seat_id'];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from seat_condition where seat_id = '" .$seat_id. "'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $seat_id = $record['0'];
-        $cond = $cond['1'];
-        $order_id = $order_id['2'];
-      }
 ?>
 <!DOCTYPE html>
 <html>
@@ -218,21 +206,27 @@ $rs=mysqli_query($link,$sql);
 <div class="container2">
 <div class="wrapper">
  <div class="two">
+ <?php if (isset($_SESSION["level"])){
+                if($_SESSION["level"]== 0){
+                  echo"
+   <div class='seat occupied' name='seat_id'><h6><a href=update.php?method=update&seat_id=$record[0]>1</a></h6></div>"; }
+   else{ 
+   echo "
+   <div class='seat' name='seat_id'><a href=update.php?method=update&seat_id=$record[0]><h6>1</h6></a></div>";
+ }
+}
+  ?>
 
-   <?php
- $link=mysqli_connect("localhost","root","","sa");
- if(empty($searchtxt))
-  {
-     $sql="select * from seat_condition";
-     }
-     $rs=mysqli_query($link,$sql);
-     ($record=mysqli_fetch_row($rs));
-      
-   echo"<div class='seat'><h6><a href=update.php?method=update&seat_id=$record[0]>1</a></h6></div>"; 
-     
-mysqli_close($link);
-?>
-   <div class="seat occupied" style="background-color:#BF5353;" value="<?php echo $seat_id?>"><h6>2</h6></div>
+<?php if (isset($_SESSION["level"])){
+                if($_SESSION["level"]== 0){
+                  echo"
+   <div class='seat' style='background-color:#BF5353;'><h6>2</h6></div>";}
+   else{ 
+    echo "
+    <div class='seat occupied' value='4'><h6>2</h6></div>";
+  }
+}
+   ?>
    <div class="seat occupied" style="background-color:#BF5353;" value="<?php echo $seat_id?>"><h6>3</h6></div>
    <div class="seat" value="4"><h6>4</h6></div>
    <div class="seat"><h6>5</h6></div>
