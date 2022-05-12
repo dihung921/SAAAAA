@@ -2,30 +2,6 @@
 session_start();
 $link = mysqli_connect("localhost","root");
 mysqli_select_db($link,"sa");
-
-
-if(isset($_POST["way"])){
-  $way = $_POST["way"];
-  if($way == 0){
-    if(isset($_POST["seatnum"])){
-      $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
-      $rs4=mysqli_query($link,$sql);
-      if($rs4){
-        $_SESSION["way"]=$way;
-        $_SESSION["seatnum"]=$seatnum;
-      }
-    }
-  }
-  else{
-    $sql="insert into way(way) values ('1')";
-    $rs4=mysqli_query($link,$sql);
-    if($rs4){
-      $_SESSION["way"]=$way;
-    }
-    header("Location:index.php");
-  }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,55 +50,7 @@ if(isset($_POST["way"])){
 
 
 </head>
-<?php
-if($_SESSION['level']=="user"){
-  if(!isset($_SESSION["way"])){
-    echo"
-    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-      <div class='modal-dialog'>
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-              <span aria-hidden='true'></span>
-            </button>
-          </div>
-          <center><div class='modal-body'>
-          <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action='index.php' method='post'>
-                          <input name='way' value='1' type='hidden'>  
-                          <button class='btn btn-warning'>自取</button>
-                        </form>
-            <form action='index.php' method='post'>
-            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
-            
-            <div class='modal-dialog'>
-            <div class='modal-content'>
-            <div class='modal-footer'>
-            <input name= 'way' value='0' type='hidden'>
-            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
-            <button class='btn btn-warning'>確認</button>
-            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-            
-            
-                  
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          </div>
 
-           
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>";
-}
-}
-?>
 <body class="sub_page">
 
   <div class="hero_area">
@@ -138,23 +66,6 @@ if($_SESSION['level']=="user"){
               方禾食呂
             </span>
           </a>
-          <a style="color: lightgray"><?php
-              if (isset($_SESSION["way"])){
-                if($_SESSION["way"]== 0){
-                  echo 
-                  "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-                else{ 
-                  echo "
-                  <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-              }
-              ?>
-              </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -162,31 +73,15 @@ if($_SESSION['level']=="user"){
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-            <?php
-              if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
-                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">訂餐首頁</a>
               </li>
-             
-              <li class='nav-item'>
-                <a class='nav-link' href='about.php'>關於方禾</a>
+              <li class="nav-item">
+                <a class="nav-link" href="about.php">關於方禾</a>
               </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
-              }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
-                     }
-                  else{
-                       echo"<td>&nbsp;</td></tr>";
-                      }
-                      mysqli_close($link);
-                                      ?>
+              <li class="nav-item">
+                <a class="nav-link" href="seat.php">店內座位狀況</a>
+              </li>
             </ul>
             <div class="user_option">
             <?php
@@ -286,35 +181,33 @@ if($_SESSION['level']=="user"){
 
   <div class="container">
     <div class="main-body">
+    
+          
+    
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="images/3.jpg" alt="Admin" class="rounded-circle" width="180">
-                    <div class='mt-3'>
-                      <h3><?php echo $_SESSION["member_name"] ?></h3>
-                               
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4><?php echo $_SESSION["member_name"] ?></h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-           
-            <div class='col-md-8'>
-              <div class='card mb-3'>
-                <div class='card-body'>
-
-                  <div class='row'>
-                    <div class='col-sm-3'>
-                      <h6 class='mb-0'>姓名</h6>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">姓名</h6>
                     </div>
-                    <div class='col-sm-9 text-secondary'>
+                    <div class="col-sm-9 text-secondary">
                     <?php echo $_SESSION["member_name"] ?>
                     </div>
                   </div>
-
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
@@ -345,12 +238,13 @@ if($_SESSION['level']=="user"){
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                     <?php echo" <a class='btn btn-warning' style='  border-radius: 19px; float:right;' target='__blank'<a href=updateprofile.php?method=update&email=$record[1]>編輯</a>"; ?>
+                      <a class="btn btn-warning " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">編輯</a>
                     </div>
                   </div>
                 </div>
               </div>
 
+            
 
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
