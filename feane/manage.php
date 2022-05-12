@@ -57,7 +57,7 @@ $email=$_SESSION["member_email"];
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/ll4.png" alt="">
+      <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -68,10 +68,6 @@ $email=$_SESSION["member_email"];
               方禾食呂
             </span>
           </a>
-
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
-            </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -106,15 +102,6 @@ $email=$_SESSION["member_email"];
                                       ?>
             </ul>
             <div class="user_option">
-
-            <?php
-            if ($_SESSION["member_name"]){
-              echo "<a href='profile.php' class='user_link'>
-              <i class='fa fa-user' aria-hidden='true'></i>
-            </a>";
-            }
-            ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -219,7 +206,7 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where email = '$email'";
+                                    $sql="select * from `cart` where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
@@ -233,7 +220,7 @@ $email=$_SESSION["member_email"];
                                               <td>".$row["price"]."</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
-                                        if($_SESSION['phone']=="admin"){
+                                        if($_SESSION['email']=="admin"){
                                           echo "<td><a href = 'reserve.php?name=$record[0]'>修改、
                                           <a href = 'delete2.php?name=$record[0]'>刪除</td>
                                           </tr>";
