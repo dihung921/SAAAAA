@@ -178,7 +178,7 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from cart where email = '$email'";
+                                    $sql="select * from order where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_array($result)) {
