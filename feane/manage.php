@@ -178,12 +178,16 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from order where email = '$email'";
+                                    $email=$_SESSION["member_email"];
+                                    $sql="select * from order1 where email = '$email'";
                                     $result=mysqli_query($link,$sql);
+
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_array($result)) {
+                                        $sql2="select * from detail where email='$email'";
+                                        $rs2=mysqli_query($link,$sql2);
                                         echo "<tr>";
-                                        echo "<td></td>
+                                        echo "<td>".$row["detail.id"]."</td>
                                               <td class='name-pr'>".$row["meal_id"]."</td>
                                               <td class='name'>".$row["sm_id"]."</td>
                                               <td class='name'>".$row["s_id"]."</td>
