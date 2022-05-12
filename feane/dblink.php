@@ -5,13 +5,13 @@ $email=$_POST["email"];
 $meal_id=$_POST["meal_id"];
 $sm_id=$_POST["sm_id"];
 $s_id=$_POST["s_id"];
-
+$amount=$_POST["amount"];
 
 $link=mysqli_connect("localhost","root","12345678","sa");
 
 if($method=="update")
 {
-    $sql="update cart set email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id', where email='$email'";
+    $sql="update cart set email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id',amount='$amount', where email='$email'";
     echo $sql;
         if(mysqli_query($link,$sql))
         {
@@ -23,7 +23,7 @@ if($method=="update")
     }
     else
     {
-    $sql="update cart set ,email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id', where email='$email'";
+    $sql="update cart set ,email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id',amount='$amount', where email='$email'";
     echo $sql;
         if(mysqli_query($link,$sql))
         {

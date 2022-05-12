@@ -1,20 +1,15 @@
 <?php
 $method="update";
-if($_SESSION['email']<>"admin")
- {
-     header('location:index.php?method=message&message=請先登入喔');
-}
-$name=$_GET['name'];
-$date=$_GET['date'];
+$email=$_SESSION["member_email"];
 $link=mysqli_connect("localhost","root","12345678","sa");
 $sql="select * from `cart` where email = '$email'" ;
 $rs=mysqli_query($link,$sql);
 if($record=mysqli_fetch_assoc($rs))
 {
-    $meal_id= $record['1'];
-    $sm_id=$record['2'];
-    $s_id=$record['3'];
-    $amount=$record['4'];
+    $meal_id= $record['0'];
+    $sm_id=$record['1'];
+    $s_id=$record['2'];
+    $amount=$record['3'];
 }
 
 ?>
