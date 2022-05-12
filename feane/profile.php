@@ -1,7 +1,6 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost","root");
-mysqli_select_db($link,"sa");
+$link = mysqli_connect("localhost","root","","sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -250,8 +249,8 @@ mysqli_select_db($link,"sa");
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
-                          $phone=$_SESSION["member_phone"];
-                          $sql="select * from order1 where phone='$phone' order by time DESC";
+                          $email=$_SESSION["member_email"];
+                          $sql="select * from order1 where email='$email' order by time DESC";
                           $rs=mysqli_query($link,$sql);
                           
                           
@@ -259,7 +258,7 @@ mysqli_select_db($link,"sa");
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
-                              $sql2="select * from detail where phone='$phone' and time='$time'";
+                              $sql2="select * from detail where email='$email' and time='$time'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>

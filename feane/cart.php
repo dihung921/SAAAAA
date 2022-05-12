@@ -3,7 +3,7 @@ session_start();
 
 $link=mysqli_connect("localhost","root","","sa");
 
-$phone=$_SESSION["member_phone"];
+$email=$_SESSION["member_email"];
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +202,7 @@ $phone=$_SESSION["member_phone"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from `cart` where phone = $phone";
+                                    $sql="select * from `cart` where email = '$email'";
                                     $result=mysqli_query($link,$sql);
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
@@ -314,7 +314,7 @@ $phone=$_SESSION["member_phone"];
                                             </div>
                                             </div>
 
-                                                </form>"
+                                                </form>";
                                     
                   ?>
     <!-- End Cart -->
