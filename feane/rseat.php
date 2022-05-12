@@ -88,13 +88,13 @@
                 <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                <a class='nav-link' href='rseat.php'>店內座位狀況</a>
               </li>";
               }
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                        echo "<li class='nav-item'><a class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
                      }

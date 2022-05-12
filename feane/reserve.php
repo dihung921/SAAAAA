@@ -6,7 +6,7 @@ if($_SESSION['email']<>"admin")
 }
 $name=$_GET['name'];
 $date=$_GET['date'];
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 $sql="select * from `cart` where email = '$email'" ;
 $rs=mysqli_query($link,$sql);
 if($record=mysqli_fetch_assoc($rs))
