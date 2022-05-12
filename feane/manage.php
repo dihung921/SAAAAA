@@ -69,14 +69,6 @@ $email=$_SESSION["member_email"];
             </span>
           </a>
 
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
-            </form>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
             <?php
@@ -105,7 +97,7 @@ $email=$_SESSION["member_email"];
                       mysqli_close($link);
                                       ?>
             </ul>
-            <div class="user_option">
+          <div class="user_option">
 
             <?php
             if ($_SESSION["member_name"]){
@@ -114,7 +106,6 @@ $email=$_SESSION["member_email"];
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
