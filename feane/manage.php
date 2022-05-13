@@ -2,7 +2,7 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
@@ -161,16 +161,18 @@ $email=$_SESSION["member_email"];
 
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
+                        <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">訂單管理</h1>
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
+                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3>";
 
-                          if(mysqli_num_rows($rs) > 0 ){
+                          if(mysqli_num_rows($rs) >= 0 ){ 
+                            
                             while($row = mysqli_fetch_array($rs)){
-                              $time=$row["time"];
+                              $orderid=$row["order_id"];
                               $email=$row["email"];
-                              $sql1="select * from `detail` where time = '$time' and email = '$email'";
+                              $sql1="select * from `detail` where order_id = '$orderid' and email = '$email'";
                               $rs1=mysqli_query($link,$sql1);
                               $sql2="select name from `member` where email = '$email'";
                               $rs2=mysqli_query($link,$sql2);
@@ -190,10 +192,10 @@ $email=$_SESSION["member_email"];
                               echo"
                               <hr>
                               <div class='float-right'>
-                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
                                 <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
-                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
-                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                                <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
+                                <a class='btn btn-sm btn-success' href='receive.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
                               </div>
                               <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
@@ -201,12 +203,14 @@ $email=$_SESSION["member_email"];
                             </div>
                             </div>";         
                             }
+
+
                           }
                           else {
-                            echo"尚未有訂單。";
+                            echo"尚未有待準備訂單。";
                           }
-                            ?>
 
+                            ?>
 
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -1709,7 +1709,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>季節水果盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉1">
+                                    <input type="hidden" name ="main" value="沙拉1">
                                     <h6>360ml/份<br>
                                         (水果種類隨季節調整)</h6>
                                     <hr>
@@ -1790,7 +1790,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>陽光沙拉盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉2">
+                                    <input type="hidden" name ="salad" value="沙拉2">
                                     <h6>360ml/份<br>
                                         (配菜種類隨季節調整)<br>
                                         可以到主食單品區加點主食，補充蛋白質哦！</h6>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
@@ -68,9 +68,7 @@ $email=$_SESSION["member_email"];
             </span>
           </a>
 
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
-            </form>
+          
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -197,6 +195,10 @@ $email=$_SESSION["member_email"];
 
   <!-- Start Cart  -->
   
+  <br>
+  <br>
+
+
   <div class="container">
     <div class="main-body">
     
@@ -209,9 +211,9 @@ $email=$_SESSION["member_email"];
 
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
+                        <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
                         <?php
-                          $sql="select * from `order1` where cond = 1 order by time DESC";
+                          $sql="select * from `order1` where cond = 2 order by time DESC";
                           $rs=mysqli_query($link,$sql);
 
                           if(mysqli_num_rows($rs) > 0 ){
@@ -266,6 +268,8 @@ $email=$_SESSION["member_email"];
 
         </div>
     </div>
+    <br>
+    <br>
     <!-- End Cart -->
 
   
