@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 
 ?>
@@ -106,7 +106,6 @@ $link=mysqli_connect("localhost","root","12345678","sa");
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
               ?>
             </ul>
             <div class="user_option">
@@ -181,12 +180,14 @@ $link=mysqli_connect("localhost","root","12345678","sa");
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+         
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }

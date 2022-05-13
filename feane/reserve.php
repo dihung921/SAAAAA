@@ -1,6 +1,11 @@
 <?php
 $method="update";
-$email=$_SESSION["member_email"];
+if($_SESSION['email']<>"admin")
+ {
+     header('location:index.php?method=message&message=請先登入喔');
+}
+$name=$_GET['name'];
+$date=$_GET['date'];
 $link=mysqli_connect("localhost","root","12345678","sa");
 $sql="select * from `cart` where email = '$email'" ;
 $rs=mysqli_query($link,$sql);

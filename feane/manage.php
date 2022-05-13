@@ -100,7 +100,7 @@ $email=$_SESSION["member_email"];
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
+                      
                                       ?>
             </ul>
             <div class="user_option">
@@ -142,76 +142,82 @@ $email=$_SESSION["member_email"];
   </div>
 
   <!-- Start Cart  -->
+  <br>
+  <br>
 
-  <div class="cart-box-main">
-      <form action="manage.php" method="post" style="text-align:center;">
-          <select name="item">
-              <option selected>請選擇查詢項目</option>
-              <option value="">訂購編號</option>
-              <option value="meal_id">商品名稱</option>
-              <option value="sm_id">副餐</option>
-              <option value="s_id">醬料</option>
-              <option value="note">備註</option>
-              <option value="amount">數量</option>
-              <option value="price">總價</option>
-          </select>
-          <input type="text" name="val">
-          <button type="submit" class="btn btn-warning">查詢</button>
-        <hr>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-main table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr align="center">
-                                    <th>訂購編號</th>
-                                    <th>商品名稱</th>
-                                    <th>副餐</th>
-                                    <th>醬料</th>
-                                    <th>備註</th>
-                                    <th>數量</th>
-                                    <th>總價</th>
-                                    <th>功能</th>
-                                </tr>
-                            </thead>
-                            <tbody align="center">
 
-                            <?php
-                                    $email=$_SESSION["member_email"];
-                                    $sql="select * from order1 where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
+  <div class="container">
+    <div class="main-body">
+    
+          
+    
+          
+            
 
-                                    if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_array($result)) {
-                                        $sql2="select * from detail where email='$email'";
-                                        $rs2=mysqli_query($link,$sql2);
-                                        echo "<tr>";
-                                        echo "<td>".$row["detail.id"]."</td>
-                                              <td class='name-pr'>".$row["meal_id"]."</td>
-                                              <td class='name'>".$row["sm_id"]."</td>
-                                              <td class='name'>".$row["s_id"]."</td>
-                                              <td>".$row["note"]."</td>
-                                              <td>".$row["amount"]."</td>
-                                              <td>".$row["price"]."</td>";
-                                        echo "<td>
-                                                <a href = 'reserve.php?meal_id = ".$row["meal_id"]."'>修改</a>、
-                                                <a href = 'delete2.php?meal_id = ".$row["meal_id"]."'>刪除</a>
-                                              </td>";
-                                            
-                                        echo "</tr>";
-                                        
-                                    }
-                                  }
-                                  ?>
-                            </tbody>
-                        </table>
+            
+
+                
+                    <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
+                        <?php
+                          $sql="select * from order1 where cond = 0 order by time ASC";
+                          $rs=mysqli_query($link,$sql);
+
+                          if(mysqli_num_rows($rs) > 0 ){
+                            while($row = mysqli_fetch_array($rs)){
+                              $time=$row["time"];
+                              $email=$row["email"];
+                              $sql1="select * from detail where time = '$time' and email = '$email'";
+                              $rs1=mysqli_query($link,$sql1);
+                              $sql2="select name from member where email = '$email'";
+                              $rs2=mysqli_query($link,$sql2);
+                              $row2=mysqli_fetch_array($rs2);
+                              echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                        <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+
+                                while($row1 = mysqli_fetch_array($rs1)){
+                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                }
+                              echo"
+                              <hr>
+                              <div class='float-right'>
+                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
+                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
+                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                              </div>
+                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              </div>
+                            </div>
+                            </div>
+                            </div>";         
+                            }
+                          }
+                          else {
+                            echo"尚未有訂單。";
+                          }
+                            ?>
+
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+        
+              
             </div>
+          </div>
+
         </div>
       </form>
     </div>
+    <br>
+    <br>
     <!-- End Cart -->
 
 

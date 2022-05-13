@@ -1,36 +1,30 @@
 <?php
 $method=$_POST["method"];
-$cart_id=$_POST["cart_id"];
-$email=$_POST["email"];
-$meal_id=$_POST["meal_id"];
-$sm_id=$_POST["sm_id"];
-$s_id=$_POST["s_id"];
-$amount=$_POST["amount"];
+$seat_id=$_POST["seat_id"];
+$cond=$_POST["cond"];
+$order_id=$_POST["order_id"];
 
-$link=mysqli_connect("localhost","root","12345678","sa");
 
-if($method=="update")
+$link=mysqli_connect("localhost" ,"root" ,"","sa");
+
+if($method == "update.php")
 {
-    $sql="update cart set email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id',amount='$amount', where email='$email'";
+    $sql="insert into seat_condition (seat_id, cond, order_id) values ('$seat_id','$cond','$order_id')";
     echo $sql;
-        if(mysqli_query($link,$sql))
-        {
-             header('location:manage.php');
-             
-        }else{
-            echo "error";
-        }
+    if(mysqli_query($link,$sql))
+    {
+    echo "<script>{window.alert('新增成功'); location.href='rseat.php'}</script>";
+    }
     }
     else
-    {
-    $sql="update cart set ,email='$email',meal_id='$meal_id',sm_id='$sm_id',s_id='$s_id',amount='$amount', where email='$email'";
-    echo $sql;
-        if(mysqli_query($link,$sql))
-        {
-            header('location:manage.php?method=message&message=刪除成功');  
-        }
+{
+    $sql="update seat_condition set seat_id = '$seat_id', cond ='$cond' , order_id ='$order_id' where seat_id='$seat_id'";
+echo $sql;
+if(mysqli_query($link,$sql))
+{
+    echo "<script>{window.alert('修改成功'); location.href='rseat.php'}</script>";
+}
 
-    }
-
+}
 
 ?>
