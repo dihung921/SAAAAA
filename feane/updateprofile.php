@@ -326,7 +326,7 @@ if($_SESSION['level']=="user"){
                                 <td><input type="text" name="password" value="<?php echo $password?>"></td>
                                 
                            <tr align="center">
-                              <td colspan="3"> <hr>
+                              <td colspan="3"> <br>
                                  <button class="btn btn-secondary" style=" border-radius: 20px;"><a href=profile.php style="text-decoration: none; color:lightgray;">返回</a></button>&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input type='submit' class='btn btn-warning' style=' border-radius: 20px; '>
                             </td> </div>
