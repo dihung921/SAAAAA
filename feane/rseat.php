@@ -68,25 +68,7 @@ if($result){
             </span>
             </a>
 
-            <a style="color: lightgray"><?php
-            if (isset($_SESSION["way"])){
-              if($_SESSION["way"]== 0){
-                echo 
-                "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                </form>";
-              }
-              else{ 
-                echo "
-                <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                </form>";
-              }
-            }
-            ?>
-            </a>
-
-
+        
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto ">
           <?php
@@ -112,10 +94,10 @@ if($result){
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
                                       ?>
             </ul>
             <div class="user_option">
+
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
@@ -123,7 +105,6 @@ if($result){
             </a>";
             }
             ?>
-
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -178,11 +159,10 @@ if($result){
                   </g>
                 </svg>
               </a>
-
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                
+
                   ?>
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
@@ -200,7 +180,6 @@ if($result){
               }
               ?>
             </form>
-
             </div>
           </div>
         </nav>
@@ -209,9 +188,9 @@ if($result){
     <!-- end header section -->
   </div>
 
+ <!-- book section -->
 
-  <!-- book section -->
-  <div class="cseat">
+ <div class="cseat">
  
       <h5 style="color:snow;">店內座位狀況圖</h5>
       
@@ -228,8 +207,6 @@ if($result){
       </li>
     </ul>
 </div>
-    <div class="container2">
-    <div class="wrapper">
 
       <div class="two"> 
         <?php
@@ -503,6 +480,6 @@ if($result){
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 </html>

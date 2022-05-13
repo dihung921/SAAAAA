@@ -176,7 +176,6 @@ if($_SESSION['level']=="user"){
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
                                       ?>
             </ul>
             
@@ -380,7 +379,7 @@ if($_SESSION['level']=="user"){
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
 
-        <a  style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
         <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
         <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
         <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
