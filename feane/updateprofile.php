@@ -2,7 +2,7 @@
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 $sql="select * from member where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
@@ -177,7 +177,7 @@ if($_SESSION['level']=="user"){
             <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item active'>
-                <a class='nav-link' href='index.php'>訂餐首頁</a>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
               <li class='nav-item'>
@@ -185,6 +185,9 @@ if($_SESSION['level']=="user"){
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='horder.php'>歷史訂單</a>
               </li>";
               }
               ?>

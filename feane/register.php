@@ -96,6 +96,9 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='horder.php'>歷史訂單</a>
               </li>";
               }
               ?>

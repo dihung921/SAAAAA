@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$link=mysqli_connect("localhost","root","12345678","sa");
+
+$email=$_SESSION["member_email"];
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +38,18 @@ session_start();
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+    
+
 </head>
 
 <body class="sub_page">
@@ -51,6 +67,10 @@ session_start();
               方禾食呂
             </span>
           </a>
+
+          <form action="changeway.php" method="post">
+              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
+            </form>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -87,6 +107,15 @@ session_start();
                                       ?>
             </ul>
             <div class="user_option">
+
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
+
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -141,14 +170,25 @@ session_start();
                   </g>
                 </svg>
               </a>
-              <a href="login.php" class="order_online">
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                
+                  ?>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href="register.php" class="order_online">
+              <a href='register.php' class='order_online'>
                 註冊
-              </a>
-              
-              
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
@@ -157,88 +197,138 @@ session_start();
     <!-- end header section -->
   </div>
 
+  <!-- Start Cart  -->
   
+  <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr align="center">
+                                    <th>訂購時間</th>
+                                    <th>商品名稱</th>
+                                    <th>副餐</th>
+                                    <th>醬料</th>
+                                    <th>備註</th>
+                                    <th>數量</th>
+                                    <th>總價</th>
+                                </tr>
+                            </thead>
+                            <tbody align="center">
 
-  <!-- food section -->
-
-  <section class="food_section layout_padding">
-    
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">會員登入</p>
-
-                <form class="mx-1 mx-md-4" action="logincheck.php" method="POST">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="text" class="form-control" placeholder=" Your email" require/>
-                      
+                            <?php
+                            $time=$row["time"];
+                            $sql="select * from `detail` where email='$email' by time ='DESC'";
+                            $rs=mysqli_query($link,$sql);
+                            $tot_price=0;
+                           if(mysqli_num_rows($rs)>0){
+                            while($row = mysqli_fetch_array($rs)){
+                                        echo "<tr>";
+                                        echo "<td>".$row["time"]."</td>
+                                              <td class='name-pr'>".$row["meal_id"]."</td>
+                                              <td class='name'>".$row["sm_id"]."</td>
+                                              <td class='name'>".$row["s_id"]."</td>
+                                              <td>".$row["note"]."</td>
+                                              <td>
+                                                ".$row["amount"]."
+                                              </td>
+                                              <td class='total'><em id ='price'>".$row["price"]."</em></td>";
+                                        echo "</tr>";
+                                        $tot_price += $row["price"];
+                                      }
+                                      $_SESSION["tot_price"]=$tot_price;
+                                    }
+                                    else{
+                                      echo "<script>{window.alert('目前無任何訂單！'); location.href='index.php'}</script>";
+                                    }
+                              ?>
+                            
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" class="form-control" placeholder="Password" require/>
-                      
-                    </div>
-                  </div>
-
-                  
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-warning btn-lg">登入</button>
-                  </div>
-                 
-                   
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="images/方禾logo.png" class="img-fluid" alt="Sample image">
-
-              </div>
+                </div>
             </div>
-          </div>
+            
+            
+            <div class="row justify-content-end">
+            
+            <div class="col-6" >
+                <div>
+                    <div class="update-box">
+                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
+                    </div>
+                </div>
+            </div>
+
+            
+            <?php
+                    echo"<form>
+                    <div class=detail-box>
+                      <div class=row my-12>
+                        <div class='col-lg-12 col-sm-15'>
+                          <div class='order-box'>
+                              <div class='d-flex gr-total'>
+                                <h5>總金額</h5>
+                                <div class='ml-auto h5'>$".$tot_price."</div>
+                                <div class='col-6 d-flex shopping-box'>
+                                <input type='button' value='結帳' class='ml-auto btn hvr-hover' data-toggle='modal' data-target='#exampleModal2'>  
+                                </div>
+                                </div>
+                                </div>
+                                <hr>
+                                </div>
+                </div>
+              </div>
         </div>
-      </div>
-    </div>
-  </div>
-    </div>
-  </section>
+    </div> 
+                                <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
+                                                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                        <span aria-hidden='true'>&times;</span>
+                                                    </button>
+                                            </div>
+                                        <div class='modal-body'>
+                                            即將送出訂單！
+                                        </div>
+                                            <div class='modal-footer'>
+                                                <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                                <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                                </form>";
+                                    
+                  ?>
+    <!-- End Cart -->
 
-  <!-- end food section -->
-
+  
   <!-- footer section -->
-  <footer class="footer_section">
+  <footer class="footer_section" >
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color:aliceblue">
               聯絡我們
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -255,16 +345,16 @@ session_start();
             </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="color:aliceblue">
             營業時間
           </h4>
           <p>
@@ -285,6 +375,8 @@ session_start();
   </footer>
   <!-- footer section -->
 
+  
+  
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
@@ -305,6 +397,24 @@ session_start();
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom1.js"></script>
 
 </body>
 

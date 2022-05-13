@@ -101,6 +101,9 @@ if($result){
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='horder.php'>歷史訂單</a>
               </li>";
               }
               ?>
@@ -113,7 +116,6 @@ if($result){
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                      mysqli_close($link);
                                       ?>
             </ul>
             <div class="user_option">
