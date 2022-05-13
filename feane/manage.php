@@ -2,7 +2,7 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $email=$_SESSION["member_email"];
 ?>
@@ -89,16 +89,15 @@ $email=$_SESSION["member_email"];
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='horder.php'>歷史訂單</a>
-              </li>";
+              ";
               }
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
@@ -162,16 +161,16 @@ $email=$_SESSION["member_email"];
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
-                          $sql="select * from order1 where cond = 0 order by time ASC";
+                          $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
 
                           if(mysqli_num_rows($rs) > 0 ){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
                               $email=$row["email"];
-                              $sql1="select * from detail where time = '$time' and email = '$email'";
+                              $sql1="select * from `detail` where time = '$time' and email = '$email'";
                               $rs1=mysqli_query($link,$sql1);
-                              $sql2="select name from member where email = '$email'";
+                              $sql2="select name from `member` where email = '$email'";
                               $rs2=mysqli_query($link,$sql2);
                               $row2=mysqli_fetch_array($rs2);
                               echo"

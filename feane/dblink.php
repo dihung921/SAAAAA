@@ -5,11 +5,11 @@ $cond=$_POST["cond"];
 $order_id=$_POST["order_id"];
 
 
-$link=mysqli_connect("localhost" ,"root" ,"","sa");
+$link=mysqli_connect("localhost" ,"root" ,"12345678","sa");
 
 if($method == "update.php")
 {
-    $sql="insert into seat_condition (seat_id, cond, order_id) values ('$seat_id','$cond','$order_id')";
+    $sql="insert into `seat_condition` (seat_id, cond, order_id) values ('$seat_id','$cond','$order_id')";
     echo $sql;
     if(mysqli_query($link,$sql))
     {
@@ -18,7 +18,7 @@ if($method == "update.php")
     }
     else
 {
-    $sql="update seat_condition set seat_id = '$seat_id', cond ='$cond' , order_id ='$order_id' where seat_id='$seat_id'";
+    $sql="update `seat_condition set` seat_id = '$seat_id', cond ='$cond' , order_id ='$order_id' where seat_id='$seat_id'";
 echo $sql;
 if(mysqli_query($link,$sql))
 {

@@ -6,11 +6,11 @@ $phone=$_POST["phone"];
 $password=$_POST["password"];
 
 
-$link=mysqli_connect("localhost" ,"root" ,"","sa");
+$link=mysqli_connect("localhost" ,"root" ,"12345678","sa");
 
 if($method == "updateprofile.php")
 {
-    $sql="insert into member (name, email, phone, password) values ('$name','$email','$phone','$password')";
+    $sql="insert into `member` (name, email, phone, password) values ('$name','$email','$phone','$password')";
     echo $sql;
     if(mysqli_query($link,$sql))
     {
@@ -19,7 +19,7 @@ if($method == "updateprofile.php")
     }
     else
 {
-    $sql="update member set name = '$name', email ='$email' , phone ='$phone' , password ='$password' where email='$email'";
+    $sql="update `member` set name = '$name', email ='$email' , phone ='$phone' , password ='$password' where email='$email'";
 echo $sql;
 if(mysqli_query($link,$sql))
 {
