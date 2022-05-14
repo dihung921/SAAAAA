@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 
@@ -83,6 +83,39 @@ else if(isset($_POST["drink"]) && isset($_POST["temp"]) && isset($_POST["num"]))
 
     $total= $num * $price;
     $sql4="insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')";
+    $insert=mysqli_query($link,$sql4);
+    if($insert){
+        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+    }
+
+
+
+}
+
+else if(isset($_POST["salad"]) && isset($_POST["sauce"]) && isset($_POST["note"]) && isset($_POST["num"])){
+    $name=$_POST["salad"];
+    $sauce=$_POST["sauce"];
+    $note=$_POST["note"];
+    $num=$_POST["num"];
+
+    $sql="select * from `meal` where meal_id='$name'";
+    $sql2="select name from `sauce` where s_id='$sauce'";
+    $meal=mysqli_query($link,$sql);
+    $sau=mysqli_query($link,$sql2);
+
+    if($row=mysqli_fetch_array($meal)){
+        $meal_id=$row["name"];
+        $price=$row["price"];
+    }
+
+    if($row2=mysqli_fetch_array($sau)){
+        $s_id=$row2["name"];
+
+        $_SESSION["sauce"]=$row2["name"];
+    }
+
+    $total= $num * $price;
+    $sql4="insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '$s_id','$note','$num','$total')";
     $insert=mysqli_query($link,$sql4);
     if($insert){
         echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
@@ -230,9 +230,9 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
-                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='float: left; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center;'>
-                                                <input type='button' href='javascript:;' class='add fr' value='+' style='float: right; width: 40px;'>
+                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
+                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center; width: 50px;' readonly>
+                                                <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
                                               </td>
                                               <td class='total'><em id ='price'>".$row["price"]."</em></td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";

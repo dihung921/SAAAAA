@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost","root","12345678","sa");
+$link = mysqli_connect("localhost","root","","sa");
 ?>
 <!DOCTYPE html>
 <html>
@@ -273,8 +273,8 @@ $link = mysqli_connect("localhost","root","12345678","sa");
 
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
-                              $time=$row["time"];
-                              $sql2="select * from `detail` where email='$email' and time='$time'";
+                              $orderid=$row["order_id"];
+                              $sql2="select * from `detail` where email='$email' and order_id='$orderid'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
