@@ -17,7 +17,8 @@ if (mysqli_num_rows($result) > 0) {
         $sm=$row["sm_id"];
         $s=$row["s_id"];
         $amount=$row["amount"];
-        $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, email, time) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$email', now())";
+        $note=$row["note"];
+        $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$email', now(), '$note')";
         $rs=mysqli_query($link,$sql2);
     }
 
