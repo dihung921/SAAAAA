@@ -20,6 +20,7 @@ $email=$_SESSION["member_email"];
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
 
   <title> 方禾食呂 </title>
 
@@ -63,7 +64,7 @@ $email=$_SESSION["member_email"];
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -87,18 +88,27 @@ $email=$_SESSION["member_email"];
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              </li>
+              ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                              <li class='nav-item active'><a class='nav-link ' href='horder.php'>歷史訂單<span class='sr-only'>(current)</span></a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 </a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
                                       ?>
             </ul>
@@ -112,7 +122,8 @@ $email=$_SESSION["member_email"];
             }
             ?>
 
-              <a class="cart_link" href="cart.php">
+              
+            <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -231,7 +242,7 @@ $email=$_SESSION["member_email"];
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-dark'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row1 = mysqli_fetch_array($rs1)){
@@ -240,12 +251,12 @@ $email=$_SESSION["member_email"];
                               echo"
                               <hr>
                               <div class='float-right'>
-                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
-                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
-                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                                <a href='#'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <a href='index.php'><i class='fa-solid fa-pen-to-square fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <a href='index.php'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <a href='index.php'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #E59511;'></i></a>
                               </div>
-                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
                             </div>
                             </div>
@@ -279,7 +290,7 @@ $email=$_SESSION["member_email"];
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue">
+            <h4 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -302,10 +313,10 @@ $email=$_SESSION["member_email"];
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo"style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
@@ -319,7 +330,7 @@ $email=$_SESSION["member_email"];
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue">
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>

@@ -166,7 +166,7 @@ if($_SESSION['level']=="user"){
             <ul class="navbar-nav  mx-auto ">
             <?php
               if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
+              echo"<li class='nav-item '>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
@@ -175,18 +175,27 @@ if($_SESSION['level']=="user"){
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              </li>
+              ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item '>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
                                       ?>
             </ul>
@@ -505,7 +514,7 @@ if($_SESSION['level']=="user"){
             <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
