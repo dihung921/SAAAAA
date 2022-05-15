@@ -197,7 +197,14 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."";
+                                          if ($row["way"]==0){
+                                            echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
+                                          }
+                                          else{
+                                            echo"<br>用餐方式：外帶";
+                                          }
+                                          echo"<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row1 = mysqli_fetch_array($rs1)){

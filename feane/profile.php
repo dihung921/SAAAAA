@@ -1,6 +1,23 @@
 <?php
 session_start();
 $link = mysqli_connect("localhost","root","","sa");
+
+
+if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
+  $orderid1=$_POST["orderid"];
+  $feedback=$_POST["feedback"];
+  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
+  $rs=mysqli_query($link,$sql);
+
+  if($rs){
+    echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
+  }
+
+  else{
+    echo"<script>{window.alert('請再試一次！'); location.href='profile.php'}</script>";
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -303,15 +320,49 @@ $link = mysqli_connect("localhost","root","","sa");
                                             }
                                             
                                           }
+
+                                          echo"<form action='profile.php' method='post' >
+                                                  <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true' role='dialog'>
+                                                    <div class='modal-dialog' role='document' id='exampleModalLabel'>
+                                                      <div class='modal-content' style='padding: 20px 20px;'>
+                                                        <div class='modal-body' style='color: black;'>
+                                                          <p>給予餐點回饋</p>
+                                                          <p><input type='text' name='feedback' placeholder='對此次訂單有何想法...' style='border-radius: 5px; width: 100%;'></p>
+                                                          <input type='hidden' name='orderid' value='".$row["order_id"]."'>
+                                                          <div class='modal-footer'>
+                                                            <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
+                                                            <input type='submit' value='新增'  class='btn btn-warning'>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>       
+                                                </form>";
                                         
                                               
                                           echo"
                                             <hr>
-                                            <div class='float-right'>
-                                              <a class='btn btn-sm btn-outline-warning' href='#'><i class='icofont-headphone-alt'></i> 給予回饋</a>
-                                              <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i> 再買一次</a>
-                                            </div>
-                                            <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                            <div class='float-right'>";
+                                            if($row["cond"]== 2){
+                                              if($row["feedback"]== NULL){
+                                                echo"<a class='btn btn-sm btn-outline-warning' data-toggle='modal' data-target='#exampleModal'><i class='icofont-headphone-alt'></i> 給予回饋</a>
+                                                <a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                              }
+                                              else{
+                                                echo "<br><a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<br>您已評價此訂單！</p>";
+                                              }
+                                          }
+                                          else{
+                                            echo "<a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                          }
+                                              echo "
+                                            
                                           </div>
                                       </div>
                                       <hr>
