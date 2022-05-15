@@ -182,12 +182,12 @@ if($_SESSION['level']=="user"){
                    if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
                       }
-                     
                                       ?>
             </ul>
             <div class="user_option">
@@ -359,15 +359,15 @@ if($_SESSION['level']=="user"){
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
                           $email=$_SESSION["member_email"];
-                          $sql="select * from order1 where email='$email' order by time DESC";
+                          $sql="select * from `order1` where email='$email' order by time DESC";
                           $rs=mysqli_query($link,$sql);
                           
                           
 
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
-                              $time=$row["time"];
-                              $sql2="select * from detail where email='$email' and time='$time'";
+                              $orderid=$row["order_id"];
+                              $sql2="select * from `detail` where email='$email' and order_id='$orderid'";
                               $rs2=mysqli_query($link,$sql2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>

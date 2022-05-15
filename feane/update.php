@@ -3,7 +3,7 @@ session_start();
 
 $seat_id = $_SESSION['seat_id'];
 $link=mysqli_connect("localhost","root","","sa");
-$sql="select * from seat_condition where seat_id = '$seat_id'";
+$sql="select * from `seat_condition` where seat_id = '$seat_id'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
       {

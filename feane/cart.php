@@ -94,15 +94,31 @@ $email=$_SESSION["member_email"];
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.php">訂單首頁</a>
+            <?php
+              if($_SESSION['level']=="user"){
+              echo"<li class='nav-item active'>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+             
+              <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
-              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>";
+              }
+              ?>
+                <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                                      ?>
             </ul>
             <div class="user_option">
             
@@ -231,9 +247,9 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
-                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='float: left; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center;'>
-                                                <input type='button' href='javascript:;' class='add fr' value='+' style='float: right; width: 40px;'>
+                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
+                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center; width: 50px;' readonly>
+                                                <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
                                               </td>
                                               <td class='total'><em id ='price'>".$row["price"]."</em></td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
@@ -312,7 +328,6 @@ $email=$_SESSION["member_email"];
                                 </div>
                 </div>
               </div>
-
         </div>
     </div> 
 
@@ -337,7 +352,6 @@ $email=$_SESSION["member_email"];
                                             </div>
                                             </div>
                                             </div>
-
                                                 </form>";
                                     
                   ?>

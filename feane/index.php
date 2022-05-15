@@ -7,7 +7,7 @@ if(isset($_POST["way"])){
   if($way == 0){
     if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
+      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
       if($rs){
         $_SESSION["way"]=$way;
@@ -153,7 +153,7 @@ if($_SESSION['level']=="user"){
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <?php
+            <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item active'>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
@@ -164,14 +164,16 @@ if($_SESSION['level']=="user"){
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              </li>
+              ";
               }
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
@@ -1461,7 +1463,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥嫩雞捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲1">
+                                    <input type="hidden" name ="main" value="捲1">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1540,7 +1542,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式起司牛肉捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲2">
+                                    <input type="hidden" name ="main" value="捲2">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1621,7 +1623,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>地瓜起司嫩雞捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲3">
+                                    <input type="hidden" name ="main" value="捲3">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1707,7 +1709,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>季節水果盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉1">
+                                    <input type="hidden" name ="main" value="沙拉1">
                                     <h6>360ml/份<br>
                                         (水果種類隨季節調整)</h6>
                                     <hr>
@@ -1788,7 +1790,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>陽光沙拉盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉2">
+                                    <input type="hidden" name ="salad" value="沙拉2">
                                     <h6>360ml/份<br>
                                         (配菜種類隨季節調整)<br>
                                         可以到主食單品區加點主食，補充蛋白質哦！</h6>
@@ -1888,7 +1890,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式香草雞胸（62kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品1">
+                                    <input type="hidden" name ="main" value="單品1">
                                     <h6>蛋白質13.44g 脂肪0.54g 碳水0.84g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -1971,7 +1973,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品2">
+                                    <input type="hidden" name ="main" value="單品2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2054,7 +2056,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>檸檬椒鹽雞胸（63kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品3">
+                                    <input type="hidden" name ="main" value="單品3">
                                     <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2137,7 +2139,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥紅椒雞胸（80kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品4">
+                                    <input type="hidden" name ="main" value="單品4">
                                     <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2220,7 +2222,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>法式香榭雞腿（170kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品5">
+                                    <input type="hidden" name ="main" value="單品5">
                                     <h6>蛋白質15.82g 脂肪8.82g 碳水6.91g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2303,7 +2305,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>韓式風味牛（161kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品6">
+                                    <input type="hidden" name ="main" value="單品6">
                                     <h6>蛋白質11.5g 脂肪11.2g 碳水3.5g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2386,7 +2388,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>日式薑燒豬（194kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品7">
+                                    <input type="hidden" name ="main" value="單品7">
                                     <h6>蛋白質16.5g 脂肪12.8g 碳水2.25g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2469,7 +2471,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>泰式打拋豬（176kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品8">
+                                    <input type="hidden" name ="main" value="單品8">
                                     <h6>蛋白質16g 脂肪8g 碳水10g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2552,7 +2554,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>普羅旺斯鯛魚（79kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品9">
+                                    <input type="hidden" name ="main" value="單品9">
                                     <h6>蛋白質15.6g 脂肪1.84g 碳水0.16g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2635,7 +2637,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>素食綜合野菇（78kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品10">
+                                    <input type="hidden" name ="mail" value="單品10">
                                     <h6>蛋白質5.6g 脂肪0.46g 碳水12.8g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2725,7 +2727,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水煮青菜（36kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他1">
+                                    <input type="hidden" name ="main" value="其他1">
                                     <h6>蛋白質2.59g 脂肪2.02g 碳水3.31g<br>
                                         (青菜種類隨季節調整)</h6>
                                     <hr>
@@ -2809,7 +2811,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>紅藜白飯（274kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他2">
+                                    <input type="hidden" name ="main" value="其他2">
                                     <h6>蛋白質4.88g 脂肪0.51g 碳水62.28g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2892,7 +2894,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>整顆溏心蛋（48kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他3">
+                                    <input type="hidden" name ="main" value="其他3">
                                     <h6>蛋白質5.2g 脂肪2.8g 碳水0.6g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2975,7 +2977,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>焙煎胡麻醬（87kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他4">
+                                    <input type="hidden" name ="main" value="其他4">
                                     <h6>蛋白質0.52g 脂肪8.26g 碳水2.41g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3058,7 +3060,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式油醋醬（44kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他5">
+                                    <input type="hidden" name ="main" value="其他5">
                                     <h6>蛋白質0.06g 脂肪4.26g 碳水1.56g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3141,7 +3143,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>奇亞芥末醬（43kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他6">
+                                    <input type="hidden" name ="main" value="其他6">
                                     <h6>蛋白質0.15g 脂肪3g 碳水3.75g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3224,7 +3226,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水果塔塔醬（36kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他7">
+                                    <input type="hidden" name ="main" value="其他7">
                                     <h6>蛋白質0g 脂肪2.25g 碳水3.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3314,7 +3316,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>伯爵鮮奶茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料1">
+                                    <input type="hidden" name ="drink" value="飲料1">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
@@ -3397,7 +3399,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式咖啡</h5>
-                                    <input type="hidden" name ="mealname" value="飲料2">
+                                    <input type="hidden" name ="drink" value="飲料2">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
@@ -3480,7 +3482,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>咖啡歐蕾</h5>
-                                    <input type="hidden" name ="mealname" value="飲料3">
+                                    <input type="hidden" name ="drink" value="飲料3">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
@@ -3563,7 +3565,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖綠茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料4">
+                                    <input type="hidden" name ="drink" value="飲料4">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
@@ -3645,7 +3647,7 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖紅茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料5">
+                                    <input type="hidden" name ="drink" value="飲料5">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
