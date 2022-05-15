@@ -1,7 +1,7 @@
 <?php
 session_start();
  $email = $_SESSION["member_email"];
- $link = mysqli_connect("localhost","root","","sa");
+ $link = mysqli_connect("localhost","root","12345678","sa");
 
  
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost","root","","sa");
+$link = mysqli_connect("localhost","root","12345678","sa");
 
 if(isset($_GET["order_id"])&&isset($_GET["time"])&&isset($_GET["email"])){
     $orderid=$_GET["order_id"];

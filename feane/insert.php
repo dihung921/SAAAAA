@@ -3,7 +3,7 @@ session_start();
 $email = $_SESSION["member_email"];
 $seatnum = $_SESSION["seatnum"];
 $tot_price=$_SESSION["tot_price"];
-$link = mysqli_connect("localhost","root","","sa");
+$link = mysqli_connect("localhost","root","12345678","sa");
 
 $sql="select * from `cart` where email = '$email'";
 $result=mysqli_query($link,$sql);

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 $sql = "select seat from order1";
 $result= mysqli_query($link,$sql);
 if($result){
@@ -10,7 +10,7 @@ if($result){
 
 ?>
 <?php
-    header("refresh: 5;url='rseat.php'");
+    header("refresh: 10;url='rseat.php'");
     ?>
 <!DOCTYPE html>
 <html>
