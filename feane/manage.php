@@ -187,8 +187,8 @@ $email=$_SESSION["member_email"];
                               echo"
                               <hr>
                               <div class='float-right'>
-                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
+                                <a class='btn btn-sm btn-danger' href='delete2.php'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='reserve.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
                                 <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
                                 <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
                               </div>

@@ -3,7 +3,7 @@
 session_start();
 
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $email=$_SESSION["member_email"];
 $level=$_SESSION["seat_condition_level"];
