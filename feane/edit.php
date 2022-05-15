@@ -1,11 +1,11 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 $email=$_SESSION["member_email"];
 
 if(isset($_POST["note"])){
   $note=$_POST["note"];
-  $sql="update order1 set note = '$note'";
+  $sql="update `order1` set note = '$note'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){
