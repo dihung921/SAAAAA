@@ -177,7 +177,7 @@ if($_SESSION['level']=="user"){
             <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item active'>
-                <a class='nav-link' href='index.php'>訂餐首頁</a>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
               <li class='nav-item'>
@@ -192,7 +192,8 @@ if($_SESSION['level']=="user"){
                    if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
@@ -326,7 +327,7 @@ if($_SESSION['level']=="user"){
                                 <td><input type="text" name="password" value="<?php echo $password?>"></td>
                                 
                            <tr align="center">
-                              <td colspan="3"> <hr>
+                              <td colspan="3"> <br>
                                  <button class="btn btn-secondary" style=" border-radius: 20px;"><a href=profile.php style="text-decoration: none; color:lightgray;">返回</a></button>&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input type='submit' class='btn btn-warning' style=' border-radius: 20px; '>
                             </td> </div>

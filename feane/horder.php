@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
@@ -68,9 +68,7 @@ $email=$_SESSION["member_email"];
             </span>
           </a>
 
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
-            </form>
+          
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -197,140 +195,81 @@ $email=$_SESSION["member_email"];
 
   <!-- Start Cart  -->
   
-  <div class="cart-box-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-main table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr align="center">
-                                    
-                                    <th>商品名稱</th>
-                                    <th>副餐</th>
-                                    <th>醬料</th>
-                                    <th>備註</th>
-                                    <th>數量</th>
-                                    <th>總價</th>
-                                    <th>刪除</th>
-                                </tr>
-                            </thead>
-                            <tbody align="center">
+  <br>
+  <br>
 
-                            <?php
-                                    $sql="select * from `cart` where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
-                                    $tot_price=0;
-                                    if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<tr>";
-                                        echo "
-                                              <td class='name-pr'>".$row["meal_id"]."</td>
-                                              <td class='name'>".$row["sm_id"]."</td>
-                                              <td class='name'>".$row["s_id"]."</td>
-                                              <td>".$row["note"]."</td>
-                                              <td>
-                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center; width: 50px;' readonly>
-                                                <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
-                                              </td>
-                                              <td class='total'><em id ='price'>".$row["price"]."</em></td>
-                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
-                                        echo "</tr>";
-                                        $tot_price += $row["price"];
-                                      }
-                                      $_SESSION["tot_price"]=$tot_price;
-                                    }
-                                    else{
-                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
-                                    }
-                              ?>
-                              <script>
-                                      $(function () {
-                                          //加號
-                                          var price1 = parseFloat($('#price').text());
-                                          var num = parseInt($('input[name="num"]').attr('value'));
-                                          $('.add').click(function(){
-                                              num++;
-                                              $('input[name="num"]').attr('value',num);
-                                              var total = num * price1;
-                                              $('#price').html(total.toFixed(0));
-                                          });
-                                          
-                                          //減號
-                                          $('.minus').click(function () {
-                                              if(num>1){
-                                                  num--;
-                                                  $('input[name="num"]').attr('value',num);
-                                                  console.log(num)
-                                                  var total = num * price1;
-                                                  $('#price13').text(total.toFixed(0));
 
-                                              }
-                                          });
-                                      });
-                                    </script>
+  <div class="container">
+    <div class="main-body">
+    
+          
+    
+          
+            
 
-                            </tbody>
-                        </table>
+            
+
+                
+                    <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
+                        <?php
+                          $sql="select * from `order1` where cond = 2 order by time DESC";
+                          $rs=mysqli_query($link,$sql);
+
+                          if(mysqli_num_rows($rs) > 0 ){
+                            while($row = mysqli_fetch_array($rs)){
+                              $time=$row["time"];
+                              $email=$row["email"];
+                              $sql1="select * from `detail` where time = '$time' and email = '$email'";
+                              $rs1=mysqli_query($link,$sql1);
+                              $sql2="select name from `member` where email = '$email'";
+                              $rs2=mysqli_query($link,$sql2);
+                              $row2=mysqli_fetch_array($rs2);
+                              echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                        <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+
+                                while($row1 = mysqli_fetch_array($rs1)){
+                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                }
+                              echo"
+                              <hr>
+                              <div class='float-right'>
+                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
+                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
+                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                              </div>
+                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              </div>
+                            </div>
+                            </div>
+                            </div>";         
+                            }
+                          }
+                          else {
+                            echo"尚未有訂單。";
+                          }
+                            ?>
+
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+        
+              
             </div>
-            
-            
-            <div class="row justify-content-end">
-            
-            <div class="col-6" >
-                <div>
-                    <div class="update-box">
-                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
-                    </div>
-                </div>
-            </div>
+          </div>
 
-            
-            <?php
-                    echo"<form>
-                    <div class=detail-box>
-                      <div class=row my-12>
-                        <div class='col-lg-12 col-sm-15'>
-                          <div class='order-box'>
-                              <div class='d-flex gr-total'>
-                                <h5>總金額</h5>
-                                <div class='ml-auto h5'>$".$tot_price."</div>
-                                <div class='col-6 d-flex shopping-box'>
-                                <input type='button' value='結帳' class='ml-auto btn hvr-hover' data-toggle='modal' data-target='#exampleModal2'>  
-                                </div>
-                                </div>
-                                </div>
-                                <hr>
-                                </div>
-                </div>
-              </div>
         </div>
-    </div> 
-                                <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
-                                    <div class='modal-dialog' role='document'>
-                                        <div class='modal-content'>
-                                            <div class='modal-header'>
-                                                <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
-                                                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                                        <span aria-hidden='true'>&times;</span>
-                                                    </button>
-                                            </div>
-                                        <div class='modal-body'>
-                                            即將送出訂單！
-                                        </div>
-                                            <div class='modal-footer'>
-                                                <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                                <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                                </form>";
-                                    
-                  ?>
+    </div>
+    <br>
+    <br>
     <!-- End Cart -->
 
   

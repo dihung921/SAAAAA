@@ -1,14 +1,17 @@
-
 <?php
 session_start();
-
-
 $link=mysqli_connect("localhost","root","12345678","sa");
-
-$email=$_SESSION["member_email"];
-$level=$_SESSION["seat_condition_level"];
+$sql = "select seat from order1";
+$result= mysqli_query($link,$sql);
+if($result){
+  $row= mysqli_fetch_array($result);
+  $seatnum = $row["seat"]; 
+}
 
 ?>
+<?php
+    header("refresh: 5;url='rseat.php'");
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -67,8 +70,8 @@ $level=$_SESSION["seat_condition_level"];
 
         
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-            <?php
+          <ul class="navbar-nav  mx-auto ">
+          <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item active'>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
@@ -86,7 +89,8 @@ $level=$_SESSION["seat_condition_level"];
                    if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>";
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
@@ -164,12 +168,14 @@ $level=$_SESSION["seat_condition_level"];
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+         
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style=text-decoration:none;>
                 註冊
               </a>";
               }
@@ -188,93 +194,193 @@ $level=$_SESSION["seat_condition_level"];
  <div class="cseat">
  
  <h5 style="color:snow;">店內座位狀況圖</h5>
+      
+   
+      <div class="movie-container">
+          <ul class="showcase">
+            <li>
+              <div class="seat"></div>
+              <small>空位</small>
+            </li>
+            <li>
+              <div class="seat occupied" style="background-color:#BF5353;"></div>
+              <small>已滿</small>
+            </li>
+          </ul>
+      </div>
+          <div class="container2">
+          <div class="wrapper">
+      
+            <div class="two"> 
+              <?php
+              if($seatnum == 1){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>1</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>1</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 2){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>2</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>2</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 3){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>3</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>3</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 4){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>4</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>4</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 5){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>5</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>5</h6></div>";
+              }
+              ?>
+            </div>
+      
+            <div class="three"> 
+              <div class="row">
+              <?php
+              if($seatnum == 6){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>6</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>6</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 7){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>7</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>7</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 8){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>8</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>8</h6></div>";
+              } 
+              ?>
+              <?php
+              if($seatnum == 9){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>9</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>9</h6></div>";
+              }
+              ?>
+              <?php
+              if($seatnum == 10){
+                echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>10</h6></div>";
+              }
+              else{
+                echo" <div class='seat'><h6>10</h6></div>";
+              }
+              ?>
+             
+            </div></div>
+      
+            <div class="four">
+            
+            <?php
+              if($seatnum == 11){
+                echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>11</h6></div>";
+              }
+              else{
+                echo" <div class='seat3'><h6>11</h6></div>";
+              }
+              ?>
+            <?php
+              if($seatnum == 13){
+                echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>13</h6></div>";
+              }
+              else{
+                echo" <div class='seat3'><h6>13</h6></div>";
+              }
+              ?>
+            </div>
+      
+           <div class="five">
+           <?php
+              if($seatnum == 12){
+                echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>12</h6></div>";
+              }
+              else{
+                echo" <div class='seat3'><h6>12</h6></div>";
+              }
+              ?>
+            <?php
+              if($seatnum == 14){
+                echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>14</h6></div>";
+              }
+              else{
+                echo" <div class='seat3'><h6>14</h6></div>";
+              }
+              ?>
+          </div>
+      
+          <div class="six">
+          <?php
+              if($seatnum == 15){
+                echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>15</h6></div>";
+              }
+              else{
+                echo" <div class='seat2'><h6>15</h6></div>";
+              }
+              ?>
+            <?php
+              if($seatnum == 16){
+                echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>16</h6></div>";
+              }
+              else{
+                echo" <div class='seat2'><h6>16</h6></div>";
+              }
+              ?>
+          </div>
+      
+          <div class="seven">
+          <div class="row">
+            <div class="screen2"><center>櫃檯</center></div>
+          </div></div>
+      
+          <div class="eight">
+          <div class="row">
+            <div class="screen2"><center>自助餐具區</center></div>
+          </div></div>
+      
+            
+      
+            
+            
+              
+            </div>
+          </div>
+          <p>此網頁每10秒更新一次</p>
+      </div>
+      </div>
 
-<div class="movie-container">
-<ul class="showcase">
- <li>
-   <div class="seat"></div>
-   <small>空位</small>
- </li>
- <li>
-   <div class="seat occupied" style="background-color:#BF5353;"></div>
-   <small>已滿</small>
- </li>
-</ul>
-</div>
-
-<div class="container2">
-<div class="wrapper">
- <div class="two">
- <?php if (isset($_SESSION["level"])){
-                if($_SESSION["level"]== 0){
-                  echo"
-   <div class='seat occupied' name='seat_id'><h6><a href=update.php?method=update&seat_id=$record[0]>1</a></h6></div>"; }
-   else{ 
-   echo "
-   <div class='seat' name='seat_id'><a href=update.php?method=update&seat_id=$record[0]><h6>1</h6></a></div>";
- }
-}
-  ?>
-
-<?php if (isset($_SESSION["level"])){
-                if($_SESSION["level"]== 0){
-                  echo"
-   <div class='seat' style='background-color:#BF5353;'><h6>2</h6></div>";}
-   else{ 
-    echo "
-    <div class='seat occupied' value='4'><h6>2</h6></div>";
-  }
-}
-   ?>
-   <div class="seat occupied" style="background-color:#BF5353;" value="<?php echo $seat_id?>"><h6>3</h6></div>
-   <div class="seat" value="4"><h6>4</h6></div>
-   <div class="seat"><h6>5</h6></div>
- </div>
-
- <div class="three"> 
-   <div class="row">
-   <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
-   <div class="seat"><h6>7</h6></div>
-   <div class="seat"><h6>8</h6></div>
-   <div class="seat occupied"><h6>9</h6></div>
-   <div class="seat"><h6>10</h6></div>
-  
- </div></div>
-
- <div class="four">
- 
- <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
- <div class="seat3"><h6>13</h6></div>
- </div>
-
-<div class="five">
- <div class="seat3"><h6>12</h6></div>
- <div class="seat3"><h6>14</h6></div>
-</div>
-
-<div class="six">
- <div class="seat2"><h6>15</h6></div>
- <div class="seat2"><h6>16</h6></div>
-</div>
-
-<div class="seven">
-<div class="row">
- <div class="screen2"><center>櫃檯</center></div>
-</div></div>
-
-<div class="eight">
-<div class="row">
- <div class="screen2"><center>自助餐具區</center></div>
-</div></div>
-
-  
- </div>
-</div>
-</div>
-</div>
 
 
-       
+
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
