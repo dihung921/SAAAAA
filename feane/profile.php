@@ -285,11 +285,11 @@ $link = mysqli_connect("localhost","root","","sa");
 
                                           if($rs){
                                             if($row["cond"]== 0){
-                                              echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備中<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
                                             if($row["cond"]== 1){
-                                              echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備完成<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
 
@@ -346,7 +346,7 @@ $link = mysqli_connect("localhost","root","","sa");
                                                 echo"<span class='irs-slider from' style='left: 50%;'></span>";
                                               }
                                               if($row["cond"] == 2){
-                                                echo"<span class='irs-slider from' style='left: 99.7%;'></span>";
+                                                echo"<span class='irs-slider from' style='left: 96.2%;'></span>";
                                               }
 
                                               

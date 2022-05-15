@@ -207,7 +207,7 @@ if(isset($_POST["note"])){
                               <hr>
                               <div class='float-right'>
                                 <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='index.php' data-toggle='modal' data-target='#exampleModal'><i class='icofont-refresh'></i>新增備註</a>&nbsp
+                                <a class='btn btn-sm btn-primary' data-toggle='modal' data-target='#exampleModal'><i class='icofont-refresh'></i>新增備註</a>&nbsp
                                 <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
                                 
                               </div>";
@@ -223,8 +223,7 @@ if(isset($_POST["note"])){
                                   </div>
                                   </div>
                                   </div>";         
-                            }
-
+                            
                             echo"<form action='edit.php' method='post' >
                                 <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true' role='dialog'>
                                   <div class='modal-dialog' role='document' id='exampleModalLabel'>
@@ -232,6 +231,7 @@ if(isset($_POST["note"])){
                                       <div class='modal-body' style='color: black;'>
                                         <p>新增備註</p>
                                         <p><input type='text' name='note' placeholder='新增備註至此訂單...' style='border-radius: 5px; width: 100%;'></p>
+                                        <input type='hidden' name='orderid' value='".$row["order_id"]."'>
                                         <div class='modal-footer'>
                                           <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
                                           <input type='submit' value='新增'  class='btn btn-warning'>
@@ -241,6 +241,10 @@ if(isset($_POST["note"])){
                                   </div>
                                 </div>       
                               </form>";
+                            
+                                }
+
+                            
 
                           }
                           

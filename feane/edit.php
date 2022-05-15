@@ -1,11 +1,11 @@
 <?php
 session_start();
 $link=mysqli_connect("localhost","root","","sa");
-$email=$_SESSION["member_email"];
 
-if(isset($_POST["note"])){
+if(isset($_POST["note"]) && isset($_POST["orderid"])){
+  $orderid=$_POST["orderid"];
   $note=$_POST["note"];
-  $sql="update order1 set note = '$note'";
+  $sql="update order1 set note = '$note' where order_id='$orderid'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){
