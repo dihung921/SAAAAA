@@ -1,6 +1,23 @@
 <?php
 session_start();
 $link = mysqli_connect("localhost","root","","sa");
+
+
+if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
+  $orderid1=$_POST["orderid"];
+  $feedback=$_POST["feedback"];
+  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
+  $rs=mysqli_query($link,$sql);
+
+  if($rs){
+    echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
+  }
+
+  else{
+    echo"<script>{window.alert('請再試一次！'); location.href='profile.php'}</script>";
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -285,11 +302,11 @@ $link = mysqli_connect("localhost","root","","sa");
 
                                           if($rs){
                                             if($row["cond"]== 0){
-                                              echo"<span class='float-right text-warning'>訂單狀態：準備中<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備中<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
                                             if($row["cond"]== 1){
-                                              echo"<span class='float-right text-warning'>訂單狀態：已完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備完成<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
 
@@ -303,15 +320,31 @@ $link = mysqli_connect("localhost","root","","sa");
                                             }
                                             
                                           }
-                                        
+
                                               
                                           echo"
                                             <hr>
-                                            <div class='float-right'>
-                                              <a class='btn btn-sm btn-outline-warning' href='#'><i class='icofont-headphone-alt'></i> 給予回饋</a>
-                                              <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i> 再買一次</a>
-                                            </div>
-                                            <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                            <div class='float-right'>";
+                                            if($row["cond"]== 2){
+                                              if($row["feedback"]== NULL){
+                                                echo"<a class='btn btn-sm btn-outline-warning' href='feedback.php?order_id=".$row["order_id"]."'><i class='icofont-headphone-alt'></i> 給予回饋</a>
+                                                <a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                              }
+                                              else{
+                                                echo "<br><a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<br>您已評價此訂單！</p>";
+                                              }
+                                          }
+                                          else{
+                                            echo "<a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
+                                                </div>
+                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                          }
+                                              echo "
+                                            
                                           </div>
                                       </div>
                                       <hr>
@@ -346,7 +379,7 @@ $link = mysqli_connect("localhost","root","","sa");
                                                 echo"<span class='irs-slider from' style='left: 50%;'></span>";
                                               }
                                               if($row["cond"] == 2){
-                                                echo"<span class='irs-slider from' style='left: 99.7%;'></span>";
+                                                echo"<span class='irs-slider from' style='left: 96.2%;'></span>";
                                               }
 
                                               

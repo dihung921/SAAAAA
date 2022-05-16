@@ -197,7 +197,14 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."";
+                                          if ($row["way"]==0){
+                                            echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
+                                          }
+                                          else{
+                                            echo"<br>用餐方式：外帶";
+                                          }
+                                          echo"<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row1 = mysqli_fetch_array($rs1)){
@@ -207,7 +214,7 @@ if(isset($_POST["note"])){
                               <hr>
                               <div class='float-right'>
                                 <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='index.php' data-toggle='modal' data-target='#exampleModal'><i class='icofont-refresh'></i>新增備註</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='edit.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i>新增備註</a>&nbsp
                                 <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
                                 
                               </div>";
@@ -223,24 +230,9 @@ if(isset($_POST["note"])){
                                   </div>
                                   </div>
                                   </div>";         
-                            }
+                                }
 
-                            echo"<form action='edit.php' method='post' >
-                                <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true' role='dialog'>
-                                  <div class='modal-dialog' role='document' id='exampleModalLabel'>
-                                    <div class='modal-content' style='padding: 20px 20px;'>
-                                      <div class='modal-body' style='color: black;'>
-                                        <p>新增備註</p>
-                                        <p><input type='text' name='note' placeholder='新增備註至此訂單...' style='border-radius: 5px; width: 100%;'></p>
-                                        <div class='modal-footer'>
-                                          <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                          <input type='submit' value='新增'  class='btn btn-warning'>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>       
-                              </form>";
+                            
 
                           }
                           

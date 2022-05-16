@@ -20,6 +20,7 @@ if(isset($_POST["way"])){
     $rs=mysqli_query($link,$sql);
     if($rs){
       $_SESSION["way"]=$way;
+      $_SESSION["seatnum"]=100;
     }
     header("Location:index.php");
   }
