@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 if(isset($_GET["order_id"])){
   $orderid=$_GET["order_id"];
 }
@@ -8,7 +8,7 @@ if(isset($_GET["order_id"])){
 if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
   $feedback=$_POST["feedback"];
   $orderid1=$_POST["order_id"];
-  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
+  $sql="update `order1` set feedback = '$feedback' where order_id='$orderid1'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){
