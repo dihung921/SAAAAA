@@ -293,9 +293,9 @@ if(isset($_POST["note"])){
 
                           echo"<h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3>";
                           
-                          if(mysqli_num_rows($rs3) > 0 ){
+                          if(mysqli_num_rows($rs) > 0 ){
                             
-                            while($row3 = mysqli_fetch_array($rs3)){
+                            while($row3 = mysqli_fetch_array($rs)){
                               $orderid3=$row3["order_id"];
                               $email3=$row3["email"];
                               $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
