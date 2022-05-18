@@ -10,7 +10,7 @@ if($result){
 
 ?>
 <?php
-    header("refresh: 5;url='rseat.php'");
+    header("refresh: 10;url='rseat.php'");
     ?>
 <!DOCTYPE html>
 <html>
@@ -73,27 +73,36 @@ if($result){
           <ul class="navbar-nav  mx-auto ">
           <?php
               if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
-                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+              echo"<li class='nav-item '>
+                <a class='nav-link' href='index.php'>訂餐首頁 </a>
               </li>
              
               <li class='nav-item'>
                 <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              <li class='nav-item active'>
+                <a class='nav-link' href='seat.php'>店內座位狀況<span class='sr-only'>(current)</span></a>
+              </li>
+              ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item active'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item '>
+                       <a class='nav-link' href='index.php'>訂餐首頁 </a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item active'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況<span class='sr-only'>(current)</span></a>
+                     </li>";
                       }
                                       ?>
             </ul>

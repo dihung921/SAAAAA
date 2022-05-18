@@ -7,14 +7,6 @@ if(isset($_POST["note"])){
   $note=$_POST["note"];
   $sql10="update order1 set note = '$note'";
   $rs10=mysql_query($link,$sql10);
-
-  if($rs10){
-    echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
-  }
-
-  else{
-    echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
-  }
 }
 ?>
 
@@ -32,6 +24,7 @@ if(isset($_POST["note"])){
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
 
   <title> 方禾食呂 </title>
 
@@ -60,6 +53,7 @@ if(isset($_POST["note"])){
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style.scss">
+    
 
 
 </head>
@@ -74,14 +68,11 @@ if(isset($_POST["note"])){
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="index.php" style="font-family: Arial, Helvetica, sans-serif;">
             <span>
               方禾食呂
             </span>
           </a>
-
-          
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
@@ -102,19 +93,25 @@ if(isset($_POST["note"])){
               </li>
               ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item active'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
-
-                      
                                       ?>
             </ul>
             <div class="user_option">
@@ -127,7 +124,60 @@ if(isset($_POST["note"])){
             }
             ?>
 
-              
+          <a class="cart_link" href="cart.php">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                    </g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                </svg>
+              </a>
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
@@ -176,13 +226,8 @@ if(isset($_POST["note"])){
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
-                          $sql3="select * from `order1` where cond = 1 order by time ASC";
-                          $rs3=mysqli_query($link,$sql3);
-
-                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3>";
 
                           if(mysqli_num_rows($rs) > 0 ){
-                            
                             while($row = mysqli_fetch_array($rs)){
                               $orderid=$row["order_id"];
                               $email=$row["email"];
@@ -197,6 +242,7 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
+
                                           <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."";
                                           if ($row["way"]==0){
                                             echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
@@ -207,12 +253,14 @@ if(isset($_POST["note"])){
                                           echo"<i class='icofont-check-circled text-success'></i></span></p>";
 
 
+
                                 while($row1 = mysqli_fetch_array($rs1)){
                                   echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
                                 }
                               echo"
                               <hr>
                               <div class='float-right'>
+
                                 <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
                                 <a class='btn btn-sm btn-primary' href='edit.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i>新增備註</a>&nbsp
                                 <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
@@ -272,23 +320,20 @@ if(isset($_POST["note"])){
                               <div class='float-right'>
                                 
                                 <a class='btn btn-sm btn-success' href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+
                               </div>
-                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
+                              <p class='mb-0 text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
                             </div>
                             </div>
                             </div>";         
                             }
-
-
                           }
-
                           else {
                             echo"尚未有待取餐訂單。";
                           }
-
-
                             ?>
+
 
                             </div>
                         </div>
@@ -311,7 +356,7 @@ if(isset($_POST["note"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue">
+            <h4 style="color:aliceblue ; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -334,12 +379,12 @@ if(isset($_POST["note"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h4 style="color:aliceblue">
+            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             健康飲食好夥伴
-            </h4>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <img src="images/fb.png" width="16" height="16" alt="" align="center">
@@ -351,7 +396,7 @@ if(isset($_POST["note"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue">
+          <h4 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -412,6 +457,8 @@ if(isset($_POST["note"])){
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom1.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
 
 </body>
 

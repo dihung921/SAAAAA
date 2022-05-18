@@ -10,7 +10,7 @@ if($result){
 
 ?>
 <?php
-    header("refresh: 5;url='seat.php'");
+    header("refresh: 10;url='seat.php'");
     ?>
 <!DOCTYPE html>
 <html>
@@ -101,18 +101,27 @@ if($result){
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              </li>
+              ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
                                       ?>
             </ul>
@@ -192,10 +201,10 @@ if($result){
             }
          
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online' style='text-decoration:none;'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online' style='text-decoration:none;'>
                 註冊
               </a>";
               }
@@ -504,6 +513,6 @@ if($result){
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 </html>
