@@ -7,6 +7,14 @@ if(isset($_POST["note"])){
   $note=$_POST["note"];
   $sql10="update order1 set note = '$note'";
   $rs10=mysql_query($link,$sql10);
+
+  if($rs10){
+    echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
+  }
+
+  else{
+    echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
+  }
 }
 ?>
 
@@ -25,7 +33,6 @@ if(isset($_POST["note"])){
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
   <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
-
   <title> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
@@ -53,7 +60,6 @@ if(isset($_POST["note"])){
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style.scss">
-    
 
 
 </head>
@@ -68,11 +74,14 @@ if(isset($_POST["note"])){
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.php" style="font-family: Arial, Helvetica, sans-serif;">
-            <span>
+          <a class="navbar-brand" href="index.php">
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
+
+          
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
@@ -115,16 +124,14 @@ if(isset($_POST["note"])){
                                       ?>
             </ul>
             <div class="user_option">
-
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
-              <i class='fa fa-user' aria-hidden='true'></i>
+              <i class='fa-solid fa-user' aria-hidden='true'></i>
             </a>";
             }
             ?>
-
-          <a class="cart_link" href="cart.php">
+              <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -178,6 +185,8 @@ if(isset($_POST["note"])){
                   </g>
                 </svg>
               </a>
+
+              
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
@@ -212,22 +221,18 @@ if(isset($_POST["note"])){
 
   <div class="container">
     <div class="main-body">
-    
-          
-    
-          
-            
-
-            
-
-                
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">訂單管理</h1>
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
+                          $sql3="select * from `order1` where cond = 1 order by time ASC";
+                          $rs3=mysqli_query($link,$sql3);
+
+                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3>";
 
                           if(mysqli_num_rows($rs) > 0 ){
+                            
                             while($row = mysqli_fetch_array($rs)){
                               $orderid=$row["order_id"];
                               $email=$row["email"];
@@ -242,8 +247,7 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-
-                                          <span class='float-right text-success'>訂購者姓名：".$row2["name"]."";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
                                           if ($row["way"]==0){
                                             echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
                                           }
@@ -253,22 +257,21 @@ if(isset($_POST["note"])){
                                           echo"<i class='icofont-check-circled text-success'></i></span></p>";
 
 
-
                                 while($row1 = mysqli_fetch_array($rs1)){
-                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                  echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
                                 }
                               echo"
                               <hr>
                               <div class='float-right'>
-
-                                <a href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='edit.php?order_id=".$row["order_id"]."'><i class='fa-solid fa-notes-medical fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                
+                              
+                              <a href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              <a href='edit.php?order_id=".$row["order_id"]."'><i class='fa-solid fa-notes-medical fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              <a href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              
                               </div>";
 
                               if($row["note"] == NULL){
-                                echo"<p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
                               }
                               else{
                               echo"<p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
@@ -293,9 +296,9 @@ if(isset($_POST["note"])){
 
                           echo"<h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3>";
                           
-                          if(mysqli_num_rows($rs) > 0 ){
+                          if(mysqli_num_rows($rs3) > 0 ){
                             
-                            while($row3 = mysqli_fetch_array($rs)){
+                            while($row3 = mysqli_fetch_array($rs3)){
                               $orderid3=$row3["order_id"];
                               $email3=$row3["email"];
                               $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
@@ -309,31 +312,34 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."
-                                          <span class='float-right text-dark'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row4 = mysqli_fetch_array($rs4)){
-                                  echo"<p class='ext-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
+                                  echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
                                 }
                               echo"
                               <hr>
                               <div class='float-right'>
                                 
-                                <a class='btn btn-sm btn-success' href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
-
+                                <a href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #426849'></i></a>&nbsp
                               </div>
-                              <p class='mb-0 text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
                               </div>
                             </div>
                             </div>
                             </div>";         
                             }
+
+
                           }
+
                           else {
                             echo"尚未有待取餐訂單。";
                           }
-                            ?>
 
+
+                            ?>
 
                             </div>
                         </div>
@@ -356,7 +362,7 @@ if(isset($_POST["note"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue ; font-family: Arial, Helvetica, sans-serif;">
+            <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -379,10 +385,10 @@ if(isset($_POST["note"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
+            <a href="index.php" class="footer-logo"style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
@@ -396,7 +402,7 @@ if(isset($_POST["note"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -457,8 +463,6 @@ if(isset($_POST["note"])){
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom1.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-    
 
 </body>
 
