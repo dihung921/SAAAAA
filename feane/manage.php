@@ -242,7 +242,16 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-dark'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."";
+                                          if ($row["way"]==0){
+                                            echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
+                                          }
+                                          else{
+                                            echo"<br>用餐方式：外帶";
+                                          }
+                                          echo"<i class='icofont-check-circled text-success'></i></span></p>";
+
 
 
                                 while($row1 = mysqli_fetch_array($rs1)){
@@ -251,10 +260,67 @@ if(isset($_POST["note"])){
                               echo"
                               <hr>
                               <div class='float-right'>
-                                <a href='#'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-solid fa-pen-to-square fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #E59511;'></i></a>
+
+                                <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
+                                <a class='btn btn-sm btn-primary' href='edit.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i>新增備註</a>&nbsp
+                                <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
+                                
+                              </div>";
+
+                              if($row["note"] == NULL){
+                                echo"<p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                              }
+                              else{
+                              echo"<p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                  <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row["note"]."</p>";
+                              }
+                              echo"</div>
+                                  </div>
+                                  </div>
+                                  </div>";         
+                                }
+
+                            
+
+                          }
+                          
+
+                          else {
+                            echo"尚未有待準備訂單。";
+                          }
+
+                          echo"<hr>";
+
+                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3>";
+                          
+                          if(mysqli_num_rows($rs3) > 0 ){
+                            
+                            while($row3 = mysqli_fetch_array($rs3)){
+                              $orderid3=$row3["order_id"];
+                              $email3=$row3["email"];
+                              $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
+                              $rs4=mysqli_query($link,$sql4);
+                              $sql5="select name from `member` where email = '$email3'";
+                              $rs5=mysqli_query($link,$sql5);
+                              $row5=mysqli_fetch_array($rs5);
+                              echo"
+                              <div class='bg-white card mb-4 order-list shadow-sm'>
+                                  <div class='gold-members p-4'>
+                                      <div class='media'>
+                                        <div class='media-body'>
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."
+                                          <span class='float-right text-warning'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+
+                                while($row4 = mysqli_fetch_array($rs4)){
+                                  echo"<p class='ext-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
+                                }
+                              echo"
+                              <hr>
+                              <div class='float-right'>
+                                
+                                <a class='btn btn-sm btn-success' href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+
                               </div>
                               <p class='mb-0 text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
