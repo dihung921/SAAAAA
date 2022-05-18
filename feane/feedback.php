@@ -35,6 +35,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
 
   <title> 方禾食呂 </title>
 
