@@ -213,13 +213,6 @@ $email=$_SESSION["member_email"];
   <div class="container">
     <div class="main-body">
     
-          
-    
-          
-            
-
-            
-
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
