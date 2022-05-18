@@ -1,43 +1,22 @@
 <?php
 session_start();
-
-$email = $_SESSION["member_email"];
 $link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
-?>
-<?php
-session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+if(isset($_GET["order_id"])){
+  $orderid=$_GET["order_id"];
+}
 
-if(isset($_POST["way"])){
-  $way = $_POST["way"];
-  if($way == 0){
-    if(isset($_POST["seatnum"])){
-      $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
-      $rs=mysqli_query($link,$sql);
-      if($rs){
-        $_SESSION["way"]=$way;
-        $_SESSION["seatnum"]=$seatnum;
-      }
-    }
+if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
+  $feedback=$_POST["feedback"];
+  $orderid1=$_POST["order_id"];
+  $sql="update `order1` set feedback = '$feedback' where order_id='$orderid1'";
+  $rs=mysqli_query($link,$sql);
+
+  if($rs){
+    echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
   }
+
   else{
-    $sql="insert into way(way) values ('1')";
-    $rs=mysqli_query($link,$sql);
-    if($rs){
-      $_SESSION["way"]=$way;
-    }
-    header("Location:index.php");
+    echo"<script>{window.alert('請再試一次！'); location.href='feedback.php'}</script>";
   }
 }
 ?>
@@ -84,62 +63,10 @@ if(isset($_POST["way"])){
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style.scss">
-    <link rel="stylesheet" href="ion.rangeslider.css">
-    <link rel="stylesheet" href="ion.rangeslider.skinflat.css">
 
 
 </head>
-<body>
 
-<?php
-if($_SESSION['level']=="user"){
-  if(!isset($_SESSION["way"])){
-    echo"
-    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-      <div class='modal-dialog'>
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-              <span aria-hidden='true'></span>
-            </button>
-          </div>
-          <center><div class='modal-body'>
-          <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action='index.php' method='post'>
-                          <input name='way' value='1' type='hidden'>  
-                          <button class='btn btn-warning'>自取</button>
-                        </form>
-            <form action='index.php' method='post'>
-            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
-            
-            <div class='modal-dialog'>
-            <div class='modal-content'>
-            <div class='modal-footer'>
-            <input name= 'way' value='0' type='hidden'>
-            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
-            <button class='btn btn-warning'>確認</button>
-            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-            
-            
-                  
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          </div>
-
-           
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>";
-}
-}
-?>
 <body class="sub_page">
 
   <div class="hero_area">
@@ -155,23 +82,11 @@ if($_SESSION['level']=="user"){
               方禾食呂
             </span>
           </a>
-          <a style="color: lightgray"><?php
-              if (isset($_SESSION["way"])){
-                if($_SESSION["way"]== 0){
-                  echo 
-                  "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-                else{ 
-                  echo "
-                  <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
-                  &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
-                  </form>";
-                }
-              }
-              ?>
-              </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
             <?php
@@ -289,59 +204,136 @@ if($_SESSION['level']=="user"){
     <!-- end header section -->
   </div>
 
-  
-
-  <!-- profile section -->
+  <!-- Start Cart  -->
   <br>
   <br>
 
-<center>
-<div class="container">
+
+  <div class="container">
     <div class="main-body">
+      <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+        <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">給予回饋</h1>
+        <form action="feedback.php" method="post">
+          <?php echo "<input type='hidden' name='order_id' value='$orderid'>";?>
+          <input type="text" name="feedback" placeholder="請給予意見...">
+          <button>提交</button>
+      </form>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+    <!-- End Cart -->
 
-        <div class="row gutters-sm" >
-            <div class="col-md-12 mb-12">
-              <div class="card">
-                <div class="card-body">
-                
-                    <form method ="post" action="dblinkp.php">
-                        <input type="hidden" name="method" value="<?php echo $method ?>">
-                        <table class="List" align="center" width="20%">
-                        <tr>
-                            <h4 align="center" class="ListCap">修改會員資料</h4></tr><hr>
-                  
-                            <tr>
-                            <td align="center">姓名&nbsp</td>
-                                <td><input type="text" name="name" value="<?php echo $name?>" ></td>
-                            </tr>
-                            <tr>
-                            <td align="center">email&nbsp</td>
-                                <td><input type="text" name="email" value="<?php echo $email?>"></td>
-                            </tr>
-                            <tr>
-                            <td align="center">電話&nbsp</td>
-                                <td><input type="text" name="phone" value="<?php echo $phone?>"></td>
-                            </tr>
-                            <tr>
-                            <td align="center">密碼&nbsp</td>
-                                <td><input type="text" name="password" value="<?php echo $password?>"></td>
-                                
-                           <tr align="center">
-                              <td colspan="3"> <br>
-                                 <button class="btn btn-secondary" style=" border-radius: 20px;"><a href=profile.php style="text-decoration: none; color:lightgray;">返回</a></button>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type='submit' class='btn btn-warning' style=' border-radius: 20px; '>
-                            </td> </div>
-                            </tr>
-                            
-                            </div></div>
-                        </table>
-                        </form>
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4 style="color:aliceblue">
+              聯絡我們
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
+
+                <span>
+                242新北市新莊區中正路514巷53弄39號
+                </span>
+              </a>
+
+                <span>
+                  Call +02 2908-1397
+                </span>
+
+                <span>
+                storyboxtw@gmail.com
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="index.php" class="footer-logo">
+              方禾食呂
+            </a>
+            <h4 style="color:aliceblue">
+            健康飲食好夥伴
+            </h4>
+            <div class="footer_social">
+              <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
+              </a>
+              <a href="https://www.instagram.com/storyboxtw/">
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4 style="color:aliceblue">
+            營業時間
+          </h4>
+          <p>
+            星期一～日
+          </p>
+          <p>
+            10:00 AM ~ 19:00 PM
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">SA05</a><br><br>
+        </p>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  
-</center>
-            </body>
+  </footer>
+  <!-- footer section -->
+
+
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom1.js"></script>
+
+</body>
+
+</html>

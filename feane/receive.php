@@ -6,7 +6,7 @@ if(isset($_GET["order_id"])&&isset($_GET["time"])&&isset($_GET["email"])){
     $orderid=$_GET["order_id"];
     $time=$_GET["time"];
     $email=$_GET["email"];
-    $sql = "update order1 set cond = '2' where email='$email' and time='$time' and order_id='$orderid'";
+    $sql = "update `order1` set cond = '2' where email='$email' and time='$time' and order_id='$orderid'";
     $rs=mysqli_query($link,$sql);
 
     if($rs){
