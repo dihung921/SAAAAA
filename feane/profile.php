@@ -70,55 +70,8 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
 
 
 </head>
-<?php
-if($_SESSION['level']=="user"){
-  if(!isset($_SESSION["way"])){
-    echo"
-    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-      <div class='modal-dialog'>
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 請選擇用餐方式</h5>
-            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-              <span aria-hidden='true'></span>
-            </button>
-          </div>
-          <center><div class='modal-body'>
-          <div class='d-grid gap-2 col-6 mx-auto'>
-                        <form action='index.php' method='post'>
-                          <input name='way' value='1' type='hidden'>  
-                          <button class='btn btn-warning'>自取</button>
-                        </form>
-            <form action='index.php' method='post'>
-            <button type='button' class='btn btn-warning' data-toggle='modal data-target='#exampleModal'>內用</button>
-            
-            <div class='modal-dialog'>
-            <div class='modal-content'>
-            <div class='modal-footer'>
-            <input name= 'way' value='0' type='hidden'>
-            <a>請輸入桌號：<input type='text' placeholder='桌號' name='seatnum'></a>
-            <button class='btn btn-warning'>確認</button>
-            <button class='btn btn-secondary' data-dismiss='modal'>不吃了！</button>
-            
-            
-                  
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          </div>
 
-           
-          </div></center>
-</div>
-        </div>
-      </div>
-    </div>
-</div>";
-}
-}
-?>
+                
 <body class="sub_page">
 
   <div class="hero_area">

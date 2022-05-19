@@ -274,7 +274,7 @@ if(isset($_POST["note"])){
                                 echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
                               }
                               else{
-                              echo"<p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                                   <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row["note"]."</p>";
                               }
                               echo"</div>
