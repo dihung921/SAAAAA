@@ -239,12 +239,6 @@ $email=$_SESSION["member_email"];
                                 }
                               echo"
                               <hr>
-                              <div class='float-right'>
-                                <a class='btn btn-sm btn-danger' href='#'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='index.php'><i class='icofont-refresh'></i>修改訂單</a>&nbsp
-                                <a class='btn btn-sm btn-warning' href='index.php'><i class='icofont-refresh'></i>準備完成</a>&nbsp
-                                <a class='btn btn-sm btn-success' href='index.php'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
-                              </div>
                               <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
                             </div>
