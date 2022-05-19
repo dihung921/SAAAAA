@@ -192,7 +192,7 @@ if($_SESSION['level']=="user"){
             
             <div class="user_option">
             <?php
-            if ($_SESSION["member_name"]){
+            if ($_SESSION["member_name"] && $_SESSION['level']=="user"){
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
@@ -250,6 +250,12 @@ if($_SESSION['level']=="user"){
               </g>
             </svg>
           </a>";
+            }
+
+            else if($_SESSION["member_name"] && $_SESSION['level']=="admin"){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
             }
             
             
