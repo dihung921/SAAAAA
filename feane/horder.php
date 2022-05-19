@@ -213,13 +213,6 @@ $email=$_SESSION["member_email"];
   <div class="container">
     <div class="main-body">
     
-          
-    
-          
-            
-
-            
-
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
@@ -250,12 +243,7 @@ $email=$_SESSION["member_email"];
                                 }
                               echo"
                               <hr>
-                              <div class='float-right'>
-                                <a href='#'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-solid fa-pen-to-square fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <a href='index.php'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #E59511;'></i></a>
-                              </div>
+                            
                               <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
                               </div>
                             </div>

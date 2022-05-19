@@ -381,16 +381,16 @@ if($_SESSION['level']=="user"){
 
                                           if($rs){
                                             if($row["cond"]== 0){
-                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備中<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-grey'>訂單狀態：餐點準備中<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
                                             if($row["cond"]== 1){
-                                              echo"<span class='float-right text-warning'>訂單狀態：餐點準備完成<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-grey'>訂單狀態：餐點製備完成<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
 
                                             if($row["cond"]== 2){
-                                              echo"<span class='float-right text-warning'>訂單狀態：已取餐<i class='icofont-check-circled text-success'></i></span></p>";
+                                              echo"<span class='float-right text-grey'>訂單狀態：已取餐<i class='icofont-check-circled text-success'></i></span></p>";
                                               
                                             }
                                         
@@ -406,15 +406,16 @@ if($_SESSION['level']=="user"){
                                             <div class='float-right'>";
                                             if($row["cond"]== 2){
                                               if($row["feedback"]== NULL){
-                                                echo"<a class='btn btn-sm btn-outline-warning' href='feedback.php?order_id=".$row["order_id"]."'><i class='icofont-headphone-alt'></i> 給予回饋</a>
+                                                echo"
+                                                <a class='btn btn-sm btn-warning' href='feedback.php?order_id=".$row["order_id"]."'> 給予回饋</a>
                                                 <a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
                                                 </div>
-                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
                                               }
                                               else{
                                                 echo "<br><a class='btn btn-sm btn-warning' href='again.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i> 再買一次</a>
                                                 </div>
-                                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<br>您已評價此訂單！</p>";
+                                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<br><p class='text-gray text-gray pt-2'>您已評價此訂單！</p></p>";
                                               }
                                           }
                                           else{
@@ -430,7 +431,7 @@ if($_SESSION['level']=="user"){
                                             <p>餐點流程</p>
                                             <div class='col-lg-6 col-md-12 col-xs-12'>
                                               <span class='irs js-irs-0 irs-with-grid'>
-                                                <span class='irs'>
+                                                <span class='irs' style='width:650px;'>
                                                   <span class='irs-line' tabindex='0'>
                                                     <span class='irs-line-left'></span>
                                                     <span class='irs-line-mid'></span>
@@ -443,11 +444,11 @@ if($_SESSION['level']=="user"){
                                                 <span class='irs-grid-text js-grid-text-0' style='left:0%; margin-left:-6.5%;'>餐點準備中</span>
                                                
                                                 
-                                                <span class='irs-grid-pol' style='left:50%'></span>
-                                                <span class='irs-grid-text js-grid-text-2' style='left:50%;visibility:visible; margin-left:-7.5%;'>餐點製備完成</span>
+                                                <span class='irs-grid-pol' style='left:62%'></span>
+                                                <span class='irs-grid-text js-grid-text-2' style='left:50%;visibility:visible; margin-left:4.5%;'>餐點製備完成</span>
                                                 
-                                                <span class='irs-grid-pol' style='left:100%'></span>
-                                                <span class='irs-grid-text js-grid-text-4' style='left:100%;visibility:visible; margin-left:-5%;'>取餐完成</span>
+                                                <span class='irs-grid-pol' style='left:117%'></span>
+                                                <span class='irs-grid-text js-grid-text-4' style='left:100%;visibility:visible; margin-left:12%;'>取餐完成</span>
                                               </span>
                                                 <span class='irs-shadow shadow-from' style='display: none;'></span>
                                                 <span class='irs-shadow shadow-to' style='display: none;'></span>";
@@ -455,10 +456,10 @@ if($_SESSION['level']=="user"){
                                                 echo"<span class='irs-slider from' style='left: 0.3%;'></span>";
                                               }
                                               if($row["cond"] == 1){
-                                                echo"<span class='irs-slider from' style='left: 50%;'></span>";
+                                                echo"<span class='irs-slider from' style='left: 60%;'></span>";
                                               }
                                               if($row["cond"] == 2){
-                                                echo"<span class='irs-slider from' style='left: 96.2%;'></span>";
+                                                echo"<span class='irs-slider from' style='left: 112.5%;'></span>";
                                               }
 
                                               
