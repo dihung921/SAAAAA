@@ -310,14 +310,14 @@ if($_SESSION['level']=="user"){
                         <table class="List" align="center" width="20%">
                         <tr>
                             <h4 align="center" class="ListCap">修改會員資料</h4></tr><hr>
-                  
+                            <input type="hidden" name="email" value="<?php echo $email?>">
                             <tr>
                             <td align="center">姓名&nbsp</td>
                                 <td><input type="text" name="name" value="<?php echo $name?>" ></td>
                             </tr>
                             <tr>
-                            <td align="center">email&nbsp</td>
-                                <td><input type="text" name="email" value="<?php echo $email?>" readonly></td>
+                            <td align="center">email:</td>
+                                <td><?php echo $email?></td>
                             </tr>
                             <tr>
                             <td align="center">電話&nbsp</td>
