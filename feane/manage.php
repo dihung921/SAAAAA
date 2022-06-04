@@ -66,6 +66,12 @@ $rs=mysqli_query($link,$sql);
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -187,13 +193,26 @@ $rs=mysqli_query($link,$sql);
     <div class="main-body">
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">訂單管理</h1>
+                        <ul class='nav nav-tabs' id='myTab' role='tablist'>
+                          <li class='nav-item' role='presentation'>
+                            <button class='nav-link active' id='home-tab' data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true' style="color:#E59511;">待準備</button>
+                          </li>
+                          <li class='nav-item' role='presentation'>
+                            <button class='nav-link' id='profile-tab' data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false' style="color:#426849;">待取餐</button>
+                          </li>
+                          
+                        </ul><div class='tab-content' id='myTabContent'>
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
                           $sql3="select * from `order1` where cond = 1 order by time ASC";
                           $rs3=mysqli_query($link,$sql3);
-
-                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3>";
+                          echo"
+                          
+                          <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab' >";
+                          
+                         echo"
+                          <br><h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3><br>";
 
                           if(mysqli_num_rows($rs) > 0 ){
                             
@@ -244,21 +263,25 @@ $rs=mysqli_query($link,$sql);
                               echo"</div>
                                   </div>
                                   </div>
+                                  </div>
                                   </div>";         
                                 }
 
                             
-
                           }
                           
 
                           else {
                             echo"尚未有待準備訂單。";
+                          
                           }
+                         
+                          echo"</div>";
+                          echo"<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'><br>";
 
-                          echo"<hr>";
-
-                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3>";
+                          echo"
+                          
+                          <h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3><br>";
                           
                           if(mysqli_num_rows($rs3) > 0 ){
                             
@@ -292,19 +315,18 @@ $rs=mysqli_query($link,$sql);
                               </div>
                             </div>
                             </div>
-                            </div>";         
+                            </div></div>";    
+                            
+                           
                             }
-
-
                           }
 
                           else {
                             echo"尚未有待取餐訂單。";
                           }
-
-
+                          
                             ?>
-
+</div>
                             </div>
                         </div>
                     </div>
@@ -427,6 +449,7 @@ $rs=mysqli_query($link,$sql);
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
 </body>
 
