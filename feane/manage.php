@@ -201,7 +201,8 @@ $rs=mysqli_query($link,$sql);
                             <button class='nav-link' id='profile-tab' data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false' style="color:#426849;">待取餐</button>
                           </li>
                           
-                        </ul><div class='tab-content' id='myTabContent'>
+                        </ul>
+                        <div class='tab-content' id='myTabContent'>
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
@@ -264,19 +265,18 @@ $rs=mysqli_query($link,$sql);
                                   </div>
                                   </div>
                                   </div>
-                                  </div>";         
+                                  ";         
                                 }
 
                             
                           }
-                          
-
                           else {
                             echo"尚未有待準備訂單。";
                           
                           }
                          
                           echo"</div>";
+
                           echo"<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'><br>";
 
                           echo"
@@ -306,6 +306,7 @@ $rs=mysqli_query($link,$sql);
                                   echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
                                 }
                               echo"
+                              
                               <hr>
                               <div class='float-right'>
                                 
@@ -315,7 +316,7 @@ $rs=mysqli_query($link,$sql);
                               </div>
                             </div>
                             </div>
-                            </div></div>";    
+                            </div>";    
                             
                            
                             }
@@ -324,14 +325,16 @@ $rs=mysqli_query($link,$sql);
                           else {
                             echo"尚未有待取餐訂單。";
                           }
+
+                          echo"</div>";
                           
                             ?>
-</div>
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>
         
-              
             </div>
           </div>
 
