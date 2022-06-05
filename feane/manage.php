@@ -17,6 +17,23 @@ if(isset($_POST["note"])){
   }
 }
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +49,7 @@ if(isset($_POST["note"])){
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
-
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
   <title> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
@@ -49,6 +66,12 @@ if(isset($_POST["note"])){
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -75,7 +98,7 @@ if(isset($_POST["note"])){
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -102,30 +125,36 @@ if(isset($_POST["note"])){
               </li>
               ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item active'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
-
-                      
                                       ?>
             </ul>
             <div class="user_option">
-
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
-              <i class='fa fa-user' aria-hidden='true'></i>
+              <i class='fa-solid fa-user' aria-hidden='true'></i>
             </a>";
             }
             ?>
+              
 
               
               <form action="logout.php" method="post">
@@ -133,7 +162,7 @@ if(isset($_POST["note"])){
               if ($_SESSION["member_name"]){
 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -162,24 +191,29 @@ if(isset($_POST["note"])){
 
   <div class="container">
     <div class="main-body">
-    
-          
-    
-          
-            
-
-            
-
-                
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">訂單管理</h1>
+                        <ul class='nav nav-tabs' id='myTab' role='tablist'>
+                          <li class='nav-item' role='presentation'>
+                            <button class='nav-link active' id='home-tab' data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true' style="color:#E59511;">待準備</button>
+                          </li>
+                          <li class='nav-item' role='presentation'>
+                            <button class='nav-link' id='profile-tab' data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false' style="color:#426849;">待取餐</button>
+                          </li>
+                          
+                        </ul>
+                        <div class='tab-content' id='myTabContent'>
                         <?php
                           $sql="select * from `order1` where cond = 0 order by time ASC";
                           $rs=mysqli_query($link,$sql);
                           $sql3="select * from `order1` where cond = 1 order by time ASC";
                           $rs3=mysqli_query($link,$sql3);
-
-                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3>";
+                          echo"
+                          
+                          <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab' >";
+                          
+                         echo"
+                          <br><h3 class=font-weight-bold mt-0 mb-4'>待準備訂單</h3><br>";
 
                           if(mysqli_num_rows($rs) > 0 ){
                             
@@ -197,7 +231,7 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-warning'>訂購者姓名：".$row2["name"]."";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
                                           if ($row["way"]==0){
                                             echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
                                           }
@@ -208,42 +242,46 @@ if(isset($_POST["note"])){
 
 
                                 while($row1 = mysqli_fetch_array($rs1)){
-                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                  echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
                                 }
                               echo"
                               <hr>
                               <div class='float-right'>
-                                <a class='btn btn-sm btn-danger' href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-headphone-alt'></i>刪除訂單</a>&nbsp
-                                <a class='btn btn-sm btn-primary' href='edit.php?order_id=".$row["order_id"]."'><i class='icofont-refresh'></i>新增備註</a>&nbsp
-                                <a class='btn btn-sm btn-warning' href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='icofont-refresh'></i>準備完成</a>&nbsp
-                                
+                              
+                              <a href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              <a href='edit.php?order_id=".$row["order_id"]."'><i class='fa-solid fa-notes-medical fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              <a href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                              
                               </div>";
 
                               if($row["note"] == NULL){
-                                echo"<p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
                               }
                               else{
-                              echo"<p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
-                                  <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row["note"]."</p>";
+                              echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                                  <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row["note"]."</p>";
                               }
                               echo"</div>
                                   </div>
                                   </div>
-                                  </div>";         
+                                  </div>
+                                  ";         
                                 }
 
                             
-
                           }
-                          
-
                           else {
                             echo"尚未有待準備訂單。";
+                          
                           }
+                         
+                          echo"</div>";
 
-                          echo"<hr>";
+                          echo"<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'><br>";
 
-                          echo"<h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3>";
+                          echo"
+                          
+                          <h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3><br>";
                           
                           if(mysqli_num_rows($rs3) > 0 ){
                             
@@ -261,40 +299,42 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."
-                                          <span class='float-right text-warning'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row4 = mysqli_fetch_array($rs4)){
-                                  echo"<p class='ext-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
+                                  echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
                                 }
                               echo"
+                              
                               <hr>
                               <div class='float-right'>
                                 
-                                <a class='btn btn-sm btn-success' href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='icofont-refresh'></i>取餐完成</a>&nbsp
+                                <a href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #426849'></i></a>&nbsp
                               </div>
-                              <p class='mb-0 text-black text-warning pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
+                              <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
                               </div>
                             </div>
                             </div>
-                            </div>";         
+                            </div>";    
+                            
+                           
                             }
-
-
                           }
 
                           else {
                             echo"尚未有待取餐訂單。";
                           }
 
-
+                          echo"</div>";
+                          
                             ?>
-
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>
         
-              
             </div>
           </div>
 
@@ -311,7 +351,7 @@ if(isset($_POST["note"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue">
+            <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -334,12 +374,12 @@ if(isset($_POST["note"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo"style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h4 style="color:aliceblue">
+            <h5 style="color:aliceblue">
             健康飲食好夥伴
-            </h4>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <img src="images/fb.png" width="16" height="16" alt="" align="center">
@@ -351,7 +391,7 @@ if(isset($_POST["note"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue">
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -412,6 +452,7 @@ if(isset($_POST["note"])){
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
 </body>
 

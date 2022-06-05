@@ -20,6 +20,23 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
   }
 }
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +52,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
 
   <title> 方禾食呂 </title>
 
@@ -78,7 +96,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -182,7 +200,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -215,8 +233,8 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">給予回饋</h1>
         <form action="feedback.php" method="post">
           <?php echo "<input type='hidden' name='order_id' value='$orderid'>";?>
-          <input type="text" name="feedback" placeholder="請給予意見...">
-          <button>提交</button>
+          <input class="form-control form-control-lg mt-0 mb-4" name=feedback type="text" placeholder="請留下您的寶貴意見...." aria-label="default input example">
+          <center><button class='btn btn-warning'>新增</button></center>
       </form>
       </div>
     </div>
@@ -232,7 +250,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue">
+            <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -255,12 +273,12 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h4 style="color:aliceblue">
+            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             健康飲食好夥伴
-            </h4>
+            </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
                 <img src="images/fb.png" width="16" height="16" alt="" align="center">
@@ -272,7 +290,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue">
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>

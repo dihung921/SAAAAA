@@ -6,6 +6,7 @@
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+     width: 750px;
 }
     .irs-line {
         position: relative; display: block;
@@ -98,7 +99,7 @@
         bottom: 0; left: 0;
         white-space: nowrap;
         text-align: center;
-        font-size: 9px; line-height: 9px;
+        font-size: 13px; line-height: 9px;
         padding: 0 3px;
         color: #000;
     }

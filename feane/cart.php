@@ -5,6 +5,23 @@ $link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +38,21 @@ $email=$_SESSION["member_email"];
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> 方禾食呂 </title>
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
+
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+ 
+
+</head>
+ 
+  
+  
+    
+
+  <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -48,6 +79,8 @@ $email=$_SESSION["member_email"];
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="sweetalert.css">
+ 
     
 
 </head>
@@ -63,24 +96,34 @@ $email=$_SESSION["member_email"];
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
-
-          <form action="changeway.php" method="post">
-              <input type="submit" class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value="更改用餐方式">
-            </form>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+       
+          <a style="color: lightgray"><?php
+            if (isset($_SESSION["way"])){
+              if($_SESSION["way"]== 0){
+                echo 
+                "<form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp內用
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+              else{ 
+                echo "
+                <form action='changeway.php' method='post'>&nbsp&nbsp&nbsp&nbsp外帶自取
+                &nbsp&nbsp<input type='submit' class='btn btn-warning' style='color: lightyellow; border-radius: 20px' value='更改用餐方式'>
+                </form>";
+              }
+            }
+            ?>
+            </a>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
             <?php
               if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
+              echo"<li class='nav-item '>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
@@ -89,27 +132,37 @@ $email=$_SESSION["member_email"];
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>";
+              </li>
+              ";
               }
-              ?>
-                <?php
-                   if($_SESSION['level']=="admin"){
+             
+                   else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<td>&nbsp;</td></tr>";
+                       echo"<li class='nav-item '>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
                       }
                                       ?>
             </ul>
             <div class="user_option">
+            
 
             <?php
             if ($_SESSION["member_name"]){
               echo "<a href='profile.php' class='user_link'>
-              <i class='fa fa-user' aria-hidden='true'></i>
+              <i class='fa-solid fa-user' aria-hidden='true'></i>
             </a>";
             }
             ?>
@@ -173,7 +226,7 @@ $email=$_SESSION["member_email"];
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -242,7 +295,7 @@ $email=$_SESSION["member_email"];
                                       $_SESSION["tot_price"]=$tot_price;
                                     }
                                     else{
-                                      echo "<script>{window.alert('請先選擇餐點！'); location.href='index.php'}</script>";
+                                      echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
                                     }
                               ?>
                               <script>
@@ -283,15 +336,18 @@ $email=$_SESSION["member_email"];
             <div class="col-6" >
                 <div>
                     <div class="update-box">
-                      <input value="繼續選購" type="submit" onclick="location.href='index.php'">
+                    
+                      <input value="繼續選購" type="submit" onclick="location.href='index.php'"> 
+                      
                     </div>
                 </div>
             </div>
-
-            
+          
+           
             <?php
                     echo"<form>
-                    <div class=detail-box>
+                  
+                   <div class=detail-box>
                       <div class=row my-12>
                         <div class='col-lg-12 col-sm-15'>
                           <div class='order-box'>
@@ -299,6 +355,7 @@ $email=$_SESSION["member_email"];
                                 <h5>總金額</h5>
                                 <div class='ml-auto h5'>$".$tot_price."</div>
                                 <div class='col-6 d-flex shopping-box'>
+                                
                                 <input type='button' value='結帳' class='ml-auto btn hvr-hover' data-toggle='modal' data-target='#exampleModal2'>  
                                 </div>
                                 </div>
@@ -309,11 +366,14 @@ $email=$_SESSION["member_email"];
               </div>
         </div>
     </div> 
+
+                         
+                         
                                 <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
                                     <div class='modal-dialog' role='document'>
                                         <div class='modal-content'>
                                             <div class='modal-header'>
-                                                <h5 class='modal-title' id='exampleModalLabel1'>注意！</h5>
+                                                <h3 class='modal-title' id='exampleModalLabel1'>注意！</h3>
                                                     <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                                         <span aria-hidden='true'>&times;</span>
                                                     </button>
@@ -323,7 +383,7 @@ $email=$_SESSION["member_email"];
                                         </div>
                                             <div class='modal-footer'>
                                                 <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                                <a class ='btn btn-primary' style='background-color: blue; color: white; border-color: blue;' href=insert.php>送出</a>
+                                                <a class ='btn btn-warning'  href=insert.php>送出</a>
                                             </div>
                                             </div>
                                             </div>
@@ -340,7 +400,7 @@ $email=$_SESSION["member_email"];
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4 style="color:aliceblue">
+            <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
@@ -363,7 +423,7 @@ $email=$_SESSION["member_email"];
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
             <h5 style="color:aliceblue">
@@ -380,7 +440,7 @@ $email=$_SESSION["member_email"];
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4 style="color:aliceblue">
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -429,6 +489,7 @@ $email=$_SESSION["member_email"];
   <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
     <!-- ALL PLUGINS -->
     <script src="js/jquery.superslides.min.js"></script>
     <script src="js/bootstrap-select.js"></script>
@@ -441,6 +502,11 @@ $email=$_SESSION["member_email"];
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom1.js"></script>
+    <script src="js/window.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+ 
+    
+
 
 </body>
 
