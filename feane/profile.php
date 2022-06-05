@@ -21,6 +21,23 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
 
 
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -221,7 +238,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -249,7 +266,6 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   <br>
   <br>
 
-
   <div class="container">
     <div class="main-body">
           <div class="row gutters-sm">
@@ -267,17 +283,18 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
               </div>
             </div>
 
-           
+            
+
             <div class='col-md-8'>
               <div class='card mb-3'>
                 <div class='card-body'>
-
+                
                   <div class='row'>
                     <div class='col-sm-3'>
                       <h6 class='mb-0'>姓名</h6>
                     </div>
                     <div class='col-sm-9 text-secondary'>
-                    <?php echo $_SESSION["member_name"] ?>
+                    <?php echo"$name";?>
                     </div>
                   </div>
 
@@ -287,7 +304,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $_SESSION["member_email"] ?>
+                    <?php echo"$email";?>
                     </div>
                   </div>
                   <hr>
@@ -296,19 +313,11 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                       <h6 class="mb-0">手機號碼</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php echo $_SESSION["member_phone"] ?>
+                    <?php echo"$phone";?>
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">密碼</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $_SESSION["member_password"] ?>
-                    </div>
-                  </div>
-                  <hr>
+                 
                   <div class="row">
                     <div class="col-sm-12">
                      <?php echo" <a class='btn btn-warning' style='  border-radius: 19px; float:right;' target='__blank'<a href=updateprofile.php?method=update&email=$record[1]>編輯</a>"; ?>
@@ -389,7 +398,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                                           </div>
                                       </div>
                                       <hr>
-                                            <p>餐點流程</p>
+                                            <p>餐點流程 <span class='float-right'>希望取餐時間 ： ".$row["hopetime"]."</span></p>
                                             <div class='col-lg-6 col-md-12 col-xs-12'>
                                               <span class='irs js-irs-0 irs-with-grid'>
                                                 <span class='irs' style='width:650px;'>

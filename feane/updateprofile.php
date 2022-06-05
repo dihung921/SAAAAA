@@ -14,6 +14,7 @@ $rs=mysqli_query($link,$sql);
        
       }
 ?>
+
 <?php
 session_start();
 $link=mysqli_connect("localhost","root","12345678","sa");
@@ -151,7 +152,7 @@ if($_SESSION['level']=="user"){
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="color:white; font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -309,14 +310,14 @@ if($_SESSION['level']=="user"){
                         <table class="List" align="center" width="20%">
                         <tr>
                             <h4 align="center" class="ListCap">修改會員資料</h4></tr><hr>
-                  
+                            <input type="hidden" name="email" value="<?php echo $email?>">
                             <tr>
                             <td align="center">姓名&nbsp</td>
                                 <td><input type="text" name="name" value="<?php echo $name?>" ></td>
                             </tr>
                             <tr>
-                            <td align="center">email&nbsp</td>
-                                <td><input type="text" name="email" value="<?php echo $email?>"></td>
+                            <td align="center">email:</td>
+                                <td><?php echo $email?></td>
                             </tr>
                             <tr>
                             <td align="center">電話&nbsp</td>
