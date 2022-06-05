@@ -1,11 +1,17 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
-
-    echo $_SESSION["seatnum"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql = "select seat from order1";
+$result= mysqli_query($link,$sql);
+if($result){
+  $row= mysqli_fetch_array($result);
+  $seatnum = $row["seat"]; 
+}
 
 ?>
-
+<?php
+    header("refresh: 10;url='seat.php'");
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -84,18 +90,40 @@ $link=mysqli_connect("localhost","root","12345678","sa");
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto ">
 
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">訂餐首頁</a>
-
+          <?php
+              if($_SESSION['level']=="user"){
+              echo"<li class='nav-item '>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+             
+              <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="seat.php">店內座位狀況<span class="sr-only">(current)</span></a>
-                
+              <li class='nav-item active'>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>
+              ";
+              }
+             
+                   else if($_SESSION['level']=="admin"){
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                     }
+                  else{
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
+                      }
+                                      ?>
             </ul>
             <div class="user_option">
             <?php
@@ -103,63 +131,64 @@ $link=mysqli_connect("localhost","root","12345678","sa");
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
+            echo"<a class='cart_link' href='cart.php'>
+            <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 456.029 456.029' style='enable-background:new 0 0 456.029 456.029;' xml:space='preserve'>
+              <g>
+                <g>
+                  <path d='M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+               c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z' />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d='M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+               C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+               c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+               C457.728,97.71,450.56,86.958,439.296,84.91z' />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d='M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+               c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z' />
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+            </svg>
+          </a>";
             }
             ?>
 
-              <a class="cart_link" href="cart.php">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
+            
 
               <form action="logout.php" method="post">
               <?php
@@ -169,12 +198,14 @@ $link=mysqli_connect("localhost","root","12345678","sa");
                   <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+         
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style='text-decoration:none;'>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style='text-decoration:none;'>
                 註冊
               </a>";
               }
@@ -194,6 +225,7 @@ $link=mysqli_connect("localhost","root","12345678","sa");
   <div class="cseat">
  
       <h5 style="color:snow;">店內座位狀況圖</h5>
+      
    
 <div class="movie-container">
     <ul class="showcase">
@@ -211,37 +243,149 @@ $link=mysqli_connect("localhost","root","12345678","sa");
     <div class="wrapper">
 
       <div class="two"> 
-        <div class="seat"><h6>1</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>2</h6></div>
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>3</h6></div>
-        <div class="seat"><h6>4</h6></div>
-        <div class="seat"><h6>5</h6></div>
+        <?php
+        if($seatnum == 1){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>1</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>1</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 2){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>2</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>2</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 3){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>3</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>3</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 4){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>4</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>4</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 5){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>5</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>5</h6></div>";
+        }
+        ?>
       </div>
 
       <div class="three"> 
         <div class="row">
-        <div class="seat occupied" style="background-color:#BF5353;"><h6>6</h6></div>
-        <div class="seat"><h6>7</h6></div>
-        <div class="seat"><h6>8</h6></div>
-        <div class="seat occupied"><h6>9</h6></div>
-        <div class="seat"><h6>10</h6></div>
+        <?php
+        if($seatnum == 6){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>6</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>6</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 7){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>7</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>7</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 8){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>8</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>8</h6></div>";
+        } 
+        ?>
+        <?php
+        if($seatnum == 9){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>9</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>9</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 10){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>10</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>10</h6></div>";
+        }
+        ?>
        
       </div></div>
 
       <div class="four">
       
-      <div class="seat3 occupied" style="background-color:#BF5353;"><h6>11</h6></div>
-      <div class="seat3"><h6>13</h6></div>
+      <?php
+        if($seatnum == 11){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>11</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>11</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 13){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>13</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>13</h6></div>";
+        }
+        ?>
       </div>
 
      <div class="five">
-      <div class="seat3"><h6>12</h6></div>
-      <div class="seat3"><h6>14</h6></div>
+     <?php
+        if($seatnum == 12){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>12</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>12</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 14){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>14</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>14</h6></div>";
+        }
+        ?>
     </div>
 
     <div class="six">
-      <div class="seat2"><h6>15</h6></div>
-      <div class="seat2"><h6>16</h6></div>
+    <?php
+        if($seatnum == 15){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>15</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>15</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 16){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>16</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>16</h6></div>";
+        }
+        ?>
     </div>
 
     <div class="seven">
@@ -261,6 +405,7 @@ $link=mysqli_connect("localhost","root","12345678","sa");
         
       </div>
     </div>
+    <p>此網頁每10秒更新一次</p>
 </div>
 </div>
 
@@ -369,6 +514,6 @@ $link=mysqli_connect("localhost","root","12345678","sa");
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 </html>

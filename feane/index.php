@@ -7,7 +7,7 @@ if(isset($_POST["way"])){
   if($way == 0){
     if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
+      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
       $rs=mysqli_query($link,$sql);
       if($rs){
         $_SESSION["way"]=$way;
@@ -20,6 +20,7 @@ if(isset($_POST["way"])){
     $rs=mysqli_query($link,$sql);
     if($rs){
       $_SESSION["way"]=$way;
+      $_SESSION["seatnum"]=100;
     }
     header("Location:index.php");
   }
@@ -69,6 +70,7 @@ if(isset($_POST["way"])){
 <body>
 
 <?php
+if($_SESSION['level']=="user"){
   if(!isset($_SESSION["way"])){
     echo"
     <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -114,6 +116,7 @@ if(isset($_POST["way"])){
     </div>
 </div>";
 }
+}
 ?>
   <div class="hero_area">
     <div class="bg-box">
@@ -151,82 +154,115 @@ if(isset($_POST["way"])){
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.php">訂餐首頁 <span class="sr-only">(current)</span></a>
+            <?php
+              if($_SESSION['level']=="user"){
+              echo"<li class='nav-item active'>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+              <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
+              <li class='nav-item'>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>
+              ";
+              }
+             
+                   else if($_SESSION['level']=="admin"){
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                     }
+                  else{
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
+                     </li>
+                    
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
+                     </li>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     </li>";
+                      }
+                                      ?>
             </ul>
             
             <div class="user_option">
             <?php
-            if ($_SESSION["member_name"]){
+            if ($_SESSION["member_name"] && $_SESSION['level']=="user"){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            echo"<a class='cart_link' href='cart.php'>
+            <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 456.029 456.029' style='enable-background:new 0 0 456.029 456.029;' xml:space='preserve'>
+              <g>
+                <g>
+                  <path d='M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+               c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z' />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d='M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+               C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+               c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+               C457.728,97.71,450.56,86.958,439.296,84.91z' />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d='M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+               c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z' />
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+            </svg>
+          </a>";
+            }
+
+            else if($_SESSION["member_name"] && $_SESSION['level']=="admin"){
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
             }
             
+            
+
             ?>
 
-              <a class="cart_link" href="cart.php">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
+              
               
               <form action="logout.php" method="post">
 
@@ -363,7 +399,7 @@ if(isset($_POST["way"])){
       <ul class="filters_menu">
         <li class="active" data-filter="*">全部商品</li>
 
-        <a  style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
+        <a style="text-decoration: none; color:black;" href="#classic"><li>經典餐盒</li></a>
         <a style="text-decoration: none; color:black;" href="#roll"><li>輕食捲捲</li></a>
         <a style="text-decoration: none; color:black;" href="#salad"><li>沙拉水果盒</li></a>
         <a style="text-decoration: none; color:black;" href="#main"><li>主食單品</li></a>
@@ -1445,7 +1481,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥嫩雞捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲1">
+                                    <input type="hidden" name ="main" value="捲1">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1524,7 +1560,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式起司牛肉捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲2">
+                                    <input type="hidden" name ="main" value="捲2">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1605,7 +1641,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>地瓜起司嫩雞捲</h5>
-                                    <input type="hidden" name ="mealname" value="捲3">
+                                    <input type="hidden" name ="main" value="捲3">
                                     <hr>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
@@ -1772,7 +1808,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>陽光沙拉盒</h5>
-                                    <input type="hidden" name ="mealname" value="沙拉2">
+                                    <input type="hidden" name ="salad" value="沙拉2">
                                     <h6>360ml/份<br>
                                         (配菜種類隨季節調整)<br>
                                         可以到主食單品區加點主食，補充蛋白質哦！</h6>
@@ -1955,7 +1991,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>朝日咖哩雞胸（70kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品2">
+                                    <input type="hidden" name ="main" value="單品2">
                                     <h6>蛋白質13.98g 脂肪1.56g 碳水3.72g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2038,7 +2074,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>檸檬椒鹽雞胸（63kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品3">
+                                    <input type="hidden" name ="main" value="單品3">
                                     <h6>蛋白質12.6g 脂肪1.02g 碳水0.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2121,7 +2157,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>墨西哥紅椒雞胸（80kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品4">
+                                    <input type="hidden" name ="main" value="單品4">
                                     <h6>蛋白質14.22g 脂肪1.26g 碳水2.82g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2204,7 +2240,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>法式香榭雞腿（170kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品5">
+                                    <input type="hidden" name ="main" value="單品5">
                                     <h6>蛋白質15.82g 脂肪8.82g 碳水6.91g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2287,7 +2323,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>韓式風味牛（161kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品6">
+                                    <input type="hidden" name ="main" value="單品6">
                                     <h6>蛋白質11.5g 脂肪11.2g 碳水3.5g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2370,7 +2406,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>日式薑燒豬（194kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品7">
+                                    <input type="hidden" name ="main" value="單品7">
                                     <h6>蛋白質16.5g 脂肪12.8g 碳水2.25g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2453,7 +2489,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>泰式打拋豬（176kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品8">
+                                    <input type="hidden" name ="main" value="單品8">
                                     <h6>蛋白質16g 脂肪8g 碳水10g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2536,7 +2572,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>普羅旺斯鯛魚（79kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品9">
+                                    <input type="hidden" name ="main" value="單品9">
                                     <h6>蛋白質15.6g 脂肪1.84g 碳水0.16g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2619,7 +2655,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>素食綜合野菇（78kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="單品10">
+                                    <input type="hidden" name ="mail" value="單品10">
                                     <h6>蛋白質5.6g 脂肪0.46g 碳水12.8g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2793,7 +2829,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>紅藜白飯（274kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他2">
+                                    <input type="hidden" name ="main" value="其他2">
                                     <h6>蛋白質4.88g 脂肪0.51g 碳水62.28g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2876,7 +2912,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>整顆溏心蛋（48kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他3">
+                                    <input type="hidden" name ="main" value="其他3">
                                     <h6>蛋白質5.2g 脂肪2.8g 碳水0.6g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -2959,7 +2995,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>焙煎胡麻醬（87kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他4">
+                                    <input type="hidden" name ="main" value="其他4">
                                     <h6>蛋白質0.52g 脂肪8.26g 碳水2.41g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3042,7 +3078,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>義式油醋醬（44kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他5">
+                                    <input type="hidden" name ="main" value="其他5">
                                     <h6>蛋白質0.06g 脂肪4.26g 碳水1.56g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3125,7 +3161,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>奇亞芥末醬（43kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他6">
+                                    <input type="hidden" name ="main" value="其他6">
                                     <h6>蛋白質0.15g 脂肪3g 碳水3.75g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3208,7 +3244,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>水果塔塔醬（36kcal）</h5>
-                                    <input type="hidden" name ="mealname" value="其他7">
+                                    <input type="hidden" name ="main" value="其他7">
                                     <h6>蛋白質0g 脂肪2.25g 碳水3.9g</h6>
                                     <hr>
                                     <p>餐點備註</p>
@@ -3301,9 +3337,11 @@ if(isset($_POST["way"])){
                                     <input type="hidden" name ="drink" value="飲料1">
                                     <hr>
                                     <p>選擇冰量</p>
-                                    <label><input type="radio" name="temp" value="冷"> 冷</label>
+                                    <label><input type="radio" name="temp" value="1"> 冷</label>
                                     <br>
-                                    <label><input type="radio" name="temp" value="溫"> 溫</label>
+                                    <label><input type="radio" name="temp" value="2"> 溫</label>
+                                    <p>餐點備註</p>
+                                    <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
                                     <p class="num_name fl">訂購數量</p>
                                     <p class="num_add fl">
@@ -3379,7 +3417,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>美式咖啡</h5>
-                                    <input type="hidden" name ="mealname" value="飲料2">
+                                    <input type="hidden" name ="drink" value="飲料2">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
@@ -3462,7 +3500,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>咖啡歐蕾</h5>
-                                    <input type="hidden" name ="mealname" value="飲料3">
+                                    <input type="hidden" name ="drink" value="飲料3">
                                     <hr>
                                     <p>選擇冰量</p>
                                     <label><input type="radio" name="temp" value="1"> 冷</label>
@@ -3545,7 +3583,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖綠茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料4">
+                                    <input type="hidden" name ="drink" value="飲料4">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>
@@ -3627,7 +3665,7 @@ if(isset($_POST["way"])){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖紅茶</h5>
-                                    <input type="hidden" name ="mealname" value="飲料5">
+                                    <input type="hidden" name ="drink" value="飲料5">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
                                     <p>訂購者姓名（僅用於店家出餐時辨識）</p>

@@ -1,5 +1,24 @@
 <?php
 session_start();
+$link=mysqli_connect("localhost","root","","sa");
+if(isset($_GET["order_id"])){
+  $orderid=$_GET["order_id"];
+}
+
+if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
+  $feedback=$_POST["feedback"];
+  $orderid1=$_POST["order_id"];
+  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
+  $rs=mysqli_query($link,$sql);
+
+  if($rs){
+    echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
+  }
+
+  else{
+    echo"<script>{window.alert('請再試一次！'); location.href='feedback.php'}</script>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +35,7 @@ session_start();
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
 
   <title> 方禾食呂 </title>
 
@@ -34,6 +54,18 @@ session_start();
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive1.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.scss">
+
+
 </head>
 
 <body class="sub_page">
@@ -47,7 +79,7 @@ session_start();
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -58,17 +90,40 @@ session_start();
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">訂餐首頁</a>
+            <?php
+              if($_SESSION['level']=="user"){
+              echo"<li class='nav-item active'>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">關於方禾</a>
+             
+              <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="seat.php">店內座位狀況</a>
-              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='seat.php'>店內座位狀況</a>
+              </li>";
+              }
+              ?>
+                <?php
+                   if($_SESSION['level']=="admin"){
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                     }
+                  else{
+                       echo"<td>&nbsp;</td></tr>";
+                      }
+                                      ?>
             </ul>
             <div class="user_option">
+            <?php
+            if ($_SESSION["member_name"]){
+              echo "<a href='profile.php' class='user_link'>
+              <i class='fa fa-user' aria-hidden='true'></i>
+            </a>";
+            }
+            ?>
               <a class="cart_link" href="cart.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -123,12 +178,25 @@ session_start();
                   </g>
                 </svg>
               </a>
-              <a href="loginadmin.php" class="order_online">
+              <form action="logout.php" method="post">
+              <?php
+              if ($_SESSION["member_name"]){
+                
+                  ?>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <?php
+                echo "<button class='order_online'>登出</button>";
+              }
+              else{
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-             
-              
-              
+              <a href='register.php' class='order_online'>
+                註冊
+              </a>";
+              }
+              ?>
+            </form>
             </div>
           </div>
         </nav>
@@ -137,64 +205,27 @@ session_start();
     <!-- end header section -->
   </div>
 
-  
+  <!-- Start Cart  -->
+  <br>
+  <br>
 
-  <!-- food section -->
 
-  <section class="food_section layout_padding">
-    
-
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">管理員登入</p>
-
-                <form class="mx-1 mx-md-4" action="logincheckadmin.php" method="POST">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">帳號</label>
-                      <input name="account" type="text" class="form-control" placeholder=" Your account id" require/>
-                      
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">密碼</label>
-                      <input name="password" type="password" class="form-control" placeholder="Password" require/>
-                      
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button class="btn btn-warning btn-lg">登入</button>
-                  </div>
-                  <div class="text-center mt-4 font-weight-light">
-                  不是管理員？ <a href="login.php" class="text-primary">會員登入</a>
-                </div>
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="images/方禾logo.png" class="img-fluid" alt="Sample image">
-
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="container">
+    <div class="main-body">
+      <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+        <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">給予回饋</h1>
+        <form action="feedback.php" method="post">
+          <?php echo "<input type='hidden' name='order_id' value='$orderid'>";?>
+          <input class="form-control form-control-lg mt-0 mb-4" name=feedback type="text" placeholder="請留下您的寶貴意見...." aria-label="default input example">
+          <center><button class='btn btn-warning'>新增</button></center>
+      </form>
       </div>
     </div>
   </div>
-    </div>
-  </section>
+  <br>
+  <br>
+    <!-- End Cart -->
 
-  <!-- end food section -->
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -202,21 +233,21 @@ session_start();
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
               聯絡我們
             </h4>
             <div class="contact_link_box">
               <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+
                 <span>
                 242新北市新莊區中正路514巷53弄39號
                 </span>
               </a>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+
                 <span>
                   Call +02 2908-1397
                 </span>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+
                 <span>
                 storyboxtw@gmail.com
                 </span>
@@ -225,24 +256,24 @@ session_start();
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="index.php" class="footer-logo">
+            <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
-            <h5 style="color:aliceblue">
+            <h5 style="color:aliceblue;font-family: Arial, Helvetica, sans-serif;">
             健康飲食好夥伴
             </h5>
             <div class="footer_social">
               <a href="https://www.facebook.com/storyboxtw/about/?ref=page_internal">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <img src="images/fb.png" width="16" height="16" alt="" align="center">
               </a>
               <a href="https://www.instagram.com/storyboxtw/">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <img src="images/ig.jpg" width="16" height="16" alt="" align="center">
               </a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+          <h4 style="color:aliceblue; font-family: Arial, Helvetica, sans-serif;">
             營業時間
           </h4>
           <p>
@@ -262,6 +293,8 @@ session_start();
     </div>
   </footer>
   <!-- footer section -->
+
+
 
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -283,6 +316,24 @@ session_start();
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+
+  <!-- ALL JS FILES -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom1.js"></script>
 
 </body>
 
