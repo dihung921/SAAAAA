@@ -382,7 +382,6 @@ if($_SESSION['level']=="user"){
 
   <!-- offer section -->
 
-  
 
   <!-- end offer section -->
 
@@ -454,12 +453,12 @@ if($_SESSION['level']=="user"){
                                   <p class="num_add fl">
                                     <center>
                                       <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                      <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                      <input type="text" name="num" class="num_show fl" value="1"  style="text-align: center; width: 80%;"readonly>
                                       <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                     </center>
                                   </p>
                                   <div class="total" style="text-align: right;">總價：<em id="price">110</em> 元</div>
-                                  <script>
+                                  <script> 
                                     $(function () {
                                         //加號
                                         var price1 = parseFloat($('#price').text());
@@ -562,7 +561,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -667,7 +666,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -772,7 +771,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -877,7 +876,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -982,7 +981,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1087,7 +1086,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1192,7 +1191,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1297,7 +1296,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1402,7 +1401,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1490,7 +1489,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1569,7 +1568,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1650,7 +1649,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1738,7 +1737,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1832,7 +1831,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -1918,7 +1917,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2001,7 +2000,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2084,7 +2083,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2167,7 +2166,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2250,7 +2249,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2333,7 +2332,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2416,7 +2415,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2499,7 +2498,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2582,7 +2581,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2665,7 +2664,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2756,7 +2755,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2839,7 +2838,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -2922,7 +2921,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3005,7 +3004,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3088,7 +3087,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3171,7 +3170,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3254,7 +3253,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3347,7 +3346,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3430,7 +3429,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3513,7 +3512,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3595,7 +3594,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>
@@ -3677,7 +3676,7 @@ if($_SESSION['level']=="user"){
                                     <p class="num_add fl">
                                       <center>
                                         <input type="button" href="javascript:;" class="minus fr" value="-" style="float: left; width: 40px;">                      
-                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;">
+                                        <input type="text" name="num" class="num_show fl" value="1" style="text-align: center; width: 80%;"readonly>
                                         <input type="button" href="javascript:;" class="add fr" value="+" style="float: right; width: 40px;"> 
                                       </center>
                                     </p>

@@ -253,59 +253,60 @@ $email=$_SESSION["member_email"];
                             </thead>
                             <tbody align="center">
 
-                            <?php
-                                    $sql="select * from `cart` where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
-                                    $tot_price=0;
-                                    if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
+                                <?php
+                                $sql = "select * from cart where email = '$email'";
+                                $result = mysqli_query($link, $sql);
+                                $tot_price = 0;
+                                $_SESSION["tot_price"] = $tot_price;
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
                                         echo "
-                                              <td class='name-pr'>".$row["meal_id"]."</td>
-                                              <td class='name'>".$row["sm_id"]."</td>
-                                              <td class='name'>".$row["s_id"]."</td>
-                                              <td>".$row["note"]."</td>
+                                              <td class='name-pr'>" . $row["meal_id"] . "</td>
+                                              <td class='name'>" . $row["sm_id"] . "</td>
+                                              <td class='name'>" . $row["s_id"] . "</td>
+                                              <td>" . $row["note"] . "</td>
                                               <td>
                                                 <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center; width: 50px;' readonly>
+                                                <input type='text' name='num' class='num_show fl' value='" . $row["amount"] . "' style='text-align: center; width: 50px;' readonly>
                                                 <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
                                               </td>
-                                              <td class='total'><em id ='price'>".$row["price"]."</em></td>
-                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                              <td class='total'><em id ='price'>" . $row["price"] . "</em> 元</td>
+                                              <td><a href='delete.php?meal_id=" . $row["meal_id"] . "&sm_id=" . $row["sm_id"] . "&s_id=" . $row["s_id"] . "'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
                                         $tot_price += $row["price"];
-                                      }
-                                      $_SESSION["tot_price"]=$tot_price;
+                                        }
+                                        
                                     }
                                     else{
                                       echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
                                     }
-                              ?>
-                              <script>
-                                      $(function () {
-                                          //加號
-                                          var price1 = parseFloat($('#price').text());
-                                          var num = parseInt($('input[name="num"]').attr('value'));
-                                          $('.add').click(function(){
-                                              num++;
-                                              $('input[name="num"]').attr('value',num);
-                                              var total = num * price1;
-                                              $('#price').html(total.toFixed(0));
-                                          });
-                                          
-                                          //減號
-                                          $('.minus').click(function () {
-                                              if(num>1){
-                                                  num--;
-                                                  $('input[name="num"]').attr('value',num);
-                                                  console.log(num)
-                                                  var total = num * price1;
-                                                  $('#price13').text(total.toFixed(0));
+                                ?>
+                                <script>
+                                    $(function() {
+                                        //加號
+                                        var price1 = parseFloat($('#price').text());
+                                        var num = parseInt($('input[name="num"]').attr('value'));
+                                        $('.add').click(function() {
+                                            num++;
+                                            $('input[name="num"]').attr('value', num);
+                                            var total = num * price1;
+                                            $('#price').html(total.toFixed());
+                                        });
 
-                                              }
-                                          });
-                                      });
-                                    </script>
+                                        //減號
+                                        $('.minus').click(function() {
+                                            if (num > 1) {
+                                                num--;
+                                                $('input[name="num"]').attr('value', num);
+                                                console.log(num)
+                                                var total = num * price1;
+                                                $('#price').text(total.toFixed());
+
+                                            }
+                                        });
+                                    });
+                                </script>
 
                             </tbody>
                         </table>
