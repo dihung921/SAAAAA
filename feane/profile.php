@@ -26,7 +26,7 @@ session_start();
 
 $email = $_SESSION["member_email"];
 $link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from member where email = '$email'";
+$sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
       {
@@ -275,7 +275,7 @@ $rs=mysqli_query($link,$sql);
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="images/3.jpg" alt="Admin" class="rounded-circle" width="180">
                     <div class='mt-3'>
-                      <h3><?php echo $_SESSION["member_name"] ?></h3>
+                      <h3><?php echo "$name"; ?></h3>
                                
                     </div>
                   </div>
@@ -314,6 +314,15 @@ $rs=mysqli_query($link,$sql);
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo"$phone";?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">密碼</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <?php echo"$password";?>
                     </div>
                   </div>
                   <hr>
