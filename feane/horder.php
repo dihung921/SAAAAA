@@ -1,10 +1,27 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -129,7 +146,7 @@ $email=$_SESSION["member_email"];
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -188,14 +205,15 @@ $email=$_SESSION["member_email"];
                                 while($row1 = mysqli_fetch_array($rs1)){
                                   echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
                                 }
+                              echo"<p class='ext-dark'>店家備註 : ".$row["note"]."</p>";
                               echo"
                               <hr>
                             
-                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
+                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<span class='float-right'>顧客回饋 : ".$row["feedback"]."</span></p>
                               </div>
                             </div>
                             </div>
-                            </div>";         
+                            </div>";       
                             }
                           }
                           else {
