@@ -1,5 +1,13 @@
 <?php
 session_start();
+$link=mysqli_connect("localhost","root","12345678","sa");
+$sql = "select seat from `order1`";
+$result= mysqli_query($link,$sql);
+if($result){
+  $row= mysqli_fetch_array($result);
+  $seatnum = $row["seat"]; 
+}
+
 ?>
 <?php
 session_start();
@@ -18,6 +26,9 @@ $rs=mysqli_query($link,$sql);
       }
 ?>
 
+<?php
+    header("refresh: 10;url='seat.php'");
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +44,10 @@ $rs=mysqli_query($link,$sql);
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> 關於方禾 </title>
+  <link rel="stylesheet" href="style.css" />
+
+
+  <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -56,15 +70,18 @@ $rs=mysqli_query($link,$sql);
 
   <div class="hero_area">
     <div class="bg-box">
+
       <img src="images/ll6.png" alt="">
     </div>
     <!-- header section strats -->
+    
+
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
             <span style="font-family: Arial, Helvetica, sans-serif;">
-              方禾食呂
+            方禾食呂
             </span>
             </a>
 
@@ -88,17 +105,18 @@ $rs=mysqli_query($link,$sql);
 
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-            <?php
+          <ul class="navbar-nav  mx-auto ">
+
+          <?php
               if($_SESSION['level']=="user"){
               echo"<li class='nav-item '>
-                <a class='nav-link' href='index.php'>訂餐首頁 </a>
+                <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
-              <li class='nav-item active'>
-                <a class='nav-link' href='about.php'>關於方禾<span class='sr-only'>(current)</span></a>
-              </li>
               <li class='nav-item'>
+                <a class='nav-link' href='about.php'>關於方禾</a>
+              </li>
+              <li class='nav-item active'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>
               ";
@@ -111,12 +129,12 @@ $rs=mysqli_query($link,$sql);
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<li class='nav-item '>
-                       <a class='nav-link' href='index.php'>訂餐首頁 </a>
+                       echo"<li class='nav-item active'>
+                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
                      </li>
                     
-                     <li class='nav-item active'>
-                       <a class='nav-link' href='about.php'>關於方禾<span class='sr-only'>(current)</span></a>
+                     <li class='nav-item'>
+                       <a class='nav-link' href='about.php'>關於方禾</a>
                      </li>
                      <li class='nav-item'>
                        <a class='nav-link' href='seat.php'>店內座位狀況</a>
@@ -130,7 +148,6 @@ $rs=mysqli_query($link,$sql);
               echo "<a href='profile.php' class='user_link'>
               <i class='fa fa-user' aria-hidden='true'></i>
             </a>";
-
             echo"<a class='cart_link' href='cart.php'>
             <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 456.029 456.029' style='enable-background:new 0 0 456.029 456.029;' xml:space='preserve'>
               <g>
@@ -186,10 +203,10 @@ $rs=mysqli_query($link,$sql);
             </svg>
           </a>";
             }
+            ?>
 
             
-            ?>
-              
+
               <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
@@ -198,17 +215,20 @@ $rs=mysqli_query($link,$sql);
                   <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
-              }
+            
+            }
+         
               else{
-                echo "<a href='login.php' class='order_online'>
+                echo "<a href='login.php' class='order_online' style='text-decoration:none;'>
                 登入
               </a>
-              <a href='register.php' class='order_online'>
+              <a href='register.php' class='order_online' style='text-decoration:none;'>
                 註冊
               </a>";
               }
               ?>
             </form>
+
             </div>
           </div>
         </nav>
@@ -217,49 +237,211 @@ $rs=mysqli_query($link,$sql);
     <!-- end header section -->
   </div>
 
-  <!-- about section -->
 
-  <section class="about_section layout_padding"style="background-color:#ca9c44de;">
-    <div class="container" >
+  <!-- book section -->
+  <div class="cseat">
+ 
+      <h5 style="color:snow;">店內座位狀況圖</h5>
+      
+   
+<div class="movie-container">
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>空位</small>
+      </li>
+      <li>
+        <div class="seat occupied" style="background-color:#BF5353;"></div>
+        <small>已滿</small>
+      </li>
+    </ul>
+</div>
+    <div class="container2">
+    <div class="wrapper">
 
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="images/泰式打拋豬.jpeg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2 style="font-family: Arial, Helvetica, sans-serif;">
-                方禾食呂
-              </h2>
-            </div>
-            <p>
-            方禾食呂，是一家開在輔仁大學旁的健康餐餐廳，老闆會選擇這個地點的原因，
-            就是想要吸引輔仁大學的學生前去用餐以及外帶，但客群除了學生外，上述那些注重健康以及追求體態的人們，也是方禾食呂的常客之一。 
-            目前方禾食呂所供應的商品有：健康餐盒、美味捲餅、沙拉水果、主食單品、其他單品以及飲料等等。
-            </p>
-            
-          </div>
-        </div>
+      <div class="two"> 
+        <?php
+        if($seatnum == 1){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>1</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>1</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 2){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>2</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>2</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 3){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>3</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>3</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 4){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>4</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>4</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 5){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>5</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>5</h6></div>";
+        }
+        ?>
+      </div>
+
+      <div class="three"> 
+        <div class="row">
+        <?php
+        if($seatnum == 6){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>6</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>6</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 7){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>7</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>7</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 8){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>8</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>8</h6></div>";
+        } 
+        ?>
+        <?php
+        if($seatnum == 9){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>9</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>9</h6></div>";
+        }
+        ?>
+        <?php
+        if($seatnum == 10){
+          echo" <div class='seat occupied' style='background-color:#BF5353;'><h6>10</h6></div>";
+        }
+        else{
+          echo" <div class='seat'><h6>10</h6></div>";
+        }
+        ?>
+       
+      </div></div>
+
+      <div class="four">
+      
+      <?php
+        if($seatnum == 11){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>11</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>11</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 13){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>13</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>13</h6></div>";
+        }
+        ?>
+      </div>
+
+     <div class="five">
+     <?php
+        if($seatnum == 12){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>12</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>12</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 14){
+          echo" <div class='seat3 occupied' style='background-color:#BF5353;'><h6>14</h6></div>";
+        }
+        else{
+          echo" <div class='seat3'><h6>14</h6></div>";
+        }
+        ?>
+    </div>
+
+    <div class="six">
+    <?php
+        if($seatnum == 15){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>15</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>15</h6></div>";
+        }
+        ?>
+      <?php
+        if($seatnum == 16){
+          echo" <div class='seat2 occupied' style='background-color:#BF5353;'><h6>16</h6></div>";
+        }
+        else{
+          echo" <div class='seat2'><h6>16</h6></div>";
+        }
+        ?>
+    </div>
+
+    <div class="seven">
+    <div class="row">
+      <div class="screen2"><center>櫃檯</center></div>
+    </div></div>
+
+    <div class="eight">
+    <div class="row">
+      <div class="screen2"><center>自助餐具區</center></div>
+    </div></div>
+
+      
+
+      
+      
+        
       </div>
     </div>
-  </section>
+    <p>此網頁每10秒更新一次</p>
+</div>
+</div>
 
-  <!-- end about section -->
 
-<!-- footer section -->
-<footer class="footer_section" style="background-color:#586D4E;">
+
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4 style="font-family: Arial, Helvetica, sans-serif;">
+
               聯絡我們
             </h4>
             <div class="contact_link_box">
-              <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
+            <a href="https://www.google.com/maps/place/%E6%96%B9%E7%A6%BE%E9%A3%9F%E5%91%82/@25.03403,121.430541,15z/data=!4m2!3m1!1s0x0:0xe3a4beb2b893c821?sa=X&ved=2ahUKEwibkauQl6f3AhV1yosBHaD9AY4Q_BJ6BAhgEAU">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
                 242新北市新莊區中正路514巷53弄39號
@@ -278,6 +460,7 @@ $rs=mysqli_query($link,$sql);
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
+
             <a href="index.php" class="footer-logo" style="font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </a>
@@ -291,11 +474,13 @@ $rs=mysqli_query($link,$sql);
               <a href="https://www.instagram.com/storyboxtw/">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
+
             </div>
           </div>
         </div>
-        <div class="col-md-4 footer-col" >
+        <div class="col-md-4 footer-col">
           <h4 style="font-family: Arial, Helvetica, sans-serif;">
+
             營業時間
           </h4>
           <p>
@@ -303,13 +488,16 @@ $rs=mysqli_query($link,$sql);
           </p>
           <p>
             10:00 AM ~ 19:00 PM
+
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
+
           <a href="https://html.design/">SA05</a><br><br>
+
         </p>
       </div>
     </div>
@@ -334,9 +522,15 @@ $rs=mysqli_query($link,$sql);
   <script src="js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+
   </script>
   <!-- End Google Map -->
+  <script src="js/seat.js"></script>
+
 
 </body>
+
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 </html>
