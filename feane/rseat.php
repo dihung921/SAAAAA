@@ -1,7 +1,7 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
-$sql = "select seat from order1";
+$link=mysqli_connect("localhost","root","12345678","sa");
+$sql = "select seat from `order1`";
 $result= mysqli_query($link,$sql);
 if($result){
   $row= mysqli_fetch_array($result);
@@ -13,8 +13,8 @@ if($result){
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from member where email = '$email'";
+$link=mysqli_connect("localhost","root","12345678","sa");
+$sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
       {

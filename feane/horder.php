@@ -1,16 +1,17 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $email=$_SESSION["member_email"];
+$searchtext = $_POST["searchtext"];
 ?>
 <?php
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from member where email = '$email'";
+$link=mysqli_connect("localhost","root","12345678","sa");
+$sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
       {
@@ -179,46 +180,81 @@ $rs=mysqli_query($link,$sql);
     
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                    
+                      <form action="horder.php" method="post">
+                      <p align=right>請輸入訂單編號或訂購者姓名：<input type="text" name="searchtext" value=<? echo $searchtext ?>><button class= "btn btn-warning">搜尋</button></p>
+                      </form>
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
                         <?php
                           $sql="select * from `order1` where cond = 2 order by time DESC";
                           $rs=mysqli_query($link,$sql);
-
-                          if(mysqli_num_rows($rs) > 0 ){
-                            while($row = mysqli_fetch_array($rs)){
-                              $time=$row["time"];
-                              $email=$row["email"];
-                              $sql1="select * from `detail` where time = '$time' and email = '$email'";
-                              $rs1=mysqli_query($link,$sql1);
-                              $sql2="select name from `member` where email = '$email'";
-                              $rs2=mysqli_query($link,$sql2);
-                              $row2=mysqli_fetch_array($rs2);
-                              echo"
-                              <div class='bg-white card mb-4 order-list shadow-sm'>
-                                  <div class='gold-members p-4'>
-                                      <div class='media'>
-                                        <div class='media-body'>
-                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-dark'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                          if(empty($searchtext)){
+                            if(mysqli_num_rows($rs) > 0 ){
+                              while($row = mysqli_fetch_array($rs)){
+                                $time=$row["time"];
+                                $email=$row["email"];
+                                $sql1="select * from `detail` where time = '$time' and email = '$email'";
+                                $rs1=mysqli_query($link,$sql1);
+                                echo"
+                                <div class='bg-white card mb-4 order-list shadow-sm'>
+                                    <div class='gold-members p-4'>
+                                        <div class='media'>
+                                          <div class='media-body'>
+                                            <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
+                                            <span class='float-right text-dark'>訂購者姓名：".$row["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
-                                while($row1 = mysqli_fetch_array($rs1)){
-                                  echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
-                                }
-                              echo"<p class='ext-dark'>店家備註 : ".$row["note"]."</p>";
-                              echo"
-                              <hr>
-                            
-                              <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<span class='float-right'>顧客回饋 : ".$row["feedback"]."</span></p>
+                                  while($row1 = mysqli_fetch_array($rs1)){
+                                    echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                    echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
+                                  }
+                                echo"<p class='ext-dark'>店家備註 : ".$row["note"]."</p>";
+                                echo"
+                                <hr>
+                              
+                                <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."<span class='float-right'>顧客回饋 : ".$row["feedback"]."</span></p>
+                                </div>
                               </div>
-                            </div>
-                            </div>
-                            </div>";       
+                              </div>
+                              </div>";       
+                              }
                             }
-                          }
+                        }
                           else {
-                            echo"尚未有訂單。";
-                          }
+                            $sql2="select * from `order1` where order_id like '%$searchtext%' or name like '%$searchtext%' order by time DESC";
+                            $rs2=mysqli_query($link,$sql2);
+                            if(mysqli_num_rows($rs2) > 0 ){
+                              while($row2 = mysqli_fetch_array($rs2)){
+                                $time=$row2["time"];
+                                $email=$row2["email"];
+                                $sql1="select * from `detail` where time = '$time' and email = '$email'";
+                                $rs1=mysqli_query($link,$sql1);
+                                echo"
+                                <div class='bg-white card mb-4 order-list shadow-sm'>
+                                    <div class='gold-members p-4'>
+                                        <div class='media'>
+                                          <div class='media-body'>
+                                            <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row2["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row2["time"]."
+                                            <span class='float-right text-dark'>訂購者姓名：".$row2["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+
+
+                                  while($row1 = mysqli_fetch_array($rs1)){
+                                    echo"<p class='ext-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                    echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
+                                  }
+                                echo"<p class='ext-dark'>店家備註 : ".$row2["note"]."</p>";
+                                echo"
+                                <hr>
+                              
+                                <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row2["tot_price"]."<span class='float-right'>顧客回饋 : ".$row2["feedback"]."</span></p>
+                                </div>
+                              </div>
+                              </div>
+                              </div>";       
+                              }
+                            }
+                        }
+                        
                             ?>
 
 
@@ -228,6 +264,7 @@ $rs=mysqli_query($link,$sql);
         
               
             </div>
+          
           </div>
 
         </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
@@ -16,7 +16,7 @@ if(isset($_POST["way"])){
     }
   }
   else{
-    $sql="insert into way(way) values ('1')";
+    $sql="insert into `way`(way) values ('1')";
     $rs=mysqli_query($link,$sql);
     if($rs){
       $_SESSION["way"]=$way;
@@ -30,8 +30,8 @@ if(isset($_POST["way"])){
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from member where email = '$email'";
+$link=mysqli_connect("localhost","root","12345678","sa");
+$sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
       {
@@ -3777,55 +3777,7 @@ if($_SESSION['level']=="user"){
 
   <!-- client section -->
 
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2 style="font-family: Arial, Helvetica, sans-serif;">
-          顧客評論區
-        </h2>
-      </div>
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                </p>
-                <h6>
-                  Moana Michell
-                </h6>
-                <p>
-                  magna aliqua
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client1.jpg" alt="" class="box-img">
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                </p>
-                <h6>
-                  Mike Hamell
-                </h6>
-                <p>
-                  magna aliqua
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client2.jpg" alt="" class="box-img">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- end client section -->
 
