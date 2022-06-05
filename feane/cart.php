@@ -329,14 +329,11 @@ $rs=mysqli_query($link,$sql);
                     </div>
                 </div>
             </div>
-            
-            
             <div class="row justify-content-end">
             
             <div class="col-6" >
                 <div>
                     <div class="update-box">
-                    
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'"> 
                       
                     </div>
@@ -345,8 +342,8 @@ $rs=mysqli_query($link,$sql);
           
            
             <?php
-                    echo"<form>
-                  
+                    echo"
+                  <form action='insert.php' method='post'>
                    <div class=detail-box>
                       <div class=row my-12>
                         <div class='col-lg-12 col-sm-15'>
@@ -380,10 +377,12 @@ $rs=mysqli_query($link,$sql);
                                             </div>
                                         <div class='modal-body'>
                                             即將送出訂單！
+                                            <p>請選擇您希望的取餐時間 <input type='time' name='hopetime'></p>
+                                            
                                         </div>
                                             <div class='modal-footer'>
                                                 <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                                <a class ='btn btn-warning'  href=insert.php>送出</a>
+                                                <button class ='btn btn-warning'>送出</button>
                                             </div>
                                             </div>
                                             </div>
