@@ -6,7 +6,7 @@ $phone=$_POST["phone"];
 $password=$_POST["password"];
 
 
-$link=mysqli_connect("localhost" ,"root" ,"","sa");
+$link=mysqli_connect("localhost" ,"root" ,"12345678","sa");
 
 if($method == "updateprofile.php")
 {
