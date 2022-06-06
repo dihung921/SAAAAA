@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link = mysqli_connect("localhost","root","12345678","sa");
+$link = mysqli_connect("localhost","root","","sa");
 
 
 if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
@@ -25,7 +25,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 $sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
@@ -317,15 +317,7 @@ $rs=mysqli_query($link,$sql);
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">密碼</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo"$password";?>
-                    </div>
-                  </div>
-                  <hr>
+                 
                  
                   <div class="row">
                     <div class="col-sm-12">

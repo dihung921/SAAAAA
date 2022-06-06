@@ -7,7 +7,7 @@ $tot_price=$_SESSION["tot_price"];
 $way=$_SESSION["way"];
 $seatnum=$_SESSION["seatnum"];
 $hopetime=$_POST["hopetime"];
-$link = mysqli_connect("localhost","root","12345678","sa");
+$link = mysqli_connect("localhost","root","","sa");
 
 $sql="select * from `cart` where email = '$email'";
 $result=mysqli_query($link,$sql);

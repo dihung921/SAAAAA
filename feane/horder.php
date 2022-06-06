@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
@@ -10,7 +10,7 @@ $searchtext = $_POST["searchtext"];
 session_start();
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
+$link=mysqli_connect("localhost","root","","sa");
 $sql="select * from `member` where email = '$email'";
 $rs=mysqli_query($link,$sql);
    if($record=mysqli_fetch_row($rs))
@@ -181,9 +181,11 @@ $rs=mysqli_query($link,$sql);
                 
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                     
-                      <form action="horder.php" method="post">
-                      <p align=right>請輸入訂單編號或訂購者姓名：<input type="text" name="searchtext" value=<? echo $searchtext ?>><button class= "btn btn-warning">搜尋</button></p>
-                      </form>
+                    <nav class="navbar navbar-light bg-light">
+                    
+                    <a ></a>
+                      <form class="d-flex" action="horder.php" method="post"><input class="form-control me-2" type="search" placeholder="訂單編號/姓名" name="searchtext" value=<?php echo $searchtext ?>>&nbsp&nbsp&nbsp <button class="btn btn-outline-success" type="submit">搜尋</button>
+                      </form></div></nav><br>
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
                         <?php
                           $sql="select * from `order1` where cond = 2 order by time DESC";
