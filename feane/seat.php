@@ -1,34 +1,17 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql = "select seat from `order1`";
-$result= mysqli_query($link,$sql);
+require_once("conn.php");
+
+$result = $conn->query("select seat from order1");
+
 if($result){
   $row= mysqli_fetch_array($result);
   $seatnum = $row["seat"]; 
 }
 
-?>
-<?php
-session_start();
+header("refresh: 10;url='seat.php'");
 
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
 ?>
-
-<?php
-    header("refresh: 10;url='seat.php'");
-    ?>
 <!DOCTYPE html>
 <html>
 
@@ -118,27 +101,18 @@ $rs=mysqli_query($link,$sql);
               </li>
               <li class='nav-item active'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
-              </li>
-              ";
+              </li>";
               }
-             
-                   else if($_SESSION['level']=="admin"){
+              ?>
+                <?php
+                   if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
                               <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
-                       echo"<li class='nav-item active'>
-                       <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
-                     </li>
-                    
-                     <li class='nav-item'>
-                       <a class='nav-link' href='about.php'>關於方禾</a>
-                     </li>
-                     <li class='nav-item'>
-                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
-                     </li>";
+                       echo"<td>&nbsp;</td></tr>";
                       }
                                       ?>
             </ul>
@@ -204,30 +178,21 @@ $rs=mysqli_query($link,$sql);
           </a>";
             }
             ?>
-
-            
-
-              <form action="logout.php" method="post">
-              <?php
+            <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
-            
-            }
-         
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
+              }
               else{
-                echo "<a href='login.php' class='order_online' style='text-decoration:none;'>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style='text-decoration:none;'>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
               ?>
-            </form>
 
             </div>
           </div>
@@ -531,6 +496,6 @@ $rs=mysqli_query($link,$sql);
 </body>
 
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /
 
 </html>

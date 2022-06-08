@@ -1,14 +1,13 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+require_once("conn.php");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
   if($way == 0){
     if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
-      $rs=mysqli_query($link,$sql);
+      $rs = $conn->query("insert into `way`( way, seat) values ('0', '$seatnum')");
       if($rs){
         $_SESSION["way"]=$way;
         $_SESSION["seatnum"]=$seatnum;
@@ -16,8 +15,7 @@ if(isset($_POST["way"])){
     }
   }
   else{
-    $sql="insert into `way`(way) values ('1')";
-    $rs=mysqli_query($link,$sql);
+    $rs = $conn->query("insert into way(way) values ('1')");
     if($rs){
       $_SESSION["way"]=$way;
       $_SESSION["seatnum"]=100;
@@ -25,22 +23,6 @@ if(isset($_POST["way"])){
     header("Location:index.php");
   }
 }
-?>
-<?php
-session_start();
-
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
 ?>
 
 
@@ -280,36 +262,21 @@ if($_SESSION['level']=="user"){
             ?>
 
               
-              
-              <form action="logout.php" method="post">
-
-          
               <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo "$name";?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
-            
-            }
-            elseif ($_SESSION["admin_account"]){
-                
-              ?>
-              <a style="color: white"><?php echo $_SESSION["admin_account"]; ?></a>
-              <?php
-            echo "<button class='order_online'>登出</button>";
-            }
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
+              }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>

@@ -1,25 +1,7 @@
 <?php
 session_start();
-
-$link=mysqli_connect("localhost","root","12345678","sa");
-
+require_once("conn.php");
 $email=$_SESSION["member_email"];
-?>
-<?php
-session_start();
-
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
 ?>
 
 
@@ -226,7 +208,7 @@ $rs=mysqli_query($link,$sql);
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
+                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -271,11 +253,11 @@ $rs=mysqli_query($link,$sql);
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from `cart` where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
+                                    $result=$conn->query("select * from `cart` where email = '$email'");
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
+                                        $price = $row["price"] * $row["amount"];
                                         echo "<tr>";
                                         echo "
                                               <td class='name-pr'>".$row["meal_id"]."</td>
@@ -283,14 +265,14 @@ $rs=mysqli_query($link,$sql);
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
-                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='".$row["amount"]."' style='text-align: center; width: 50px;' readonly>
-                                                <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
+                                                <a href='down.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>-</a>
+                                                <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>
+                                                <a href='up.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>+</a>
                                               </td>
-                                              <td class='total'><em id ='price'>".$row["price"]."</em></td>
+                                              <td class='total'>$price</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
-                                        $tot_price += $row["price"];
+                                        $tot_price += $price;
                                       }
                                       $_SESSION["tot_price"]=$tot_price;
                                     }
@@ -298,31 +280,7 @@ $rs=mysqli_query($link,$sql);
                                       echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
                                     }
                               ?>
-                              <script>
-                                    $(function () {
-                                        //加號
-                                        var price1 = parseFloat($('#price').text());
-                                        var num = parseInt($('input[name="num"]').attr('value'));
-                                        $('.add').click(function(){
-                                            num++;
-                                            $('input[name="num"]').attr('value',num);
-                                            var total = num * price1;
-                                            $('#price').html(total.toFixed(0));
-                                        });
-
-                                        //減號
-                                        $('.minus').click(function () {
-                                            if(num>1){
-                                                num--;
-                                                $('input[name="num"]').attr('value',num);
-                                                console.log(num)
-                                                var total = num * price1;
-                                                $('#price').text(total.toFixed(0));
-
-                                            }
-                                        });
-                                    });
-                                </script>
+                              
 
                             </tbody>
                         </table>

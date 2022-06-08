@@ -1,7 +1,6 @@
 <?php
    session_start();
-
-   $link = mysqli_connect("localhost", "root","12345678","sa");
+   require_once("conn.php");
   
    
 
@@ -12,8 +11,7 @@
    if(isset($_POST["email"])&& isset($_POST["password"])){
        $email = $_POST["email"];
        $password = $_POST["password"];
-       $sql="select * from `member` where email ='$email'";
-       $rs=mysqli_query($link,$sql);
+       $rs=$conn->query("select * from `member` where email ='$email'");
       
    if($row = mysqli_fetch_array($rs)){
        if($row["password"] == $_POST["password"]){

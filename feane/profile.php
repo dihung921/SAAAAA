@@ -1,14 +1,21 @@
 <?php
 session_start();
+require_once("conn.php");
+$email = $_SESSION["member_email"];
+$rs = $conn->query("select * from member where email = '$email'");
 
-$link = mysqli_connect("localhost","root","12345678","sa");
-
+  if($record=mysqli_fetch_row($rs)){
+    $name = $record['0'];
+    $email = $record['1'];
+    $phone = $record['2'];
+    $password = $record['3'];
+  }
 
 if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
-  $sql="update `order1` set feedback = '$feedback' where order_id='$orderid1'";
-  $rs=mysqli_query($link,$sql);
+
+  $rs = $conn->query("update order1 set feedback = '$feedback' where order_id='$orderid1'");
 
   if($rs){
     echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
@@ -19,23 +26,6 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   }
 }
 
-
-?>
-<?php
-session_start();
-
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
 ?>
 
 <!DOCTYPE html>
@@ -233,14 +223,12 @@ $rs=mysqli_query($link,$sql);
             }
             ?>
               
-              <form action="logout.php" method="post">
+              
               <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -251,7 +239,6 @@ $rs=mysqli_query($link,$sql);
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>
@@ -275,7 +262,7 @@ $rs=mysqli_query($link,$sql);
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="images/3.jpg" alt="Admin" class="rounded-circle" width="180">
                     <div class='mt-3'>
-                      <h3><?php echo "$name"; ?></h3>
+                      <h3><?php echo $name; ?></h3>
                                
                     </div>
                   </div>
@@ -341,16 +328,15 @@ $rs=mysqli_query($link,$sql);
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
                           $email=$_SESSION["member_email"];
-                          $sql="select * from `order1` where email='$email' order by time DESC";
-                          $rs=mysqli_query($link,$sql);
+
+                          $rs = $conn->query("select * from `order1` where email='$email' order by time DESC");
                           
                           
 
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $orderid=$row["order_id"];
-                              $sql2="select * from `detail` where email='$email' and order_id='$orderid'";
-                              $rs2=mysqli_query($link,$sql2);
+                              $rs2 = $conn->query("select * from `detail` where email='$email' and order_id='$orderid'");
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>
@@ -407,7 +393,7 @@ $rs=mysqli_query($link,$sql);
                                           </div>
                                       </div>
                                       <hr>
-                                            <p>餐點流程</p>
+                                            <p>餐點流程<span class='float-right'>希望取餐時間 ： ".$row["hopetime"]."</span></p>
                                             <div class='col-lg-6 col-md-12 col-xs-12'>
                                               <span class='irs js-irs-0 irs-with-grid'>
                                                 <span class='irs' style='width:650px;'>
@@ -459,7 +445,7 @@ $rs=mysqli_query($link,$sql);
                             ?>
 
 
-                            </div>
+                          </div>
                         </div>
                     </div>
         

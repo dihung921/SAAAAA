@@ -1,13 +1,14 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+require_once("conn.php");
+
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 
 if(isset($_POST["note"])){
   $note=$_POST["note"];
-  $sql10="update `order1` set note = '$note'";
-  $rs10=mysql_query($link,$sql10);
+
+  $rs10 = $conn->query("update order1 set note = '$note'");
 
   if($rs10){
     echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
@@ -17,22 +18,6 @@ if(isset($_POST["note"])){
     echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
   }
 }
-?>
-<?php
-session_start();
-
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
 ?>
 
 
@@ -158,14 +143,11 @@ $rs=mysqli_query($link,$sql);
               
 
               
-              <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-
-                  ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -176,7 +158,6 @@ $rs=mysqli_query($link,$sql);
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>
@@ -208,10 +189,8 @@ $rs=mysqli_query($link,$sql);
                         </ul>
                         <div class='tab-content' id='myTabContent'>
                         <?php
-                          $sql="select * from `order1` where cond = 0 order by time ASC";
-                          $rs=mysqli_query($link,$sql);
-                          $sql3="select * from `order1` where cond = 1 order by time ASC";
-                          $rs3=mysqli_query($link,$sql3);
+                          $rs = $conn->query("select * from `order1` where cond = 0 order by time ASC");
+                          $rs3 = $conn->query("select * from `order1` where cond = 1 order by time ASC");
                           echo"
                           
                           <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab' >";
