@@ -20,22 +20,7 @@ if(isset($_POST["feedback"]) && isset($_POST["order_id"])){
   }
 }
 ?>
-<?php
-session_start();
 
-$email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
-?>
 
 
 <!DOCTYPE html>
@@ -195,14 +180,11 @@ $rs=mysqli_query($link,$sql);
                   </g>
                 </svg>
               </a>
-              <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -213,7 +195,6 @@ $rs=mysqli_query($link,$sql);
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>
