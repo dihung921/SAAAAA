@@ -270,7 +270,7 @@ if(isset($_POST["note"])){
 
                               $rs4 = $conn->query("select * from `detail` where order_id = '$orderid3' and email = '$email3'");
                               $rs5 = $conn->query("select name from `member` where email = '$email3'");
-                              
+
                               $row5=mysqli_fetch_array($rs5);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
