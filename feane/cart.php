@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 $email=$_SESSION["member_email"];
 ?>
 
@@ -253,8 +253,7 @@ $email=$_SESSION["member_email"];
                             <tbody align="center">
 
                             <?php
-                                    $sql="select * from `cart` where email = '$email'";
-                                    $result=mysqli_query($link,$sql);
+                                    $result=$conn->query("select * from `cart` where email = '$email'");
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {

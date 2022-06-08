@@ -1,7 +1,7 @@
 <?php
 session_start();
+require_once("conn.php");
 
-$link=mysqli_connect("localhost","root","","sa");
 
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
@@ -9,19 +9,17 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $email=$_POST["email"];
   $phone=$_POST["phone"];
   $password=$_POST["password"];
-  
-  echo $name,$email,$phone,$password;
-  $sql="select `email` from `member` where email='$email'";
 
+  $result = $conn->query("select email from `member` where email='$email'");
 
-  $result=mysqli_query($link,$sql);
   if(mysqli_num_rows($result) >= 1){
     
     echo "<script>{window.alert('此信箱已被註冊！'); location.href='register.php'}</script>";
   }
   else{
-    $register="insert into `member`(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')";
-    $result2=mysqli_query($link,$register);
+
+    $result2 = $conn->query("insert into member(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')");
+
     if($result2){
       echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";
     }

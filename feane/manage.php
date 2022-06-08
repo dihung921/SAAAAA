@@ -1,13 +1,14 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
+
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 
 if(isset($_POST["note"])){
   $note=$_POST["note"];
-  $sql10="update `order1` set note = '$note'";
-  $rs10=mysql_query($link,$sql10);
+
+  $rs10 = $conn->query("update order1 set note = '$note'");
 
   if($rs10){
     echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
@@ -334,8 +335,11 @@ if(isset($_POST["note"])){
                             while($row3 = mysqli_fetch_array($rs3)){
                               $orderid3=$row3["order_id"];
                               $email3=$row3["email"];
-                              $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
-                              $rs4=mysqli_query($link,$sql4);
+
+                              $rs4 = $conn->query("select * from `detail` where order_id = '$orderid3' and email = '$email3'");
+                              $rs5 = $conn->query("select name from `member` where email = '$email3'");
+
+                              $row5=mysqli_fetch_array($rs5);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>
