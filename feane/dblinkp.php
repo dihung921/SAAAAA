@@ -6,7 +6,7 @@ $phone=$_POST["phone"];
 $password=$_POST["password"];
 
 
-$link=mysqli_connect("localhost" ,"root" ,"","sa");
+$link=mysqli_connect("localhost" ,"root" ,"12345678","sa");
 
 if($method == "updateprofile.php")
 {
@@ -19,7 +19,7 @@ if($method == "updateprofile.php")
     }
     else
 {
-    $sql="update `member` set name = '$name', email ='$email' , phone ='$phone' , password ='$password' where email='$email'";
+    $sql="update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'";
 echo $sql;
 if(mysqli_query($link,$sql))
 {

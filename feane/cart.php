@@ -1,10 +1,27 @@
 <?php
 session_start();
 
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 
 $email=$_SESSION["member_email"];
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -209,7 +226,7 @@ $email=$_SESSION["member_email"];
               if ($_SESSION["member_name"]){
                 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }
@@ -312,14 +329,11 @@ $email=$_SESSION["member_email"];
                     </div>
                 </div>
             </div>
-            
-            
             <div class="row justify-content-end">
             
             <div class="col-6" >
                 <div>
                     <div class="update-box">
-                    
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'"> 
                       
                     </div>
@@ -328,8 +342,8 @@ $email=$_SESSION["member_email"];
           
            
             <?php
-                    echo"<form>
-                  
+                    echo"
+                  <form action='insert.php' method='post'>
                    <div class=detail-box>
                       <div class=row my-12>
                         <div class='col-lg-12 col-sm-15'>
@@ -363,10 +377,12 @@ $email=$_SESSION["member_email"];
                                             </div>
                                         <div class='modal-body'>
                                             即將送出訂單！
+                                            <p>請選擇您希望的取餐時間 <input type='time' name='hopetime'></p>
+                                            
                                         </div>
                                             <div class='modal-footer'>
                                                 <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                                <a class ='btn btn-warning'  href=insert.php>送出</a>
+                                                <button class ='btn btn-warning'>送出</button>
                                             </div>
                                             </div>
                                             </div>

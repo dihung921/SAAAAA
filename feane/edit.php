@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 if(isset($_GET["order_id"])){
   $orderid=$_GET["order_id"];
 }
@@ -8,7 +8,7 @@ if(isset($_GET["order_id"])){
 if(isset($_POST["note"]) && isset($_POST["order_id"])){
   $note=$_POST["note"];
   $orderid1=$_POST["order_id"];
-  $sql="update order1 set note = '$note' where order_id='$orderid1'";
+  $sql="update `order1` set note = '$note' where order_id='$orderid1'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){
@@ -20,6 +20,23 @@ if(isset($_POST["note"]) && isset($_POST["order_id"])){
   }
 }
 ?>
+<?php
+session_start();
+
+$email = $_SESSION["member_email"];
+$link=mysqli_connect("localhost","root","","sa");
+$sql="select * from member where email = '$email'";
+$rs=mysqli_query($link,$sql);
+   if($record=mysqli_fetch_row($rs))
+      {
+        $name = $record['0'];
+        $email = $record['1'];
+        $phone = $record['2'];
+        $password = $record['3'];
+       
+      }
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -136,7 +153,7 @@ if(isset($_POST["note"]) && isset($_POST["order_id"])){
               if ($_SESSION["member_name"]){
 
                   ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
+                  <a style="color: white"><?php echo "$name"; ?></a>
                   <?php
                 echo "<button class='order_online'>登出</button>";
               }

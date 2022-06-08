@@ -1,11 +1,11 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+$link=mysqli_connect("localhost","root","12345678","sa");
 $email=$_SESSION["member_email"];
 
 if(isset($_GET["order_id"])){
     $orderid=$_GET["order_id"];
-    $sql="select * from detail where order_id='$orderid'";
+    $sql="select * from `detail` where order_id='$orderid'";
     $rs=mysqli_query($link,$sql);
     while($row=mysqli_fetch_array($rs)){
         $meal_id=$row["meal_id"];
