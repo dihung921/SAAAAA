@@ -1,10 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
-$link=mysqli_connect("localhost","root","","sa");
-=======
 require_once("conn.php");
->>>>>>> e55bbd311c2b7a45c3e58a6319581f681fc97e8b
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 ?>
