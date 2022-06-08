@@ -8,7 +8,7 @@ if(isset($_GET["order_id"])){
 if(isset($_POST["note"]) && isset($_POST["order_id"])){
   $note=$_POST["note"];
   $orderid1=$_POST["order_id"];
-  $sql="update order1 set note = '$note' where order_id='$orderid1'";
+  $sql="update `order1` set note = '$note' where order_id='$orderid1'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){

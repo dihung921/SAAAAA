@@ -1,7 +1,7 @@
 <?php
 session_start();
 $link=mysqli_connect("localhost","root","","sa");
-$sql = "select seat from order1";
+$sql = "select seat from `order1`";
 $result= mysqli_query($link,$sql);
 if($result){
   $row= mysqli_fetch_array($result);

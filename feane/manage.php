@@ -5,7 +5,7 @@ $email=$_SESSION["member_email"];
 
 if(isset($_POST["note"])){
   $note=$_POST["note"];
-  $sql10="update order1 set note = '$note'";
+  $sql10="update `order1` set note = '$note'";
   $rs10=mysql_query($link,$sql10);
 
   if($rs10){

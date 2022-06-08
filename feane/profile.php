@@ -16,7 +16,7 @@ $rs=mysqli_query($link,$sql);
 if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
-  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
+  $sql="update `order1` set feedback = '$feedback' where order_id='$orderid1'";
   $rs=mysqli_query($link,$sql);
 
   if($rs){
@@ -439,7 +439,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                             ?>
 
 
-                            </div>
+                          </div>
                         </div>
                     </div>
         
