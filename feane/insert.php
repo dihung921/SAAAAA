@@ -56,7 +56,7 @@ else{
             $amount=$row["amount"];
             $note=$row["note"];
             $price = $row["price"];
-            $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', now(), '$note')";
+            $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, name, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', '$name', now(), '$note')";
             $rs=mysqli_query($link,$sql2);
         }
     
