@@ -3,7 +3,6 @@ session_start();
 
 $link = mysqli_connect("localhost","root","","sa");
 
-
 if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
@@ -18,6 +17,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
     echo"<script>{window.alert('請再試一次！'); location.href='profile.php'}</script>";
   }
 }
+
 
 
 ?>
@@ -441,7 +441,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                             ?>
 
 
-                            </div>
+                          </div>
                         </div>
                     </div>
         
