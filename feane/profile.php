@@ -1,11 +1,9 @@
 <?php
 session_start();
+require_once("conn.php");
 $email = $_SESSION["member_email"];
-$link = mysqli_connect("localhost","root","","sa");
+$rs = $conn->query("select * from member where email = '$email'");
 
-
-$sql="select * from member where email = '$email'";
-$rs=mysqli_query($link,$sql);
   if($record=mysqli_fetch_row($rs)){
     $name = $record['0'];
     $email = $record['1'];
@@ -16,8 +14,8 @@ $rs=mysqli_query($link,$sql);
 if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
-  $sql="update order1 set feedback = '$feedback' where order_id='$orderid1'";
-  $rs=mysqli_query($link,$sql);
+
+  $rs = $conn->query("update order1 set feedback = '$feedback' where order_id='$orderid1'");
 
   if($rs){
     echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
@@ -321,16 +319,15 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                         <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
                         <?php
                           $email=$_SESSION["member_email"];
-                          $sql="select * from `order1` where email='$email' order by time DESC";
-                          $rs=mysqli_query($link,$sql);
+
+                          $rs = $conn->query("select * from `order1` where email='$email' order by time DESC");
                           
                           
 
                           if(mysqli_num_rows($rs)>0){
                             while($row = mysqli_fetch_array($rs)){
                               $orderid=$row["order_id"];
-                              $sql2="select * from `detail` where email='$email' and order_id='$orderid'";
-                              $rs2=mysqli_query($link,$sql2);
+                              $rs2 = $conn->query("select * from `detail` where email='$email' and order_id='$orderid'");
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 $email=$_SESSION["member_email"];
 ?>
 
@@ -158,17 +158,16 @@ $email=$_SESSION["member_email"];
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">歷史訂單</h1>
                         <?php
-                          $sql="select * from `order1` where cond = 2 order by time DESC";
-                          $rs=mysqli_query($link,$sql);
+                          $rs = $conn->query("select * from `order1` where cond = 2 order by time DESC");
 
                           if(mysqli_num_rows($rs) > 0 ){
                             while($row = mysqli_fetch_array($rs)){
                               $time=$row["time"];
                               $email=$row["email"];
-                              $sql1="select * from `detail` where time = '$time' and email = '$email'";
-                              $rs1=mysqli_query($link,$sql1);
-                              $sql2="select name from `member` where email = '$email'";
-                              $rs2=mysqli_query($link,$sql2);
+
+                              $rs1 = $conn->query("select * from `detail` where time = '$time' and email = '$email'");
+                              $rs2 = $conn->query("select name from `member` where email = '$email'");
+                              
                               $row2=mysqli_fetch_array($rs2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>

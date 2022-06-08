@@ -1,14 +1,13 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 
 if(isset($_POST["way"])){
   $way = $_POST["way"];
   if($way == 0){
     if(isset($_POST["seatnum"])){
       $seatnum= $_POST["seatnum"];
-      $sql="insert into `way`( way, seat) values ('0', '$seatnum')";
-      $rs=mysqli_query($link,$sql);
+      $rs = $conn->query("insert into `way`( way, seat) values ('0', '$seatnum')");
       if($rs){
         $_SESSION["way"]=$way;
         $_SESSION["seatnum"]=$seatnum;
@@ -16,8 +15,7 @@ if(isset($_POST["way"])){
     }
   }
   else{
-    $sql="insert into way(way) values ('1')";
-    $rs=mysqli_query($link,$sql);
+    $rs = $conn->query("insert into way(way) values ('1')");
     if($rs){
       $_SESSION["way"]=$way;
       $_SESSION["seatnum"]=100;

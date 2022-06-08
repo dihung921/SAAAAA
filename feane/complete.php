@@ -1,13 +1,12 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 
 if(isset($_GET["order_id"])&&isset($_GET["time"])&&isset($_GET["email"])){
     $orderid=$_GET["order_id"];
     $time=$_GET["time"];
     $email=$_GET["email"];
-    $sql = "update order1 set cond = '1' where email='$email' and time='$time' and order_id='$orderid'";
-    $rs=mysqli_query($link,$sql);
+    $rs= $conn->query("update order1 set cond = '1' where email='$email' and time='$time' and order_id='$orderid'");
 
     if($rs){
         echo "<script>{window.alert('訂單準備完成！'); location.href='manage.php'}</script>";

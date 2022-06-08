@@ -1,8 +1,9 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
-$sql = "select seat from order1";
-$result= mysqli_query($link,$sql);
+require_once("conn.php");
+
+$result = $conn->query("select seat from order1");
+
 if($result){
   $row= mysqli_fetch_array($result);
   $seatnum = $row["seat"]; 

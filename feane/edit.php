@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 if(isset($_GET["order_id"])){
   $orderid=$_GET["order_id"];
 }
@@ -8,8 +8,8 @@ if(isset($_GET["order_id"])){
 if(isset($_POST["note"]) && isset($_POST["order_id"])){
   $note=$_POST["note"];
   $orderid1=$_POST["order_id"];
-  $sql="update order1 set note = '$note' where order_id='$orderid1'";
-  $rs=mysqli_query($link,$sql);
+  
+  $rs = $conn->query("update order1 set note = '$note' where order_id='$orderid1'");
 
   if($rs){
     echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
