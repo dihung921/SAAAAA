@@ -299,30 +299,30 @@ $rs=mysqli_query($link,$sql);
                                     }
                               ?>
                               <script>
-                                      $(function () {
-                                          //加號
-                                          var price1 = parseFloat($('#price').text());
-                                          var num = parseInt($('input[name="num"]').attr('value'));
-                                          $('.add').click(function(){
-                                              num++;
-                                              $('input[name="num"]').attr('value',num);
-                                              var total = num * price1;
-                                              $('#price').html(total.toFixed(0));
-                                          });
-                                          
-                                          //減號
-                                          $('.minus').click(function () {
-                                              if(num>1){
-                                                  num--;
-                                                  $('input[name="num"]').attr('value',num);
-                                                  console.log(num)
-                                                  var total = num * price1;
-                                                  $('#price13').text(total.toFixed(0));
+                                    $(function () {
+                                        //加號
+                                        var price1 = parseFloat($('#price').text());
+                                        var num = parseInt($('input[name="num"]').attr('value'));
+                                        $('.add').click(function(){
+                                            num++;
+                                            $('input[name="num"]').attr('value',num);
+                                            var total = num * price1;
+                                            $('#price').html(total.toFixed(0));
+                                        });
 
-                                              }
-                                          });
-                                      });
-                                    </script>
+                                        //減號
+                                        $('.minus').click(function () {
+                                            if(num>1){
+                                                num--;
+                                                $('input[name="num"]').attr('value',num);
+                                                console.log(num)
+                                                var total = num * price1;
+                                                $('#price').text(total.toFixed(0));
+
+                                            }
+                                        });
+                                    });
+                                </script>
 
                             </tbody>
                         </table>
@@ -504,8 +504,8 @@ $rs=mysqli_query($link,$sql);
     <script src="js/window.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
  
-    
-
+  
+  
 
 </body>
 
