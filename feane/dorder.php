@@ -6,7 +6,7 @@ if(isset($_GET["order_id"])&&isset($_GET["time"])&&isset($_GET["email"])){
     $orderid=$_GET["order_id"];
     $time=$_GET["time"];
     $email=$_GET["email"];
-    
+
     $rs = $conn->query("delete from `order1` where email='$email' and time='$time' and order_id='$orderid'");
     $rs1 = $conn->query("delete from `detail` where email='$email' and time='$time' and order_id='$orderid'");
 

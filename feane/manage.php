@@ -210,7 +210,7 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                           <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row["hopetime"]."
-                                          <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row["name"]."";
                                           if ($row["way"]==0){
                                             echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
                                           }
@@ -222,6 +222,7 @@ if(isset($_POST["note"])){
 
                                 while($row1 = mysqli_fetch_array($rs1)){
                                   echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                  echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
                                 }
                               echo"
                               <hr>
@@ -278,11 +279,12 @@ if(isset($_POST["note"])){
                                       <div class='media'>
                                         <div class='media-body'>
                                         <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row3["hopetime"]."
-                                          <span class='float-right text-gray'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                          <span class='float-right text-gray'>訂購者姓名：".$row3["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row4 = mysqli_fetch_array($rs4)){
                                   echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
+                                  echo"<p class='text-dark'>顧客備註：".$row4["note"]."</p>";
                                 }
                               echo"
                               

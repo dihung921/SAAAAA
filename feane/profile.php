@@ -304,6 +304,15 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                     </div>
                   </div>
                   <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">密碼</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <?php echo"$password";?>
+                    </div>
+                  </div>
+                  <hr>
                  
                   <div class="row">
                     <div class="col-sm-12">
@@ -384,7 +393,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                                           </div>
                                       </div>
                                       <hr>
-                                            <p>餐點流程 <span class='float-right'>希望取餐時間 ： ".$row["hopetime"]."</span></p>
+                                            <p>餐點流程</p>
                                             <div class='col-lg-6 col-md-12 col-xs-12'>
                                               <span class='irs js-irs-0 irs-with-grid'>
                                                 <span class='irs' style='width:650px;'>
