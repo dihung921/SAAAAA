@@ -1,10 +1,9 @@
 <?php
 session_start();
-
-$link=mysqli_connect("localhost","root","12345678","sa");
-
+require_once("conn.php");
 $email=$_SESSION["member_email"];
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -253,13 +252,12 @@ $email=$_SESSION["member_email"];
                             </thead>
                             <tbody align="center">
 
-                                <?php
-                                $sql = "select * from cart where email = '$email'";
-                                $result = mysqli_query($link, $sql);
-                                $tot_price = 0;
-                                $_SESSION["tot_price"] = $tot_price;
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
+                            <?php
+                                    $result=$conn->query("select * from `cart` where email = '$email'");
+                                    $tot_price=0;
+                                    if (mysqli_num_rows($result) > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                        $price = $row["price"] * $row["amount"];
                                         echo "<tr>";
                                         echo "
                                               <td class='name-pr'>" . $row["meal_id"] . "</td>
@@ -267,88 +265,33 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>" . $row["s_id"] . "</td>
                                               <td>" . $row["note"] . "</td>
                                               <td>
-                                                <input type='button' href='javascript:;' class='minus fr' value='-' style='margin-right: 5px; width: 40px;'>
-                                                <input type='text' name='num' class='num_show fl' value='" . $row["amount"] . "' style='text-align: center; width: 50px;' readonly>
-                                                <input type='button' href='javascript:;' class='add fr' value='+' style='margin-left: 5px;; width: 40px;'>
+                                                <a href='down.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>-</a>
+                                                <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>
+                                                <a href='up.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>+</a>
                                               </td>
-                                              <td class='total'><em id ='price'>" . $row["price"] . "</em> 元</td>
-                                              <td><a href='delete.php?meal_id=" . $row["meal_id"] . "&sm_id=" . $row["sm_id"] . "&s_id=" . $row["s_id"] . "'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
+                                              <td class='total'>$price</td>
+                                              <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
-                                        $tot_price += $row["price"];
-                                        }
-                                        
+                                        $tot_price += $price;
+                                      }
+                                      $_SESSION["tot_price"]=$tot_price;
                                     }
                                     else{
                                       echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
                                     }
-                                ?>
-                                <script>
-                                $(document).on('click','.add',function(){
-                                  var num = $(this).parent().find('.num').text();
-                                  var final = Number(num) +1;
-                                  var num = $(this).parent().find('.num').text(final);
-                                  var meal_id = $(this).parents('.right_total').attr('meal_id');
-                                  $.post("{:U('addon/WeiuidDeit/Mobile/listTotal')}",{id:meal_id,user_num:final},function(data){
-                                    $('#allcount').html(data['return_data'][0]);
-                                    $('#allmoney').html(data['return_data'][1]);
-                                  },'json')
-                                })
-                                $(document).on('click','.reduce',function(){
-                                  var num = $(this).parent().find('.num').text()
-                                  var final = Number(num) - 1;
-                                  var num = $(this).parent().find('.num').text(final)
-                                  var meal_id = $(this).parents('.right_total').attr('meal_id');
-                                  $.post("{:U('addon/WeiuidDeit/Mobile/listTotal')}",{id:meal_id,user_num:final},function(data){
-                                    $('#allcount').html(data['return_data'][0]);
-                                    $('#allmoney').html(data['return_data'][1]);
-
-                                  },'json')
-                                  if(final<1 ){
-                                    $(this).parent().find('.num').html(0);
-                                    $(this).parent().find('.hidebox').hide();
-
-                                    }
-
-                                  })
-
-                                    $(function() {
-                                        //加號
-                                        var price1 = parseFloat($('#price').text());
-                                        var num = parseInt($('input[name="num"]').attr('value'));
-                                        $('.add').click(function() {
-                                            num++;
-                                            $('input[name="num"]').attr('value', num);
-                                            var total = num * price1;
-                                            $('#price').html(total.toFixed());
-                                        });
-
-                                        //減號
-                                        $('.minus').click(function() {
-                                            if (num > 1) {
-                                                num--;
-                                                $('input[name="num"]').attr('value', num);
-                                                console.log(num)
-                                                var total = num * price1;
-                                                $('#price').text(total.toFixed());
-
-                                            }
-                                        });
-                                    });
-                                </script>
+                              ?>
+                              
 
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            
-            
             <div class="row justify-content-end">
             
             <div class="col-6" >
                 <div>
                     <div class="update-box">
-                    
                       <input value="繼續選購" type="submit" onclick="location.href='index.php'"> 
                       
                     </div>
@@ -357,8 +300,8 @@ $email=$_SESSION["member_email"];
           
            
             <?php
-                    echo"<form>
-                  
+                    echo"
+                  <form action='insert.php' method='post'>
                    <div class=detail-box>
                       <div class=row my-12>
                         <div class='col-lg-12 col-sm-15'>
@@ -392,10 +335,12 @@ $email=$_SESSION["member_email"];
                                             </div>
                                         <div class='modal-body'>
                                             即將送出訂單！
+                                            <p>請選擇您希望的取餐時間 <input type='time' name='hopetime'></p>
+                                            
                                         </div>
                                             <div class='modal-footer'>
                                                 <input type='button' value='返回' class='btn btn-secondary' data-dismiss='modal'>
-                                                <a class ='btn btn-warning'  href=insert.php>送出</a>
+                                                <button class ='btn btn-warning'>送出</button>
                                             </div>
                                             </div>
                                             </div>

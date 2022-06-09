@@ -1,17 +1,16 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql = "select seat from order1";
-$result= mysqli_query($link,$sql);
+require_once("conn.php");
+
+$result= $conn->query("select seat from order1");
+
 if($result){
   $row= mysqli_fetch_array($result);
   $seatnum = $row["seat"]; 
 }
-
+header("refresh: 10;url='rseat.php'");
 ?>
-<?php
-    header("refresh: 10;url='rseat.php'");
-    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -116,27 +115,22 @@ if($result){
             }
             ?>
               
-              <form action="logout.php" method="post">
+              
               <?php
               if ($_SESSION["member_name"]){
-
-                  ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
-            
-            }
-         
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
+              }
               else{
-                echo "<a href='login.php' class='order_online' style=text-decoration:none;>
+                echo "<a href='login.php' class='order_online'>
                 登入
               </a>
-              <a href='register.php' class='order_online' style=text-decoration:none;>
+              <a href='register.php' class='order_online'>
                 註冊
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>

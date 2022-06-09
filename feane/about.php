@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -173,14 +175,11 @@ session_start();
             
             ?>
               
-              <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -191,7 +190,6 @@ session_start();
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>

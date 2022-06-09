@@ -1,43 +1,29 @@
 <?php
 session_start();
+require_once("conn.php");
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","12345678","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
-   if($record=mysqli_fetch_row($rs))
-      {
-        $name = $record['0'];
-        $email = $record['1'];
-        $phone = $record['2'];
-        $password = $record['3'];
-       
-      }
-?>
-<?php
-session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
-
-if(isset($_POST["way"])){
-  $way = $_POST["way"];
-  if($way == 0){
-    if(isset($_POST["seatnum"])){
-      $seatnum= $_POST["seatnum"];
-      $sql="insert into way( way, seat) values ('0', '$seatnum')";
-      $rs=mysqli_query($link,$sql);
-      if($rs){
-        $_SESSION["way"]=$way;
-        $_SESSION["seatnum"]=$seatnum;
-      }
-    }
+$rs = $conn->query("select * from member where email = '$email'");
+  if($record=mysqli_fetch_row($rs)){
+    $name = $record['0'];
+    $email = $record['1'];
+    $phone = $record['2'];
+    $password = $record['3'];
   }
-  else{
-    $sql="insert into way(way) values ('1')";
-    $rs=mysqli_query($link,$sql);
-    if($rs){
-      $_SESSION["way"]=$way;
-    }
-    header("Location:index.php");
+
+if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["password"])){
+  $name=$_POST["name"];
+  $email=$_POST["email"];
+  $phone=$_POST["phone"];
+  $password=$_POST["password"];
+
+  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'")
+    if($rs2){
+
+      $_SESSION["member_name"]=$name;
+      $_SESSION["member_phone"]=$phone;
+      $_SESSION["member_password"]=$password;
+      echo "<script>{window.alert('修改成功'); location.href='profile.php'}</script>";
   }
 }
 ?>
@@ -151,7 +137,7 @@ if($_SESSION['level']=="user"){
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.php">
-            <span>
+            <span style="color:white; font-family: Arial, Helvetica, sans-serif;">
               方禾食呂
             </span>
           </a>
@@ -262,14 +248,11 @@ if($_SESSION['level']=="user"){
                   </g>
                 </svg>
               </a>
-              <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-                
-                  ?>
-                  <a style="color: white"><?php echo $_SESSION["member_name"]; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -280,7 +263,6 @@ if($_SESSION['level']=="user"){
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>
@@ -304,19 +286,18 @@ if($_SESSION['level']=="user"){
               <div class="card">
                 <div class="card-body">
                 
-                    <form method ="post" action="dblinkp.php">
-                        <input type="hidden" name="method" value="<?php echo $method ?>">
+                    <form method ="post" action="updateprofile.php">
                         <table class="List" align="center" width="20%">
                         <tr>
                             <h4 align="center" class="ListCap">修改會員資料</h4></tr><hr>
-                  
+                            <input type="hidden" name="email" value="<?php echo $email?>">
                             <tr>
                             <td align="center">姓名&nbsp</td>
                                 <td><input type="text" name="name" value="<?php echo $name?>" ></td>
                             </tr>
                             <tr>
-                            <td align="center">email&nbsp</td>
-                                <td><input type="text" name="email" value="<?php echo $email?>"></td>
+                            <td align="center">email:</td>
+                                <td><?php echo $email?></td>
                             </tr>
                             <tr>
                             <td align="center">電話&nbsp</td>

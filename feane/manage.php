@@ -1,12 +1,13 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","12345678","sa");
+require_once("conn.php");
+
 $email=$_SESSION["member_email"];
 
 if(isset($_POST["note"])){
   $note=$_POST["note"];
-  $sql10="update order1 set note = '$note'";
-  $rs10=mysqli_query($link,$sql10);
+
+  $rs10 = $conn->query("update order1 set note = '$note'");
 
   if($rs10){
     echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
@@ -33,6 +34,7 @@ $rs=mysqli_query($link,$sql);
        
       }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -157,14 +159,11 @@ $rs=mysqli_query($link,$sql);
               
 
               
-              <form action="logout.php" method="post">
               <?php
               if ($_SESSION["member_name"]){
-
-                  ?>
-                  <a style="color: white"><?php echo "$name"; ?></a>
-                  <?php
-                echo "<button class='order_online'>登出</button>";
+                echo "<a style='color: white'> ".$_SESSION["member_name"]."</a>";
+                  
+                echo "<a class='order_online' href='logout.php'>登出</a>";
               }
               else{
                 echo "<a href='login.php' class='order_online'>
@@ -175,7 +174,6 @@ $rs=mysqli_query($link,$sql);
               </a>";
               }
               ?>
-            </form>
             </div>
           </div>
         </nav>
@@ -204,10 +202,8 @@ $rs=mysqli_query($link,$sql);
                         </ul>
                         <div class='tab-content' id='myTabContent'>
                         <?php
-                          $sql="select * from `order1` where cond = 0 order by time ASC";
-                          $rs=mysqli_query($link,$sql);
-                          $sql3="select * from `order1` where cond = 1 order by time ASC";
-                          $rs3=mysqli_query($link,$sql3);
+                          $rs = $conn->query("select * from `order1` where cond = 0 order by time ASC");
+                          $rs3 = $conn->query("select * from `order1` where cond = 1 order by time ASC");
                           echo"
                           
                           <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab' >";
@@ -220,18 +216,18 @@ $rs=mysqli_query($link,$sql);
                             while($row = mysqli_fetch_array($rs)){
                               $orderid=$row["order_id"];
                               $email=$row["email"];
-                              $sql1="select * from `detail` where order_id = '$orderid' and email = '$email'";
-                              $rs1=mysqli_query($link,$sql1);
-                              $sql2="select name from `member` where email = '$email'";
-                              $rs2=mysqli_query($link,$sql2);
+
+                              $rs1 = $conn->query("select * from `detail` where order_id = '$orderid' and email = '$email'");
+                              $rs2 = $conn->query("select name from `member` where email = '$email'");
+                              
                               $row2=mysqli_fetch_array($rs2);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>
                                       <div class='media'>
                                         <div class='media-body'>
-                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."
-                                          <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
+                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row["hopetime"]."
+                                          <span class='float-right text-gray'>訂購者姓名：".$row["name"]."";
                                           if ($row["way"]==0){
                                             echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
                                           }
@@ -243,6 +239,7 @@ $rs=mysqli_query($link,$sql);
 
                                 while($row1 = mysqli_fetch_array($rs1)){
                                   echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                  echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
                                 }
                               echo"
                               <hr>
@@ -288,22 +285,23 @@ $rs=mysqli_query($link,$sql);
                             while($row3 = mysqli_fetch_array($rs3)){
                               $orderid3=$row3["order_id"];
                               $email3=$row3["email"];
-                              $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
-                              $rs4=mysqli_query($link,$sql4);
-                              $sql5="select name from `member` where email = '$email3'";
-                              $rs5=mysqli_query($link,$sql5);
+
+                              $rs4 = $conn->query("select * from `detail` where order_id = '$orderid3' and email = '$email3'");
+                              $rs5 = $conn->query("select name from `member` where email = '$email3'");
+
                               $row5=mysqli_fetch_array($rs5);
                               echo"
                               <div class='bg-white card mb-4 order-list shadow-sm'>
                                   <div class='gold-members p-4'>
                                       <div class='media'>
                                         <div class='media-body'>
-                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."
-                                          <span class='float-right text-gray'>訂購者姓名：".$row5["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
+                                        <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row3["hopetime"]."
+                                          <span class='float-right text-gray'>訂購者姓名：".$row3["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
 
 
                                 while($row4 = mysqli_fetch_array($rs4)){
                                   echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
+                                  echo"<p class='text-dark'>顧客備註：".$row4["note"]."</p>";
                                 }
                               echo"
                               
