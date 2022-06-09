@@ -1,6 +1,7 @@
 <?php
 session_start();
 $email = $_SESSION["member_email"];
+$name = $_SESSION["member_name"];
 $seatnum = $_SESSION["seatnum"];
 $tot_price=$_SESSION["tot_price"];
 $way=$_SESSION["way"];
@@ -12,7 +13,7 @@ $sql="select * from `cart` where email = '$email'";
 $result=mysqli_query($link,$sql);
 if($seatnum!=100){
     if (mysqli_num_rows($result) > 0) {
-        $sql3="insert into `order1`(email, tot_price, hopetime, cond, time, way ,seat) values ('$email', '$tot_price', '$hopetime' 0, now(), '$way', '$seatnum')";
+        $sql3="insert into `order1`(email, name, tot_price, hopetime, cond, time, note, feedback, way ,seat) values ('$email', '$name', '$tot_price', '$hopetime', 0, now(), NULL, NULL, '$way', '$seatnum')";
         $rs1=mysqli_query($link,$sql3);
         $orderid = mysqli_insert_id($link);
     
