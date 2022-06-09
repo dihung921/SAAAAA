@@ -1,10 +1,9 @@
 <?php
 session_start();
+require_once("conn.php");
 
 $email = $_SESSION["member_email"];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from `member` where email = '$email'";
-$rs=mysqli_query($link,$sql);
+$rs = $conn->query("select * from member where email = '$email'");
   if($record=mysqli_fetch_row($rs)){
     $name = $record['0'];
     $email = $record['1'];
@@ -17,8 +16,10 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $email=$_POST["email"];
   $phone=$_POST["phone"];
   $password=$_POST["password"];
-  $sql="update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'";
-    if(mysqli_query($link,$sql)){
+
+  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'")
+    if($rs2){
+
       $_SESSION["member_name"]=$name;
       $_SESSION["member_phone"]=$phone;
       $_SESSION["member_password"]=$password;

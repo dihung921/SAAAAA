@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once("conn.php");
+
 $email = $_SESSION["member_email"];
 $name = $_SESSION["member_name"];
 $seatnum = $_SESSION["seatnum"];
@@ -7,15 +9,12 @@ $tot_price=$_SESSION["tot_price"];
 $way=$_SESSION["way"];
 $seatnum=$_SESSION["seatnum"];
 $hopetime=$_POST["hopetime"];
-$link = mysqli_connect("localhost","root","","sa");
 
-$sql="select * from `cart` where email = '$email'";
-$result=mysqli_query($link,$sql);
+$result = $conn->query("select * from `cart` where email = '$email'");
 if($seatnum!=100){
     if (mysqli_num_rows($result) > 0) {
-        $sql3="insert into `order1`(email, name, tot_price, hopetime, cond, time, note, feedback, way ,seat) values ('$email', '$name', '$tot_price', '$hopetime', 0, now(), NULL, NULL, '$way', '$seatnum')";
-        $rs1=mysqli_query($link,$sql3);
-        $orderid = mysqli_insert_id($link);
+        $rs1 = $conn->query("insert into `order1`(email, name, tot_price, hopetime, cond, time, note, feedback, way, seat) values ('$email', '$name', '$tot_price', '$hopetime', 0, now(), NULL, NULL, '$way', '$seatnum')");
+        $orderid = mysqli_insert_id($conn);
     
         while ($row = mysqli_fetch_assoc($result)) {
             $meal=$row["meal_id"];
@@ -24,8 +23,7 @@ if($seatnum!=100){
             $amount=$row["amount"];
             $note=$row["note"];
             $price = $row["price"];
-            $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', now(), '$note')";
-            $rs=mysqli_query($link,$sql2);
+            $rs = $conn->query("insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', now(), '$note')");
         }
     
         if($rs){
@@ -36,18 +34,14 @@ if($seatnum!=100){
             echo "<script>{window.alert('送出失敗！'); location.href='cart.php'}</script>";
         }
     
-        
-    
-        $sql4="delete from `cart` where email='$email'";
-        $rs2=mysqli_query($link,$sql4);
+        $rs2 = $conn->query("delete from `cart` where email='$email'");
     
     }
 }
 else{
     if (mysqli_num_rows($result) > 0) {
-        $sql3="insert into `order1`(email, tot_price, hopetime, cond, time, way, seat) values ('$email', '$tot_price', '$hopetime', 0, now(), '$way', '')";
-        $rs1=mysqli_query($link,$sql3);
-        $orderid = mysqli_insert_id($link);
+        $rs1 = $conn->query("insert into `order1`(email, name, tot_price, hopetime, cond, time, note, feedback, way, seat) values ('$email', '$name', '$tot_price', '$hopetime', 0, now(), NULL, NULL, '$way', '$seatnum')");
+        $orderid = mysqli_insert_id($conn);
     
         while ($row = mysqli_fetch_assoc($result)) {
             $meal=$row["meal_id"];
@@ -56,8 +50,7 @@ else{
             $amount=$row["amount"];
             $note=$row["note"];
             $price = $row["price"];
-            $sql2="insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', now(), '$note')";
-            $rs=mysqli_query($link,$sql2);
+            $rs = $conn->query("insert into `detail`(order_id, meal_id, sm_id, s_id, amount, price, hopetime, email, time, note) values ('$orderid', '$meal', '$sm', '$s', '$amount', '$price', '$hopetime', '$email', now(), '$note')");
         }
     
         if($rs){
@@ -68,10 +61,7 @@ else{
             echo "<script>{window.alert('送出失敗！'); location.href='cart.php'}</script>";
         }
     
-        
-    
-        $sql4="delete from `cart` where email='$email'";
-        $rs2=mysqli_query($link,$sql4);
+        $rs2 = $conn->query("delete from `cart` where email='$email'");
     
     }
 }

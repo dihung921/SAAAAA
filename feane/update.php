@@ -1,10 +1,9 @@
 <?php
 session_start();
+require_once("conn.php");
 
 $seat_id = $_SESSION['seat_id'];
-$link=mysqli_connect("localhost","root","","sa");
-$sql="select * from `seat_condition` where seat_id = '$seat_id'";
-$rs=mysqli_query($link,$sql);
+$rs = $conn->query("select * from `seat_condition` where seat_id = '$seat_id'");
    if($record=mysqli_fetch_row($rs))
       {
         $seat_id = $record['0'];
