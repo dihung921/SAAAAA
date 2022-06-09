@@ -203,8 +203,8 @@ if(isset($_POST["note"])){
                               while($row = mysqli_fetch_array($rs)){
                                 $orderid=$row["order_id"];
                                 $email=$row["email"];
-                                $sql1="select * from `detail` where order_id = '$orderid' and email = '$email'";
-                                $rs1=mysqli_query($link,$sql1);
+                                
+                                $rs1=$conn->query("select * from `detail` where order_id = '$orderid' and email = '$email'");
                                 echo"
                                 <div class='bg-white card mb-4 order-list shadow-sm'>
                                     <div class='gold-members p-4'>
@@ -223,7 +223,16 @@ if(isset($_POST["note"])){
 
                                   while($row1 = mysqli_fetch_array($rs1)){
                                     echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
-                                    echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
+                                    while($row1 = mysqli_fetch_array($rs1)){
+                                      echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+                                      if(!empty($row["note"])){
+                                        echo"<p class='text-dark'>顧客備註：".$row["note"]."</p>";
+                                      }
+                                    }
+                                      if($row["note"]!=NULL){
+                                        echo"<p class='ext-dark'>店家備註 : ".$row["note"]."</p>";
+                                        
+                                      }
                                   }
                                 echo"
                                 <hr>
@@ -253,15 +262,13 @@ if(isset($_POST["note"])){
                             }
                           }
                           else {
-                            $sql2="select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' order by time ASC";
-                            $rs2=mysqli_query($link,$sql2);
+                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' order by time ASC");
                             if(mysqli_num_rows($rs2) > 0 ){
                             
                               while($row2 = mysqli_fetch_array($rs2)){
                                 $orderid=$row2["order_id"];
                                 $email=$row2["email"];
-                                $sql1="select * from `detail` where order_id = '$orderid' and email = '$email'";
-                                $rs1=mysqli_query($link,$sql1);
+                                $rs1=$conn->query("select * from `detail` where order_id = '$orderid' and email = '$email'");
                                 echo"
                                 <div class='bg-white card mb-4 order-list shadow-sm'>
                                     <div class='gold-members p-4'>
@@ -270,7 +277,7 @@ if(isset($_POST["note"])){
                                             <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row2["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row2["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row2["hopetime"]."
                                             <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
                                             if ($row2["way"]==0){
-                                              echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
+                                              echo"<br>用餐方式：內用<br>桌號: ".$row2["seat"]."";
                                             }
                                             else{
                                               echo"<br>用餐方式：外帶";
@@ -280,8 +287,15 @@ if(isset($_POST["note"])){
 
                                             while($row1 = mysqli_fetch_array($rs1)){
                                               echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
-                                              echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
+                                              if(!empty($row2["note"])){
+                                                echo"<p class='text-dark'>顧客備註：".$row2["note"]."</p>";
+                                              }
                                             }
+                                              if($row2["note"]!=NULL){
+                                                echo"<p class='ext-dark'>店家備註 : ".$row2["note"]."</p>";
+                                                
+                                              }
+                                            
                                 echo"
                                 <hr>
                                 <div class='float-right'>
@@ -310,7 +324,7 @@ if(isset($_POST["note"])){
                             }
                           
                           }
-                         
+                        
                           echo"</div>";
 
                           echo"<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'><br>";
