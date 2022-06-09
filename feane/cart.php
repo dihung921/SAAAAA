@@ -283,6 +283,34 @@ $email=$_SESSION["member_email"];
                                     }
                                 ?>
                                 <script>
+                                $(document).on('click','.add',function(){
+                                  var num = $(this).parent().find('.num').text();
+                                  var final = Number(num) +1;
+                                  var num = $(this).parent().find('.num').text(final);
+                                  var meal_id = $(this).parents('.right_total').attr('meal_id');
+                                  $.post("{:U('addon/WeiuidDeit/Mobile/listTotal')}",{id:meal_id,user_num:final},function(data){
+                                    $('#allcount').html(data['return_data'][0]);
+                                    $('#allmoney').html(data['return_data'][1]);
+                                  },'json')
+                                })
+                                $(document).on('click','.reduce',function(){
+                                  var num = $(this).parent().find('.num').text()
+                                  var final = Number(num) - 1;
+                                  var num = $(this).parent().find('.num').text(final)
+                                  var meal_id = $(this).parents('.right_total').attr('meal_id');
+                                  $.post("{:U('addon/WeiuidDeit/Mobile/listTotal')}",{id:meal_id,user_num:final},function(data){
+                                    $('#allcount').html(data['return_data'][0]);
+                                    $('#allmoney').html(data['return_data'][1]);
+
+                                  },'json')
+                                  if(final<1 ){
+                                    $(this).parent().find('.num').html(0);
+                                    $(this).parent().find('.hidebox').hide();
+
+                                    }
+
+                                  })
+
                                     $(function() {
                                         //加號
                                         var price1 = parseFloat($('#price').text());
