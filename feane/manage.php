@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once("conn.php");
-
+$link=mysqli_connect("localhost","root","","sa");
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 
@@ -263,23 +262,23 @@ if(isset($_POST["note"])){
                         }
 
                           else {
-                            $sql2="select * from `order1` where order_id like '%$searchtext%' or name like '%$searchtext%' order by time DESC";
+                            $sql2="select * from `order1` where order_id like '%$searchtext%' or name like '%$searchtext%' order by time ASC";
                             $rs2=mysqli_query($link,$sql2);
                             if(mysqli_num_rows($rs2) > 0 ){
                               while($row2 = mysqli_fetch_array($rs2)){
-                                $time=$row2["time"];
+                                $orderid=$row2["order_id"];
                                 $email=$row2["email"];
-                                $sql1="select * from `detail` where time = '$time' and email = '$email'";
+                                $sql1="select * from `detail` where order_id = '$orderid' and email = '$email'";
                                 $rs1=mysqli_query($link,$sql1);
                                 echo"
                                       <div class='bg-white card mb-4 order-list shadow-sm'>
                                           <div class='gold-members p-4'>
                                               <div class='media'>
                                                 <div class='media-body'>
-                                                  <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row["hopetime"]."
-                                                  <span class='float-right text-gray'>訂購者姓名：".$row["name"]."";
-                                                  if ($row["way"]==0){
-                                                    echo"<br>用餐方式：內用<br>桌號: ".$row["seat"]."";
+                                                  <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row2["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row2["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row2["hopetime"]."
+                                                  <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
+                                                  if ($row2["way"]==0){
+                                                    echo"<br>用餐方式：內用<br>桌號: ".$row2["seat"]."";
                                                   }
                                                   else{
                                                     echo"<br>用餐方式：外帶";
@@ -295,19 +294,19 @@ if(isset($_POST["note"])){
                                       <hr>
                                       <div class='float-right'>
                                       
-                                      <a href='dorder.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                      <a href='edit.php?order_id=".$row["order_id"]."'><i class='fa-solid fa-notes-medical fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
-                                      <a href='complete.php?order_id=".$row["order_id"]."&email=".$row["email"]."&time=".$row["time"]."'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                      <a href='dorder.php?order_id=".$row2["order_id"]."&email=".$row2["email"]."&time=".$row2["time"]."'><i class='fa-solid fa-trash-can fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                      <a href='edit.php?order_id=".$row2["order_id"]."'><i class='fa-solid fa-notes-medical fa-2x' style='color: #E59511;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                      <a href='complete.php?order_id=".$row2["order_id"]."&email=".$row2["email"]."&time=".$row2["time"]."'><i class='fa-regular fa-circle-check fa-2x' style='color: #426849;'></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
                                       
                                       </div>";
                                   
 
-                                      if($row["note"] == NULL){
-                                        echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>";
+                                      if($row2["note"] == NULL){
+                                        echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row2["tot_price"]."</p>";
                                       }
                                       else{
-                                      echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row["tot_price"]."</p>
-                                          <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row["note"]."</p>";
+                                      echo"<p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row2["tot_price"]."</p>
+                                          <p class='mb-0 text-black text-dark pt-2'><span class='text-black font-weight-bold'> 店家備註: </span>".$row2["note"]."</p>";
                                       }
                                     
                                       echo"</div>

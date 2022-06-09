@@ -17,7 +17,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $phone=$_POST["phone"];
   $password=$_POST["password"];
 
-  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'")
+  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'");
     if($rs2){
 
       $_SESSION["member_name"]=$name;
