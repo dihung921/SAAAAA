@@ -2,7 +2,7 @@
 session_start();
 require_once("conn.php");
 
-$result = $conn->query("select seat from order1");
+$result = $conn->query("select seat from `order1`");
 
 if($result){
   $row= mysqli_fetch_array($result);
@@ -13,7 +13,7 @@ header("refresh: 10;url='seat.php'");
 
 ?>
 <!DOCTYPE html>
-<html>
+<html>  
 
 <head>
   <!-- Basic -->
@@ -106,10 +106,10 @@ header("refresh: 10;url='seat.php'");
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
-                        <li class='nav-item active'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
-                        <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
-                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
+                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";
