@@ -119,10 +119,10 @@ $email=$_SESSION["member_email"];
               }
              
                    else if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                        echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
+                        <li class='nav-item active'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<li class='nav-item '>
@@ -265,9 +265,10 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
-                                                <a href='down.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>-</a>
-                                                <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>
-                                                <a href='up.php?meal_id=".$row["meal_id"]."' style='background: #E2E0E0; padding: 6.3px 16px 6.3px 16px; border-radius: 2px; border: 1px solid;'>+</a>
+                                                <a href='down.php?meal_id=".$row["meal_id"]."' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>-</a>&nbsp
+                                                
+                                                <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>&nbsp
+                                                <a href='up.php?meal_id=".$row["meal_id"]."' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>+</a>
                                               </td>
                                               <td class='total'>$price</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
@@ -279,6 +280,7 @@ $email=$_SESSION["member_email"];
                                     else{
                                       echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
                                     }
+                                    
                               ?>
                               
 
@@ -287,24 +289,16 @@ $email=$_SESSION["member_email"];
                     </div>
                 </div>
             </div>
+            <br>
+            <button  alue='繼續選購' type="button" class="btn btn-outline-secondary btn-lg" onclick="location.href='index.php'">繼續選購</button>
+    
             <div class="row justify-content-end">
-            
-            <div class="col-6" >
-                <div>
-                    <div class="update-box">
-                      <input value="繼續選購" type="submit" onclick="location.href='index.php'"> 
-                      
-                    </div>
-                </div>
-            </div>
-          
-           
+            <div class="col-6" >           
             <?php
                     echo"
                   <form action='insert.php' method='post'>
-                   <div class=detail-box>
-                      <div class=row my-12>
-                        <div class='col-lg-12 col-sm-15'>
+                  
+               
                           <div class='order-box'>
                               <div class='d-flex gr-total'>
                                 <h5>總金額</h5>
@@ -315,13 +309,11 @@ $email=$_SESSION["member_email"];
                                 </div>
                                 </div>
                                 </div>
+                                
                                 <hr>
                                 </div>
                 </div>
-              </div>
-        </div>
-    </div> 
-
+       
                          
                          
                                 <div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel1' aria-hidden='true'>
@@ -348,6 +340,8 @@ $email=$_SESSION["member_email"];
                                                 </form>";
                                     
                   ?>
+                    </div>
+                    </div>
     <!-- End Cart -->
 
   

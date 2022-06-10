@@ -8,7 +8,7 @@ if($_SESSION['email']<>"admin")
 else
 {
     $email=$_GET['email'];
-    $link=mysqli_connect("localhost","root","12345678","sa");
+    $link=mysqli_connect("localhost","root","","sa");
     $sql="delete from `cart` where name='$name'";
 
 
