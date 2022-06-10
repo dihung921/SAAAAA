@@ -5,19 +5,6 @@ require_once("conn.php");
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 
-if(isset($_POST["note"])){
-  $note=$_POST["note"];
-
-  $rs10 = $conn->query("update order1 set note = '$note'");
-
-  if($rs10){
-    echo"<script>{window.alert('成功新增備註！'); location.href='manage.php'}</script>";
-  }
-
-  else{
-    echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
-  }
-}
 ?>
 
 
@@ -113,10 +100,11 @@ if(isset($_POST["note"])){
               }
              
                    else if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item active'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                        echo "
+                              <li class='nav-item active'><a class='nav-link' href='manage.php'>待準備</a></li>
+                              <li class='nav-item'><a  class='nav-link' href='already.php'>待取餐</a></li>
+                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
+                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<li class='nav-item active'>
