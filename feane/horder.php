@@ -3,6 +3,8 @@ session_start();
 require_once("conn.php");
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
+
+header("refresh: 10;url='horder.php'");
 ?>
 
 

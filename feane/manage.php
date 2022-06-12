@@ -18,6 +18,7 @@ if(isset($_POST["note"])){
     echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
   }
 }
+header("refresh: 10;url='manage.php'");
 ?>
 
 
