@@ -36,7 +36,7 @@ if(isset($_POST["mealname"]) && isset($_POST["sidemeal"]) && isset($_POST["sauce
     $total= $num * $price;
     $insert = $conn->query("insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id','$sm_id','$s_id','$note','$num','$total')");
     if($insert){
-        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('確認加入購物車?'); location.href='index.php'}</script>";
     }
 
 }
@@ -57,7 +57,7 @@ else if(isset($_POST["main"]) && isset($_POST["note"]) && isset($_POST["num"])){
 
     $insert = $conn->query("insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')");
     if($insert){
-        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('確認加入購物車?'); location.href='index.php'}</script>";
     }
 
 }
@@ -78,7 +78,7 @@ else if(isset($_POST["drink"]) && isset($_POST["temp"]) && isset($_POST["num"]))
 
     $insert = $conn->query("insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '','$note','$num','$total')");
     if($insert){
-        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('確認加入購物車?'); location.href='index.php'}</script>";
     }
 
 
@@ -107,13 +107,10 @@ else if(isset($_POST["salad"]) && isset($_POST["sauce"]) && isset($_POST["note"]
 
     $total= $num * $price;
 
-    $insert = $conn->query("insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', '', '$s_id','$note','$num','$total')");
+    $insert = $conn->query("insert into `cart`(email, meal_id, sm_id, s_id, note, amount, price) values ('$email','$meal_id', ' ', '$s_id','$note','$num','$total')");
     if($insert){
-        echo "<script>{window.alert('新增成功 $email, $meal_id, $sm_id, $s_id, $note, $num, $total'); location.href='index.php'}</script>";
+        echo "<script>{window.alert('確認加入購物車?'); location.href='index.php'}</script>";
     }
-
-
-
 }
 
 else{
