@@ -257,7 +257,9 @@ $email=$_SESSION["member_email"];
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
-                                        $price = $row["price"] * $row["amount"];
+                                        
+                                        $price = $row["price"] / $row["amount"];
+                                        $price1= $price * $row["amount"];
                                         echo "<tr>";
                                         echo "
                                               <td class='name-pr'>".$row["meal_id"]."</td>
@@ -265,15 +267,15 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
-                                                <a href='down.php?meal_id=".$row["meal_id"]."' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>-</a>&nbsp
+                                                <a href='down.php?meal_id=".$row["meal_id"]."&price=$price' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>-</a>&nbsp
                                                 
                                                 <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>&nbsp
-                                                <a href='up.php?meal_id=".$row["meal_id"]."' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>+</a>
+                                                <a href='up.php?meal_id=".$row["meal_id"]."&price=$price' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>+</a>
                                               </td>
-                                              <td class='total'>$price</td>
+                                              <td class='total'>$price1</td>
                                               <td><a href='delete.php?meal_id=".$row["meal_id"]."&sm_id=".$row["sm_id"]."&s_id=".$row["s_id"]."'><img src='images/Trash-256.webp' width='16' height='16' align='center'></td>";
                                         echo "</tr>";
-                                        $tot_price += $price;
+                                        $tot_price += $price1;
                                       }
                                       $_SESSION["tot_price"]=$tot_price;
                                     }
