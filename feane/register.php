@@ -18,7 +18,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   }
   else{
 
-    $result2 = $conn->query("insert into member(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')");
+    $result2 = $conn->query("insert into `member`(name,email,phone,password,level) values ('$name','$email','$phone','$password','user')");
 
     if($result2){
       echo "<script>{window.alert('註冊成功！'); location.href='login.php'}</script>";

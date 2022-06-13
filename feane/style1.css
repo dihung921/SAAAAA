@@ -646,7 +646,7 @@
      transform: perspective(1px) translateZ(0);
      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
      position: relative;
-     background: #ffbe33;
+     background: #d4d768;
      -webkit-transition-property: color;
      transition-property: color;
      -webkit-transition-duration: 0.3s;
@@ -2038,7 +2038,7 @@
      padding: 70px 0px;
 }
  .table-main table thead{
-     background: #ffc107;
+     background: #d4d768;
      color: #ffffff;
 }
  .table-main .table thead th{
@@ -2051,7 +2051,6 @@
      vertical-align: middle;
      font-size: 16px;
 }
-
  .quantity-box input{
      width: 60px;
      border: 2px solid #000000;
@@ -2130,7 +2129,7 @@
 }
  .gr-total h5 {
      font-weight: 800;
-     color: #ffbe33;
+     color: #b0b435;
      font-size: 18px;
      margin: 0px;
      padding: 0px;
@@ -2584,13 +2583,13 @@
      text-align: center;
 }
  .featured-products-box .owl-nav button.owl-prev:hover, .featured-products-box .owl-nav button.owl-next:hover{
-     background: #ffc107;
+     background: #b0b435;
 }
  .table-responsive .table td, .table-responsive .table th {
      vertical-align: middle;
      white-space: nowrap;
 }
-
+ 
 .card-outline-secondary .card-body a{
 	color: #ffffff;
 	font-size: 18px;
@@ -2598,7 +2597,6 @@
 	padding: 12px 25px;
 	border: none;
 }
-
 
 
 

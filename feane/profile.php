@@ -2,7 +2,7 @@
 session_start();
 require_once("conn.php");
 $email = $_SESSION["member_email"];
-$rs = $conn->query("select * from member where email = '$email'");
+$rs = $conn->query("select * from  `member` where email = '$email'");
 
   if($record=mysqli_fetch_row($rs)){
     $name = $record['0'];
@@ -15,7 +15,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
 
-  $rs = $conn->query("update order1 set feedback = '$feedback' where order_id='$orderid1'");
+  $rs = $conn->query("update `order1` set feedback = '$feedback' where order_id='$orderid1'");
 
   if($rs){
     echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
