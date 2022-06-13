@@ -41,6 +41,8 @@ if(isset($_POST["way"])){
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
+  <script src="https://kit.fontawesome.com/d02d7e1ecb.js" crossorigin="anonymous"></script>
+
   <title style="font-family: Arial, Helvetica, sans-serif;"> 方禾食呂 </title>
 
   <!-- bootstrap core css -->
@@ -59,8 +61,10 @@ if(isset($_POST["way"])){
   <link href="css/responsive.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/bootstrap.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 
  
 
@@ -117,7 +121,7 @@ if($_SESSION['level']=="user"){
 }
 }
 ?>
-  <div class="hero_area">
+  <div class="hero_area" a href="#back">
     <div class="bg-box">
       <img src="images/ll6.png" alt="">
       
@@ -284,7 +288,7 @@ if($_SESSION['level']=="user"){
     </header>
     <!-- end header section -->
     <!-- slider section -->
-    <section class="slider_section ">
+    <section class="slider_section" >
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -885,7 +889,6 @@ if($_SESSION['level']=="user"){
                                                   console.log(num)
                                                   var total = num * price1;
                                                   $('#price4').text(total.toFixed(0));
-
                                               }
                                           });
                                       });
@@ -3566,11 +3569,9 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖綠茶</h5>
-                                    <input type="hidden" name ="drink" value="飲料4">
+                                    <input type="hidden" name ="main" value="飲料4">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
-                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
-                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
@@ -3648,11 +3649,9 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖紅茶</h5>
-                                    <input type="hidden" name ="drink" value="飲料5">
+                                    <input type="hidden" name ="main" value="飲料5">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
-                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
-                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
@@ -3728,6 +3727,7 @@ if($_SESSION['level']=="user"){
           
       
     </div>
+    <a href=""><i class="fa-solid fa-circle-arrow-up fa-4x" style="color: #E59511; float:right; margin:18px;" id="back"></i></a>
   </section>
 
   <!-- end food section -->
@@ -3850,6 +3850,8 @@ if($_SESSION['level']=="user"){
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
   <!-- End Google Map -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
