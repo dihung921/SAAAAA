@@ -18,6 +18,7 @@ if(isset($_POST["note"])){
     echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
   }
 }
+header("refresh: 10;url='manage.php'");
 ?>
 
 
@@ -113,10 +114,10 @@ if(isset($_POST["note"])){
               }
              
                    else if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item active'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                        echo "<li class='nav-item active'><a class='nav-link' href='manage.php'>待準備訂單</a></li>
+                        <li class='nav-item'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<li class='nav-item active'>
@@ -171,22 +172,18 @@ if(isset($_POST["note"])){
   <br>
 
 
+
   <div class="container">
     <div class="main-body">
                     <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                    <form action="manage.php" method="post">
-                      <p align=right>請輸入訂單編號或訂購者姓名：<input type="text" name="searchtext" value=<? echo $searchtext ?>><button class= "btn btn-warning">搜尋</button></p>
-                      </form>
+                    <nav class="navbar navbar-light bg-light">
+                    
+                    <a ></a>
+                      <form class="d-flex" action="manage.php" method="post">
+                        <input class="form-control me-2" type="search" placeholder="訂單編號/姓名" name="searchtext" value=<?php echo $searchtext ?>>&nbsp&nbsp&nbsp <button class="btn btn-outline-success" type="submit">搜尋</button>
+                      </form></div></nav><br>
                         <h1 class="font-weight-bold mt-0 mb-4" style="text-align: center;">訂單管理</h1>
-                        <ul class='nav nav-tabs' id='myTab' role='tablist'>
-                          <li class='nav-item' role='presentation'>
-                            <button class='nav-link active' id='home-tab' data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true' style="color:#E59511;">待準備</button>
-                          </li>
-                          <li class='nav-item' role='presentation'>
-                            <button class='nav-link' id='profile-tab' data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false' style="color:#426849;">待取餐</button>
-                          </li>
-                          
-                        </ul>
+                       
                         <div class='tab-content' id='myTabContent'>
                         <?php
                           $rs = $conn->query("select * from `order1` where cond = 0 order by time ASC");
@@ -324,92 +321,11 @@ if(isset($_POST["note"])){
                             }
                           
                           }
-                        
-                          echo"</div>";
-
-                          echo"<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'><br>";
-
-                          echo"
-                          
-                          <h3 class=font-weight-bold mt-0 mb-4'>待取餐訂單</h3><br>";
-                          if(empty($searchtext)){
-                            if(mysqli_num_rows($rs3) > 0 ){
-                              
-                              while($row3 = mysqli_fetch_array($rs3)){
-                                $orderid3=$row3["order_id"];
-                                $email3=$row3["email"];
-                                $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
-                                $rs4=mysqli_query($link,$sql4);
-                                echo"
-                                <div class='bg-white card mb-4 order-list shadow-sm'>
-                                    <div class='gold-members p-4'>
-                                        <div class='media'>
-                                          <div class='media-body'>
-                                          <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row3["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row3["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row3["hopetime"]."
-                                            <span class='float-right text-gray'>訂購者姓名：".$row3["name"]."<i class='icofont-check-circled text-success'></i></span></p>";
-
-
-                                  while($row4 = mysqli_fetch_array($rs4)){
-                                    echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
-                                    echo"<p class='text-dark'>顧客備註：".$row4["note"]."</p>";
-                                  }
-                                echo"
-                                
-                                <hr>
-                                <div class='float-right'>
-                                  
-                                  <a href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #426849'></i></a>&nbsp
-                                </div>
-                                <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
-                                </div>
-                              </div>
-                              </div>
-                              </div>";    
-                              
-                            
-                              }
-                            }
-                        }
-                          else {
-                            $sql2="select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' order by time ASC";
-                            $rs2=mysqli_query($link,$sql2);
-                            if(mysqli_num_rows($rs2) > 0 ){
-                            
-                              while($row2 = mysqli_fetch_array($rs2)){
-                                $orderid3=$row2["order_id"];
-                                $email3=$row2["email"];
-                                $sql4="select * from `detail` where order_id = '$orderid3' and email = '$email3'";
-                                $rs4=mysqli_query($link,$sql4);
-                                echo"
-                                <div class='bg-white card mb-4 order-list shadow-sm'>
-                                    <div class='gold-members p-4'>
-                                        <div class='media'>
-                                          <div class='media-body'>
-                                            <p class='text-gray mb-3'><i class='icofont-list'></i> 訂單編號:".$row2["order_id"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>成立時間:".$row2["time"]."<i class='icofont-clock-time ml-2'></i><i class='icofont-clock-time ml-2'></i>希望取餐時間 : ".$row2["hopetime"]."
-                                            <span class='float-right text-gray'>訂購者姓名：".$row2["name"]."";
-                                            while($row4 = mysqli_fetch_array($rs4)){
-                                              echo"<p class='text-dark'>".$row4["meal_id"]."(".$row4["sm_id"].",".$row4["s_id"].") x ".$row4["amount"]."</p>";
-                                              echo"<p class='text-dark'>顧客備註：".$row4["note"]."</p>";
-                                            }
-                                          echo"
-                                          
-                                          <hr>
-                                          <div class='float-right'>
-                                            
-                                            <a href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #426849'></i></a>&nbsp
-                                          </div>
-                                          <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
-                                          </div>
-                                        </div>
-                                        </div>
-                                        </div>"; 
-                              }
-                            }
-                          }
 
                           echo"</div>";
+
                           
-                            ?>
+                         ?>
                             </div>
                         </div>
                             </div>
