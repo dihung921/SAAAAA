@@ -3,7 +3,7 @@ session_start();
 require_once("conn.php");
 
 $email = $_SESSION["member_email"];
-$rs = $conn->query("select * from member where email = '$email'");
+$rs = $conn->query("select * from `member` where email = '$email'");
   if($record=mysqli_fetch_row($rs)){
     $name = $record['0'];
     $email = $record['1'];
@@ -17,7 +17,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
   $phone=$_POST["phone"];
   $password=$_POST["password"];
 
-  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'")
+  $rs2 = $conn->query("update `member` set name = '$name', phone ='$phone' , password ='$password' where email='$email'");
     if($rs2){
 
       $_SESSION["member_name"]=$name;
@@ -26,6 +26,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
       echo "<script>{window.alert('修改成功'); location.href='profile.php'}</script>";
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -176,10 +177,10 @@ if($_SESSION['level']=="user"){
               ?>
                 <?php
                    if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                        echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
+                        <li class='nav-item active'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<td>&nbsp;</td></tr>";

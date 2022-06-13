@@ -2,7 +2,7 @@
 session_start();
 require_once("conn.php");
 $email = $_SESSION["member_email"];
-$rs = $conn->query("select * from member where email = '$email'");
+$rs = $conn->query("select * from  `member` where email = '$email'");
 
   if($record=mysqli_fetch_row($rs)){
     $name = $record['0'];
@@ -15,7 +15,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
   $orderid1=$_POST["orderid"];
   $feedback=$_POST["feedback"];
 
-  $rs = $conn->query("update order1 set feedback = '$feedback' where order_id='$orderid1'");
+  $rs = $conn->query("update `order1` set feedback = '$feedback' where order_id='$orderid1'");
 
   if($rs){
     echo"<script>{window.alert('感謝您寶貴的意見！'); location.href='profile.php'}</script>";
@@ -134,10 +134,10 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
               }
              
                    else if($_SESSION['level']=="admin"){
-                        echo "<li class='nav-item'><a  class='nav-link' href='#'>後台管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='manage.php'>訂單管理</a></li>
-                              <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>";
+                        echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
+                        <li class='nav-item active'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
+                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<li class='nav-item '>
@@ -304,15 +304,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">密碼</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo"$password";?>
-                    </div>
-                  </div>
-                  <hr>
+                 
                  
                   <div class="row">
                     <div class="col-sm-12">

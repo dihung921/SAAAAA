@@ -1,19 +1,17 @@
 <?php
 session_start();
-$link=mysqli_connect("localhost","root","","sa");
+require_once("conn.php");
 $email=$_SESSION["member_email"];
 
 
 if(isset($_GET["meal_id"])){
     
     $meal_id=$_GET["meal_id"];
-    $sql1="select * from cart where meal_id = '$meal_id' and email = '$email' ";
-    $rs1=mysqli_query($link,$sql1);
+    $rs1 = $conn->query("select * from `cart` where meal_id = '$meal_id' and email = '$email' ");
     $row=mysqli_fetch_array($rs1);
     $amount=$row["amount"];
     if($amount > 1){
-        $sql="update cart set amount = amount - 1 where meal_id = '$meal_id' and email = '$email'";
-        $rs=mysqli_query($link,$sql);
+        $rs=$conn->query("update `cart` set amount = amount - 1 where meal_id = '$meal_id' and email = '$email'");
         header("Location: cart.php");
     }
 

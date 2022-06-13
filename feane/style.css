@@ -92,6 +92,10 @@
   background-color: #BF5353;
 }
 
+.seat2.occupied {
+  background-color: #BF5353;
+}
+
 .seat3.occupied {
   background-color: #BF5353;
 }
