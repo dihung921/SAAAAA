@@ -213,6 +213,9 @@ header("refresh: 60;url='already.php'");
                             
                               }
                             }
+                            else{
+                              echo"尚無待取餐訂單！";
+                            }
                         }
                           else {
                             $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 1 order by time ASC");
@@ -256,6 +259,9 @@ header("refresh: 60;url='already.php'");
                                         </div>
                                         </div>"; 
                               }
+                            }
+                            else{
+                              echo"查無此資料！";
                             }
                           }
 
