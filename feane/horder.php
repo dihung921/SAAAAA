@@ -4,7 +4,7 @@ require_once("conn.php");
 $email=$_SESSION["member_email"];
 $searchtext = $_POST["searchtext"];
 
-header("refresh: 10;url='horder.php'");
+header("refresh: 300;url='horder.php'");
 ?>
 
 
@@ -208,7 +208,7 @@ header("refresh: 10;url='horder.php'");
                         }
                       }
                         else {
-                          $rs2 = $conn->query("select * from `order1` where order_id like '%$searchtext%' or name like '%$searchtext%' order by time DESC");
+                          $rs2 = $conn->query("select * from `order1` where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 2 order by time DESC");
                           if(mysqli_num_rows($rs2) > 0 ){
                             while($row2 = mysqli_fetch_array($rs2)){
                               $time=$row2["time"];
