@@ -886,7 +886,6 @@ if($_SESSION['level']=="user"){
                                                   console.log(num)
                                                   var total = num * price1;
                                                   $('#price4').text(total.toFixed(0));
-
                                               }
                                           });
                                       });

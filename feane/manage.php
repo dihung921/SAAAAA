@@ -18,7 +18,7 @@ if(isset($_POST["note"])){
     echo"<script>{window.alert('新增備註失敗，請再試一次！'); location.href='manage.php'}</script>";
   }
 }
-header("refresh: 10;url='manage.php'");
+header("refresh: 30;url='manage.php'");
 ?>
 
 
@@ -187,7 +187,7 @@ header("refresh: 10;url='manage.php'");
                         <div class='tab-content' id='myTabContent'>
                         <?php
                           $rs = $conn->query("select * from `order1` where cond = 0 order by time ASC");
-                          $rs3 = $conn->query("select * from `order1` where cond = 1 order by time ASC");
+                          
                           echo"
                           
                           <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab' >";
@@ -259,7 +259,7 @@ header("refresh: 10;url='manage.php'");
                             }
                           }
                           else {
-                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' order by time ASC");
+                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 0 order by time ASC");
                             if(mysqli_num_rows($rs2) > 0 ){
                             
                               while($row2 = mysqli_fetch_array($rs2)){

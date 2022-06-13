@@ -254,12 +254,15 @@ $email=$_SESSION["member_email"];
 
                             <?php
                                     $result=$conn->query("select * from `cart` where email = '$email'");
+                                    
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
+
                                         
                                         $price = $row["price"] / $row["amount"];
                                         $price1= $price * $row["amount"];
+
                                         echo "<tr>";
                                         echo "
                                               <td class='name-pr'>".$row["meal_id"]."</td>
@@ -267,7 +270,9 @@ $email=$_SESSION["member_email"];
                                               <td class='name'>".$row["s_id"]."</td>
                                               <td>".$row["note"]."</td>
                                               <td>
+
                                                 <a href='down.php?meal_id=".$row["meal_id"]."&price=$price' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>-</a>&nbsp
+
                                                 
                                                 <input type='text' name='num'  value='".$row["amount"]."' style='text-align: center; width: 50px; height: 35px;'  readonly>&nbsp
                                                 <a href='up.php?meal_id=".$row["meal_id"]."&price=$price' style='background: #d4d768; padding: 6.3px 16px 6.3px 16px; border-radius: 30px; border: 1px solid; border-color:#d4d768'>+</a>
