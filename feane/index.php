@@ -3570,11 +3570,9 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖綠茶</h5>
-                                    <input type="hidden" name ="drink" value="飲料4">
+                                    <input type="hidden" name ="main" value="飲料4">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
-                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
-                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">
@@ -3652,11 +3650,9 @@ if($_SESSION['level']=="user"){
                                   <div class="modal-content" style="padding: 20px 20px;">
                                   <div class="modal-body" style="color: black;">
                                     <h5>無糖紅茶</h5>
-                                    <input type="hidden" name ="drink" value="飲料5">
+                                    <input type="hidden" name ="main" value="飲料5">
                                     <h6>無法客製化甜度與冰塊！</h6>
                                     <hr>
-                                    <p>訂購者姓名（僅用於店家出餐時辨識）</p>
-                                    <p><input type="text" name="name" value="" style="border-radius: 5px; width: 100%;"></p>
                                     <p>餐點備註</p>
                                     <p><input type="text" name="note" placeholder="餐點若有特殊需求，請備註在此。僅限20字。" style="border-radius: 5px; width: 100%;"></p>
                                     <div class="goods_num clearfix">

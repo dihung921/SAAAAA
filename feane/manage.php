@@ -257,6 +257,9 @@ header("refresh: 30;url='manage.php'");
 
                               
                             }
+                            else{
+                              echo"尚無待準備訂單！";
+                            }
                           }
                           else {
                             $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 0 order by time ASC");
@@ -316,8 +319,10 @@ header("refresh: 30;url='manage.php'");
                                     </div>
                                     ";         
                                   }
-
-                              
+                           
+                            }
+                            else{
+                              echo"查無此資料！";
                             }
                           
                           }
