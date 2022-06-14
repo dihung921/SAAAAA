@@ -165,14 +165,14 @@ header("refresh: 10;url='rseat.php'");
 
           <?php
               if($_SESSION['level']=="user"){
-              echo"<li class='nav-item active'>
+              echo"<li class='nav-item '>
                 <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
               </li>
              
               <li class='nav-item'>
                 <a class='nav-link' href='about.php'>關於方禾</a>
               </li>
-              <li class='nav-item'>
+              <li class='nav-item active'>
                 <a class='nav-link' href='seat.php'>店內座位狀況</a>
               </li>
               ";
@@ -185,15 +185,15 @@ header("refresh: 10;url='rseat.php'");
                         <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
-                       echo"<li class='nav-item active'>
+                       echo"<li class='nav-item '>
                        <a class='nav-link' href='index.php'>訂餐首頁 <span class='sr-only'>(current)</span></a>
                      </li>
                     
                      <li class='nav-item'>
                        <a class='nav-link' href='about.php'>關於方禾</a>
                      </li>
-                     <li class='nav-item'>
-                       <a class='nav-link' href='seat.php'>店內座位狀況</a>
+                     <li class='nav-item active'>
+                       <a class='nav-link ' href='seat.php'>店內座位狀況</a>
                      </li>";
                       }
                                       ?>
