@@ -218,19 +218,18 @@ header("refresh: 30;url='manage.php'");
                                             echo"<i class='icofont-check-circled text-success'></i></span></p>";
 
 
-                                  while($row1 = mysqli_fetch_array($rs1)){
-                                    echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
+
                                     while($row1 = mysqli_fetch_array($rs1)){
                                       echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
-                                      if(!empty($row["note"])){
-                                        echo"<p class='text-dark'>顧客備註：".$row["note"]."</p>";
+                                      if(!empty($row1["note"])){
+                                        echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
                                       }
                                     }
                                       if($row["note"]!=NULL){
                                         echo"<p class='ext-dark'>店家備註 : ".$row["note"]."</p>";
                                         
                                       }
-                                  }
+                                  
                                 echo"
                                 <hr>
                                 <div class='float-right'>
@@ -287,8 +286,8 @@ header("refresh: 30;url='manage.php'");
 
                                             while($row1 = mysqli_fetch_array($rs1)){
                                               echo"<p class='text-dark'>".$row1["meal_id"]."(".$row1["sm_id"].",".$row1["s_id"].") x ".$row1["amount"]."</p>";
-                                              if(!empty($row2["note"])){
-                                                echo"<p class='text-dark'>顧客備註：".$row2["note"]."</p>";
+                                              if(!empty($row1["note"])){
+                                                echo"<p class='text-dark'>顧客備註：".$row1["note"]."</p>";
                                               }
                                             }
                                               if($row2["note"]!=NULL){

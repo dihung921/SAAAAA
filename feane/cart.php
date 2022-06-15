@@ -257,7 +257,7 @@ $email=$_SESSION["member_email"];
                                     
                                     $tot_price=0;
                                     if (mysqli_num_rows($result) > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
+                                      while ($row = mysqli_fetch_array($result)) {
 
                                         
                                         $price = $row["price"] / $row["amount"];
