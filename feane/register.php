@@ -207,7 +207,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) && 
       </div>
     </div>
   </div>
-    </div>
+  </div>
   </section>
 
   <!-- end food section -->

@@ -135,7 +135,7 @@ session_start();
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">電子信箱</label>
-                      <input name="email" type="text" class="form-control" placeholder=" Your email" require/>
+                      <input name="email" type="text" class="form-control" placeholder="Your email" require/>
                       
                     </div>
                   </div>
