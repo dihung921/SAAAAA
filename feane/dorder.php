@@ -19,13 +19,4 @@ if(isset($_GET["order_id"])&&isset($_GET["time"])&&isset($_GET["email"])){
 
 }
 
-
-
-
-
-
-
-
-
-
 ?>
