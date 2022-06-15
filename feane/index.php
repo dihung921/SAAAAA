@@ -18,7 +18,6 @@ if(isset($_POST["way"])){
     $rs = $conn->query("insert into way(way) values ('1')");
     if($rs){
       $_SESSION["way"]=$way;
-      $_SESSION["seatnum"]=100;
     }
     header("Location:index.php");
   }

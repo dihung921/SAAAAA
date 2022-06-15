@@ -182,7 +182,7 @@ header("refresh: 10;url='rseat.php'");
                         echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
                         <li class='nav-item '><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
                         <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
-                        <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
+                        <li class='nav-item active'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
                   else{
                        echo"<li class='nav-item active'>

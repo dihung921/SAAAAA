@@ -135,7 +135,7 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
              
                    else if($_SESSION['level']=="admin"){
                         echo "<li class='nav-item '><a class='nav-link' href='manage.php'>待準備訂單</a></li>
-                        <li class='nav-item active'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
+                        <li class='nav-item'><a  class='nav-link' href='already.php'>待取餐訂單</a></li>
                         <li class='nav-item'><a class='nav-link' href='horder.php'>歷史訂單</a></li>
                         <li class='nav-item'><a class='nav-link' href='rseat.php'>座位狀況管理</a></li>";
                      }
@@ -315,10 +315,11 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
               </div>
 
 
-                
-                    <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">訂單記錄</h4>
-                        <?php
+                <?php 
+                  if($_SESSION["level"] != 'admin'){
+                    echo"<div class='tab-pane  fade  active show' id='orders' role='tabpanel' aria-labelledby='orders-tab'>
+                        <h4 class='font-weight-bold mt-0 mb-4'>訂單記錄</h4>";
+                       
                           $email=$_SESSION["member_email"];
 
                           $rs = $conn->query("select * from `order1` where email='$email' order by time DESC");
@@ -434,10 +435,13 @@ if(isset($_POST["feedback"]) && isset($_POST["orderid"])){
                             else{
                               echo"尚未有訂餐紀錄！";
                             }
-                            ?>
+
+                            
 
 
-                          </div>
+                          echo"</div>";
+                        }
+                        ?>
                         </div>
                     </div>
         
