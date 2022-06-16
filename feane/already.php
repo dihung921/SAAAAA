@@ -218,7 +218,7 @@ header("refresh: 60;url='already.php'");
                             }
                         }
                           else {
-                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 1 order by time ASC");
+                            $rs2=$conn->query("select * from `order1`  where (order_id like '%$searchtext%' or name like '%$searchtext%') and cond = 1 order by time ASC");
                             
                             if(mysqli_num_rows($rs2) > 0 ){
                             
@@ -253,7 +253,7 @@ header("refresh: 60;url='already.php'");
                                             
                                             <a href='receive.php?order_id=".$row3["order_id"]."&email=".$row3["email"]."&time=".$row3["time"]."'><i class='fa-solid fa-clipboard-check fa-2x' style='color: #426849'></i></a>&nbsp
                                           </div>
-                                          <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row3["tot_price"]."</p>
+                                          <p class='mb-0 text-black text-success pt-2'><span class='text-black font-weight-bold'> 訂單總金額 : </span>".$row2["tot_price"]."</p>
                                           </div>
                                         </div>
                                         </div>
