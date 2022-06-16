@@ -218,7 +218,7 @@ header("refresh: 60;url='already.php'");
                             }
                         }
                           else {
-                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 1 order by time ASC");
+                            $rs2=$conn->query("select * from `order1`  where (order_id like '%$searchtext%' or name like '%$searchtext%') and cond = 1 order by time ASC");
                             
                             if(mysqli_num_rows($rs2) > 0 ){
                             

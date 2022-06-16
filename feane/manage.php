@@ -261,7 +261,7 @@ header("refresh: 30;url='manage.php'");
                             }
                           }
                           else {
-                            $rs2=$conn->query("select * from `order1`  where order_id like '%$searchtext%' or name like '%$searchtext%' and cond = 0 order by time ASC");
+                            $rs2=$conn->query("select * from `order1`  where (order_id like '%$searchtext%' or name like '%$searchtext%') and cond = 0 order by time ASC");
                             if(mysqli_num_rows($rs2) > 0 ){
                             
                               while($row2 = mysqli_fetch_array($rs2)){
